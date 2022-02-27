@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Birkhoff+ &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IndexError: list index out of range" href="../Jupyter%20book%20Tests/sections/index.html" />
+    <link rel="prev" title="Mobile Nets" href="MobileNets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/Birkhoff+.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-definition">
+   Problem definition:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithms-all-matrices-x-are-represented-using-vectors-x-by-stacking-the-matrix-columns">
+   Algorithms (All matrices (
+   <span class="math notranslate nohighlight">
+    \(X\)
+   </span>
+   ) are represented using vectors (
+   <span class="math notranslate nohighlight">
+    \(x\)
+   </span>
+   ) by stacking the matrix columns)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-birkhoff-algorithm-algorithm-1-2-and-3">
+     General Birkhoff algorithm (Algorithm 1, 2 and 3)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#classic-birkhoff-algorithm-algorithm-4">
+       Classic Birkhoff algorithm (Algorithm 4)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frank-wolfe-fw-algorithm-algorithm-5">
+     Frank-Wolfe (FW) algorithm (Algorithm 5)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fully-corrective-frank-wolfe-algorithm-6">
+       Fully Corrective Frank-Wolfe (Algorithm 6)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#birkhoff-algorithm-algorithm-7">
+   Birkhoff+ algorithm (Algorithm 7)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#birkhoff-max-rep-algorithm-algorithm-8">
+     Birkhoff+ (max_rep) algorithm (Algorithm 8)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#source-code-with-comment">
+     Source code with comment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="birkhoff">
+<h1>Birkhoff+<a class="headerlink" href="#birkhoff" title="Permalink to this headline">¶</a></h1>
+<p><em>07-12-2021</em></p>
+<p>This page contains my reading notes on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Birkhoff%27s-Decomposition-Revisited%3A-Sparse-for-Valls-Iosifidis/e9c0e0d1bf7c220e9f471b6fe28bce2c45929c3c"><strong>Birkhoff’s Decomposition Revisited: Sparse Scheduling for High-Speed Circuit Switches</strong></a></p></li>
+</ul>
+<section id="problem-definition">
+<h2>Problem definition:<a class="headerlink" href="#problem-definition" title="Permalink to this headline">¶</a></h2>
+<p>For a given <span class="math notranslate nohighlight">\(n \times n\)</span> doubly stochastic matrix <span class="math notranslate nohighlight">\(X^{\star}\)</span> and an <span class="math notranslate nohighlight">\(\epsilon \geq 0\)</span>, our goal is to find a small collection of permutation matrices <span class="math notranslate nohighlight">\(P_{1}, P_{2}, \ldots, P_{k}\)</span>, and weights <span class="math notranslate nohighlight">\(\theta_{1}, \theta_{2}, \ldots, \theta_{k}\)</span> with <span class="math notranslate nohighlight">\(\sum_{i=1}^{k}\theta_{i} \leq 1\)</span> such that <span class="math notranslate nohighlight">\(\lVert X^{\star} - \sum_{i=1}^{k}\theta_{i}P_{i} \rVert_{F} \leq \epsilon\)</span>.</p>
+</section>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>When applied to vectors or matrices, <span class="math notranslate nohighlight">\(+, -, \cdot\)</span> are all element-wise operations and we write <span class="math notranslate nohighlight">\(x &lt; (\leq, &gt;, \geq ) y\)</span> when all elements of <span class="math notranslate nohighlight">\(x\)</span> are <span class="math notranslate nohighlight">\(&lt; (\leq, &gt;, \geq)\)</span> of all elements of <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>Doubly stochastic matrix: a doubly stochastic matrix is a square matrix of non-negative real numbers, each of whose rows and columns sums to 1.</p></li>
+<li><p>Frobenius norm: <span class="math notranslate nohighlight">\(\lVert X \rVert_{F} = \sqrt{\sum_{i, j}\vert X(i, j) \vert^2}\)</span>, which is the same as the l2 norm of a vector: <span class="math notranslate nohighlight">\(\lVert x \rVert_{2} = \sqrt{\sum_{i}\vert x(i) \vert^2}\)</span></p></li>
+<li><p>Convex hull <span class="math notranslate nohighlight">\(\mathrm{conv}(A)\)</span>: The convex hull of set A (<span class="math notranslate nohighlight">\(\mathrm{conv}(A)\)</span>) is the smallest convex set that contains set <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Birkhoff polytope <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>: the convex set that contains all doubly stochastic matrices of size <span class="math notranslate nohighlight">\(n \times n\)</span>.</p></li>
+<li><p>Permutation matrices <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>: the extreme points of the Birkhoff polytope.</p></li>
+<li><p>Linear program <span class="math notranslate nohighlight">\(\mathrm{LP}(c, \mathcal{X})\)</span>: minimize <span class="math notranslate nohighlight">\(c^{T}x\)</span>, subject to <span class="math notranslate nohighlight">\(x \in \mathcal{X}\)</span>. We assume that the solution returned is always an extreme point (<span class="math notranslate nohighlight">\(x \in \mathcal{P}\)</span> if <span class="math notranslate nohighlight">\(\mathcal{X} = \mathcal{B}\)</span>).</p></li>
+<li><p>Birkhoff step: <span class="math notranslate nohighlight">\(\mathrm{STEP}(X^{\star}, X_{k-1}, P_{k}) = \min_{a,b}\{(X^{\star}(a, b) - X_{k-1}(a,b) - 1)P_{k}(a,b) + 1\}\)</span>. It computes the step size (weight) by taking the minimum non-zero element of the difference matrix (masked by the permutation matrix <span class="math notranslate nohighlight">\(P_{k}\)</span>) between <span class="math notranslate nohighlight">\(X^{\star}\)</span> and <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+</ol>
+</section>
+<section id="algorithms-all-matrices-x-are-represented-using-vectors-x-by-stacking-the-matrix-columns">
+<h2>Algorithms (All matrices (<span class="math notranslate nohighlight">\(X\)</span>) are represented using vectors (<span class="math notranslate nohighlight">\(x\)</span>) by stacking the matrix columns)<a class="headerlink" href="#algorithms-all-matrices-x-are-represented-using-vectors-x-by-stacking-the-matrix-columns" title="Permalink to this headline">¶</a></h2>
+<section id="general-birkhoff-algorithm-algorithm-1-2-and-3">
+<h3>General Birkhoff algorithm (Algorithm 1, 2 and 3)<a class="headerlink" href="#general-birkhoff-algorithm-algorithm-1-2-and-3" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_{0} = 0, k = 0\)</span></p></li>
+<li><p><strong>while</strong> <span class="math notranslate nohighlight">\(\lVert x^{\star} - x_{k-1} \rVert_{2} &gt; \epsilon\)</span> and <span class="math notranslate nohighlight">\(k \leq k_{max}\)</span> <strong>do</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\alpha \gets (1 - \sum_{i=1}^{k-1}\theta_{i}) \mathbin{/} n^2\)</span> // <strong>(Why this value)</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(p_{k} \gets p \in \mathcal{I}_{k}(\alpha)\)</span>   // Get next permutation matrix</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\theta_{k} \gets\)</span> <span class="math notranslate nohighlight">\(\mathrm{STEP}(x^{\star}, x_{k-1}, p_k)\)</span>   // Get next weight based on the new permutation matrix</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(x_{k} \gets x_{k-1} + \theta_{k}p_{k}\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(k \gets k + 1\)</span></p></li>
+<li><p><strong>end while</strong></p></li>
+<li><p><strong>return</strong> <span class="math notranslate nohighlight">\((p_{1}, \ldots, p_{k-1})\)</span>, <span class="math notranslate nohighlight">\((\theta_{1}, \ldots, \theta_{k-1})\)</span></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the size of <span class="math notranslate nohighlight">\(X^{\star}\)</span> and <span class="math notranslate nohighlight">\(d=n^2\)</span> is the number of elements in <span class="math notranslate nohighlight">\(X^{\star}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{I}_{k}(\alpha) =\{P \in \mathcal{P} \mid X_{k-1}(a,b) + \alpha P(a,b) \leq X^{\star}(a,b) \}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(P_{k} \in \mathcal{I}_{k}(\alpha)\)</span>, then <span class="math notranslate nohighlight">\((X^{\star} - X_{k-1}) \cdot P_{k} \geq \alpha\)</span>, (each element of the difference matrix between <span class="math notranslate nohighlight">\(X^{\star}\)</span> and <span class="math notranslate nohighlight">\(X_{k-1}\)</span> masked by <span class="math notranslate nohighlight">\(P_{k}\)</span> is <span class="math notranslate nohighlight">\(\geq \alpha\)</span>).</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(\mathrm{STEP}(X^{\star}, X_{k-1}, P_{k})\)</span> is taking the minimum of non-zero element of <span class="math notranslate nohighlight">\((X^{\star} - X_{k-1}) \cdot P_{k}\)</span> (definition 7), <span class="math notranslate nohighlight">\(\mathrm{STEP}(X^{\star}, X_{k-1}, P_{k}) \geq \alpha\)</span></p></li>
+</ol>
+</li>
+<li><p>Due to the definitions of <span class="math notranslate nohighlight">\(\mathcal{I}_{k}(\alpha)\)</span> and <span class="math notranslate nohighlight">\(\mathrm{STEP}\)</span>, <span class="math notranslate nohighlight">\(x_{k} \leq x^{\star}\)</span> all the time.</p>
+<ol class="arabic simple">
+<li><p>Birkhoff algorithm can be seen as constructing a path from the origin (<span class="math notranslate nohighlight">\(x_{0} = 0\)</span>) to <span class="math notranslate nohighlight">\(x^{\star}\)</span> while always remaining in a dotted box, where <span class="math notranslate nohighlight">\(x_{0}\)</span> and <span class="math notranslate nohighlight">\(x^{\star}\)</span> are two diagonal vertices of the box (<span class="math notranslate nohighlight">\(x_{k} \leq x^{\star}\)</span>).</p></li>
+</ol>
+</li>
+<li><p>General Birkhoff algorithm doesn’t specify which specific permutation to select from <span class="math notranslate nohighlight">\(\mathcal{I}_{k}(\alpha)\)</span>.</p></li>
+</ol>
+<section id="classic-birkhoff-algorithm-algorithm-4">
+<h4>Classic Birkhoff algorithm (Algorithm 4)<a class="headerlink" href="#classic-birkhoff-algorithm-algorithm-4" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_{0} = 0, k = 0\)</span></p></li>
+<li><p><strong>while</strong> <span class="math notranslate nohighlight">\(\lVert x^{\star} - x_{k-1} \rVert_{2} &gt; \epsilon\)</span> and <span class="math notranslate nohighlight">\(k \leq k_{max}\)</span> <strong>do</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(p_k \gets \mathrm{LP}(-\lceil x^{\star} - x_{k-1} \rceil, \mathcal{B})\)</span>.</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\theta_{k} \gets\)</span> <span class="math notranslate nohighlight">\(\mathrm{STEP}(x^{\star}, x_{k-1}, p_k)\)</span>  </p></li>
+<li><p>  <span class="math notranslate nohighlight">\(x_{k} \gets x_{k-1} + \theta_{k}p_{k}\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(k \gets k + 1\)</span></p></li>
+<li><p><strong>end while</strong></p></li>
+<li><p><strong>return</strong> <span class="math notranslate nohighlight">\((p_{1}, \ldots, p_{k-1})\)</span>, <span class="math notranslate nohighlight">\((\theta_{1}, \ldots, \theta_{k-1})\)</span></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>The only slight difference is line 3, which is essentially doing the same thing with general Birkhoff algorithm.</p>
+<ol class="arabic simple">
+<li><p>Since <span class="math notranslate nohighlight">\(x^{\star} - x_{k-1} \in [0, 1]\)</span>, its ceiling (<span class="math notranslate nohighlight">\(\lceil x^{\star} - x_{k-1} \rceil\)</span>) makes all nonzero elements to be 1, which makes <span class="math notranslate nohighlight">\(\mathrm{LP}\)</span> treat all nonzero elements equally.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="frank-wolfe-fw-algorithm-algorithm-5">
+<h3>Frank-Wolfe (FW) algorithm (Algorithm 5)<a class="headerlink" href="#frank-wolfe-fw-algorithm-algorithm-5" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_{0} \in \mathcal{P}, k = 0\)</span></p></li>
+<li><p><strong>while</strong> <span class="math notranslate nohighlight">\(\lVert x^{\star} - x_{k-1} \rVert_{2} &gt; \epsilon\)</span> and <span class="math notranslate nohighlight">\(k \leq k_{max}\)</span> <strong>do</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(p_k \gets \mathrm{LP}(-(x^{\star} - x_{k-1}), \mathcal{B})\)</span> // Get the next extreme point</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\theta_{k} \gets (x^{\star} - x_{k-1})^{T}(p_{k} - x_{k-1}) \mathbin{/} \lVert p_{k} - x_{k-1} \rVert_{2}^{2}\)</span> // Calculate the step size</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(x_{k} \gets x_{k-1} + \theta_{k}(p_{k} - x_{k-1})\)</span> // Update x</p></li>
+<li><p>  <span class="math notranslate nohighlight">\(k \gets k + 1\)</span></p></li>
+<li><p><strong>end while</strong></p></li>
+<li><p><strong>return</strong> <span class="math notranslate nohighlight">\((p_{1}, \ldots, p_{k-1})\)</span>, <span class="math notranslate nohighlight">\((\theta_{1}, \ldots, \theta_{k-1})\)</span></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>The assumption of the FW algorithm is that there always exists an extreme point in the Birkhoff polytope (permutation matrix <span class="math notranslate nohighlight">\(p_{k}\)</span>) that is a direction (<span class="math notranslate nohighlight">\(p_{k} - x_{k-1}\)</span>) in which it is possible to improve the objective function.</p>
+<ol class="arabic simple">
+<li><p>Since each extreme point of the Birkhoff polytope is an permutation matrix and thus the each step size can be considered as the weight of the permutation matrix, FW algorithm can be used to solve Birkhoff problem.</p></li>
+</ol>
+</li>
+<li><p>The paper selects the objective function to be <span class="math notranslate nohighlight">\(f(x) = \frac{1}{2} \lVert x - x^{\star} \rVert_{2}^{2}\)</span>, which measures the square of the <span class="math notranslate nohighlight">\(l_{2}\)</span> norm of the difference between the current matrix <span class="math notranslate nohighlight">\(x_{k}\)</span> and the objective matrix <span class="math notranslate nohighlight">\(x^{\star}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>The solving of <span class="math notranslate nohighlight">\(\mathrm{LP}\)</span> at line 3 is essentially trying to find an extreme point <span class="math notranslate nohighlight">\(p_{k}\)</span> in the Birkhoff polytope by solving <span class="math notranslate nohighlight">\({\mathrm{argmin}_{u \in \mathcal{P}}}\nabla f(x_{k-1})^{T}u\)</span>, in which <span class="math notranslate nohighlight">\(\nabla f(x_{k-1}) = -(x^{\star} - x_{k-1})\)</span>.</p></li>
+<li><p>The way to calculate <span class="math notranslate nohighlight">\(\theta_{k}\)</span> at line 4 is derived by solving <span class="math notranslate nohighlight">\(f(x_{k}) - f(x_{k-1})\)</span>.</p></li>
+<li><p>Note at line 5 <span class="math notranslate nohighlight">\(x_{k} = x_{k-1} + \theta_{k}(p_{k} - x_{k-1}) = (1 - \theta)x_{k-1} + \theta_{k}p_{k}\)</span>, so <span class="math notranslate nohighlight">\(x_{k}\)</span> is still a linear combination of permutation matrices.</p></li>
+</ol>
+</li>
+<li><p>Difference with the Birkhoff algorithm:</p>
+<ol class="arabic simple">
+<li><p>FW uses a random extreme point instead of 0 as the starting point, since it requires <span class="math notranslate nohighlight">\(x_{k} \in \mathcal{B}\)</span> at all time.</p></li>
+<li><p>FW does not require that <span class="math notranslate nohighlight">\(x_{k} \leq x^{\star}\)</span> and thus <span class="math notranslate nohighlight">\(x^{\star}\)</span> can be approximated from any direction.</p></li>
+</ol>
+</li>
+</ol>
+<section id="fully-corrective-frank-wolfe-algorithm-6">
+<h4>Fully Corrective Frank-Wolfe (Algorithm 6)<a class="headerlink" href="#fully-corrective-frank-wolfe-algorithm-6" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>FCFW provides the best approximation with the number of extreme points selected up to iteration k</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Birkhoff+_6_0.png" src="../_images/Birkhoff+_6_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="birkhoff-algorithm-algorithm-7">
+<h2>Birkhoff+ algorithm (Algorithm 7)<a class="headerlink" href="#birkhoff-algorithm-algorithm-7" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_{0} = 0, k = 0\)</span></p></li>
+<li><p><strong>while</strong> <span class="math notranslate nohighlight">\(\lVert x^{\star} - x_{k-1} \rVert_{2} &gt; \epsilon\)</span> and <span class="math notranslate nohighlight">\(k \leq k_{max}\)</span> <strong>do</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\alpha \gets (1 - \sum_{i=1}^{k-1} \theta_i) \mathbin{/} n^2\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(p_{k} \gets \mathrm{LP}(\nabla f_{\beta}(x_{k-1}), \mathrm{conv}(\mathcal{I}_{k}(\alpha)))\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\theta_{k} \gets\)</span> <span class="math notranslate nohighlight">\(\mathrm{STEP}(x^{\star}, x_{k-1}, p_k)\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(x_{k} \gets x_{k-1} + \theta_{k}p_{k}\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(k \gets k + 1\)</span></p></li>
+<li><p><strong>end while</strong></p></li>
+<li><p><strong>return</strong> <span class="math notranslate nohighlight">\((p_{1}, \ldots, p_{k-1})\)</span>, <span class="math notranslate nohighlight">\((\theta_{1}, \ldots, \theta_{k-1})\)</span></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Birkhoff+ combines Birkhoff algorithm and FW algorithm. This approach wants to use the path or permutations that FW would select while remaining in the box that characterizes the Birkhoff’s approach.</p></li>
+<li><p>The only real difference between Birkhoff+ and Birkhoff is the way to compute <span class="math notranslate nohighlight">\(p_{k}\)</span> (line 4).</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\beta}(x) = f(x) - \beta \sum_{j=1}^{d} \log(x^{\star}(j) - x(j) + \frac{\epsilon}{d})\)</span>, which consists <span class="math notranslate nohighlight">\(f(x)\)</span> (same as what is used in FW) and <span class="math notranslate nohighlight">\(- \beta \sum_{j=1}^{d} \log(x^{\star}(j) - x(j) + \frac{\epsilon}{d})\)</span> (the barrier).</p>
+<ol class="arabic simple">
+<li><p>The barrier is a penalty term that restricts the <span class="math notranslate nohighlight">\(x_{k}\)</span> to always remain in the Birkhoff box.</p>
+<ol class="arabic simple">
+<li><p>If we ignore <span class="math notranslate nohighlight">\(\frac{\epsilon}{d}\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, <span class="math notranslate nohighlight">\(-\sum_{j=1}^{d} \log(x^{\star}(j) - x(j)) \to \infty\)</span> if any <span class="math notranslate nohighlight">\(x^{\star}(j) \approx x(j)\)</span>. That is, the penalty will be very high if any of the element of <span class="math notranslate nohighlight">\(x\)</span> is closed to <span class="math notranslate nohighlight">\(x^{\star}\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(x_{0} = 0 &lt; x^{\star}\)</span> at the starting point and the barrier will prevent all elements of <span class="math notranslate nohighlight">\(x\)</span> getting closed to <span class="math notranslate nohighlight">\(x^{\star}\)</span>, the barrier can prevent <span class="math notranslate nohighlight">\(x &gt; x^{\star}\)</span>.</p></li>
+</ol>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> is a hyper-parameter that balances the objective function and the barrier. In the code, it is tuned smaller and smaller as the <span class="math notranslate nohighlight">\(x_{k}\)</span> is getting closed to <span class="math notranslate nohighlight">\(x^{\star}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{\epsilon}{d}\)</span> is used to avoid <span class="math notranslate nohighlight">\(\log \to \infty\)</span>.</p></li>
+</ol>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{LP}(\nabla f_{\beta}(x_{k-1}), \mathrm{conv}(\mathcal{I}_{k}(\alpha))) = \mathrm{LP}(\nabla f_{\beta}(x_{k-1}) + b_{k}, \mathcal{B})\)</span>, where <span class="math notranslate nohighlight">\(b_{k} = \frac{\epsilon}{d} \cdot \mathbb{1}(x^{\star} - x_{k-1} \leq \alpha)\)</span> is a penalty vector to force the solver to do not select the elements of vector <span class="math notranslate nohighlight">\((x^{\star} - x_{k})\)</span> smaller than <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<ol class="arabic simple">
+<li><p>For all elements of vector <span class="math notranslate nohighlight">\((x^{\star} - x_{k})\)</span> smaller than <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(b_{k} = \frac{\epsilon}{d}\)</span>. Otherwise, <span class="math notranslate nohighlight">\(b_{k} = 0\)</span>.</p></li>
+</ol>
+</li>
+</ol>
+<section id="birkhoff-max-rep-algorithm-algorithm-8">
+<h3>Birkhoff+ (max_rep) algorithm (Algorithm 8)<a class="headerlink" href="#birkhoff-max-rep-algorithm-algorithm-8" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x_{0} = 0, k = 0\)</span></p></li>
+<li><p><strong>while</strong> <span class="math notranslate nohighlight">\(\lVert x^{\star} - x_{k-1} \rVert_{2} &gt; \epsilon\)</span> and <span class="math notranslate nohighlight">\(k \leq k_{max}\)</span> <strong>do</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\alpha \gets (1 - \sum_{i=1}^{k-1} \theta_i) \mathbin{/} n^2\)</span></p></li>
+<li><p>  <strong>for</strong> <span class="math notranslate nohighlight">\(i = 1,\ldots, \mathrm{max\_rep}\)</span> <strong>do</strong></p></li>
+<li><p>    <span class="math notranslate nohighlight">\(p_{i} \gets \mathrm{LP}(\nabla f_{\beta}(x_{k-1}), \mathrm{conv}(\mathcal{I}_{k}(\alpha)))\)</span></p></li>
+<li><p>    <span class="math notranslate nohighlight">\(\theta_{i} \gets \mathrm{STEP}(x^{\star}, x_{k-1}, p_{k})\)</span></p></li>
+<li><p>    <strong>if</strong> <span class="math notranslate nohighlight">\((\theta_{i} &gt; \alpha)\)</span> <span class="math notranslate nohighlight">\(\alpha \gets \mathrm{STEP}(x^{\star}, x_{k-1}, p_{k})\)</span></p></li>
+<li><p>    <strong>else</strong> exit while loop</p></li>
+<li><p>    <span class="math notranslate nohighlight">\(p_{k} \gets p_{i}\)</span></p></li>
+<li><p>  <strong>end for</strong></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(\theta_{k} \gets\)</span> <span class="math notranslate nohighlight">\(\mathrm{STEP}(x^{\star}, x_{k-1}, p_k)\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(x_{k} \gets x_{k-1} + \theta_{k}p_{k}\)</span></p></li>
+<li><p>  <span class="math notranslate nohighlight">\(k \gets k + 1\)</span></p></li>
+<li><p><strong>end while</strong></p></li>
+<li><p><strong>return</strong> <span class="math notranslate nohighlight">\((p_{1}, \ldots, p_{k-1})\)</span>, <span class="math notranslate nohighlight">\((\theta_{1}, \ldots, \theta_{k-1})\)</span></p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Instead of using a constant <span class="math notranslate nohighlight">\(\alpha\)</span>, Birkhoff+ (max_rep) searches the largest <span class="math notranslate nohighlight">\(\alpha\)</span> in each iteration by alternatively updating <span class="math notranslate nohighlight">\(\alpha\)</span>  and <span class="math notranslate nohighlight">\(p_{k}\)</span> until <span class="math notranslate nohighlight">\(\alpha\)</span> cannot be updated larger or <span class="math notranslate nohighlight">\(\mathrm{max\_rep}\)</span> iterations is reached.</p>
+<ol class="arabic simple">
+<li><p>Larger <span class="math notranslate nohighlight">\(\alpha\)</span> <span class="math notranslate nohighlight">\(\to\)</span> larger <span class="math notranslate nohighlight">\(\theta\)</span> <span class="math notranslate nohighlight">\(\to\)</span> less number of permutation matrices.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is set to be the largest step size (weight from <span class="math notranslate nohighlight">\(\mathrm{STEP}\)</span> function) found so far.</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Birkhoff+_8_0.png" src="../_images/Birkhoff+_8_0.png" />
+</div>
+</div>
+</section>
+<section id="source-code-with-comment">
+<h3>Source code with comment<a class="headerlink" href="#source-code-with-comment" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/vvalls/BirkhoffDecomposition.jl">https://github.com/vvalls/BirkhoffDecomposition.jl</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">JuMP</span>
+<span class="k">using</span> <span class="n">Clp</span>
+<span class="k">using</span> <span class="n">Random</span>
+<span class="k">using</span> <span class="n">SparseArrays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># functionsBD.jl</span>
+
+<span class="k">struct</span> <span class="kt">polytope</span>
+    <span class="n">A</span><span class="p">;</span>
+    <span class="n">b</span><span class="p">;</span>
+    <span class="n">l</span><span class="p">;</span>
+    <span class="n">u</span><span class="p">;</span>
+    <span class="n">model</span><span class="p">;</span>
+    <span class="n">x</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Solve a linear programing problem</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">LP</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="nd">@objective</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="n">c</span><span class="o">&#39;*</span> <span class="n">P</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">optimize!</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Get a random stochastic matrix</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">randomDoublyStochasticMatrix</span><span class="p">(</span><span class="n">n</span><span class="p">;</span> <span class="n">num_perm</span><span class="o">=</span><span class="n">n</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">α</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">num_perm</span><span class="p">)</span>
+
+    <span class="n">α</span> <span class="o">=</span> <span class="n">α</span> <span class="o">/</span> <span class="n">sum</span><span class="p">(</span><span class="n">α</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">num_perm</span>
+        <span class="n">perm</span> <span class="o">=</span> <span class="n">randperm</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+            <span class="n">M</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">α</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">return</span> <span class="n">M</span><span class="p">;</span>
+<span class="k">end</span>
+
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Create Birkhoff polytope ``\mathcal{B}`` (Section V-A), which contains all possible doublely stochastic matrices.</span>
+
+<span class="s">Since the paper assumes that the solutions by solving linear programs over are Birkhoff polytope extreme points, </span>
+<span class="s">the solutions are permutation matrices (which are also doublely stochastic). </span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">birkhoffPolytope</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c"># x is a doublely stochastic matrix that is represented by a vector (flattened).</span>
+    <span class="c"># Use a constant matrix A(M&#39;) and a constant vector b to specify that x is doublely stochastic.</span>
+    
+    <span class="n">M</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>
+    <span class="c"># Specify the sum of each row of x equals to 1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+        <span class="n">M</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">end</span>
+    <span class="c"># Specify the sum of each col of x equals to 1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+            <span class="n">M</span><span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">M</span><span class="o">&#39;</span><span class="p">);</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">Clp</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">)</span>
+    <span class="n">set_silent</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="nd">@variable</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nd">@constraint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span> <span class="o">.==</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">polytope</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>birkhoffPolytope
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># stepsizes.jl</span>
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Get the step size (weight) by taking the minimum non-zero entry of the difference matrix </span>
+<span class="s">(masked by the permutation matrix y) between x_star and x.</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">getBirkhoffStepSize</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">minimum</span><span class="p">((</span><span class="n">x_star</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">.*</span><span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span><span class="o">.-</span><span class="mi">1</span><span class="p">));</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>getBirkhoffStepSize
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># extremepoints.jl</span>
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Birkhoff+ (max_rep) Psudocode line 4-10</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">getEPBplus</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">max_rep</span><span class="p">,</span> <span class="n">ε</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">α</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">max_rep</span><span class="p">)</span>
+        <span class="c"># Calculate \beta for this iteration.</span>
+        <span class="c"># \beta should become smaller and smaller.</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="kt">Int16</span><span class="o">.</span><span class="p">(</span><span class="n">x_star</span> <span class="o">-</span> <span class="n">x</span> <span class="o">.&gt;</span> <span class="n">ε</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">getBirkhoffStepSize</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">ε</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+
+        <span class="c"># c is the gradient of the objective function with barrier.</span>
+        <span class="c"># b is an iterm added to make I_k(\alpha) to be B (Birkhoff polytope).</span>
+        <span class="c"># See the paragraph in section VI.B after Corollary 2 for b.</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">ones</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">./</span> <span class="p">(</span><span class="n">x_star</span> <span class="o">-</span> <span class="n">x</span> <span class="o">.+</span> <span class="n">ε</span><span class="o">/</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="n">ε</span><span class="p">)</span><span class="o">.*</span><span class="kt">Int16</span><span class="o">.</span><span class="p">(</span><span class="n">x_star</span> <span class="o">-</span> <span class="n">x</span> <span class="o">.&lt;=</span> <span class="n">α</span><span class="p">)</span>
+        <span class="n">y_iter</span> <span class="o">=</span> <span class="n">LP</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>
+        
+        <span class="c"># If new solution (y_iter) makes objective function larger/worse (c&#39;*y_iter &gt; c&#39;*y_z),</span>
+        <span class="c"># fall back to the solution from the last iteration (y_z/x).</span>
+        <span class="n">y_z</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="o">&#39;*</span><span class="n">y_iter</span> <span class="o">&gt;</span> <span class="n">c</span><span class="o">&#39;*</span><span class="n">y_z</span><span class="p">)</span>
+            <span class="n">y_iter</span> <span class="o">=</span> <span class="n">y_z</span>
+        <span class="k">end</span>
+
+        <span class="c"># \alpha should be the largest step size found. </span>
+        <span class="c"># Algorithm terminates when \alpha doesn&#39;t increase</span>
+        <span class="n">α_iter</span> <span class="o">=</span> <span class="n">getBirkhoffStepSize</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_iter</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">α</span> <span class="o">&lt;</span> <span class="n">α_iter</span><span class="p">)</span>
+            <span class="n">α</span> <span class="o">=</span> <span class="n">α_iter</span><span class="p">;</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_iter</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+        <span class="k">end</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>getEPBplus (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># birkdecomp.jl</span>
+
+<span class="nd">@doc</span> <span class="sa">raw</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">Birkhoff+ (max_rep)</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">birkdecomp</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ε</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">;</span> <span class="n">max_rep</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>                                 <span class="c"># get size of Birkhoff polytope</span>
+    <span class="n">x_star</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>                       <span class="c"># reshape doubly stochastic to vector</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">birkhoffPolytope</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>                        <span class="c"># Birkhoff polytope</span>
+    <span class="n">ε</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ε</span><span class="p">,</span> <span class="mf">1e-15</span><span class="p">);</span>                              <span class="c"># fix the maximum minimum precision</span>
+    <span class="n">max_iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>                                 <span class="c"># initial point</span>
+
+    <span class="n">extreme_points</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">);</span>          <span class="c"># extreme points (permutation) matrix</span>
+    <span class="n">θ</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">max_iter</span><span class="p">);</span>                            <span class="c"># weights vector</span>
+    <span class="n">approx</span> <span class="o">=</span> <span class="nb">Inf</span><span class="p">;</span>                                   <span class="c"># approximation error</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>                                          <span class="c"># iteration index</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">approx</span> <span class="o">&gt;</span> <span class="n">ε</span><span class="p">)</span>
+        <span class="c"># Get next extreme point </span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">getEPBplus</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">max_rep</span><span class="p">,</span> <span class="n">ε</span><span class="p">)</span>
+        <span class="c"># Get next weight (step size)</span>
+        <span class="n">θi</span> <span class="o">=</span> <span class="n">getBirkhoffStepSize</span><span class="p">(</span><span class="n">x_star</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="c"># Update x_k</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">θi</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+        <span class="c"># Store the new weight</span>
+        <span class="n">θ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">θi</span><span class="p">;</span>
+
+        <span class="c"># Update the Frobenius norm</span>
+        <span class="n">approx</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sum</span><span class="p">((</span><span class="n">abs</span><span class="o">.</span><span class="p">(</span><span class="n">x_star</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">.^</span><span class="mi">2</span><span class="p">));</span>
+        
+        <span class="c"># Store the new extreme point matrix</span>
+        <span class="n">extreme_points</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+
+    <span class="k">return</span> <span class="n">extreme_points</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">θ</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>birkdecomp (generic function with 2 methods)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Generate a random doubly stochastic matrix (n is the dimension)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">randomDoublyStochasticMatrix</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">birkdecomp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+<span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3×3 Array{Float64,2}:
+ 0.0607488  0.590595   0.348656
+ 0.70177    0.0291194  0.269111
+ 0.237482   0.380286   0.382233
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×5 Array{Float64,2}:
+ 0.0  0.0  0.0  1.0  0.0
+ 1.0  1.0  0.0  0.0  0.0
+ 0.0  0.0  1.0  0.0  1.0
+ 1.0  0.0  1.0  0.0  0.0
+ 0.0  0.0  0.0  0.0  1.0
+ 0.0  1.0  0.0  1.0  0.0
+ 0.0  1.0  0.0  0.0  1.0
+ 0.0  0.0  1.0  1.0  0.0
+ 1.0  0.0  0.0  0.0  0.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5-element Array{Float64,1}:
+ 0.38223288955133716
+ 0.31953666864401353
+ 0.20836217653438616
+ 0.06074883235172196
+ 0.029119432918541188
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">x_new</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">x_new</span> <span class="o">=</span> <span class="n">x_new</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">reshape</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> 
+<span class="k">end</span>
+<span class="n">display</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3×3 Array{Float64,2}:
+ 0.0607488  0.590595   0.348656
+ 0.70177    0.0291194  0.269111
+ 0.237482   0.380286   0.382233
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.3"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="MobileNets.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Mobile Nets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Jupyter%20book%20Tests/sections/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">IndexError: list index out of range</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

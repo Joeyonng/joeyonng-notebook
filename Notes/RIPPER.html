@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>RIPPER &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CG Decision Rules" href="CG%20Decision%20Rules.html" />
+    <link rel="prev" title="SSGD" href="SSGD.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/RIPPER.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#irep">
+   IREP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   RIPPER
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ripper">
+<h1>RIPPER<a class="headerlink" href="#ripper" title="Permalink to this headline">¶</a></h1>
+<p><em>03-20-2021</em></p>
+<p>This page contains my reading notes on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Fast-Effective-Rule-Induction-Cohen/6665e03447f989c9bdb3432d93e89b516b9d18a7"><strong>Fast Eective Rule Induction</strong></a></p></li>
+</ul>
+<section id="irep">
+<h2>IREP<a class="headerlink" href="#irep" title="Permalink to this headline">¶</a></h2>
+<p>Given a training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> with binary labels and all possible features <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>,</p>
+<ol class="arabic simple">
+<li><p>Randomly choose 2/3 from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> as the growing set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and the rest 1/3 becomes the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
+<li><p>Initialize an empty rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
+<li><p>While there are still positive instances in <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Initialize a empty rule <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>Until all instances that satisfy <span class="math notranslate nohighlight">\(R\)</span> are positive (accuracy of <span class="math notranslate nohighlight">\(R\)</span> is 1) or there is no feature to add:</p>
+<ol class="arabic simple">
+<li><p>For every feature <span class="math notranslate nohighlight">\(f \in \mathcal{F}\)</span> not in <span class="math notranslate nohighlight">\(R\)</span> and every possible value <span class="math notranslate nohighlight">\(v\)</span> of <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Create a temp rule <span class="math notranslate nohighlight">\(R_{t}\)</span> by copying current <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>Add <span class="math notranslate nohighlight">\(f=v\)</span> to <span class="math notranslate nohighlight">\(R_{t}\)</span>.</p></li>
+<li><p>Calculate FOIL’s information gain of <span class="math notranslate nohighlight">\(R_{t}\)</span>: <span class="math notranslate nohighlight">\(\mathrm{Foil}(R, R_{t})\)</span> based on <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.</p></li>
+</ol>
+</li>
+<li><p>Get the <span class="math notranslate nohighlight">\(R_{t}^{max}\)</span> with the max value of <span class="math notranslate nohighlight">\(\mathrm{Foil}(R_{t})\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(R=R_{t}^{max}\)</span></p></li>
+</ol>
+</li>
+<li><p>For all <span class="math notranslate nohighlight">\((f=v)_i \in R\)</span> starting from the last added one to the first one:</p>
+<ol class="arabic simple">
+<li><p>Get <span class="math notranslate nohighlight">\(R_{p}\)</span> by removing <span class="math notranslate nohighlight">\((f=v)_i\)</span> from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathrm{Value}(R_{p}) \geq \mathrm{Value}(R)\)</span>: then <span class="math notranslate nohighlight">\(R=R_{p}\)</span></p></li>
+</ol>
+</li>
+<li><p>If the accuracy of <span class="math notranslate nohighlight">\(R &lt; 0.5\)</span> on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>: break</p></li>
+<li><p>Add <span class="math notranslate nohighlight">\(R\)</span> to <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
+<li><p>Remove instances that are covered by <span class="math notranslate nohighlight">\(R\)</span> from <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>.</p></li>
+</ol>
+</li>
+<li><p>Return <span class="math notranslate nohighlight">\(\mathcal{R}\)</span></p></li>
+</ol>
+<p><strong>[FOIL’s information gain]</strong>: it gives how much information entropy is reduced from <span class="math notranslate nohighlight">\(R_{old}\)</span> to <span class="math notranslate nohighlight">\(R_{new}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{Foil}(R_{old}, R_{new}) = P(R_{old}) (\log_{2}(\frac{P(R_{old})}{P(R_{old}) + N(R_{old})}) - \log_{2}(\frac{P(R_{new})}{P(R_{new}) + N(R_{new})})) \]</div>
+<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p><strong>[IREP Rule value]</strong>:</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{Value}(R) = \frac{P(R) + (N - N(R))}{P + N} \]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> is the total number of positive instances,  <span class="math notranslate nohighlight">\(N\)</span> is the total number of negative instances, <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
+</section>
+<section id="id1">
+<h2>RIPPER<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>RIPPER is an improved version of IREP and the changes are:</p>
+<ol class="arabic simple">
+<li><p>Use a different equation (RIPPER Rule value) to replace IREP’s rule value equation.</p></li>
+<li><p>Replace the stopping condition (line 3.D. in the pseudocode above) with the following logic on the dataset <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> (<span class="math notranslate nohighlight">\(d\)</span> is a hyperparameter with the default value of 64):</p>
+<ol class="arabic simple">
+<li><p>Calculate the <em>total description length</em> of <span class="math notranslate nohighlight">\(R\)</span>: <span class="math notranslate nohighlight">\(\mathrm{MDL}(R)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathrm{MDL}(R) &gt; \mathrm{MDL_{min}} + d\)</span>: break</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mathrm{MDL}(R) &lt; \mathrm{MDL_{min}}\)</span>: <span class="math notranslate nohighlight">\(\mathrm{MDL_{min} = MDL}(R)\)</span></p></li>
+</ol>
+</li>
+<li><p>The version of IREP with the 2 changes above is called IREP*. After we get a rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> from one run of IREP*, we perform the followings on the dataset <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>:</p>
+<ol class="arabic simple">
+<li><p>For each <span class="math notranslate nohighlight">\(R_{i} \in \mathcal{R}\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Get the <em>replacement</em> <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> of <span class="math notranslate nohighlight">\(R_{i}\)</span> by growing from an empty rule until all instance that satisfy <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> are positive.</p></li>
+<li><p>Pruning <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> by minimizing error of the entire rule set <span class="math notranslate nohighlight">\(\mathcal{\hat{R}} = R_{1}, ..., \hat{R}_{i}, ..., R_{n}\)</span> (no <span class="math notranslate nohighlight">\(R_i\)</span>) on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
+<li><p>Get the <em>revision</em> <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> of <span class="math notranslate nohighlight">\(R_{i}\)</span> by growing from <span class="math notranslate nohighlight">\(R_{i}\)</span> until all instance that satisfy <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> are positive.</p></li>
+<li><p>Pruning <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> by minimizing error of the entire rule set <span class="math notranslate nohighlight">\(\mathcal{\bar{R}} = R_{1}, ..., \bar{R}_{i}, ..., R_{n}\)</span> (no <span class="math notranslate nohighlight">\(R_i\)</span>) on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{R} = \underset{\mathcal{R_i} \in \{ \mathcal{R}, \hat{\mathcal{R}}, \bar{\mathcal{R}} \}}{\mathrm{argmin}} \sum_{R_{i} \in \mathcal{R_{i}}} \mathrm{MDL}(R_i)\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Run IREP* again to cover remaining positive instances.</p></li>
+</ol>
+<p><strong>[RIPPER Rule value]</strong>:</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{Value}(R) = \frac{P(R) - N(R)}{P(R) + N(R)} \]</div>
+<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span></p>
+<p><strong>[Total description length]</strong>: MDL is composed of model description length and exceptions description length.</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{MDL}(R) = \mathrm{MDL_{M}}(R) + \mathrm{MDL_{E}}(R) \]</div>
+<p>Model description length evaluates the rule itself:</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{MDL_{M}}(R) = 0.5(k\log_{2}\frac{1}{r} + (n-k) \log_2\frac{1}{1-r} + \lVert k \rVert) \]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of features in the rule, <span class="math notranslate nohighlight">\(n\)</span> is the number of all features, and <span class="math notranslate nohighlight">\(r = \frac{k}{n}\)</span>. <span class="math notranslate nohighlight">\(\lVert k \rVert = \log_{2}(k)\)</span>. The 0.5 factor is to account for possible redundancies. <br />
+Exceptions description length evaluates the performance of the rule on the dataset:</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{MDL_{E}}(R) = \log_{2}{P(R) \choose \mathit{FP}(R)} + \log_{2}{N(R) \choose \mathit{FN}(R)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span> <span class="math notranslate nohighlight">\(\mathit{FP}(R)\)</span> is the number of false positives covered by <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mathit{FN}(R)\)</span> is the number of false negatives covered by <span class="math notranslate nohighlight">\(R\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="SSGD.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SSGD</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="CG%20Decision%20Rules.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CG Decision Rules</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

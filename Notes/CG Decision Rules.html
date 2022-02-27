@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CG Decision Rules &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SGD Warm Restarts" href="SGD%20Warm%20Restarts.html" />
+    <link rel="prev" title="RIPPER" href="RIPPER.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/CG Decision Rules.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-formulation">
+   Problem formulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss">
+   0-1 Loss
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hamming-loss">
+   Hamming Loss
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fairness-metrics-and-constraints">
+   Fairness metrics and constraints
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cg-decision-rules">
+<h1>CG Decision Rules<a class="headerlink" href="#cg-decision-rules" title="Permalink to this headline">¶</a></h1>
+<p><em>09-19-2021</em></p>
+<p>This page contains my reading notes on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Boolean-Decision-Rules-via-Column-Generation-Dash-G%C3%BCnl%C3%BCk/43f5730a50bb47542a6e7a5fd2a303cb726830dc"><strong>Boolean Decision Rules via Column Generation</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Fair-Decision-Rules-for-Binary-Classification-Lawless-G%C3%BCnl%C3%BCk/b4c7486ee1d3d1f737c93b7e2e789387da3ac940"><strong>Fair Decision Rules for Binary Classification</strong></a></p></li>
+</ul>
+<section id="problem-formulation">
+<h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>A boolean decision rule set is a binary classifier that only takes binary inputs.</p>
+<ol class="arabic simple">
+<li><p>The decision rule set is in the form of DNF (OR-of-ANDs). Each rule is an AND gate of part of the binary inputs and all rules are connected using an OR gate.</p></li>
+<li><p>If a instance satisfies any of the rules, it is predicted to be positive. Otherwise, the instance is predicted to be negative.</p></li>
+</ol>
+</li>
+<li><p>Learning a set of decision rule set can be formulated as a large mixed integer programming (MIP) problem.</p>
+<ol class="arabic simple">
+<li><p>A rule is a subset of input features. If there are <span class="math notranslate nohighlight">\(p\)</span> binary input features, a rule can be represented by a binary vector of length <span class="math notranslate nohighlight">\(p\)</span> (1 means the feature is included in the rule, 0 otherwise).</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\mathcal{K}\)</span> denotes all possible DNF rules and there are in total of <span class="math notranslate nohighlight">\(2^{p} - 1\)</span> of rules (a vector of all 0 is not a rule).</p></li>
+<li><p>Given a training set that has a set of positive instances <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> and a set of negative instances <span class="math notranslate nohighlight">\(\mathcal{N}\)</span>, we can minimize a loss function that characterize the classification error.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="loss">
+<h2>0-1 Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The 0-1 loss is the most direct loss the characterize the numbers of false positives and false negatives.</p></li>
+<li><p>Apart from <span class="math notranslate nohighlight">\(\mathcal{K}, \mathcal{P}, \mathcal{N}\)</span> defined above, some of new terms are defined:</p>
+<ol class="arabic simple">
+<li><p>Let <span class="math notranslate nohighlight">\(w_{k} \in \{0, 1\}\)</span> be a variable of if rule <span class="math notranslate nohighlight">\(k \in \mathcal{K}\)</span> is selected in the rule set.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\mathcal{L}_{i} \in \{0, 1\}\)</span> be a variable indicating if an instance <span class="math notranslate nohighlight">\(i \in \mathcal{P} \cup \mathcal{N}\)</span> is misclassified.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\mathcal{K}_{i} \subset \mathcal{K}\)</span> be the set of rules met by the instance <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+</ol>
+</li>
+<li><p>0-1 loss minimizes the following loss function:
+<div class="math notranslate nohighlight">
+\[ \sum_{i \in \mathcal{P}} \mathcal{L}_{i} + \sum_{i \in \mathcal{N}} \mathcal{L}_{i} \]</div>
+
+that is subject to the following constraints:
+<div class="math notranslate nohighlight">
+\[ \mathcal{L}_{i} + \sum_{k \in \mathcal{K}_{i}} w_{k} \geq 1, \quad i \in \mathcal{P} \]</div>
+
+<div class="math notranslate nohighlight">
+\[ w_{k} \leq \mathcal{L}_{i}, \quad i \in \mathcal{N}, k \in \mathcal{K} \]</div>
+
+<div class="math notranslate nohighlight">
+\[ w_{k}, \mathcal{L}_{i} \in \{0, 1\}, \quad k \in \mathcal{K}, i \in \mathcal{P} \cup \mathcal{N} \]</div>
+</p></li>
+<li><p>Explanation:</p>
+<ol class="arabic simple">
+<li><p><strong>Objective</strong> <span class="math notranslate nohighlight">\(\sum_{i \in \mathcal{P}} \mathcal{L}_{i}\)</span> is the number of false positives and <span class="math notranslate nohighlight">\(\sum_{i \in \mathcal{N}} \mathcal{L}_{i}\)</span> is the number of false negatives. Thus the loss function above is directly minimizing the classification errors.</p></li>
+<li><p><strong>1st constraint</strong> defines a false negative (note that <span class="math notranslate nohighlight">\(\{\mathcal{L}_{i} \mid i \in \mathcal{P}\}\)</span> means a misclassification of a positive instance, thus a false negative) by forcing <span class="math notranslate nohighlight">\(\mathcal{L}_{i}\)</span> to take value 1 if no rule that is satisfied by the instance <span class="math notranslate nohighlight">\(i \in \mathcal{P}\)</span> is in the rule set.</p></li>
+<li><p><strong>2nd constraint</strong> defines a false positive (again <span class="math notranslate nohighlight">\(\{\mathcal{L}_{i} \mid i \in \mathcal{N}\}\)</span> means a misclassification of a negative instance, thus a false positive) by forcing <span class="math notranslate nohighlight">\(\mathcal{L}_{i}\)</span> to take value 1 if any rule that is satisfied by the instance <span class="math notranslate nohighlight">\(i \in \mathcal{P}\)</span> is in the rule set.</p></li>
+<li><p><strong>3rd constraint</strong> defines types of each variables.</p></li>
+</ol>
+</li>
+<li><p>The first constraint has <span class="math notranslate nohighlight">\(\lvert \mathcal{P} \rvert\)</span> number of equations while the second one has at most <span class="math notranslate nohighlight">\(\lvert \mathcal{N} \mathcal{K} \rvert\)</span> (assuming each negative instance satisfies all possible rules) equations. The second constraint is very expensive and can be avoided using the hamming loss introduced below.</p></li>
+</ol>
+</section>
+<section id="hamming-loss">
+<h2>Hamming Loss<a class="headerlink" href="#hamming-loss" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Instead of minimizing the 0-1 loss, which is large and hard to solve in practice, the Hamming loss can be used as a proxy of the classification error.</p></li>
+<li><p>Hamming loss also considers characterizing the numbers of false positives and false negatives. While Hamming loss incurs the same loss for each false negative, Hamming loss considers the number of selected rules a negative instance satisfy for each false positive.</p></li>
+<li><p>Hamming loss minimizes the following loss function:
+<div class="math notranslate nohighlight">
+\[ \sum_{i \in \mathcal{P}} \mathcal{L}_{i} + \sum_{i \in \mathcal{N}} \sum_{k \in \mathcal{K}_{i}} w_{k} \]</div>
+
+with following constraints:
+<div class="math notranslate nohighlight">
+\[ \mathcal{L}_{i} + \sum_{k \in \mathcal{K}_{i}} w_{k} \geq 1, \quad i \in \mathcal{P}\]</div>
+
+<div class="math notranslate nohighlight">
+\[ w_{k}, \mathcal{L}_{i} \in \{0, 1\}, \quad k \in \mathcal{K}, i \in \mathcal{P} \cup \mathcal{N} \]</div>
+</p></li>
+<li><p>Explanation:</p>
+<ol class="arabic simple">
+<li><p><strong>Objective</strong> <span class="math notranslate nohighlight">\(\sum_{i \in \mathcal{P}} \mathcal{L}_{i}\)</span> counts the number of false positives (same as that of the 0-1 loss), while <span class="math notranslate nohighlight">\(\sum_{i \in \mathcal{N}} \sum_{k \in \mathcal{K}_{i}} w_{k}\)</span> counts the number of selected rules of each negative instance.</p></li>
+<li><p><strong>1st constraint</strong> defines a false negative (same as the 1st constraint of 0-1 loss).</p></li>
+<li><p><strong>2nd constraint</strong> defines types of each variables (same as the 3rd constraint of 0-1 loss).</p></li>
+</ol>
+</li>
+<li><p>Hamming loss eliminate the 2nd constraint in 0-1 loss by converting the counting of the false positives to be the hamming distances between true positives and false positives, thus reducing the problem size.</p></li>
+</ol>
+</section>
+<section id="fairness-metrics-and-constraints">
+<h2>Fairness metrics and constraints<a class="headerlink" href="#fairness-metrics-and-constraints" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Given a set of protected features (e.g. sex, red), the training instances can be divided into different groups <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> (e.g. 4 groups: <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> = {sex=male, sex=female, red=True, red=False}).</p></li>
+<li><p>Two types of fairness metrics:</p>
+<ol class="arabic simple">
+<li><p><strong>Equality of opportunity</strong> requires the false negative rate to be equal for all groups.</p></li>
+<li><p><strong>Equalized odds</strong> requires both the false positive and false negative rate to be equal for all groups. Equalized odds is stricter version of equality of opportunity.</p></li>
+</ol>
+</li>
+<li><p>The maximum violation can be used to measure the unfairness of the classifier:
+<div class="math notranslate nohighlight">
+\[ \Delta(d) = \max_{g, g' \in \mathcal{G}} \lvert \mathbb{P}(d(X)=-1 \mid Y=1, G=g) - \mathbb{P}(d(x)=-1 \mid Y=1, G=g') \rvert\]</div>
+
+This equation gives the maximum difference of the equality of opportunity (false negative rate) between the instances in any two groups <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(g'\)</span>.</p></li>
+<li><p>Assuming <span class="math notranslate nohighlight">\(\mathcal{G} = \{1,2\}\)</span> (there are only two groups), we can incorporate the following constraints to the Hamming loss to impose the fairness:</p>
+<ol class="arabic simple">
+<li><p>Equality of opportunity (false negative rate):
+<div class="math notranslate nohighlight">
+\[ \frac{1}{\lvert \mathcal{P}_{1} \rvert} \sum_{i \in \mathcal{P}_{1}} \mathcal{L}_{i} - \frac{1}{\lvert \mathcal{P}_{2} \rvert} \sum_{i \in \mathcal{P}_{2}} \mathcal{L}_{i} \leq \epsilon_{1} \]</div>
+
+<div class="math notranslate nohighlight">
+\[ \frac{1}{\lvert \mathcal{P}_{2} \rvert} \sum_{i \in \mathcal{P}_{2}} \mathcal{L}_{i} - \frac{1}{\lvert \mathcal{P}_{1} \rvert} \sum_{i \in \mathcal{P}_{1}} \mathcal{L}_{i} \leq \epsilon_{1} \]</div>
+</p></li>
+<li><p>Equality odds (false positive rate):
+<div class="math notranslate nohighlight">
+\[ \frac{1}{\lvert \mathcal{N}_{1} \rvert} \sum_{i \in \mathcal{N}_{1}} \sum_{k \in \mathcal{K}_{i}} w_{k} - \frac{1}{\lvert \mathcal{N}_{2} \rvert} \sum_{i \in \mathcal{N}_{2}} \sum_{k \in \mathcal{K}_{i}} w_{k} \leq \epsilon_{2} \]</div>
+
+<div class="math notranslate nohighlight">
+\[ \frac{1}{\lvert \mathcal{N}_{2} \rvert} \sum_{i \in \mathcal{N}_{2}} \sum_{k \in \mathcal{K}_{i}} w_{k} - \frac{1}{\lvert \mathcal{N}_{1} \rvert} \sum_{i \in \mathcal{N}_{1}} \sum_{k \in \mathcal{K}_{i}} w_{k} \leq \epsilon_{2} \]</div>
+
+where in both cases, <span class="math notranslate nohighlight">\(\mathcal{P}_{1}\)</span> is the positives instances that are in group 1 (similar for <span class="math notranslate nohighlight">\(\mathcal{P}_{2}, \mathcal{N}_{1}, \mathcal{N}_{2}\)</span>) and <span class="math notranslate nohighlight">\(\epsilon_{1}, \epsilon_{2}\)</span> are two constants that bound the maximum allowed unfairness for false positives and false negatives.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="RIPPER.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">RIPPER</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SGD%20Warm%20Restarts.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SGD Warm Restarts</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

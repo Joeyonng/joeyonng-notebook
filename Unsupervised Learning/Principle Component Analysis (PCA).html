@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Principle Component Analysis (PCA) &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gradient Boosting (GB)" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html" />
+    <link rel="prev" title="K-means" href="K-means.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unsupervised Learning/Principle Component Analysis (PCA).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary">
+   Preliminary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#expected-value">
+       Expected value
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance">
+       Variance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#covariance">
+       Covariance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#covariance-matrix-variance-covariance-matrix">
+       Covariance matrix (variance-covariance matrix)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-algebra">
+     Linear algebra
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#orthogonal">
+       Orthogonal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#vector-projection">
+       Vector projection
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#orthonormal-basis">
+       Orthonormal basis
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eigenvectors-eigenvalues">
+       Eigenvectors, Eigenvalues
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eigendecomposition-spectral-decomposition">
+       Eigendecomposition (spectral decomposition)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pca-objective-derivation">
+   PCA objective derivation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#projection-of-a-single-instance-vector-to-the-subspace">
+     Projection of a single instance (vector) to the subspace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca-as-minimizing-projection-error">
+     PCA as minimizing projection error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca-as-maximizing-projection-variance">
+     PCA as maximizing projection variance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-pca-objective">
+   Solving PCA objective
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pca-algorithm">
+   PCA algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="principle-component-analysis-pca">
+<h1>Principle Component Analysis (PCA)<a class="headerlink" href="#principle-component-analysis-pca" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Principal component analysis is an unsupervised learning algorithm that is used to reduce dimensionality of the training set. PCA selects multiple orthogonal dimensions that preserve maximum variance in the training set and optionally projects the training instances onto these dimensions.</p></li>
+<li><p>To do PCA, we first need to normalize the training set by subtracting each value in a column by its mean and divide each value by column’s standard deviation. Then we get the covariance matrix of the normalized training set by multiply it with its transposed matrix. The covariance matrix gives us how each variable of the training set relates to each other. We can then use eigendecomposition to decompose the covariance matrix to get the eigenvalues and their corresponding eigenvectors. Here the eigenvectors are orthogonal components and the eigenvalues indicate the importance of the corresponding components. Finally we sort the eigenvalues in decreasing order and select first few eigenvalues and their corresponding eigenvectors as the principle components. We can get the transformed dataset by multiplying the training set with the selected eigenvectors.</p></li>
+</ol>
+<section id="preliminary">
+<h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<section id="expected-value">
+<h4>Expected value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h4>
+<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value</strong> is its mean value.
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}(X) = \mu \]</div>
+</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable with a finite number of values <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \dots, x_{k}\)</span> occurring with probabilities <span class="math notranslate nohighlight">\(p_{1}, p_{2}, \dots, p_{k}\)</span>, respectively, the expected value  of <span class="math notranslate nohighlight">\(X\)</span> is defined as
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}(X) = \sum_{i=1}^{k} x_{i}p_{i} \]</div>
+</p>
+<p>If the possibilities are the same (<span class="math notranslate nohighlight">\(p_{1} = p_{2} = \dots = p_{n} = \frac{1}{n}\)</span>), then
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}(X) = \frac{1}{n} \sum_{i=1}^{k} x_{i} \]</div>
+</p>
+</section>
+<section id="variance">
+<h4>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>variance</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is the expected value of the squared deviation from the mean of <span class="math notranslate nohighlight">\(X\)</span>:
+<div class="math notranslate nohighlight">
+\[ \operatorname{var}(X) = \mathbb{E}((X - \mu)^{2}) \]</div>
+
+which can also be expressed as:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{var}(X) &amp; = \mathbb{E}((X - \mu)^{2}) \\
+&amp; = \mathbb{E}((X - \mathbb{E}(X))^{2}) \\
+&amp; = \mathbb{E}(X^{2} - 2X\mathbb{E}(X) + \mathbb{E}(X)^{2}) \\
+&amp; = \mathbb{E}(X^{2}) - 2\mathbb{E}(X)\mathbb{E}(X) + \mathbb{E}(X)^{2} \\
+&amp; = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} \\
+\end{align}
+\end{split}\]</div>
+</p>
+</section>
+<section id="covariance">
+<h4>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>covariance</strong> of two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures the strength of the correlation between them:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{cov}(X, Y) &amp; = \mathbb{E}((X - \mathbb{E}(X)) (Y - \mathbb{E}(Y))) \\
+&amp; = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) \\
+\end{align}
+\end{split}\]</div>
+
+where <span class="math notranslate nohighlight">\(\mathbb{E}(A)\)</span> is to compute the expected value of the random variable <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &gt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to increase as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to decrease as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) = 0\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>If we sample <span class="math notranslate nohighlight">\(n\)</span> observations from <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> to get vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, then we can actually compute <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y)\)</span> based on the values in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, since the expected value of a random variable is just the mean of the its observations:
+<div class="math notranslate nohighlight">
+\[ \operatorname{cov}(\mathbf{x}, \mathbf{y}) = \frac{1}{n} \sum_{i=1}^{n} (\mathbf{x}_{i} - \bar{\mathbf{x}}) (\mathbf{y}_{i} - \bar{\mathbf{y}}) \]</div>
+
+where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and <span class="math notranslate nohighlight">\(\bar{\mathbf{y}}\)</span> are the mean of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, respectively.</p></li>
+<li><p>In the special case of <span class="math notranslate nohighlight">\(Y = X\)</span>, the covariance reduces to variance.
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+ \begin{align}
+ \operatorname{cov}(X, X) &amp; = \mathbb{E}((X - \mathbb{E}(X)) (X - \mathbb{E}(X))) \\
+ &amp; = \mathbb{E}((X - \mathbb{E}(X)^{2}) \\
+ &amp; = \operatorname{var}(X) \\
+ \end{align}
+ \end{split}\]</div>
+</p></li>
+</ol>
+</section>
+<section id="covariance-matrix-variance-covariance-matrix">
+<h4>Covariance matrix (variance-covariance matrix)<a class="headerlink" href="#covariance-matrix-variance-covariance-matrix" title="Permalink to this headline">¶</a></h4>
+<p>Given <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \dots, X_{n}\)</span>, the <strong>covariance matrix</strong> is a square matrix of the size <span class="math notranslate nohighlight">\(n \times n\)</span> giving the covariance between every pair of random variables, where
+<div class="math notranslate nohighlight">
+\[ \mathbf{V}_{i, j} = \operatorname{cov}(X_{i}, X_{j}) \]</div>
+</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span> is always symmetric, since <span class="math notranslate nohighlight">\(\operatorname{cov}(X_{i}, X_{j}) = \operatorname{cov}(X_{j}, X_{i})\)</span>.</p></li>
+<li><p>The diagonal elements of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> are the variances of the random variables (<span class="math notranslate nohighlight">\(\mathbf{V}_{i, i} = \operatorname{cov}(X_{i}, X_{i}) = \operatorname{var}(X_{i})\)</span>).</p></li>
+<li><p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> that has <span class="math notranslate nohighlight">\(n\)</span> observations (rows) and <span class="math notranslate nohighlight">\(d\)</span> variables (columns),  let
+<div class="math notranslate nohighlight">
+\[ \mathbf{A} = \mathbf{X}^{T}\mathbf{X} \]</div>
+
+Then, each element of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is the dot product of each pair of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+ \begin{align}
+ \mathbf{A}_{i, j} &amp; = \mathbf{X}_{*, i} \cdot \mathbf{X}_{*, j} \\
+ &amp; = \sum_{k=1}^{n} \mathbf{X}_{k, i}\mathbf{X}_{k, j} \\
+ \end{align}
+ \end{split}\]</div>
+
+Now let’s look at the covariance between each pair of the variables (columns) in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>,
+<div class="math notranslate nohighlight">
+\[ \operatorname{cov}(\mathbf{X}_{*, i}, \mathbf{X}_{*, j}) = \frac{1}{n} \sum_{k=1}^{n} (\mathbf{X}_{k, i} - \bar{\mathbf{X}}_{k, i}) (\mathbf{X}_{k, j} - \bar{\mathbf{X}}_{k, j}) \]</div>
+
+Assuming that the each variable (column) of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is zero-centered (the means of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are 0):
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+ \begin{align}
+ \operatorname{cov}(\mathbf{X}_{*, i}, \mathbf{X}_{*, j}) &amp; = \frac{1}{n} \sum_{k=1}^{n} (\mathbf{X}_{k, i} - \bar{\mathbf{X}}_{k, i}) (\mathbf{X}_{k, j} - \bar{\mathbf{X}}_{k, j}) \\
+ &amp; = \frac{1}{n} \sum_{k=1}^{n} \mathbf{X}_{k, i} \mathbf{X}_{k, j} \\
+ &amp; = \frac{1}{n} \mathbf{A}_{i, j}
+ \end{align}
+ \end{split}\]</div>
+
+Thus, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> between each pair of the variables in zero-centered matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is
+<div class="math notranslate nohighlight">
+\[ \mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X} \]</div>
+</p></li>
+</ol>
+</section>
+</section>
+<section id="linear-algebra">
+<h3>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
+<section id="orthogonal">
+<h4>Orthogonal<a class="headerlink" href="#orthogonal" title="Permalink to this headline">¶</a></h4>
+<p>Two vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are <strong>orthogonal</strong> if their inner product is 0:
+<div class="math notranslate nohighlight">
+\[ \mathbf{a} \cdot \mathbf{b} = 0 \]</div>
+</p>
+</section>
+<section id="vector-projection">
+<h4>Vector projection<a class="headerlink" href="#vector-projection" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>vector projection</strong> of a vector <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> on a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> onto <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{proj}_{\mathbf{b}}\mathbf{a} &amp; = (\lvert \mathbf{a} \rvert \cos(\theta)) \hat{\mathbf{b}} \\
+&amp; = (\mathbf{a} \cdot \hat{\mathbf{b}}) \hat{\mathbf{b}} \\
+\end{align}
+\end{split}\]</div>
+
+where <span class="math notranslate nohighlight">\(\lvert \mathbf{a} \rvert\)</span> is the length of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}\)</span> is the unit vector that has the same direction with <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>.</p>
+</section>
+<section id="orthonormal-basis">
+<h4>Orthonormal basis<a class="headerlink" href="#orthonormal-basis" title="Permalink to this headline">¶</a></h4>
+<p>The vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> form an <strong>orthonormal basis</strong> for the space <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(d\)</span> dimensions, if the vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> are unit vectors and orthogonal to each other.</p>
+<p>Given that the vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> form an orthonormal basis for the space <span class="math notranslate nohighlight">\(V\)</span>, the projection of a vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto <span class="math notranslate nohighlight">\(V\)</span> is the sum of the projections of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto the individual basis vectors:
+<div class="math notranslate nohighlight">
+\[ \tilde{\mathbf{w}} = \sum_{i=1}^{d} (\mathbf{w} \cdot \mathbf{v}_{i}) \mathbf{v}_{i} \]</div>
+</p>
+</section>
+<section id="eigenvectors-eigenvalues">
+<h4>Eigenvectors, Eigenvalues<a class="headerlink" href="#eigenvectors-eigenvalues" title="Permalink to this headline">¶</a></h4>
+<p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{R}^{n \times n}\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> is said to be an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> if there exists a <strong>eigenvector</strong> <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^n \neq 0\)</span>, such that:
+<div class="math notranslate nohighlight">
+\[ \mathbf{A}\mathbf{z} = \lambda\mathbf{z} \]</div>
+</p>
+</section>
+<section id="eigendecomposition-spectral-decomposition">
+<h4>Eigendecomposition (spectral decomposition)<a class="headerlink" href="#eigendecomposition-spectral-decomposition" title="Permalink to this headline">¶</a></h4>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> be a real symmetric <span class="math notranslate nohighlight">\(d \times d\)</span> matrix with eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, ... , \lambda_{d}\)</span> and corresponding orthonormal eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, ..., \mathbf{u}_{d}\)</span>. Then:
+<div class="math notranslate nohighlight">
+\[ \mathbf{M} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^T \]</div>
+
+where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with <span class="math notranslate nohighlight">\(\lambda_{1}, ... , \lambda_{d}\)</span> in diagonal and 0 elsewhere and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> matrix has <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, ..., \mathbf{u}_{d}\)</span> vectors as columns.</p>
+</section>
+</section>
+</section>
+<section id="pca-objective-derivation">
+<h2>PCA objective derivation<a class="headerlink" href="#pca-objective-derivation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="projection-of-a-single-instance-vector-to-the-subspace">
+<h3>Projection of a single instance (vector) to the subspace<a class="headerlink" href="#projection-of-a-single-instance-vector-to-the-subspace" title="Permalink to this headline">¶</a></h3>
+<p>An instance <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{d}\)</span> can be projected to any given orthonormal basis <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{d}\)</span> of dimension <span class="math notranslate nohighlight">\(d\)</span> without any error:
+<div class="math notranslate nohighlight">
+\[ \mathbf{x} = \tilde{\mathbf{x}} = \sum_{i=1}^{d} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \]</div>
+</p>
+<p>However, there is a inevitable reconstruction error if <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is projected to only <span class="math notranslate nohighlight">\(m\)</span> (<span class="math notranslate nohighlight">\(m &lt; d\)</span>) dimensions <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}\)</span>:
+<div class="math notranslate nohighlight">
+\[ \mathbf{x} \neq \tilde{\mathbf{x}} = \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \]</div>
+</p>
+<p>We can measure the error by the squared distance:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{err} &amp; = \lVert \mathbf{x} - \tilde{\mathbf{x}} \rVert^{2} \\
+&amp; = \big\lVert \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \big\rVert^{2} \\
+&amp; = \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \cdot \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} - \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \mathbf{x} + \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \\ 
+&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \left( \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \right) + \sum_{i=1}^{m} ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) &amp; \text{[$\because \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{j} = 0$ if $i \neq j$]} \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})(\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i}) \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} &amp; \text{[$\because \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1$]} \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\end{align}
+\end{split}\]</div>
+</p>
+</section>
+<section id="pca-as-minimizing-projection-error">
+<h3>PCA as minimizing projection error<a class="headerlink" href="#pca-as-minimizing-projection-error" title="Permalink to this headline">¶</a></h3>
+<p>Given a dataset of <span class="math notranslate nohighlight">\(n\)</span> instances and <span class="math notranslate nohighlight">\(d\)</span> variables, we can use mean squared error to measure the reconstruction error of all instances in the dataset projected to <span class="math notranslate nohighlight">\(m\)</span> dimensions:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{MSE} &amp; = \frac{1}{n} \sum_{j=1}^{n} \lVert \mathbf{x}_{j} - \tilde{\mathbf{x}}_{j}\rVert^{2} \\
+&amp; = \frac{1}{n} \sum_{j=1}^{n} \left( \mathbf{x}_{j} \cdot \mathbf{x}_{j} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \right) \\
+&amp; = \frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j} - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\end{align}
+\end{split}\]</div>
+</p>
+<p>The goal of PCA is to get a particular orthonormal basis of only <span class="math notranslate nohighlight">\(m\)</span> dimensions such that the mean squared error of projecting all instances on to it is minimized:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\min \quad &amp;  - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
+\end{align}
+\end{split}\]</div>
+</p>
+<ol class="arabic simple">
+<li><p>The constraint is added so that the <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}\)</span> are all unit vectors.</p></li>
+<li><p>The first term <span class="math notranslate nohighlight">\(\frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j}\)</span> is omitted in the objective because it is a fixed value once the dataset is provided.</p></li>
+</ol>
+</section>
+<section id="pca-as-maximizing-projection-variance">
+<h3>PCA as maximizing projection variance<a class="headerlink" href="#pca-as-maximizing-projection-variance" title="Permalink to this headline">¶</a></h3>
+<p>The objective of minimizing projection error defined above is the same as maximizing its negation.
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\min \quad &amp; - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\max \quad &amp; \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\end{align}
+\end{split}\]</div>
+</p>
+<p>The variance of the projection of all instances to the dimension <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> is:
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+\operatorname{var}(X) &amp; = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} \\
+\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \mathbb{E}((\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2}) - \mathbb{E}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \\
+\end{align}
+\end{split}\]</div>
+</p>
+<p>The sum of the variances of the projections to all <span class="math notranslate nohighlight">\(m\)</span> dimensions is:
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \]</div>
+</p>
+<p>Since the dataset is preprocessed to be zero-centered (each variable has mean 0), the last term of the equation above becomes 0:
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} \left( \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \right) \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} (0 \cdot \hat{\mathbf{w}}_{i})^{2} = 0 \]</div>
+</p>
+<p>Thus, we can see that minimizing projection error is the same as maximizing the sum of the projection variance:
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 = \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \]</div>
+</p>
+</section>
+</section>
+<section id="solving-pca-objective">
+<h2>Solving PCA objective<a class="headerlink" href="#solving-pca-objective" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Given the minimization problem:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\min \quad &amp; - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
+\end{align}
+\end{split}\]</div>
+
+we can first rewrite the objective in the matrix form:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+&amp; \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+= &amp; \sum_{i=1}^{m} \frac{1}{n} \sum_{j=1}^{n} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+= &amp; \sum_{i=1}^{m} \frac{1}{n} (\mathbf{X}\hat{\mathbf{w}}_{i})^{T} (\mathbf{X}\hat{\mathbf{w}}_{i}) \\
+= &amp; \sum_{i=1}^{m} \frac{1}{n} \hat{\mathbf{w}}_{i}^{T}\mathbf{X}^{T} \mathbf{X}\hat{\mathbf{w}}_{i} \\
+= &amp; \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \frac{\mathbf{X}^{T}\mathbf{X}}{n} \hat{\mathbf{w}}_{i} \\
+\end{align}
+\end{split}\]</div>
+</p>
+<p>Since we have already zero-centered the dataset, we can replace <span class="math notranslate nohighlight">\(\frac{\mathbf{X}^{T}\mathbf{X}}{n}\)</span> with the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>. Thus, the maximization problem in the matrix form is:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\min \quad &amp; - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} \\
+\text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
+\end{align}
+\end{split}\]</div>
+</p>
+<p>The Lagrangian of the optimization problem is:
+<div class="math notranslate nohighlight">
+\[ L(\mathbf{w}_{1}, \dots, \mathbf{w}_{m}, \lambda_{1} \dots, \lambda_{m}) = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} \lambda_{i}(\hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1) \]</div>
+</p>
+<p>Solving <span class="math notranslate nohighlight">\(L\)</span> by</p>
+<ol class="arabic simple">
+<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> to be 0:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{align}
+ \frac{\partial L}{\partial \hat{\mathbf{w}}}_{i} &amp; = 0 \\
+ -\sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} &amp; = 0 \\
+ \sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} \\
+ \mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \lambda_{i}\hat{\mathbf{w}}_{i}, \quad i = 1, \dots m \\
+ \end{align}
+ \end{split}\]</div>
+
+The results show that the results we want are the eigenvectors <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> and eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>.</p></li>
+<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> to be 0:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{align}
+ \frac{\partial L}{\partial \lambda_{i}} &amp; = 0 \\
+ \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1 &amp; = 0 \\ 
+ \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} &amp; = 1, \quad i = 1, \dots m \\
+ \end{align}
+ \end{split}\]</div>
+
+The constraints show that the eigenvectors must also be unit vectors.</p></li>
+<li><p>Plug in the results back to the objective:
+<div class="math notranslate nohighlight">
+\[ -\sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \lambda_{i} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} \hat{\mathbf{w}}_{i}^{T} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} \]</div>
+
+The last equation shows that we need to select the <span class="math notranslate nohighlight">\(m\)</span> largest eigenvalues to minimize the objective.</p></li>
+</ol>
+</section>
+<section id="pca-algorithm">
+<h2>PCA algorithm<a class="headerlink" href="#pca-algorithm" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c">https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c</a></p></li>
+<li><p><a class="reference external" href="https://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch18.pdf">https://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch18.pdf</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/dimensionality-reduction-with-pca-from-basic-ideas-to-full-derivation-37921e13cae7">https://towardsdatascience.com/dimensionality-reduction-with-pca-from-basic-ideas-to-full-derivation-37921e13cae7</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unsupervised Learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="K-means.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">K-means</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gradient Boosting (GB)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

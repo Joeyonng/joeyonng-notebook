@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Logistic Regression (LR) &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Decision Tree (DT)" href="Decision%20Tree%20%28DT%29.html" />
+    <link rel="prev" title="Support Vector Machine (SVM)" href="Support%20Vector%20Machine%20%28SVM%29.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Supervised Learning/Logistic Regression (LR).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary">
+   Preliminary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization">
+     Optimization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#convex-function">
+       Convex function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gradient-descent">
+       Gradient descent
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression-for-regression-problems">
+   Linear regression for regression problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-function">
+     Linear function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-function">
+     Loss function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regularization">
+     Regularization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-linear-regression">
+   Solving linear regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression-for-classification-problems">
+   Logistic regression for classification problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from-regression-to-classification-using-sigmoid-function">
+     From regression to classification using sigmoid function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-cross-entropy-log-loss-instead-of-mean-squared-error">
+     Binary cross entropy (log loss) instead of mean squared error
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="logistic-regression-lr">
+<h1>Logistic Regression (LR)<a class="headerlink" href="#logistic-regression-lr" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Linear regression is a supervised machine learning model that fits a correlation linear line between input and label variables. The output value can be arbitrary continuous value and thus it is used for regression.</p></li>
+<li><p>The model has a weight vector and a bias as parameters. The output of the model is the dot product of the weight vector and the input vector plus a bias value.</p></li>
+<li><p>The linear regression model is trained by solving an optimization problem that is defined by applying a cost function that evaluates the difference between the model’s output and the correct labels. The cost function for linear regression is mean squared error function that takes the mean of the squared value of each prediction’s error. MSE for linear regression is proved to be convex, so solving it using convex optimization or gradient descent will get the global minimum.</p></li>
+<li><p>Logistic regression is similar to linear regression, but the output is a probability value between 0 and 1, so it is used for binary classification instead of regression.</p></li>
+<li><p>A sigmoid (logistic) function is attached after the output of linear regression to output a probability for logistic regression. Instead of using MSE, the cost function is changed to binary cross entropy such that the loss grows exponentially with the difference between outputs and labels.</p></li>
+</ol>
+<section id="preliminary">
+<h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="optimization">
+<h3>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h3>
+<section id="convex-function">
+<h4>Convex function<a class="headerlink" href="#convex-function" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</section>
+<section id="gradient-descent">
+<h4>Gradient descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="linear-regression-for-regression-problems">
+<h2>Linear regression for regression problems<a class="headerlink" href="#linear-regression-for-regression-problems" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="linear-function">
+<h3>Linear function<a class="headerlink" href="#linear-function" title="Permalink to this headline">¶</a></h3>
+<p>If a function with single input and output <span class="math notranslate nohighlight">\(y = f(x)\)</span> is a linear function, it represents a straight line on the coordinate plane. Thus it has the form:</p>
+<div class="math notranslate nohighlight">
+\[ y = wx + b \]</div>
+<p>where <span class="math notranslate nohighlight">\(w\)</span> is the slope and <span class="math notranslate nohighlight">\(b\)</span> is the y-intercept of the line.</p>
+<p>A linear function can also take multiple inputs and we can represent <span class="math notranslate nohighlight">\(n\)</span> inputs with a vector <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{n}\)</span>. Then the equation changes to:</p>
+<div class="math notranslate nohighlight">
+\[ y = \mathbf{w} \cdot \mathbf{x} + b \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is called <strong>weights</strong> or the weight vector and <span class="math notranslate nohighlight">\(b\)</span> is called <strong>bias</strong>.</p>
+<p>Linear regression is a supervised regression model that simply fits a linear function between the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and output <span class="math notranslate nohighlight">\(y\)</span>.</p>
+</section>
+<section id="loss-function">
+<h3>Loss function<a class="headerlink" href="#loss-function" title="Permalink to this headline">¶</a></h3>
+<p>Loss function is a function that measures the error between the labels predicted by your current model and the true labels for a set of instances (training set).</p>
+<p>Linear regression minimizes the a particular loss function called <strong>mean squared error (MSE)</strong> function. Given a set of training labels <span class="math notranslate nohighlight">\(\mathbf{y} = y_{1}, y_{2}, \dots, y_{n}\)</span> for <span class="math notranslate nohighlight">\(n\)</span> training instances and the predicted labels <span class="math notranslate nohighlight">\(\hat{\mathbf{y}} = \hat{y}_{1}, \hat{y}_{2}, \dots, \hat{y}_{n}\)</span> for the same instances, MSE is defined as:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MSE}(\hat{\mathbf{y}}, \mathbf{y}) = \frac{1}{n} \sum_{i}^{n}(\hat{y}_{i} - y_{i})^{2} \]</div>
+<p>Thus, fitting a linear regression model for a training set <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> with labels <span class="math notranslate nohighlight">\(\mathbf{y} \in \mathbb{R}^{n}\)</span> is a convex optimization problem:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\min &amp; \quad \lVert (\mathbf{X}\mathbf{w} + b) - \mathbf{y} \rVert_{2}^{2} \\
+= \min &amp; \quad \frac{1}{n} \sum_{i=1}^{n} ((\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i})^{2} \\
+\end{align}
+\end{split}\]</div>
+</section>
+<section id="regularization">
+<h3>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h3>
+<p>Regularization is a technique used to avoid over-fitting of the machine learning models. Regularization works by adding an additional penalty term in the loss function to penalize aspects of the model other than the prediction error.</p>
+<div class="math notranslate nohighlight">
+\[ L_{\text{new}} = L_{\text{old}} + \lambda L_{\text{reg}} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is a hyperparamter that adjust the trade-off between the primary objective and the regularization.</p>
+<p>For linear regression and other many models, usually <span class="math notranslate nohighlight">\(L_{2}\)</span> regularization (Ridge) and <span class="math notranslate nohighlight">\(L_{1}\)</span> regularization (Lasso) are used.</p>
+<ul class="simple">
+<li><p>Ridge penalizes the <span class="math notranslate nohighlight">\(L_{2}\)</span> norm of the weights</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+L_{\text{ridge}} &amp; = \lVert \mathbf{w} \rVert_{2}^{2} \\
+&amp; = \sum_{i=1}^{\lvert \mathbf{w} \rvert} w_{i}^{2} \\
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Lasso penalizes the <span class="math notranslate nohighlight">\(L_{1}\)</span> norm of the weights</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+L_{\text{lasso}} &amp; = \lVert \mathbf{w} \rVert_{1} \\
+&amp; = \sum_{i=1}^{\lvert \mathbf{w} \rvert} \lvert w_{i} \rvert \\
+\end{align}
+\end{split}\]</div>
+<p>Both Ridge and Lasso penalize the magnitude of the weights. Large weights tend to overfit the training dataset because</p>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</section>
+</section>
+<section id="solving-linear-regression">
+<h2>Solving linear regression<a class="headerlink" href="#solving-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>Here we show how we can analytically solve linear regression with <span class="math notranslate nohighlight">\(L_{2}\)</span> regularization to get a closed form solution.</p>
+<div class="math notranslate nohighlight">
+\[ \min \quad \frac{1}{n} \sum_{i=1}^{n} ((\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i})^{2} + \lambda \lVert \mathbf{w} \rVert_{2}^{2} \]</div>
+<p>Since this equation is a convex function, it can be directly solved by taking its derivative w.r.t its parameters (<span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(b\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{\partial}{\partial \mathbf{w}} \frac{1}{n} \sum_{i=1}^{n} ((\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i})^{2} + \lambda \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{\partial}{\partial \mathbf{w}} \frac{1}{n} \sum_{i=1}^{n} (\mathbf{w} \cdot \mathbf{x}_{i} + (b - y_{i}))^{2} + \lambda \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{\partial}{\partial \mathbf{w}} \frac{1}{n} \sum_{i=1}^{n} (\mathbf{w} \cdot \mathbf{x}_{i})^{2} + 2(\mathbf{w} \cdot \mathbf{x}_{i})(b - y_{i}) + (b - y_{i})^{2} + \lambda \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{1}{n} \sum_{i=1}^{n} 2(\mathbf{x}_{i} \cdot \mathbf{x}_{i})\mathbf{w} + 2\mathbf{x}_{i}(b - y_{i}) + 2 \lambda \mathbf{w} &amp; = 0\\
+\frac{2 \mathbf{w}}{n} \sum_{i=1}^{n} \mathbf{x}_{i} \cdot \mathbf{x}_{i} + \frac{2b}{n} \sum_{i=1}^{n} \mathbf{x}_{i} - \frac{2}{n} \sum_{i=1}^{n} \mathbf{x}_{i} y_{i} + 2 \lambda \mathbf{w} &amp; = 0 \\ 
+\end{align}
+\end{split}\]</div>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{\partial}{\partial b} \frac{1}{n} \sum_{i=1}^{n} ((\mathbf{w} \cdot \mathbf{x}_{i} + b) - y_{i})^{2} + \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{\partial}{\partial b} \frac{1}{n} \sum_{i=1}^{n} (b + (\mathbf{w} \cdot \mathbf{x}_{i} - y_{i}))^{2} + \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{\partial}{\partial b} \frac{1}{n} \sum_{i=1}^{n} b^{2} + 2b(\mathbf{w} \cdot \mathbf{x}_{i} - y_{i}) + (\mathbf{w} \cdot \mathbf{x}_{i} - y_{i})^{2} + \lVert \mathbf{w} \Vert_{2}^{2} &amp; = 0 \\
+\frac{1}{n} \sum_{i=1}^{n} 2b + 2(\mathbf{w} \cdot \mathbf{x}_{i} - y_{i}) &amp; = 0 \\
+2b + \frac{2}{n} \sum_{i=1}^{n} （\mathbf{w} \cdot \mathbf{x}_{i} - y_{i}) &amp; = 0 \\
+b &amp; = - \frac{1}{n} \sum_{i=1}^{n} （\mathbf{w} \cdot \mathbf{x}_{i} - y_{i}) \\
+\end{align}
+\end{split}\]</div>
+</section>
+<section id="logistic-regression-for-classification-problems">
+<h2>Logistic regression for classification problems<a class="headerlink" href="#logistic-regression-for-classification-problems" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="from-regression-to-classification-using-sigmoid-function">
+<h3>From regression to classification using sigmoid function<a class="headerlink" href="#from-regression-to-classification-using-sigmoid-function" title="Permalink to this headline">¶</a></h3>
+<p>How can we use linear regression on a binary classification problem where the labels are 0 and 1?</p>
+<p>Answer: take the output of a linear regression model and pass it to a <strong>sigmoid</strong> (logistic) function:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma(x) = \mathrm{sigmoid}(x) = \frac{1}{1 + e^{-x}} \]</div>
+<p>Sigmoid function has the following characterstics that are suitable for binary classification</p>
+<ol class="arabic simple">
+<li><p>Sigmoid function maps range <span class="math notranslate nohighlight">\((-\inf, \inf)\)</span> to range <span class="math notranslate nohighlight">\((0, 1)\)</span>, which can be interpreted as the possibility of being class 1.</p></li>
+<li><p>Positive inputs map to output larger than 0.5 and negative inputs map to output less than 0.5.</p></li>
+</ol>
+<p>Thus, given an instance <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the binary output can be derived by setting a threshold <span class="math notranslate nohighlight">\(\theta\)</span> (usually set to <span class="math notranslate nohighlight">\(0.5\)</span>) to the output of the logistic regression,</p>
+<div class="math notranslate nohighlight">
+\[ \hat{y} = \sigma(\mathbf{w}\mathbf{x} + b) \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\hat{y}_{\text{label}} = 
+\begin{cases}
+1, &amp; \hat{y} \geq \theta \\
+0, &amp; \hat{y} &lt; \theta \\
+\end{cases}
+\end{split}\]</div>
+<p>Note another commonly used function is <strong>logit</strong> function,</p>
+<div class="math notranslate nohighlight">
+\[ \sigma^{-1}(x) = \mathrm{logit}(x) = \log \frac{x}{1 - x} \]</div>
+<p>The inverse of the sigmoid function is the logit function, which can be derived by exchange the input and the output of the sigmoid function:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+x &amp;= \frac{1}{1 + e^{-y}} \\
+\frac{1}{x} &amp;= 1 + e^{-y} \\
+e^{-y} &amp;= \frac{1 - x}{x} \\
+e^{y} &amp;= \frac{x}{1 - x} \\
+y &amp;= \log\frac{x}{1 - x} \\
+\end{align}
+\end{split}\]</div>
+</section>
+<section id="binary-cross-entropy-log-loss-instead-of-mean-squared-error">
+<h3>Binary cross entropy (log loss) instead of mean squared error<a class="headerlink" href="#binary-cross-entropy-log-loss-instead-of-mean-squared-error" title="Permalink to this headline">¶</a></h3>
+<p>Although sigmoid function can work for binary classification problem, it doesn’t work quite well with MSE loss. The primary reason is that MSE with sigmoid function is not a convex function anymore.</p>
+<div class="math notranslate nohighlight">
+\[ L_{\text{MSE}} = \frac{1}{n} \sum_{i}^{n} (\frac{1}{1 + e^{-(\mathbf{w}\mathbf{x} + b)}} -y_{i})^{2} = \frac{1}{n} \sum_{i}^{n} (\sigma(\mathbf{w}\mathbf{x} + b) -y_{i})^{2} \]</div>
+<p>To prove a function is convex or not, one way is to see if the second derivative of <span class="math notranslate nohighlight">\(L_{\text{MSE}}\)</span> w.r.t to <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is positive semidefinite.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{\partial L_{\text{MSE}}}{\partial \mathbf{w}} &amp; = \frac{\partial L_{\text{MSE}}}{\partial \sigma} \frac{\partial \sigma}{\partial \mathbf{w}} &amp; \text{[chain rule]} \\
+&amp; = \frac{\partial}{\partial \sigma} \left( \frac{1}{n} \sum_{i}^{n} (\sigma -y_{i})^{2} \right) \sigma(1 - \sigma) \mathbf{x} &amp; \text{[$\sigma' = \sigma(1 - \sigma)$]} \\
+&amp; = \frac{2}{n} \sum_{i}^{n} (\sigma - y_{i}) \sigma(1 - \sigma) \mathbf{x} \\
+&amp; = \frac{2 \mathbf{x}}{n} \sum_{i}^{n} \sigma^{2} - \sigma^{3} - y_{i}\sigma - y_{i}\sigma^{2}  \\
+\end{align}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{\partial^{2} L_{\text{MSE}}}{\partial \mathbf{w}^{2}} &amp; = \frac{\partial}{\partial \mathbf{w}} \left( \frac{2 \mathbf{x}}{n} \sum_{i}^{n} \sigma^{2} - \sigma^{3} - y_{i}\sigma - y_{i}\sigma^{2} \right) \\
+&amp; = \frac{\partial}{\partial \sigma} \left( \frac{2 \mathbf{x}}{n} \sum_{i}^{n} \sigma^{2} - \sigma^{3} - y_{i}\sigma - y_{i}\sigma^{2} \right) \frac{\partial \sigma}{\partial \mathbf{w}}^{T} \\
+&amp; = \left( \frac{2 \mathbf{x}}{n} \sum_{i}^{n} 2\sigma - 3\sigma^{2} - y_{i} - 2y_{i}\sigma \right) \sigma(1 - \sigma) \mathbf{x}^{T} \\
+\end{align}
+\end{split}\]</div>
+<blockquote>
+<div><p>TODO: prove the hessian matrix is not positive semidefinite.</p>
+</div></blockquote>
+<p>Thus, instead of MSE, <strong>binary cross entropy</strong> (BCE) loss (log loss) is used with sigmoid to create a convex objective.</p>
+<div class="math notranslate nohighlight">
+\[ \mathrm{BCE} = -\frac{1}{n}\sum_{i}^{n}(y_{i}\log(\hat{y}_{i}) + (1-y_{i})\log(1-\hat{y}))) \]</div>
+<p>BCE assumes both inputs <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> are in the range <span class="math notranslate nohighlight">\([0, 1]\)</span>. Since normally the labels <span class="math notranslate nohighlight">\(y_{i}\)</span> are 0 or 1, BCE can be interpreted by decomposing to two cases for each prediction and label pair:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{cases}
+-\log(\hat{y}_{i}) &amp;  y_{i} = 1 \\
+-\log(1 - \hat{y}_{i}) &amp; y_{i} = 0 \\
+\end{cases}
+\end{split}\]</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="500"
+    height="500"
+    src="https://www.desmos.com/calculator/ojpmcptvt0?embed"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/why-not-mse-as-a-loss-function-for-logistic-regression-589816b5e03c">https://towardsdatascience.com/why-not-mse-as-a-loss-function-for-logistic-regression-589816b5e03c</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supervised Learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Support%20Vector%20Machine%20%28SVM%29.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Support Vector Machine (SVM)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Decision%20Tree%20%28DT%29.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Decision Tree (DT)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

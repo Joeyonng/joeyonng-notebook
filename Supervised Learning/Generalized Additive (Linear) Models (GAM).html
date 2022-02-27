@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Generalized Additive (Linear) Models (GAM) &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SSGD" href="../Notes/SSGD.html" />
+    <link rel="prev" title="Decision Tree (DT)" href="Decision%20Tree%20%28DT%29.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Supervised Learning/Generalized Additive (Linear) Models (GAM).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary">
+   Preliminary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gaussian-normal-distribution">
+       Gaussian (normal) distribution
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression-in-a-probablitiy-view">
+   Linear regression in a probablitiy view
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-combination-of-gaussian-distributions">
+     Linear combination of Gaussian distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions-of-linear-regression">
+     Assumptions of linear regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-linear-models-glm">
+   Generalized Linear Models (GLM)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression-as-a-glm-for-bernoulli-distribution">
+     Logistic regression as a GLM for Bernoulli distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalized-addictive-models-gam">
+   Generalized Addictive Models (GAM)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="generalized-additive-linear-models-gam">
+<h1>Generalized Additive (Linear) Models (GAM)<a class="headerlink" href="#generalized-additive-linear-models-gam" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Generalized linear models build on linear regression models to predict a non-Gaussian distribution. It keeps the weighted sum of the features of the linear regression, but connect the weighted sum and the expected mean of the output distribution through a possibly nonlinear function.</p></li>
+<li><p>For example, the logistic regression is a type of the generalized linear models and it assumes a Bernoulli distribution for the outcome and links the expected mean and the weighted sum using the logic function.</p></li>
+<li><p>Generalized additive models further relax the restriction that the relationship must be a simple weighted sum, and instead assume that the outcome can be modeled by a sum of arbitrary functions of each feature. It allows to model the potentially non-linear relations between the features and the output.</p></li>
+</ol>
+<section id="preliminary">
+<h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<section id="gaussian-normal-distribution">
+<h4>Gaussian (normal) distribution<a class="headerlink" href="#gaussian-normal-distribution" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="linear-regression-in-a-probablitiy-view">
+<h2>Linear regression in a probablitiy view<a class="headerlink" href="#linear-regression-in-a-probablitiy-view" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="linear-combination-of-gaussian-distributions">
+<h3>Linear combination of Gaussian distributions<a class="headerlink" href="#linear-combination-of-gaussian-distributions" title="Permalink to this headline">¶</a></h3>
+<p>Gaussian distribution is closed under linear transformation, which means:</p>
+<ol class="arabic simple">
+<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu, \sigma^{2})\)</span>. Then the random variable <span class="math notranslate nohighlight">\(Y = aX + b\)</span> also follows Gaussian distribution
+<div class="math notranslate nohighlight">
+\[ Y \sim \mathcal{N}(a\mu + b, a\sigma^{2}) \]</div>
+</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu_{X}, \sigma_{X}^{2})\)</span> and <span class="math notranslate nohighlight">\(Y \sim \mathcal{N}(\mu_{Y}, \sigma_{Y}^{2})\)</span>. Then, if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, the random variable <span class="math notranslate nohighlight">\(Z = X + Y\)</span> also follows Gaussian distribution:
+<div class="math notranslate nohighlight">
+\[ Z \sim \mathcal{N}(\mu_{X} + \mu_{Y}, \sigma_{X}^{2} + \sigma_{Y}^{2}) \]</div>
+</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> be <span class="math notranslate nohighlight">\(n\)</span> mutually independent Gaussian random variables with means <span class="math notranslate nohighlight">\(\mu_{1}, \dots, \mu_{n}\)</span> and variances <span class="math notranslate nohighlight">\(\sigma_{1}^{2}, \dots \sigma_{n}^{2}\)</span>. If the random variable <span class="math notranslate nohighlight">\(Y\)</span> is a linear combinations of the <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(w_{1}, \dots, w_{n}\)</span> coefficients and <span class="math notranslate nohighlight">\(b_{1}, \dots, b_{n}\)</span> biases:
+<div class="math notranslate nohighlight">
+\[ Y = \sum_{i=1}^{n} w_{i}X_{i} + b_{i}\]</div>
+
+then <span class="math notranslate nohighlight">\(Y\)</span> also follows Gaussian distribution:
+<div class="math notranslate nohighlight">
+\[ Y \sim \mathcal{N}(\sum_{i=1}^{n} w_{i}\mu_{i} + b_{i}, \sum_{i=1}^{n} w_{i}^2\sigma_{i}^2) \]</div>
+</p></li>
+</ol>
+</section>
+<section id="assumptions-of-linear-regression">
+<h3>Assumptions of linear regression<a class="headerlink" href="#assumptions-of-linear-regression" title="Permalink to this headline">¶</a></h3>
+<p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> with each feature treated as a random variable (<span class="math notranslate nohighlight">\(X_{1}, X_{2}, \dots, X_{d}\)</span>), then linear regression of the form</p>
+<div class="math notranslate nohighlight">
+\[ y = \mathbf{w}\mathbf{x} + b \]</div>
+<p>will have the following assumptions to work properly:</p>
+<ol class="arabic simple">
+<li><p>The input features are independent from each other.</p></li>
+<li><p>The output distribution given the input features follows a Gaussian distribution.</p></li>
+<li><p>The true relationship between each feature and the output is linear.</p></li>
+</ol>
+<p>However, in most of the real world applications, the assumptions above can hardly be satisfied and can be remedied by following methods accordingly:</p>
+<ol class="arabic simple">
+<li><p>Use PCA to extract a set of independent features from all features that are not natually mutually independent.</p></li>
+<li><p>Use <strong>GLM</strong> to model non-Gaussian output distribution.</p></li>
+<li><p>Use <strong>GAM</strong> to model non-linear relation between features and the output.</p></li>
+</ol>
+</section>
+</section>
+<section id="generalized-linear-models-glm">
+<h2>Generalized Linear Models (GLM)<a class="headerlink" href="#generalized-linear-models-glm" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><strong>Generalized linear models (GLM)</strong> extends the linear regression model by using a non-linear function that connects the weighted sum of the Gaussian input features with the expected mean of the non-Gaussian output distribution.</p>
+<p>GLM can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[ g(\mathbb{E}(Y)) = \sum_{i=1}^{n} w_{i}X_{i} + b \]</div>
+<p>where <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \dots X_{n}\)</span> are the input random variables and <span class="math notranslate nohighlight">\(Y\)</span> is the output random variable.</p>
+<p>The components of GLM can be formalized as:</p>
+<ol class="arabic simple">
+<li><p>Random component: the probability distribution of the output variable <span class="math notranslate nohighlight">\(Y\)</span>. It’s expected value (mean value) is <span class="math notranslate nohighlight">\(\mathbb{E}(Y)\)</span>.</p></li>
+<li><p>Systematic component: the weighted sum <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} w_{i}X_{i} + b\)</span>.</p></li>
+<li><p>Link function: the relation (often non-linear) <span class="math notranslate nohighlight">\(g(\cdot)\)</span> between the random component and the systematic component.</p></li>
+</ol>
+<section id="logistic-regression-as-a-glm-for-bernoulli-distribution">
+<h3>Logistic regression as a GLM for Bernoulli distribution<a class="headerlink" href="#logistic-regression-as-a-glm-for-bernoulli-distribution" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="generalized-addictive-models-gam">
+<h2>Generalized Addictive Models (GAM)<a class="headerlink" href="#generalized-addictive-models-gam" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[ g(\mathrm{E}(Y)) = \sum_{1}^{n}f(x_i) \]</div>
+<p>where <span class="math notranslate nohighlight">\(f()\)</span> can be arbitrarily defined function.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/extend-lm.html">https://christophm.github.io/interpretable-ml-book/extend-lm.html</a></p></li>
+<li><p><a class="reference external" href="http://www.stat.ucla.edu/~nchristo/introstatistics/introstats_normal_linear_combinations.pdf">http://www.stat.ucla.edu/~nchristo/introstatistics/introstats_normal_linear_combinations.pdf</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supervised Learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Decision%20Tree%20%28DT%29.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Decision Tree (DT)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Notes/SSGD.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SSGD</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

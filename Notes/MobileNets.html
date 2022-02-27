@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mobile Nets &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Birkhoff+" href="Birkhoff%2B.html" />
+    <link rel="prev" title="Quantization Survey" href="Quantization%20Survey.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L0%20Regularization.html">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/MobileNets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-2d-convolution-layer-preliminary">
+   Standard 2D convolution layer (Preliminary)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Standard 2D convolution layer (Preliminary)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#depthwise-separable-convolution-mobilenetv1">
+   Depthwise separable convolution (MobileNetV1)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverted-residual-and-linear-bottleneck-block-mobilenetv2">
+   Inverted residual and linear bottleneck block (MobileNetV2)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#squeeze-and-excite-mobilenetv3">
+   Squeeze-and-Excite (MobileNetV3)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mobile-nets">
+<h1>Mobile Nets<a class="headerlink" href="#mobile-nets" title="Permalink to this headline">¶</a></h1>
+<p><em>05-01-2021</em></p>
+<p>This page contains my reading notes on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/MobileNets%3A-Efficient-Convolutional-Neural-Networks-Howard-Zhu/3647d6d0f151dc05626449ee09cc7bce55be497e"><strong>MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/MobileNetV2%3A-Inverted-Residuals-and-Linear-Sandler-Howard/dd9cfe7124c734f5a6fc90227d541d3dbcd72ba4"><strong>MobileNetV2: Inverted Residuals and Linear Bottlenecks</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Searching-for-MobileNetV3-Howard-Sandler/83d074cc5051ade0c08d66180e4a04d2c112fa97"><strong>Searching for MobileNetV3</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Squeeze-and-Excitation-Networks-Hu-Shen/df67d46e78aae0d2fccfb6212d101a342259c01b"><strong>Squeeze-and-Excitation Networks</strong></a></p></li>
+</ul>
+<section id="standard-2d-convolution-layer-preliminary">
+<h2>Standard 2D convolution layer (Preliminary)<a class="headerlink" href="#standard-2d-convolution-layer-preliminary" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Convolution layer takes as input <span class="math notranslate nohighlight">\(M\)</span> matrices (<span class="math notranslate nohighlight">\(M\)</span> input channels) of shape <span class="math notranslate nohighlight">\(D_i \times D_i\)</span>, which can be seen as a 3D volume of size <span class="math notranslate nohighlight">\(D_i \times D_i \times M\)</span>.</p></li>
+<li><p>Each convolution layer consists of <span class="math notranslate nohighlight">\(N\)</span> sets of learnable weights (<span class="math notranslate nohighlight">\(N\)</span> filters or <span class="math notranslate nohighlight">\(N\)</span> output channels), each of which corresponds to a learnable bias. Each set of learnable weights (a filter) is a small 3D volume with size <span class="math notranslate nohighlight">\(D\)</span> and same depth as the input volume <span class="math notranslate nohighlight">\(M\)</span>, i.e. <span class="math notranslate nohighlight">\(M\)</span> matrices of shape <span class="math notranslate nohighlight">\(D \times D\)</span>.</p></li>
+<li><p>The output activation of the convolution layer has the <span class="math notranslate nohighlight">\(N\)</span> matrices of shape <span class="math notranslate nohighlight">\(D_o \times D_o\)</span>, which can also be seen as a 3D volume of size <span class="math notranslate nohighlight">\(D_o \times D_o \times M\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(D_o\)</span> is computed as: <div class="math notranslate nohighlight">
+\[ D_o = \frac{D_i - D}{S} + 1 \]</div>
+</p></li>
+</ol>
+</li>
+<li><p>In the equation above, <span class="math notranslate nohighlight">\(S\)</span> is stride, which tells how many pixels the filter moves each time. The input matrices will usually be zero-padded to control the output size.</p></li>
+<li><p>The animation below shows exactly how the output of a convolution layer is computed.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h2>Standard 2D convolution layer (Preliminary)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Convolution layer takes as input <span class="math notranslate nohighlight">\(M\)</span> matrices (<span class="math notranslate nohighlight">\(M\)</span> input channels) of shape <span class="math notranslate nohighlight">\(D_i \times D_i\)</span>, which can be seen as a 3D volume of size <span class="math notranslate nohighlight">\(D_i \times D_i \times M\)</span>.</p></li>
+<li><p>Each convolution layer consists of <span class="math notranslate nohighlight">\(N\)</span> sets of learnable weights (<span class="math notranslate nohighlight">\(N\)</span> filters or <span class="math notranslate nohighlight">\(N\)</span> output channels), each of which corresponds to a learnable bias. Each set of learnable weights (a filter) is a small 3D volume with size <span class="math notranslate nohighlight">\(D\)</span> and same depth as the input volume <span class="math notranslate nohighlight">\(M\)</span>, i.e. <span class="math notranslate nohighlight">\(M\)</span> matrices of shape <span class="math notranslate nohighlight">\(D \times D\)</span>.</p></li>
+<li><p>The output activation of the convolution layer has the <span class="math notranslate nohighlight">\(N\)</span> matrices of shape <span class="math notranslate nohighlight">\(D_o \times D_o\)</span>, which can also be seen as a 3D volume of size <span class="math notranslate nohighlight">\(D_o \times D_o \times M\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(D_o\)</span> is computed as:
+<div class="math notranslate nohighlight">
+\[ D_o = \frac{D_i - D}{S} + 1 \]</div>
+</p></li>
+</ol>
+</li>
+<li><p>In the equation above, <span class="math notranslate nohighlight">\(S\)</span> is stride, which tells how many pixels the filter moves each time. The input matrices will usually be zero-padded to control the output size.</p></li>
+<li><p>The animation below shows exactly how the output of a convolution layer is computed.</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="792"
+    height="700"
+    src="https://cs231n.github.io/assets/conv-demo/index.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</section>
+<section id="depthwise-separable-convolution-mobilenetv1">
+<h2>Depthwise separable convolution (MobileNetV1)<a class="headerlink" href="#depthwise-separable-convolution-mobilenetv1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Instead of using the traditional convolution layers as the building blocks, MobileNetV1 uses layers called depthwise separable convolutions.</p></li>
+<li><p>Each depthwise separable convolution consists of two layers:</p>
+<ol class="arabic simple">
+<li><p>Depthwise convolution layer: it has <span class="math notranslate nohighlight">\(M\)</span> separate filters of shape <span class="math notranslate nohighlight">\(D \times D \times 1\)</span>, where the <span class="math notranslate nohighlight">\(m\)</span>th filter is applied to the <span class="math notranslate nohighlight">\(m\)</span>th input channel. This layer can also be thought to have 1 filter of shape <span class="math notranslate nohighlight">\(D \times D \times M\)</span>, but the output channels will not be added together. In this way, the output size is <span class="math notranslate nohighlight">\(D_o \times D_o \times M\)</span>.</p></li>
+<li><p>Pointwise convolution layer: it has <span class="math notranslate nohighlight">\(N\)</span> separate filters of shape <span class="math notranslate nohighlight">\(1 \times 1 \times M\)</span>. Each filter is doing a linear combination of the matrices (input channels) of the input volume, and thus <span class="math notranslate nohighlight">\(N\)</span> filters will have <span class="math notranslate nohighlight">\(N\)</span> matrices (output channels). It takes the output of depthwise convolution as the input, and the output of pointwise convolution has the shape of <span class="math notranslate nohighlight">\(D_o \times D_o \times N\)</span>, just like the output of a standard convolution layer.</p></li>
+</ol>
+</li>
+<li><p>Each filter in a convolution layer both filters and combines inputs in one step. Depthwise separable convolution splits this into two layers: depthwise convolution does filtering while pointwise convolution combines.</p></li>
+<li><p>Computational cost comparison:</p>
+<ol class="arabic simple">
+<li><p>Standard convolution layer (assuming stride is 1): <span class="math notranslate nohighlight">\(D_i \times D_i \times D \times D \times M \times N\)</span></p></li>
+<li><p>Depthwise convolution layer (assuming stride is 1): <span class="math notranslate nohighlight">\(D_i \times D_i \times D \times D \times M\)</span></p></li>
+<li><p>Pointwise convolution layer: <span class="math notranslate nohighlight">\(D \times D \times M \times N\)</span></p></li>
+<li><p>Thus the computation cost of depthwise separable convolution is less than that of the standard convolution layer:
+<div class="math notranslate nohighlight">
+\[ \frac{D_i \times D_i \times D \times D \times M + D \times D \times M \times N}{D_i \times D_i \times D \times D \times M \times N} = \frac{1}{N} + \frac{1}{D_i^2} \]</div>
+</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/MobileNets_5_0.png" src="../_images/MobileNets_5_0.png" />
+</div>
+</div>
+</section>
+<section id="inverted-residual-and-linear-bottleneck-block-mobilenetv2">
+<h2>Inverted residual and linear bottleneck block (MobileNetV2)<a class="headerlink" href="#inverted-residual-and-linear-bottleneck-block-mobilenetv2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The improvement of this layer over the depthwise separable convolution is based on the following two assumptions:</p>
+<ol class="arabic simple">
+<li><p>Although Non-linear activations (Relu) can increase representational complexity, it will result in information loss if the input doesn’t have lots of channels.</p></li>
+<li><p>Activation maps are able to be encoded in low-dimensional subspaces (less channels).</p></li>
+</ol>
+</li>
+<li><p>An expansion layer is appended to the front of the depthwise separable convolution. If the input has the shape of <span class="math notranslate nohighlight">\(D_i \times D_i \times M\)</span>, the expansion layer is a pointwise convolution layer that has <span class="math notranslate nohighlight">\(tM\)</span> filters of size <span class="math notranslate nohighlight">\(1 \times 1 \times M\)</span>, where <span class="math notranslate nohighlight">\(t\)</span> is called expansion factor/ratio and should be larger than 1. The output will have the shape <span class="math notranslate nohighlight">\(D_i \times D_i \times tM\)</span>. The layer expands the low-dimensional (less channels) input activation map to a higher-dimensional (more channels) space suited to non-linear activation functions.</p></li>
+<li><p>Non-linear activation functions (Relu6) can only be applied to the high-dimensional activation maps. The last pointwise convolution layer projects the high-dimensional space back into low-dimensional space, so it can only have linear activation functions. Therefore, linear bottleneck block has three layers:</p>
+<ol class="arabic simple">
+<li><p>Expansion layer: <span class="math notranslate nohighlight">\(tM\)</span> filters of <span class="math notranslate nohighlight">\(1 \times 1 \times M\)</span>, Relu6.</p></li>
+<li><p>Depthwise convolution layer: 1 filter of <span class="math notranslate nohighlight">\(D \times D \times tM\)</span> (Dwise), Relu6.</p></li>
+<li><p>Pointwise convolution layer: <span class="math notranslate nohighlight">\(M'\)</span> filters of <span class="math notranslate nohighlight">\(1 \times 1 \times tM\)</span>, Linear.</p></li>
+</ol>
+</li>
+<li><p>If the initial and final activation maps of the block are of the same dimensions, a residual connection between the input and output of the block (between expansion layers from two consecutive blocks) is added to aid gradient flow during back-propagation, which is achieved by:</p>
+<ol class="arabic simple">
+<li><p>Depthwise convolution stride equals (<span class="math notranslate nohighlight">\(S = 1\)</span>).</p></li>
+<li><p>Input and output channels are equal (<span class="math notranslate nohighlight">\(M' = M\)</span>).</p></li>
+</ol>
+</li>
+<li><p>The paper emphasizes that the connection is added between the expansion layers (inverted residual connection) instead of between depthwise convolution layer (residual connection), so that the connections are created between the low-dimensional activation maps.</p></li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/MobileNets_7_0.png" src="../_images/MobileNets_7_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/MobileNets_8_0.png" src="../_images/MobileNets_8_0.png" />
+</div>
+</div>
+</section>
+<section id="squeeze-and-excite-mobilenetv3">
+<h2>Squeeze-and-Excite (MobileNetV3)<a class="headerlink" href="#squeeze-and-excite-mobilenetv3" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>MobileNetV3 uses the block that modifies the inverted residual block by adding a Squeeze-and-Excite block between the depthwise convolution layer and pointwise convolution layer.</p></li>
+<li><p>Given an input that has the shape <span class="math notranslate nohighlight">\(D_i \times D_i \times M\)</span>, Squeeze-and-Excite block in the original paper consists of three parts:</p>
+<ol class="arabic simple">
+<li><p>Squeeze: apply global average pooling to the input, so that all information in each input channel is “squeezed” into a single channel descriptor. Each descriptor is a single value that summarizes each channel of the input. The output shape of this layer is <span class="math notranslate nohighlight">\(1 \times 1 \times M\)</span>.</p></li>
+<li><p>Excite: apply two fully connected layers to the output of the Squeeze layer. Use Relu activation function for the first layer and Sigmoid activation function for the second layer. The first layer contains <span class="math notranslate nohighlight">\(\frac{M}{r}\)</span> number of neurons, and thus the output of the first layer reduces the dimension by a reduction ratio <span class="math notranslate nohighlight">\(r\)</span>. The second layer contains <span class="math notranslate nohighlight">\(M\)</span> number of neurons to restore the output dimension to be the same as the output of the Squeeze layer.</p></li>
+<li><p>Scale: the <span class="math notranslate nohighlight">\(M\)</span> coefficients of the output of the Excite layer are timed with <span class="math notranslate nohighlight">\(M\)</span> channels of input of the block to form the output of the block.</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/MobileNets_10_0.png" src="../_images/MobileNets_10_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/MobileNets_11_0.png" src="../_images/MobileNets_11_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Quantization%20Survey.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Quantization Survey</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Birkhoff%2B.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Birkhoff+</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

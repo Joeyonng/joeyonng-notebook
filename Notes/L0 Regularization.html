@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>L0 Regularization &#8212; Joeyonng&#39;s Notebook</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quantization Survey" href="Quantization%20Survey.html" />
+    <link rel="prev" title="SGD Warm Restarts" href="SGD%20Warm%20Restarts.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Joeyonng's Notebook</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../root.html">
+   Joeyonng’s Notebook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unsupervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/K-means.html">
+   K-means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unsupervised%20Learning/Principle%20Component%20Analysis%20%28PCA%29.html">
+   Principle Component Analysis (PCA)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html">
+   Gradient Boosting (GB)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Naive%20Bayes%20Classifier%20%28NBC%29.html">
+   Naive Bayes Classifier (NBC)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Random%20Forest%20%28RF%29.html">
+   Random Forest (RF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Adaboost%20%28ADA%29.html">
+   Adaboost (ADA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Support%20Vector%20Machine%20%28SVM%29.html">
+   Support Vector Machine (SVM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Logistic%20Regression%20%28LR%29.html">
+   Logistic Regression (LR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Decision%20Tree%20%28DT%29.html">
+   Decision Tree (DT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Supervised%20Learning/Generalized%20Additive%20%28Linear%29%20Models%20%28GAM%29.html">
+   Generalized Additive (Linear) Models (GAM)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SSGD.html">
+   SSGD
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RIPPER.html">
+   RIPPER
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CG%20Decision%20Rules.html">
+   CG Decision Rules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SGD%20Warm%20Restarts.html">
+   SGD Warm Restarts
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L0 Regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
+   Quantization Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MobileNets.html">
+   MobileNets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Birkhoff%2B.html">
+   Birkhoff+
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Jupyter book Tests
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
+   sections
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
+     section1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Notes/L0 Regularization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-formulation">
+   Problem formulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-recipe-of-l-0-regularization">
+   General recipe of
+   <span class="math notranslate nohighlight">
+    \(L_{0}\)
+   </span>
+   regularization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hard-concrete-distribution">
+   Hard concrete distribution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="l0-regularization">
+<h1>L0 Regularization<a class="headerlink" href="#l0-regularization" title="Permalink to this headline">¶</a></h1>
+<p><em>05-03-2021</em></p>
+<p>This page contains my reading notes on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Learning-Sparse-Neural-Networks-through-L0-Louizos-Welling/572f5d18a3943dce4e14f937ef66977a01891096"><strong>Learning Sparse Neural Networks through <span class="math notranslate nohighlight">\(L_{0}\)</span> Regularization</strong></a></p></li>
+</ul>
+<section id="problem-formulation">
+<h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Given a vector <span class="math notranslate nohighlight">\(x\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> (matrix can also be seen as a vector by stacking up the rows/cols), the common vector norms are:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(L_{0}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} \mathbb{1}[x_{i} \neq 0]\)</span>, where <span class="math notranslate nohighlight">\(\mathbb{1}[x_{i} \neq 0]\)</span> means it evaluates to 1 if <span class="math notranslate nohighlight">\(x_{i} \neq 0\)</span>, 0 otherwise.</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_{1}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} \lvert x_{i} \rvert\)</span>, which is also called ridge regularization in neural network.</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_{2}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} x_{i}^2\)</span>, which is also called lasso regularization in neural network.</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_{\infty}\)</span> norm: <span class="math notranslate nohighlight">\(\max_{i=1}^{n} \lvert x_i \rvert\)</span>.</p></li>
+</ol>
+</li>
+<li><p>The normal way to prune the edges of the neural network is to use <span class="math notranslate nohighlight">\(L_{1}\)</span> or <span class="math notranslate nohighlight">\(L_{2}\)</span> regularization to drive weights to near 0 (not exactly 0), and then directly set all weights that are less than threshold to 0.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(L_{0}\)</span> is not used because the operation of counting the number of 0s is not differentiable.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="general-recipe-of-l-0-regularization">
+<h2>General recipe of <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization<a class="headerlink" href="#general-recipe-of-l-0-regularization" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The loss function used to train a neural network with <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization is:
+<div class="math notranslate nohighlight">
+\[ \mathcal{L}(f(x, \theta), y) + \lambda \sum_{i=1}^{\lvert \theta \rvert} \mathbb{1}[\theta_{i} \neq 0] \]</div>
+
+where <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is a standard loss function (cross-entropy loss, softmax), <span class="math notranslate nohighlight">\(\theta\)</span> are the parameters in the network, <span class="math notranslate nohighlight">\(h(\cdot, \theta)\)</span> is the network, <span class="math notranslate nohighlight">\(x, y\)</span> are training instances and <span class="math notranslate nohighlight">\(\lambda\)</span> is a hyper-parameter that balance loss and the regularization.</p></li>
+<li><p>If we attach a <strong>binary random variable</strong> <span class="math notranslate nohighlight">\(z_{i}\)</span> to each element of the model parameter <span class="math notranslate nohighlight">\(\theta_{i}\)</span>, then the weights used in the feed-forward operation of the neural network can be replaced by <span class="math notranslate nohighlight">\(\theta \odot z\)</span>. The loss function then becomes:
+<div class="math notranslate nohighlight">
+\[ \mathcal{L}(f(x, \theta \odot z), y) + \lambda \sum_{i=1}^{\lvert \theta \rvert} \mathbb{1}[z_{i} \neq 0]\]</div>
+
+where <span class="math notranslate nohighlight">\(z \in \{0, 1\}^{\lvert \theta \rvert}\)</span>.</p></li>
+<li><p>If we assume each <span class="math notranslate nohighlight">\(z_{i}\)</span> as a binary random variable with a <strong>Bernoulli distribution</strong> that has a parameter <span class="math notranslate nohighlight">\(\pi_{i}\)</span>, i.e. <span class="math notranslate nohighlight">\(z_{i} = \mathrm{Bern}(\pi_{i})\)</span>, then the loss function becomes:
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} \pi_{i} \]</div>
+
+where <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} [\cdot]\)</span> gives an expectation value of a function that has a Bernoulli distribution <span class="math notranslate nohighlight">\(z\)</span> as the input.</p></li>
+<li><p>The reformulation of the above loss function can be established because</p>
+<ol class="arabic simple">
+<li><p>Since the minimum of a function is upper bounded by the expectation of the function, minimizing <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big]\)</span> is the same as minimizing the upper bound of <span class="math notranslate nohighlight">\(\mathcal{L}(f(x, \theta \odot z), y)\)</span>.</p></li>
+<li><p>According to the definition of the Bernoulli distribution, <span class="math notranslate nohighlight">\(\pi\)</span> gives the probability of <span class="math notranslate nohighlight">\(z\)</span> being 1. Thus, minimizing <span class="math notranslate nohighlight">\(\pi\)</span> is to increase the probability of <span class="math notranslate nohighlight">\(z\)</span> being 0.</p></li>
+</ol>
+</li>
+<li><p>In the equation above, the second term is very easy to minimize, but the first term is still problematic because Bernoulli distribution is a discrete distribution that has 0 gradient almost everywhere. The two <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization methods below approximates the Bernoulli distribution with two different continuous distributions.</p></li>
+</ol>
+</section>
+<section id="hard-concrete-distribution">
+<h2>Hard concrete distribution<a class="headerlink" href="#hard-concrete-distribution" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Assume that we have a new random variable <span class="math notranslate nohighlight">\(s\)</span> that has a <strong>continuous distribution</strong> with a parameter <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Assume that the continuous distribution has a range from less than 0 to larger than 1, i.e. [-0.5, 1.5].
+<div class="math notranslate nohighlight">
+\[ s \sim \textrm{q}(s | \phi) \in [-0.5, 1.5] \]</div>
+
+where <span class="math notranslate nohighlight">\(\textrm{q}(\cdot)\)</span> is the probability density function (PDF).</p></li>
+<li><p>In this case, the probability of the variable <span class="math notranslate nohighlight">\(s\)</span> being positive can be easily calculated by subtracting the probability of <span class="math notranslate nohighlight">\(s\)</span> being negative from 1 (the total probability):
+<div class="math notranslate nohighlight">
+\[ \textrm{q}(s &gt; 0 | \phi) = 1 - \mathrm{Q}(s \leq 0 | \phi) \]</div>
+
+where <span class="math notranslate nohighlight">\(\textrm{Q}(\cdot)\)</span> is the cumulative density function (CDF) and <span class="math notranslate nohighlight">\(\mathrm{Q}(s \leq 0 | \phi)\)</span> gives the probability of <span class="math notranslate nohighlight">\(s\)</span> being negative.</p></li>
+<li><p>If we clip the distribution into the range of [0, 1], then we can use the clipped version of the continuous distribution to replace <span class="math notranslate nohighlight">\(z\)</span>.
+<div class="math notranslate nohighlight">
+\[ z = \mathrm{clip}(s, 0, 1) \]</div>
+
+where <span class="math notranslate nohighlight">\(\mathrm{clip}(x, \mathrm{min}, \mathrm{max})\)</span> means to clip <span class="math notranslate nohighlight">\(x\)</span> between the range <span class="math notranslate nohighlight">\([\mathrm{min}, \mathrm{max}]\)</span>.</p></li>
+<li><p>After clipping, the probability of the variable <span class="math notranslate nohighlight">\(s\)</span> being positive is the same as the probability of <span class="math notranslate nohighlight">\(z\)</span> being non-zero. Thus, the loss function above can be rewritten using <span class="math notranslate nohighlight">\(s\)</span> by:
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}_{s \sim \textrm{q}(s | \phi)} \big[ \mathcal{L}(f(x, \theta \odot \mathrm{clip}(s, 0, 1)), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} (1 - \mathrm{Q}(s \leq 0 | \phi)) \]</div>
+</p></li>
+</ol>
+</li>
+<li><p>Hard concrete distribution is a slight modification version of <a class="reference external" href="https://vitalab.github.io/article/2018/11/29/concrete.html">binary concrete</a> random variable.</p>
+<ol class="arabic simple">
+<li><p>TODO</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">hard_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">loc</span><span class="p">)</span> <span class="o">/</span> <span class="n">temp</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">+</span> <span class="n">gamma</span>
+    <span class="k">return</span> <span class="n">hard_sigmoid</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_hard_concreate</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">)],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">interactive_hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+    <span class="n">plot_hard_concreate</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">zeta</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">interactive_hard_concrete</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9074989659ff4a1cb07269e3af936da0", "version_major": 2, "version_minor": 0}
+</script><img alt="../_images/L0 Regularization_5_1.png" src="../_images/L0 Regularization_5_1.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="SGD%20Warm%20Restarts.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SGD Warm Restarts</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Quantization%20Survey.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantization Survey</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Litao Qiao @Joeyonng<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
