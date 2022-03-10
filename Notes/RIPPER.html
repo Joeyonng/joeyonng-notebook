@@ -322,13 +322,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#growrule">
-     GrowRule
+    <a class="reference internal nav-link" href="#grow-a-rule">
+     Grow a Rule
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prunerule">
-     PruneRule
+    <a class="reference internal nav-link" href="#prune-a-rule">
+     Prune a Rule
     </a>
    </li>
   </ul>
@@ -337,11 +337,35 @@
   <a class="reference internal nav-link" href="#irep-as-an-improved-version-of-irep">
    IREP* as an improved version of IREP
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-rule-value-metric">
+     New Rule-Value metric
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-stopping-condition">
+     New Stopping condition
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    RIPPER
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ripper-irep-a-post-processing-optimization">
+     RIPPER = IREP* + a post-processing optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ripper2-and-ripperk">
+     RIPPER2 and RIPPERk
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -364,10 +388,12 @@
 <p>Some of the knowledge are also from:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Incremental-Reduced-Error-Pruning-F%C3%BCrnkranz-Widmer/e37790eae6a0ed842c7260df39aab9161c4d1aa1"><strong>Incremental Reduced Error Pruning</strong></a></p></li>
-<li><p><a class="reference external" href="https://static.aminer.org/pdf/PDF/000/334/623/fast_effective_rule_induction.pdf"><strong>Fast Effective Rule Induction Overview</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/MDL-and-Categorical-Theories-(Continued)-Quinlan/cb94e3d981a5e1901793c6bfedd93ce9cc07885d"><strong>MDL and Categorical Theories (Continued)</strong></a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/how-to-perform-explainable-machine-learning-classification-without-any-trees-873db4192c68"><strong>A blog post on his RIPPER Python package</strong></a></p></li>
 </ul>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
 <ol class="arabic simple">
 <li><p>In this paper, Cohen first implements his own version of <a class="reference external" href="https://www.semanticscholar.org/paper/Incremental-Reduced-Error-Pruning-F%C3%BCrnkranz-Widmer/e37790eae6a0ed842c7260df39aab9161c4d1aa1"><strong>IREP</strong></a> (Incremental Reduced Error Pruning) with some minor differences and has support multi-label problems and missing attributes.</p></li>
 <li><p>Then he proposes several major changes to IREP and names the improved version <strong>IREP*</strong>.</p></li>
@@ -376,6 +402,7 @@
 </section>
 <section id="irep-cohen-version">
 <h2>IREP (Cohen version)<a class="headerlink" href="#irep-cohen-version" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
 <section id="irep-algorithm">
 <h3>IREP algorithm<a class="headerlink" href="#irep-algorithm" title="Permalink to this headline">¶</a></h3>
 <p>The characteristics of IREP have two fold:</p>
@@ -383,22 +410,23 @@
 <li><p><strong>Separate and conquer</strong>: the covered instances in the training set are removed after a rule is found; thus in the next iteration, a new rule will be learned on the training instances that have not been covered by the previously found rules.</p></li>
 <li><p><strong>Integration of pre-pruning and post-pruning</strong>:</p>
 <ol class="arabic simple">
-<li><p>Pre-pruning: a rule is learned such that it deliberately does not cover certain training instances.</p></li>
-<li><p>Post-pruning: after a rule is learned, some literals are deleted to avoid over-fitting.</p></li>
+<li><p>Pre-pruning: some training examples are deliberately ignored to in the training process (early stopping condition).</p></li>
+<li><p>Post-pruning: first the model is trained to fit the training set perfectly and then some parts of the model are deleted after the training (branch cutting).</p></li>
 </ol>
 </li>
 </ol>
 <blockquote>
-<div><p><strong>Input</strong>: the training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> with binary labels and all possible features <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>.<br />
+<div><p><strong>Function</strong>: <em>IREP</em>.<br />
+<strong>Input</strong>: the training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> with binary labels and all possible features <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>.<br />
 <strong>Output</strong>: the learned rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p>
 <ol class="arabic simple">
 <li><p>Initialize an empty rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
 <li><p>While there are still positive instances in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>:</p>
 <ol class="arabic simple">
 <li><p>Randomly choose 2/3 from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> as the growing set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and the rest 1/3 becomes the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(R\)</span> = <strong>GrowRule(<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>)</strong></p></li>
-<li><p><span class="math notranslate nohighlight">\(R\)</span> = <strong>PruneRule(<span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, <span class="math notranslate nohighlight">\(R\)</span>)</strong></p></li>
-<li><p>If the accuracy of <span class="math notranslate nohighlight">\(R &lt; 0.5\)</span> on <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>: break</p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span> = <em>GrowRule</em>(<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span> = <em>PruneRule</em>(<span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, <span class="math notranslate nohighlight">\(R\)</span>)</p></li>
+<li><p>If the accuracy of <span class="math notranslate nohighlight">\(R &lt; 0.5\)</span> on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>: break</p></li>
 <li><p>Add <span class="math notranslate nohighlight">\(R\)</span> to <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
 <li><p>Remove instances that are covered by <span class="math notranslate nohighlight">\(R\)</span> from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
 </ol>
@@ -406,17 +434,18 @@
 <li><p>Return <span class="math notranslate nohighlight">\(\mathcal{R}\)</span></p></li>
 </ol>
 </div></blockquote>
-<p>The changes that Cohen made to the original version are:</p>
+<p>The minor differences between the Cohen’s implementation of IREP and the original version are:</p>
 <ol class="arabic simple">
 <li><p>stopping condition. The original IREP stopped when the accuracy of the learned rule is less than the accuracy of the empty rule instead of 50%.</p></li>
 <li><p>PruneRule algorithm, which is to be detailed later.</p></li>
 </ol>
 </section>
-<section id="growrule">
-<h3>GrowRule<a class="headerlink" href="#growrule" title="Permalink to this headline">¶</a></h3>
+<section id="grow-a-rule">
+<h3>Grow a Rule<a class="headerlink" href="#grow-a-rule" title="Permalink to this headline">¶</a></h3>
 <p>In each iteration, the feature <span class="math notranslate nohighlight">\(f\)</span> with value <span class="math notranslate nohighlight">\(v\)</span> that has the <strong>maximum FOIL score</strong> is selected to the rule and the iterations terminate when <strong>the rule doesn’t cover any negative instances</strong> in the growing set.</p>
 <blockquote>
-<div><p><strong>Input</strong>: the growing set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> with binary labels and all possible features <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>.<br />
+<div><p><strong>Function</strong>: <em>GrowRule</em>.<br />
+<strong>Input</strong>: the growing set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> with binary labels and all possible features <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>.<br />
 <strong>Output</strong>: the unpruned rule <span class="math notranslate nohighlight">\(R\)</span>.</p>
 <ol class="arabic simple">
 <li><p>Initialize an empty rule <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
@@ -436,84 +465,156 @@
 <li><p>Return <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
 </ol>
 </div></blockquote>
-<p><strong>[Support for categorical and continous features]</strong>: the definition of <span class="math notranslate nohighlight">\(\mathcal{V}(f)\)</span> for different feature <span class="math notranslate nohighlight">\(f\)</span> is different for categorical and numerical features.</p>
+<p><strong>[Support for categorical and continuous features]</strong>: the definition of <span class="math notranslate nohighlight">\(\mathcal{V}(f)\)</span> for different feature <span class="math notranslate nohighlight">\(f\)</span> is different for categorical and numerical features.</p>
 <ol class="arabic simple">
 <li><p>For a categorical feature <span class="math notranslate nohighlight">\(f_{c}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{V}(f)\)</span>  is the collection of all possible values that <span class="math notranslate nohighlight">\(f_{c}\)</span> can take.</p></li>
-<li><p>For a numerical feature <span class="math notranslate nohighlight">\(f_{n}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{V}(f)\)</span> is the cartesian product of <span class="math notranslate nohighlight">\(\{\leq, \geq\}\)</span> and all values of <span class="math notranslate nohighlight">\(f\)</span> that appear in the training set. For example, if all values that appear in the training set for feature age is <span class="math notranslate nohighlight">\(\{10, 20, 30\}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}(\text{age})\)</span> is <span class="math notranslate nohighlight">\(\{\leq 10, \geq 10, \leq 20, \geq 20, \leq 30, \geq 30\}\)</span></p></li>
+<li><p>For a numerical feature <span class="math notranslate nohighlight">\(f_{n}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{V}(f)\)</span> is the Cartesian product of <span class="math notranslate nohighlight">\(\{\leq, \geq\}\)</span> and all values of <span class="math notranslate nohighlight">\(f\)</span> that appear in the training set. For example, if all values that appear in the training set for feature age is <span class="math notranslate nohighlight">\(\{10, 20, 30\}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}(\text{age})\)</span> is <span class="math notranslate nohighlight">\(\{\leq 10, \geq 10, \leq 20, \geq 20, \leq 30, \geq 30\}\)</span></p></li>
 </ol>
 <p><strong>[FOIL’s information gain]</strong>: it gives how much information entropy is reduced from <span class="math notranslate nohighlight">\(R_{old}\)</span> to <span class="math notranslate nohighlight">\(R_{new}\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[ \mathrm{Foil}(R_{old}, R_{new}) = P(R_{old}) (\log_{2}(\frac{P(R_{old})}{P(R_{old}) + N(R_{old})}) - \log_{2}(\frac{P(R_{new})}{P(R_{new}) + N(R_{new})})) \]</div>
+\[ \operatorname{Foil}(R_{old}, R_{new}) = P(R_{old}) (\log_{2}(\frac{P(R_{old})}{P(R_{old}) + N(R_{old})}) - \log_{2}(\frac{P(R_{new})}{P(R_{new}) + N(R_{new})})) \]</div>
 <p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
 </section>
-<section id="prunerule">
-<h3>PruneRule<a class="headerlink" href="#prunerule" title="Permalink to this headline">¶</a></h3>
-<p>PruneRule considers deleting <strong>any final sequence of conditions</strong> from the rule and chooses the deletion that <strong>maximizes the Rule-Value metric</strong>.</p>
-<p>TODO: the algorithm below is not accurate.</p>
+<section id="prune-a-rule">
+<h3>Prune a Rule<a class="headerlink" href="#prune-a-rule" title="Permalink to this headline">¶</a></h3>
+<p>PruneRule considers deleting <strong>any final sequence of conditions</strong> from the rule and chooses the deletion that <strong>maximizes the Rule-Value metric</strong> on the pruning set.</p>
 <blockquote>
-<div><p><strong>Input</strong>: the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> and the unpruned rule <span class="math notranslate nohighlight">\(R\)</span>.<br />
-<strong>Output</strong>: the unpruned rule <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<div><p><strong>Function</strong>: <em>PruneRule</em>.<br />
+<strong>Input</strong>: the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> and the unpruned rule <span class="math notranslate nohighlight">\(R\)</span>.<br />
+<strong>Output</strong>: the pruned rule <span class="math notranslate nohighlight">\(R\)</span>.</p>
 <ol class="arabic simple">
-<li><p>For all <span class="math notranslate nohighlight">\((f=v)_i \in R\)</span> starting from the last added one to the first one:</p>
+<li><p>For all <span class="math notranslate nohighlight">\((f, v)_{i} \in R\)</span> starting from the last added one to the first one:</p>
 <ol class="arabic simple">
-<li><p>Get <span class="math notranslate nohighlight">\(R_{p}\)</span> by removing <span class="math notranslate nohighlight">\((f=v)_i\)</span> from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\mathrm{Value}(R_{p}) \geq \mathrm{Value}(R)\)</span>: then <span class="math notranslate nohighlight">\(R=R_{p}\)</span>.</p></li>
+<li><p>Get <span class="math notranslate nohighlight">\(R_{p}\)</span> by removing <span class="math notranslate nohighlight">\((f, v)_{i}\)</span> from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{Value}(R_{p}) \geq \operatorname{Value}(R)\)</span>: then <span class="math notranslate nohighlight">\(R=R_{p}\)</span>.</p></li>
 </ol>
 </li>
+<li><p>Return <span class="math notranslate nohighlight">\(R\)</span></p></li>
 </ol>
 </div></blockquote>
-<p><strong>[IREP Rule-value metric]</strong>:</p>
+<p>The original implementation of IREP only considers the “deletions of a single final condition”.</p>
+<p><strong>[IREP Rule-Value metric]</strong>:</p>
 <div class="math notranslate nohighlight">
-\[ \mathrm{Value}(R) = \frac{P(R) + (N - N(R))}{P + N} \]</div>
-<p>where <span class="math notranslate nohighlight">\(P\)</span> is the total number of positive instances,  <span class="math notranslate nohighlight">\(N\)</span> is the total number of negative instances, <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
+\[ \operatorname{Value}(R) = \frac{P(R) + (N - N(R))}{P + N} \]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> (<span class="math notranslate nohighlight">\(N\)</span>) is the total number of positive (negative) instances and <span class="math notranslate nohighlight">\(P(R)\)</span> (<span class="math notranslate nohighlight">\(N(R)\)</span>) is the number of positive (negative) instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
 </section>
 </section>
 <section id="irep-as-an-improved-version-of-irep">
 <h2>IREP* as an improved version of IREP<a class="headerlink" href="#irep-as-an-improved-version-of-irep" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
 <p>The support for multi-class and missing value allows IREP to be applied on a wide range of benchmarks and Cohen further improves on his implementation of IREP on the stopping condition and pruning metric.</p>
+<section id="new-rule-value-metric">
+<h3>New Rule-Value metric<a class="headerlink" href="#new-rule-value-metric" title="Permalink to this headline">¶</a></h3>
+<p>The IREP Rule-Value metric sometimes is highly unintuitive. Assuming <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(N\)</span> are fixed to be 3000, the IREP Rule-Value metric prefers <span class="math notranslate nohighlight">\(R_{1}\)</span> over <span class="math notranslate nohighlight">\(R_{2}\)</span> in the following example, but <span class="math notranslate nohighlight">\(R_{2}\)</span> is obviously more predictive.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_{1}\)</span>: <span class="math notranslate nohighlight">\(P(R_{1}) = 2000\)</span>, <span class="math notranslate nohighlight">\(N(R_{1}) = 1000\)</span>, <span class="math notranslate nohighlight">\(\operatorname{Value}(R) = \frac{4000}{6000}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R_{2}\)</span>: <span class="math notranslate nohighlight">\(P(R_{2}) = 1000\)</span>, <span class="math notranslate nohighlight">\(N(R_{2}) = 1\)</span>, <span class="math notranslate nohighlight">\(\operatorname{Value}(R) = \frac{3999}{6000}\)</span></p></li>
+</ul>
+<p>Cohen’s solution doesn’t have the issue mentioned above.</p>
+<p><strong>[IREP* Rule-Value metric]</strong>:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{Value}(R) = \frac{P(R) - N(R)}{P(R) + N(R)} \]</div>
+<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span></p>
+</section>
+<section id="new-stopping-condition">
+<h3>New Stopping condition<a class="headerlink" href="#new-stopping-condition" title="Permalink to this headline">¶</a></h3>
+<p>The IREP stops adding rules when the current learned rule has a bad (&lt; 50%) accuracy on the pruning set. This estimate often makes the algorithm stop too early especially if the current learned rule has very low coverage (the algorithm will stop if, for example, the rule only covers 2 instances and 1 instance has negative label).</p>
+<p>IREP* defines the stopping condition based on the total <strong>description length</strong> value of the currently learned rule set on the pruning set.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Calculate the total description length of <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>: <span class="math notranslate nohighlight">\(\operatorname{MDL}(\mathcal{R})\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{MDL}(\mathcal{R}) &gt; \operatorname{MDL}_{min} + d\)</span>: break</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{MDL}(\mathcal{R}) &lt; \operatorname{MDL}_{min}\)</span>: <span class="math notranslate nohighlight">\(\operatorname{MDL}_{min} = \operatorname{MDL}(\mathcal{R})\)</span></p></li>
+</ol>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\operatorname{MDL}(\mathcal{R})\)</span> is the total Description Length of the rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> and <span class="math notranslate nohighlight">\(d\)</span> is a hyperparameter with the default value of 64 in the paper’s experiment.</p>
+<p><strong>[MDL Principle (Minimum Description Length Principle)]</strong>: From the Machine Learning perspective, each model derived from the dataset can be characterized by a <strong>description length</strong>, which is defined as the number of bits required to encode the model and the data from which it was learned. MDL Principle states that the model with the minimum description length is generally preferred to avoid over-fitting.</p>
+<p>Description length consists of model description length (theory cost) and exceptions description length (exceptions cost).</p>
+<ul class="simple">
+<li><p>Model description length measures the complexity of the model. Higher model description length means that the model is more complex and thus more prone to over-fitting.</p></li>
+<li><p>Exceptions description length measures the degree to which the model incorrectly fit to the data. The large the exceptions description length, the more error-prone the model is.</p></li>
+</ul>
+<p>For RIPPER, the description length of a rule set is defined as the sum of the model description length of each rule plus the exceptions description length of the whole rule set:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MDL}(\mathcal{R}) = \sum_{R_{i} \in \mathcal{R}} \operatorname{MDL}_{M}(R_{i}) + \operatorname{MDL}_{E}(\mathcal{R}) \]</div>
+<p>Model description length of each rule calculates how many bits are needed to encode a rule:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MDL}_{M}(R) = 0.5(k\log_{2}\frac{1}{p} + (n - k) \log_2\frac{1}{1 - p} + \lVert k \rVert) \]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of features in the rule, <span class="math notranslate nohighlight">\(n\)</span> is the number of all features, and <span class="math notranslate nohighlight">\(p = \frac{k}{n}\)</span>. <span class="math notranslate nohighlight">\(\lVert k \rVert = \log_{2}(k)\)</span> is the number of bits required to encode the number <span class="math notranslate nohighlight">\(k\)</span>. The <span class="math notranslate nohighlight">\(0.5\)</span> factor is to “account for possible redundancies”.</p>
+<p>Exceptions description length evaluates the errors of the rule set on a given dataset:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MDL}_{E}(\mathcal{R}) = \log_{2}{P(\mathcal{R}) \choose \mathit{FP}(\mathcal{R})} + \log_{2}{N(\mathcal{R}) \choose \mathit{FN}(\mathcal{R})}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(\mathcal{R})\)</span> (<span class="math notranslate nohighlight">\(N(\mathcal{R})\)</span>) is the number of positive (negative) instances covered by the rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> and <span class="math notranslate nohighlight">\(\mathit{FP}(\mathcal{R})\)</span> (<span class="math notranslate nohighlight">\(\mathit{FN}(\mathcal{R})\)</span>) is the number of false positives (false negatives) covered by the rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p>
+</section>
 </section>
 <section id="id1">
 <h2>RIPPER<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>RIPPER is an improved version of IREP and the changes are:</p>
+<hr class="docutils" />
+<p>TODO: Many of the implementation details are from this public <a class="reference external" href="https://github.com/imoscovitz/wittgenstein">Github implementation</a>, since the original paper doesn’t elaborate on how exactly they are implemented.</p>
+<section id="ripper-irep-a-post-processing-optimization">
+<h3>RIPPER = IREP* + a post-processing optimization<a class="headerlink" href="#ripper-irep-a-post-processing-optimization" title="Permalink to this headline">¶</a></h3>
+<p>RIPPER further improves on IREP* by post-pruning the rules generated by IREP*.</p>
+<p><strong>Function</strong>: <em>RIPPER</em>.<br />
+<strong>Input</strong>: a training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.<br />
+<strong>Output</strong>: a optimized rule set <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p>
 <ol class="arabic simple">
-<li><p>Use a different equation (RIPPER Rule value) to replace IREP’s rule value equation.</p></li>
-<li><p>Replace the stopping condition (line 3.D. in the pseudocode above) with the following logic on the dataset <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> (<span class="math notranslate nohighlight">\(d\)</span> is a hyperparameter with the default value of 64):</p>
+<li><p>Run IREP* on <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> to get <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span> = <em>Optimize</em>(<span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>). Note that <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> here is a copy of the original training set (no removal from IREP*).</p></li>
+<li><p>While there are still positive instances in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>:</p>
 <ol class="arabic simple">
-<li><p>Calculate the <em>total description length</em> of <span class="math notranslate nohighlight">\(R\)</span>: <span class="math notranslate nohighlight">\(\mathrm{MDL}(R)\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\mathrm{MDL}(R) &gt; \mathrm{MDL_{min}} + d\)</span>: break</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\mathrm{MDL}(R) &lt; \mathrm{MDL_{min}}\)</span>: <span class="math notranslate nohighlight">\(\mathrm{MDL_{min} = MDL}(R)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span> = <em>GrowRule</em>(<span class="math notranslate nohighlight">\(\mathcal{D}\)</span>).</p></li>
+<li><p>Remove instances that are covered by <span class="math notranslate nohighlight">\(R_{i}^{best}\)</span> from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
+<li><p>Add <span class="math notranslate nohighlight">\(R\)</span> to <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
 </ol>
 </li>
-<li><p>The version of IREP with the 2 changes above is called IREP*. After we get a rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> from one run of IREP*, we perform the followings on the dataset <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>:</p>
+<li><p>Return <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
+</ol>
+<p>The <em>optimize</em> procedure proposes 2 more versions of the rule for each rule learned from IREP* and select the best version using MDL metric to add to the final rule set.</p>
+<p><strong>Function</strong>: <em>Optimize</em>.<br />
+<strong>Input</strong>: a training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> and a rule set <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.<br />
+<strong>Output</strong>: a optimized rule set <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p>
 <ol class="arabic simple">
-<li><p>For each <span class="math notranslate nohighlight">\(R_{i} \in \mathcal{R}\)</span>:</p>
+<li><p>Initialize an empty rule set <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
+<li><p>For each <span class="math notranslate nohighlight">\(R_{i} \in \mathcal{R}\)</span> in the order <span class="math notranslate nohighlight">\(R_{i}\)</span> is learned in <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>:</p>
 <ol class="arabic simple">
-<li><p>Get the <em>replacement</em> <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> of <span class="math notranslate nohighlight">\(R_{i}\)</span> by growing from an empty rule until all instance that satisfy <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> are positive.</p></li>
-<li><p>Pruning <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> by minimizing error of the entire rule set <span class="math notranslate nohighlight">\(\mathcal{\hat{R}} = R_{1}, ..., \hat{R}_{i}, ..., R_{n}\)</span> (no <span class="math notranslate nohighlight">\(R_i\)</span>) on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
-<li><p>Get the <em>revision</em> <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> of <span class="math notranslate nohighlight">\(R_{i}\)</span> by growing from <span class="math notranslate nohighlight">\(R_{i}\)</span> until all instance that satisfy <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> are positive.</p></li>
-<li><p>Pruning <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> by minimizing error of the entire rule set <span class="math notranslate nohighlight">\(\mathcal{\bar{R}} = R_{1}, ..., \bar{R}_{i}, ..., R_{n}\)</span> (no <span class="math notranslate nohighlight">\(R_i\)</span>) on <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{R} = \underset{\mathcal{R_i} \in \{ \mathcal{R}, \hat{\mathcal{R}}, \bar{\mathcal{R}} \}}{\mathrm{argmin}} \sum_{R_{i} \in \mathcal{R_{i}}} \mathrm{MDL}(R_i)\)</span></p></li>
+<li><p>Randomly choose 2/3 from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> as the growing set <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> and the rest 1/3 becomes the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p></li>
+<li><p>Grow the <strong>replacement</strong> rule from <strong>scratch</strong> using FOIL’s information gain: <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> = <em>GrowRule</em>(<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>).</p></li>
+<li><p>Form a new rule set by replacing <span class="math notranslate nohighlight">\(R_{i}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> with <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span>: <span class="math notranslate nohighlight">\(\mathcal{\hat{R}} = \{R_{1}, \dots, \hat{R}_{i}, \dots, R_{n}\)</span>}.</p></li>
+<li><p>Prune the replacement rule: <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> = <em>PruneRule</em>(<span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span>), but using <strong>accuracy of the rule set <span class="math notranslate nohighlight">\(\mathcal{\hat{R}}\)</span></strong> instead of Rule-Value metric as the maximizing objective.</p></li>
+<li><p>Update the <span class="math notranslate nohighlight">\(\hat{R}_{i}\)</span> in <span class="math notranslate nohighlight">\(\hat{\mathcal{R}}\)</span> with the pruned version.</p></li>
+<li><p>Grow the <strong>revision</strong> rule from the <strong>current rule</strong> <span class="math notranslate nohighlight">\(R_{i}\)</span> using FOIL’s information gain: <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> = <em>GrowRule</em>(<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>).</p></li>
+<li><p>Form a new rule set by replacing <span class="math notranslate nohighlight">\(R_{i}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> with <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span>: <span class="math notranslate nohighlight">\(\mathcal{\bar{R}} = \{R_{1}, \dots, \bar{R}_{i}, \dots, R_{n}\)</span>}.</p></li>
+<li><p>Prune the revision rule: <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> = <em>PruneRule</em>(<span class="math notranslate nohighlight">\(\mathcal{P}\)</span>, <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span>), but using <strong>accuracy of the rule set <span class="math notranslate nohighlight">\(\mathcal{\bar{R}}\)</span></strong> instead of Rule-Value metric as the maximizing objective.</p></li>
+<li><p>Update the <span class="math notranslate nohighlight">\(\bar{R}_{i}\)</span> in <span class="math notranslate nohighlight">\(\bar{\mathcal{R}}\)</span> with the pruned version.</p></li>
+<li><p>The best rule from the 3 versions is the one whose corresponding rule set has the smallest <strong>minimum total description length</strong>: <span class="math notranslate nohighlight">\(R_{i}^{best} = \arg \min_{R \in \{R_{i}, \hat{R}_{i}, \bar{R}_{i}\}} \operatorname{MTDL} (\{R_{1}, \dots, R, \dots, R_{n}\})\)</span>.</p></li>
+<li><p>Add <span class="math notranslate nohighlight">\(R_{i}^{best}\)</span> to <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
+<li><p>Remove instances that are covered by <span class="math notranslate nohighlight">\(R_{i}^{best}\)</span> from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
+<li><p>If there is no positive instances in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>: break.</p></li>
 </ol>
 </li>
+<li><p>Return <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
+</ol>
+<p><strong>[Minimum total description length]</strong>: Given a rule set, the minimum total description length is the description length of the rule set after deleting the rules that increase the total description length of the rule set.</p>
+</section>
+<section id="ripper2-and-ripperk">
+<h3>RIPPER2 and RIPPERk<a class="headerlink" href="#ripper2-and-ripperk" title="Permalink to this headline">¶</a></h3>
+<p>RIPPER2 is just running <em>Optimize</em> again on the output of RIPPER, while RIPPERk is to run RIPPER k times.</p>
+<p><strong>Function</strong>: <em>RIPPER2</em>.<br />
+<strong>Input</strong>: a training set <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.<br />
+<strong>Output</strong>: a optimized rule set <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Run <em>RIPPER</em> on <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> to get <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span> = <em>Optimize</em>(<span class="math notranslate nohighlight">\(\mathcal{D}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{R}\)</span>). Note that <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> here is a copy of the original training set (no removal from IREP*).</p></li>
+<li><p>While there are still positive instances in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(R\)</span> = <em>GrowRule</em>(<span class="math notranslate nohighlight">\(\mathcal{D}\)</span>).</p></li>
+<li><p>Remove instances that are covered by <span class="math notranslate nohighlight">\(R_{i}^{best}\)</span> from <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>.</p></li>
+<li><p>Add <span class="math notranslate nohighlight">\(R\)</span> to <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
 </ol>
 </li>
-<li><p>Run IREP* again to cover remaining positive instances.</p></li>
+<li><p>Return <span class="math notranslate nohighlight">\(\mathcal{R}_{o}\)</span>.</p></li>
 </ol>
-<p><strong>[RIPPER Rule value]</strong>:</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{Value}(R) = \frac{P(R) - N(R)}{P(R) + N(R)} \]</div>
-<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span></p>
-<p><strong>[Total description length]</strong>: MDL is composed of model description length and exceptions description length.</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{MDL}(R) = \mathrm{MDL_{M}}(R) + \mathrm{MDL_{E}}(R) \]</div>
-<p>Model description length evaluates the rule itself:</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{MDL_{M}}(R) = 0.5(k\log_{2}\frac{1}{r} + (n-k) \log_2\frac{1}{1-r} + \lVert k \rVert) \]</div>
-<p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of features in the rule, <span class="math notranslate nohighlight">\(n\)</span> is the number of all features, and <span class="math notranslate nohighlight">\(r = \frac{k}{n}\)</span>. <span class="math notranslate nohighlight">\(\lVert k \rVert = \log_{2}(k)\)</span>. The 0.5 factor is to account for possible redundancies. <br />
-Exceptions description length evaluates the performance of the rule on the dataset:</p>
-<div class="math notranslate nohighlight">
-\[ \mathrm{MDL_{E}}(R) = \log_{2}{P(R) \choose \mathit{FP}(R)} + \log_{2}{N(R) \choose \mathit{FN}(R)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(P(R)\)</span> is the number of positive instances covered by <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(N(R)\)</span> is the number of negative instances covered by <span class="math notranslate nohighlight">\(R\)</span> <span class="math notranslate nohighlight">\(\mathit{FP}(R)\)</span> is the number of false positives covered by <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mathit{FN}(R)\)</span> is the number of false negatives covered by <span class="math notranslate nohighlight">\(R\)</span></p>
+</section>
 </section>
 </section>
 
