@@ -212,30 +212,6 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Jupyter book Tests
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
-   sections
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
-     section1
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -307,6 +283,16 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary">
+   Preliminary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-formulation">
+   Problem formulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#k-means-using-lloyd-s-algorithm">
    K-means using Lloyd’s algorithm
   </a>
@@ -340,20 +326,45 @@
 <li><p>We first randomly choose K centroids in the space. Then we cluster each data point to its nearest centroids and distance is calculated using sum of the square of the difference. After all data points have been assigned to a cluster, we recompute the centroids of the cluster by taking the average of all the data points that belong to that cluster. Then we cluster the data points again based on the new centroids and we repeat process until centroids don’t really change.</p></li>
 <li><p>K-means is proved to find local minimum instead of global minimum. Thus the initialization of the centroids do matter to the outcome.</p></li>
 </ol>
+<section id="preliminary">
+<h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
+</section>
+<hr class="docutils" />
+<section id="problem-formulation">
+<h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>K-means clustering algorithm is a unsupervised learning algorithm that aims to <strong>cluster similar instances into the same group</strong>.</p></li>
+<li><p>The input to the algorithm is <span class="math notranslate nohighlight">\(n\)</span> instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n} \in \mathbb{R}^{d}\)</span> <strong>without labels</strong> and the output of the algorithm is <span class="math notranslate nohighlight">\(k\)</span> centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k} \in \mathbb{R}^{d}\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is a hyperparameter used to control the number of centroids desired.</p></li>
+<li><p>The goal of K-means clustering is to find the best <span class="math notranslate nohighlight">\(k\)</span> centroids that minimizes a loss function (often <strong>MSE loss</strong> of the <strong><span class="math notranslate nohighlight">\(L_{2}\)</span> norm or euclidean distance</strong> of the difference vector) that captures the overall distances between the instances and the centroids assigned.
+<div class="math notranslate nohighlight">
+\[ \arg \min_{\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}} \frac{1}{n} \sum_{i = 1}^{n} \sum_{j = 1}^{k} \mathbb{1}_{\mathbf{x}_{i} \in \mathbf{u}_j} \lVert \mathbf{x}_{i} - \mathbf{u}_{j} \rVert^{2} \]</div>
+
+where <span class="math notranslate nohighlight">\(\mathbf{x}_{i} \in \mathbf{u}_j\)</span> means that instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> is assigned to centroid <span class="math notranslate nohighlight">\(\mathbf{u}_j\)</span>.</p></li>
+<li><p>If we replace denote the centroid that is assigned to the instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> as <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}_{i}\)</span>, then the same formula can be written as
+<div class="math notranslate nohighlight">
+\[ \arg \min_{\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}} \frac{1}{n} \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{u}}_{i} \rVert^{2} \]</div>
+
+which is more intuitive and easy-to-understand.</p></li>
+</ul>
+</section>
 <section id="k-means-using-lloyd-s-algorithm">
 <h2>K-means using Lloyd’s algorithm<a class="headerlink" href="#k-means-using-lloyd-s-algorithm" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
+<p><strong>Function</strong>: K-means<br />
+<strong>Input</strong>: a set of instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n}\)</span> and a hyperparameter <span class="math notranslate nohighlight">\(k\)</span>.
+<strong>Output</strong>:</p>
 <ol class="arabic simple">
-<li><p>Initialize cluster centroids <span class="math notranslate nohighlight">\(\mu_{1}, ..., \mu_{k}\)</span> randomly.</p></li>
-<li><p>Repeat until convergence:</p>
+<li><p>Initialize cluster centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}\)</span> randomly.</p></li>
+<li><p>Repeat until convergence or a fixed number of iterations:</p>
 <ol class="arabic simple">
-<li><p>Get the centroid for each instance <span class="math notranslate nohighlight">\(x_{i}\)</span>:
+<li><p>Get the centroid for each instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span>:
 <div class="math notranslate nohighlight">
-\[ c_{i} = \underset{\mu_{i}}{\operatorname{argmin}} \lVert x_{i}-\mu_{i} \rVert^{2} \]</div>
+\[ \mathbf{c}_{i} = \arg \min_{\mathbf{u}_{i}} \lVert \mathbf{x}_{i} - \mathbf{u}_{i} \rVert^{2} \]</div>
 </p></li>
 <li><p>Update the centroid based on the instances:
 <div class="math notranslate nohighlight">
-\[ \mu_{j} = \frac{\sum_{i}^{m}1_{\{c_i=j\}}x_{i}}{\sum_{i}^{m}1_{\{c_i=j\}}} \]</div>
+\[ \mathbf{u}_{j} = \frac{\sum_{i}^{m} \mathbb{1}_{\mathbf{c}_i = j} \mathbf{x}_{i}}{\sum_{i}^{m} \mathbb{1}_{\mathbf{c}_{i} = j}} \]</div>
 </p></li>
 </ol>
 </li>
@@ -483,7 +494,7 @@
 94it [00:00, 1188.89it/s, KMeans=0.909]                                                                                                                                                                                                                                                 
 </pre></div>
 </div>
-<img alt="../_images/K-means_5_1.png" src="../_images/K-means_5_1.png" />
+<img alt="../_images/K-means_6_1.png" src="../_images/K-means_6_1.png" />
 </div>
 </div>
 </section>

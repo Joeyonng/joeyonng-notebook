@@ -212,30 +212,6 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Jupyter book Tests
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Jupyter%20book%20Tests/sections/index.html">
-   sections
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Jupyter%20book%20Tests/sections/section1.html">
-     section1
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -373,6 +349,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pca-algorithm">
+   PCA algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca-objective-derivation">
    PCA objective derivation
   </a>
@@ -397,11 +378,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#solving-pca-objective">
    Solving PCA objective
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pca-algorithm">
-   PCA algorithm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -437,7 +413,8 @@
 <p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value</strong> is its mean value.
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}(X) = \mu \]</div>
-</p>
+
+where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable with a finite number of values <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \dots, x_{k}\)</span> occurring with probabilities <span class="math notranslate nohighlight">\(p_{1}, p_{2}, \dots, p_{k}\)</span>, respectively, the expected value  of <span class="math notranslate nohighlight">\(X\)</span> is defined as
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}(X) = \sum_{i=1}^{k} x_{i}p_{i} \]</div>
@@ -476,8 +453,7 @@ which can also be expressed as:
 &amp; = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) \\
 \end{align}
 \end{split}\]</div>
-
-where <span class="math notranslate nohighlight">\(\mathbb{E}(A)\)</span> is to compute the expected value of the random variable <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &gt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to increase as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to decrease as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
@@ -494,7 +470,7 @@ where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and
 \[\begin{split} 
  \begin{align}
  \operatorname{cov}(X, X) &amp; = \mathbb{E}((X - \mathbb{E}(X)) (X - \mathbb{E}(X))) \\
- &amp; = \mathbb{E}((X - \mathbb{E}(X)^{2}) \\
+ &amp; = \mathbb{E}((X - \mathbb{E}(X))^{2}) \\
  &amp; = \operatorname{var}(X) \\
  \end{align}
  \end{split}\]</div>
@@ -583,13 +559,30 @@ where <span class="math notranslate nohighlight">\(\lvert \mathbf{a} \rvert\)</s
 </section>
 <section id="eigendecomposition-spectral-decomposition">
 <h4>Eigendecomposition (spectral decomposition)<a class="headerlink" href="#eigendecomposition-spectral-decomposition" title="Permalink to this headline">¶</a></h4>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> be a real symmetric <span class="math notranslate nohighlight">\(d \times d\)</span> matrix with eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, ... , \lambda_{d}\)</span> and corresponding orthonormal eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, ..., \mathbf{u}_{d}\)</span>. Then:
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> be a real symmetric <span class="math notranslate nohighlight">\(d \times d\)</span> matrix with eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> and corresponding orthonormal eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>. Then:
 <div class="math notranslate nohighlight">
 \[ \mathbf{M} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^T \]</div>
 
-where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with <span class="math notranslate nohighlight">\(\lambda_{1}, ... , \lambda_{d}\)</span> in diagonal and 0 elsewhere and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> matrix has <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, ..., \mathbf{u}_{d}\)</span> vectors as columns.</p>
+where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> in diagonal and 0 elsewhere and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> matrix has <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span> vectors as columns.</p>
 </section>
 </section>
+</section>
+<section id="pca-algorithm">
+<h2>PCA algorithm<a class="headerlink" href="#pca-algorithm" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>Function</strong>: PCA.<br />
+<strong>Input</strong>: A matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> and a integer value indicating the objective dimension <span class="math notranslate nohighlight">\(a\)</span>.<br />
+<strong>Output</strong>: a transformed matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} \in \mathbb{R}^{n \times a}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Standardize the input. For <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\([1, 2, \dots, d]\)</span>: <span class="math notranslate nohighlight">\(\mathbf{X}_{*, j} = \frac{\mathbf{X}_{*, j} - \operatorname{mean}(\mathbf{X}_{*, j})}{\operatorname{std}(\mathbf{X}_{*, j})}\)</span>.</p></li>
+<li><p>Calculate the covariance matrix between columns. <span class="math notranslate nohighlight">\(\mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X}\)</span>.</p></li>
+<li><p>Use eigendecomposition to decompose <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> to get a list of eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots, \lambda_{d}\)</span> and corresponding eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>.</p></li>
+<li><p>Sort eigenvalues in the decreasing order and select the eigenvectors with <span class="math notranslate nohighlight">\(a\)</span> largest eigenvalues. View the <span class="math notranslate nohighlight">\(a\)</span> eigenvectors as <span class="math notranslate nohighlight">\(a\)</span> columns of the matrix <span class="math notranslate nohighlight">\(\mathbf{E} \in \mathbb{R}^{d \times a}\)</span>.</p></li>
+<li><p>Get the projected matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> in <span class="math notranslate nohighlight">\(a\)</span> dimensions. <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} = \mathbf{X}\mathbf{E}\)</span></p></li>
+<li><p>Return <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span>.</p></li>
+</ol>
+</div></blockquote>
 </section>
 <section id="pca-objective-derivation">
 <h2>PCA objective derivation<a class="headerlink" href="#pca-objective-derivation" title="Permalink to this headline">¶</a></h2>
@@ -749,13 +742,6 @@ The constraints show that the eigenvectors must also be unit vectors.</p></li>
 
 The last equation shows that we need to select the <span class="math notranslate nohighlight">\(m\)</span> largest eigenvalues to minimize the objective.</p></li>
 </ol>
-</section>
-<section id="pca-algorithm">
-<h2>PCA algorithm<a class="headerlink" href="#pca-algorithm" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
-<blockquote>
-<div><p>TODO</p>
-</div></blockquote>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
