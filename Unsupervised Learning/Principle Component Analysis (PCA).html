@@ -54,6 +54,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/Unsupervised Learning/Principle Component Analysis (PCA).html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Gradient Boosting (GB)" href="../Supervised%20Learning/Gradient%20Boosting%20%28GB%29.html" />
@@ -410,35 +411,43 @@
 <h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
 <section id="expected-value">
 <h4>Expected value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h4>
-<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value</strong> is its mean value.
+<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value is its mean value</strong>.
 <div class="math notranslate nohighlight">
-\[ \mathbb{E}(X) = \mu \]</div>
+\[ \mathbb{E}[X] = \mu \]</div>
 
 where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable with a finite number of values <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \dots, x_{k}\)</span> occurring with probabilities <span class="math notranslate nohighlight">\(p_{1}, p_{2}, \dots, p_{k}\)</span>, respectively, the expected value  of <span class="math notranslate nohighlight">\(X\)</span> is defined as
+<ol class="arabic">
+<li><p>Linearity of Expectation</p>
 <div class="math notranslate nohighlight">
-\[ \mathbb{E}(X) = \sum_{i=1}^{k} x_{i}p_{i} \]</div>
-</p>
-<p>If the possibilities are the same (<span class="math notranslate nohighlight">\(p_{1} = p_{2} = \dots = p_{n} = \frac{1}{n}\)</span>), then
+\[ \mathbb{E}[X + Y] = \mathbb{E}[X] + E [Y] \]</div>
 <div class="math notranslate nohighlight">
-\[ \mathbb{E}(X) = \frac{1}{n} \sum_{i=1}^{k} x_{i} \]</div>
-</p>
+\[ \mathbb{E}[aX + b] = \mathbb{E}[a] \mathbb{E}[X] +\mathbb{E}[b] = a \mathbb{E}[X] +b \]</div>
+</li>
+<li><p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable with a finite number of values <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \dots, x_{k}\)</span> occurring with probabilities <span class="math notranslate nohighlight">\(p_{1}, p_{2}, \dots, p_{k}\)</span>, respectively, the expected value  of <span class="math notranslate nohighlight">\(X\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}[X] = \sum_{i=1}^{k} x_{i}p_{i} \]</div>
+</li>
+<li><p>If the possibilities are the same (<span class="math notranslate nohighlight">\(p_{1} = p_{2} = \dots = p_{n} = \frac{1}{n}\)</span>), then</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}[X] = \frac{1}{n} \sum_{i=1}^{k} x_{i} \]</div>
+</li>
+</ol>
 </section>
 <section id="variance">
 <h4>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h4>
 <p>The <strong>variance</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is the expected value of the squared deviation from the mean of <span class="math notranslate nohighlight">\(X\)</span>:
 <div class="math notranslate nohighlight">
-\[ \operatorname{var}(X) = \mathbb{E}((X - \mu)^{2}) \]</div>
+\[ \operatorname{var}(X) = \mathbb{E}[(X - \mu)^{2}] \]</div>
 
 which can also be expressed as:
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-\operatorname{var}(X) &amp; = \mathbb{E}((X - \mu)^{2}) \\
-&amp; = \mathbb{E}((X - \mathbb{E}(X))^{2}) \\
-&amp; = \mathbb{E}(X^{2} - 2X\mathbb{E}(X) + \mathbb{E}(X)^{2}) \\
-&amp; = \mathbb{E}(X^{2}) - 2\mathbb{E}(X)\mathbb{E}(X) + \mathbb{E}(X)^{2} \\
-&amp; = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} \\
+\operatorname{var}(X) &amp; = \mathbb{E}[(X - \mu)^{2}] \\
+&amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
+&amp; = \mathbb{E}[X^{2} - 2X\mathbb{E}[X] + \mathbb{E}[X]^{2}] \\
+&amp; = \mathbb{E}[X^{2}] - 2\mathbb{E}[X]\mathbb{E}[X] + \mathbb{E}[X]^{2} \\
+&amp; = \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2} \\
 \end{align}
 \end{split}\]</div>
 </p>
@@ -449,8 +458,8 @@ which can also be expressed as:
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-\operatorname{cov}(X, Y) &amp; = \mathbb{E}((X - \mathbb{E}(X)) (Y - \mathbb{E}(Y))) \\
-&amp; = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) \\
+\operatorname{cov}(X, Y) &amp; = \mathbb{E}[(X - \mathbb{E}[X]) (Y - \mathbb{E}[Y])] \\
+&amp; = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \\
 \end{align}
 \end{split}\]</div>
 </p>
@@ -469,8 +478,8 @@ where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and
 <div class="math notranslate nohighlight">
 \[\begin{split} 
  \begin{align}
- \operatorname{cov}(X, X) &amp; = \mathbb{E}((X - \mathbb{E}(X)) (X - \mathbb{E}(X))) \\
- &amp; = \mathbb{E}((X - \mathbb{E}(X))^{2}) \\
+ \operatorname{cov}(X, X) &amp; = \mathbb{E}[(X - \mathbb{E}[X]) (X - \mathbb{E}[X])] \\
+ &amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
  &amp; = \operatorname{var}(X) \\
  \end{align}
  \end{split}\]</div>
@@ -483,40 +492,36 @@ where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and
 <div class="math notranslate nohighlight">
 \[ \mathbf{V}_{i, j} = \operatorname{cov}(X_{i}, X_{j}) \]</div>
 </p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span> is always symmetric, since <span class="math notranslate nohighlight">\(\operatorname{cov}(X_{i}, X_{j}) = \operatorname{cov}(X_{j}, X_{i})\)</span>.</p></li>
 <li><p>The diagonal elements of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> are the variances of the random variables (<span class="math notranslate nohighlight">\(\mathbf{V}_{i, i} = \operatorname{cov}(X_{i}, X_{i}) = \operatorname{var}(X_{i})\)</span>).</p></li>
-<li><p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> that has <span class="math notranslate nohighlight">\(n\)</span> observations (rows) and <span class="math notranslate nohighlight">\(d\)</span> variables (columns),  let
+<li><p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> that has <span class="math notranslate nohighlight">\(n\)</span> observations (rows) and <span class="math notranslate nohighlight">\(d\)</span> variables (columns),  let</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{A} = \mathbf{X}^{T}\mathbf{X} \]</div>
-
-Then, each element of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is the dot product of each pair of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.
+<p>Then, each element of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is the dot product of each pair of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{align}
- \mathbf{A}_{i, j} &amp; = \mathbf{X}_{*, i} \cdot \mathbf{X}_{*, j} \\
- &amp; = \sum_{k=1}^{n} \mathbf{X}_{k, i}\mathbf{X}_{k, j} \\
- \end{align}
- \end{split}\]</div>
-
-Now let’s look at the covariance between each pair of the variables (columns) in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>,
+    \begin{align}
+    \mathbf{A}_{i, j} &amp; = \mathbf{X}_{*, i} \cdot \mathbf{X}_{*, j} \\
+    &amp; = \sum_{k=1}^{n} \mathbf{X}_{k, i}\mathbf{X}_{k, j} \\
+    \end{align}
+    \end{split}\]</div>
+<p>Now let’s look at the covariance between each pair of the variables (columns) in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \operatorname{cov}(\mathbf{X}_{*, i}, \mathbf{X}_{*, j}) = \frac{1}{n} \sum_{k=1}^{n} (\mathbf{X}_{k, i} - \bar{\mathbf{X}}_{k, i}) (\mathbf{X}_{k, j} - \bar{\mathbf{X}}_{k, j}) \]</div>
-
-Assuming that the each variable (column) of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is zero-centered (the means of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are 0):
+<p>Assuming that the each variable (column) of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is zero-centered (the means of the columns in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> are 0):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{align}
- \operatorname{cov}(\mathbf{X}_{*, i}, \mathbf{X}_{*, j}) &amp; = \frac{1}{n} \sum_{k=1}^{n} (\mathbf{X}_{k, i} - \bar{\mathbf{X}}_{k, i}) (\mathbf{X}_{k, j} - \bar{\mathbf{X}}_{k, j}) \\
- &amp; = \frac{1}{n} \sum_{k=1}^{n} \mathbf{X}_{k, i} \mathbf{X}_{k, j} \\
- &amp; = \frac{1}{n} \mathbf{A}_{i, j}
- \end{align}
- \end{split}\]</div>
-
-Thus, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> between each pair of the variables in zero-centered matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is
+    \begin{align}
+    \operatorname{cov}(\mathbf{X}_{*, i}, \mathbf{X}_{*, j}) &amp; = \frac{1}{n} \sum_{k=1}^{n} (\mathbf{X}_{k, i} - \bar{\mathbf{X}}_{k, i}) (\mathbf{X}_{k, j} - \bar{\mathbf{X}}_{k, j}) \\
+    &amp; = \frac{1}{n} \sum_{k=1}^{n} \mathbf{X}_{k, i} \mathbf{X}_{k, j} \\
+    &amp; = \frac{1}{n} \mathbf{A}_{i, j}
+    \end{align}
+    \end{split}\]</div>
+<p>Thus, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> between each pair of the variables in zero-centered matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X} \]</div>
-</p></li>
+</li>
 </ol>
 </section>
 </section>
@@ -654,8 +659,8 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-\operatorname{var}(X) &amp; = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} \\
-\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \mathbb{E}((\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2}) - \mathbb{E}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
+\operatorname{var}(X) &amp; = \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2} \\
+\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \mathbb{E}[(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2}] - \mathbb{E}[\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}]^{2} \\
 \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \\
 \end{align}
 \end{split}\]</div>

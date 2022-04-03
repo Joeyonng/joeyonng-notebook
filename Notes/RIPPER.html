@@ -54,6 +54,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/Notes/RIPPER.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="CG Decision Rules" href="CG%20Decision%20Rules.html" />
@@ -448,24 +449,25 @@
 </ol>
 <p><strong>[FOIL’s information gain]</strong>: it gives how much information entropy is reduced from <span class="math notranslate nohighlight">\(R_{old}\)</span> to <span class="math notranslate nohighlight">\(R_{new}\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[ \operatorname{Foil}(R_{old}, R_{new}) = P(R_{old}) (\log_{2}(\frac{P(R_{new})}{P(R_{new}) + N(R_{new})}) - \log_{2}(\frac{P(R_{old})}{P(R_{old}) + N(R_{old})})) \]</div>
+\[ \operatorname{Foil}(R_{old}, R_{new}) = P(R_{new}) \left( \log_{2} \left( \frac{P(R_{new})}{P(R_{new}) + N(R_{new})} \right) - \log_{2} \left( \frac{P(R_{old})}{P(R_{old}) + N(R_{old})} \right) \right) \]</div>
 <p>where <span class="math notranslate nohighlight">\(P(R)\)</span> (<span class="math notranslate nohighlight">\(N(R)\)</span>) is the number of positive (negative) instances covered by <span class="math notranslate nohighlight">\(R\)</span>.</p>
 </section>
 <section id="prune-a-rule">
 <h3>Prune a Rule<a class="headerlink" href="#prune-a-rule" title="Permalink to this headline">¶</a></h3>
-<p>PruneRule considers deleting <strong>any final sequence of conditions</strong> from the rule and chooses the deletion that <strong>maximizes the Rule-Value metric</strong> on the pruning set.</p>
+<p>PruneRule considers deleting <strong>any final sequence of conditions in the order they are grown</strong> from the rule and chooses the deletion that <strong>maximizes the Rule-Value metric</strong> on the pruning set.</p>
 <blockquote>
 <div><p><strong>Function</strong>: <em>PruneRule</em>.<br />
 <strong>Input</strong>: the pruning set <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> and the unpruned rule <span class="math notranslate nohighlight">\(R\)</span>.<br />
-<strong>Output</strong>: the pruned rule <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<strong>Output</strong>: the pruned rule <span class="math notranslate nohighlight">\(R_{p}\)</span>.</p>
 <ol class="arabic simple">
+<li><p>Initialize <span class="math notranslate nohighlight">\(R_{p} = R\)</span>.</p></li>
 <li><p>For all <span class="math notranslate nohighlight">\((f, v)_{i} \in R\)</span> starting from the last added one to the first one:</p>
 <ol class="arabic simple">
-<li><p>Get <span class="math notranslate nohighlight">\(R_{p}\)</span> by removing <span class="math notranslate nohighlight">\((f, v)_{i}\)</span> from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\operatorname{Value}(R_{p}) \geq \operatorname{Value}(R)\)</span>: then <span class="math notranslate nohighlight">\(R=R_{p}\)</span>.</p></li>
+<li><p>Removing <span class="math notranslate nohighlight">\((f, v)_{i}\)</span> from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\operatorname{Value}(R) \geq \operatorname{Value}(R_{p})\)</span>: then <span class="math notranslate nohighlight">\(R_{p} = R\)</span>.</p></li>
 </ol>
 </li>
-<li><p>Return <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p>Return <span class="math notranslate nohighlight">\(R_{p}\)</span></p></li>
 </ol>
 </div></blockquote>
 <p>The original implementation of IREP only considers the “deletions of a single final condition”.</p>

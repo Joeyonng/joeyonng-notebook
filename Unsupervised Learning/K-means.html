@@ -54,6 +54,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/Unsupervised Learning/K-means.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Principle Component Analysis (PCA)" href="Principle%20Component%20Analysis%20%28PCA%29.html" />
@@ -286,6 +287,40 @@
   <a class="reference internal nav-link" href="#preliminary">
    Preliminary
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estimator">
+       Estimator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bias">
+       Bias
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variance-of-an-estimator">
+       Variance (of an estimator)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mean-squared-error">
+       Mean squared error
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bias-variance-decomposition">
+       Bias-variance decomposition
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-formulation">
@@ -295,6 +330,23 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#k-means-using-lloyd-s-algorithm">
    K-means using Lloyd’s algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm">
+     Algorithm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convergence-of-lloyd-s-algorithm">
+     Convergence of Lloyd’s algorithm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-k-means-initializer">
+   The K-means++ initializer
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -328,53 +380,177 @@
 </ol>
 <section id="preliminary">
 <h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
-</section>
 <hr class="docutils" />
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<section id="estimator">
+<h4>Estimator<a class="headerlink" href="#estimator" title="Permalink to this headline">¶</a></h4>
+<p>In statistics, an estimator is a <strong>function that takes as inputs a set of observations</strong> sampled from an unknown probability distribution <span class="math notranslate nohighlight">\(P_{\theta}(X)\)</span> with the true parameter <span class="math notranslate nohighlight">\(\theta\)</span> and <strong>outputs the best guess of the parameter</strong> <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> of <span class="math notranslate nohighlight">\(P_{\theta}(X)\)</span>.</p>
+<ul class="simple">
+<li><p>An estimator is also a random variable.</p></li>
+</ul>
+</section>
+<section id="bias">
+<h4>Bias<a class="headerlink" href="#bias" title="Permalink to this headline">¶</a></h4>
+<p>The bias of an estimator measures <strong>whether the expectation of the estimator is the same as the true parameter</strong>. Let <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> be the output of an estimator for <span class="math notranslate nohighlight">\(\theta\)</span>. The bias of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> as an estimator for <span class="math notranslate nohighlight">\(\theta\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{Bias}(\hat{\theta}, \theta) = \mathbb{E}[\hat{\theta}] - \theta \]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\operatorname{Bias}(\hat{\theta}, \theta) = 0\)</span>, then we say <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is an <strong>unbiased</strong> estimator of <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{Bias}(\hat{\theta}, \theta) &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> typically <strong>overestimates</strong> <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{Bias}(\hat{\theta}, \theta) &lt; 0\)</span>, <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> typically <strong>underestimates</strong> <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+</ul>
+</section>
+<section id="variance-of-an-estimator">
+<h4>Variance (of an estimator)<a class="headerlink" href="#variance-of-an-estimator" title="Permalink to this headline">¶</a></h4>
+<p>The variance of an estimator measures the degree to which the <strong>estimated parameters vary depending on the sampled observations</strong>. Let <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> be the output of an estimator for <span class="math notranslate nohighlight">\(\theta\)</span>. The variance of <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> as an estimator is</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{Var}(\hat{\theta}) = \mathbb{E}[(\hat{\theta} - \mathbb{E}[\hat{\theta}])^{2}] \]</div>
+</section>
+<section id="mean-squared-error">
+<h4>Mean squared error<a class="headerlink" href="#mean-squared-error" title="Permalink to this headline">¶</a></h4>
+<p>In statistics, the mean squared error (MSE) is a risk (loss) function measures the <strong>difference between an estimator <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> with the true parameter <span class="math notranslate nohighlight">\(\theta\)</span></strong>.</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MSE}(\hat{\theta}, \theta) = \mathbb{E}[(\hat{\theta} - \theta)^{2}] \]</div>
+<p>If the estimator <span class="math notranslate nohighlight">\(\hat{\boldsymbol{\theta}}\)</span> and the true parameter <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> are vectors,</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MSE}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta}) = \mathbb{E}[\lVert \hat{\boldsymbol{\theta}} - \boldsymbol{\theta} \rVert^{2}] \]</div>
+</section>
+<section id="bias-variance-decomposition">
+<h4>Bias-variance decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this headline">¶</a></h4>
+<p>A risk (loss) function can be often decomposed into a <strong>bias, a variance and a noise term</strong>. Here we take MSE as an example and expand it into a bias and variance term (noise is omitted).</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{MSE}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta}) = \operatorname{Var}(\hat{\boldsymbol{\theta}}) + \operatorname{Bias}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta})^{2} \]</div>
+<p>Proof:
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\operatorname{MSE}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta}) &amp; = \mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \boldsymbol{\theta} \rVert^{2} ] \\
+&amp; = \mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] + \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert^{2}] &amp; [\text{add and subtract } \mathbb{E}[\hat{\boldsymbol{\theta}}] ] \\
+&amp; = \mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert^{2} + 2 \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert + \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert^{2} ] &amp; [(a + b)^{2} = a^{2} + 2ab + b^{2}] \\
+&amp; = \mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert^{2} ] + \mathbb{E}[ 2 \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert ] + \mathbb{E}[ \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert^{2} ] &amp; [\text{Linearity of Expectation}] \\
+&amp; = \operatorname{Var}(\hat{\boldsymbol{\theta}}) + 2\mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert] \mathbb{E}[ \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \boldsymbol{\theta} \rVert ] + \mathbb{E}[ \operatorname{Bias}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta})^{2} ] \\
+&amp; = \operatorname{Var}(\hat{\boldsymbol{\theta}}) + \operatorname{Bias}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta})^{2} &amp; [\mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert] = \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert = 0] \\
+\end{align}
+\end{split}\]</div>
+</p>
+</section>
+</section>
+</section>
 <section id="problem-formulation">
 <h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<ul class="simple">
+<ul>
 <li><p>K-means clustering algorithm is a unsupervised learning algorithm that aims to <strong>cluster similar instances into the same group</strong>.</p></li>
 <li><p>The input to the algorithm is <span class="math notranslate nohighlight">\(n\)</span> instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n} \in \mathbb{R}^{d}\)</span> <strong>without labels</strong> and the output of the algorithm is <span class="math notranslate nohighlight">\(k\)</span> centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k} \in \mathbb{R}^{d}\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is a hyperparameter used to control the number of centroids desired.</p></li>
-<li><p>The goal of K-means clustering is to find the best <span class="math notranslate nohighlight">\(k\)</span> centroids that minimizes a loss function (often <strong>MSE loss</strong> of the <strong><span class="math notranslate nohighlight">\(L_{2}\)</span> norm or euclidean distance</strong> of the difference vector) that captures the overall distances between the instances and the centroids assigned.
+<li><p>The goal of K-means clustering is to find the best <span class="math notranslate nohighlight">\(k\)</span> centroids that minimizes a loss function (often <strong>MSE loss</strong> of the <strong><span class="math notranslate nohighlight">\(L_{2}\)</span> norm or euclidean distance</strong> of the difference vector) that captures the overall distances between the instances and the centroids assigned.</p>
 <div class="math notranslate nohighlight">
-\[ \arg \min_{\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}} \frac{1}{n} \sum_{i = 1}^{n} \sum_{j = 1}^{k} \mathbb{1}_{\mathbf{x}_{i} \in \mathbf{u}_j} \lVert \mathbf{x}_{i} - \mathbf{u}_{j} \rVert^{2} \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathbf{x}_{i} \in \mathbf{u}_j\)</span> means that instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> is assigned to centroid <span class="math notranslate nohighlight">\(\mathbf{u}_j\)</span>.</p></li>
-<li><p>If we replace denote the centroid that is assigned to the instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> as <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}_{i}\)</span>, then the same formula can be written as
+\[ \operatorname{loss}(\mathbf{u}_{1}, \dots, \mathbf{u}_{k}) = \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \mathbf{u}_{x_{i}} \rVert^{2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{u}_{x_{i}}\)</span> is the centroid that instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> is assigned to.</p>
+</li>
+<li><p>Another way to write the loss function is to consider the distances between each centroid and the instances in the cluster that the centroid represents. The benefit of this formulation is that the clusters that the centroids represent are separated as variables, which is easier to do algorithm analyzing.</p>
 <div class="math notranslate nohighlight">
-\[ \arg \min_{\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}} \frac{1}{n} \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{u}}_{i} \rVert^{2} \]</div>
-
-which is more intuitive and easy-to-understand.</p></li>
+\[ \operatorname{loss}(\mathbf{u}_{1}, \dots, \mathbf{u}_{k}, C_{\mathbf{u}_{1}}, \dots, C_{\mathbf{u}_{k}}) = \sum_{i = 1}^{k} \sum_{\mathbf{x} \in C_{\mathbf{u}_{i}}} \lVert \mathbf{x} - \mathbf{u}_{i} \rVert^{2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(C_{\mathbf{u}_{i}}\)</span> is the cluster that centroid <span class="math notranslate nohighlight">\(\mathbf{u}_{i}\)</span> represents.</p>
+</li>
 </ul>
 </section>
 <section id="k-means-using-lloyd-s-algorithm">
 <h2>K-means using Lloyd’s algorithm<a class="headerlink" href="#k-means-using-lloyd-s-algorithm" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<p><strong>Function</strong>: K-means<br />
-<strong>Input</strong>: a set of instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n}\)</span> and a hyperparameter <span class="math notranslate nohighlight">\(k\)</span>.
-<strong>Output</strong>:</p>
-<ol class="arabic simple">
-<li><p>Initialize cluster centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}\)</span> randomly.</p></li>
+<section id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>Function</strong>: K-means<br />
+<strong>Input</strong>: a set of instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n}\)</span> and a hyperparameter <span class="math notranslate nohighlight">\(k\)</span>.<br />
+<strong>Output</strong>: a set of centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}\)</span>.</p>
+<ol class="arabic">
+<li><p>Initialize cluster centroids <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{2}, \dots, \mathbf{u}_{k}\)</span> by randomly drawing <span class="math notranslate nohighlight">\(k\)</span> instances as the centroids.</p></li>
 <li><p>Repeat until convergence or a fixed number of iterations:</p>
-<ol class="arabic simple">
-<li><p>Get the centroid for each instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span>:
+<ol class="arabic">
+<li><p><strong>Assignment step</strong>: get the nearest centroid <span class="math notranslate nohighlight">\(\mathbf{c}_{i}\)</span> for each instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{c}_{i} = \arg \min_{\mathbf{u}_{i}} \lVert \mathbf{x}_{i} - \mathbf{u}_{i} \rVert^{2} \]</div>
-</p></li>
-<li><p>Update the centroid based on the instances:
+\[ \mathbf{c}_{i} = \arg \min_{j} \lVert \mathbf{x}_{i} - \mathbf{u}_{j} \rVert^{2} \]</div>
+</li>
+<li><p><strong>Refitting step</strong>: update each centroid based on the instances in its cluster:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{u}_{j} = \frac{\sum_{i}^{m} \mathbb{1}_{\mathbf{c}_i = j} \mathbf{x}_{i}}{\sum_{i}^{m} \mathbb{1}_{\mathbf{c}_{i} = j}} \]</div>
-</p></li>
+</li>
 </ol>
 </li>
 </ol>
+</div></blockquote>
+</section>
+<section id="convergence-of-lloyd-s-algorithm">
+<h3>Convergence of Lloyd’s algorithm<a class="headerlink" href="#convergence-of-lloyd-s-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>K-means solved using Lloyd’s algorithm is guaranteed to converge to a local minimum because:</p>
+<ul>
+<li><p>The loss value is guaranteed to be smaller or stay the same in the assignment step because each instance <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> gets the nearest centroid.</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{loss}( \mathbf{u}_{1}, \dots, \mathbf{u}_{k}, (C_{\mathbf{u}_{1}}, \dots, C_{\mathbf{u}_{k}})^{t + 1} ) \leq \operatorname{loss}( \mathbf{u}_{1}, \dots, \mathbf{u}_{k}, (C_{\mathbf{u}_{1}}, \dots, C_{\mathbf{u}_{k}})^{t} ) \]</div>
+</li>
+<li><p>The loss value is guaranteed to be smaller or stay the same in the refitting step.</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{loss}( (\mathbf{u}_{1}, \dots, \mathbf{u}_{k})^{t + 1}, (C_{\mathbf{u}_{1}}, \dots, C_{\mathbf{u}_{k}})^{t + 1} ) \leq \operatorname{loss}( (\mathbf{u}_{1}, \dots, \mathbf{u}_{k})^{t}, (C_{\mathbf{u}_{1}}, \dots, C_{\mathbf{u}_{k}})^{t + 1} ) \]</div>
+<p>To see why this is true, consider a single centroid-cluster pair <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(C_{\mathbf{u}}\)</span>, for all instances <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n}\)</span> that belongs to the cluster <span class="math notranslate nohighlight">\(C_{\mathbf{u}}\)</span>, the loss function <span class="math notranslate nohighlight">\(\operatorname{loss}(\mathbf{u}, C_{\mathbf{u}})\)</span> will be minimized when <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the average of the instances in <span class="math notranslate nohighlight">\(C_{\mathbf{u}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \boldsymbol{\mu} = \frac{1}{n} \sum_{\mathbf{x} \in C_{\mathbf{u}}} \mathbf{x}_{i} = \arg \min_{\mathbf{u} \in \mathbb{R}^{d}} \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \mathbf{u} \rVert^{2} = \arg \min_{\mathbf{u} \in \mathbb{R}^{d}} \operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) \]</div>
+<p>because of the equation below derived from the bias-variance decomposition of MSE function:</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) = \operatorname{loss}(\mathbf{\boldsymbol{\mu}}, C_{\mathbf{\mathbf{u}}}) + n \lVert \boldsymbol{\mu} - \mathbf{u} \rVert \]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of instances in the cluster <span class="math notranslate nohighlight">\(C_{\mathbf{u}}\)</span>.</p>
+<p>Proof:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{align}
+    \operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) &amp; = \operatorname{loss}(\boldsymbol{\mu}, C_{\mathbf{u}}) + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \boldsymbol{\mu} \rVert^{2} + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \boldsymbol{\mu} \rVert + \lVert \boldsymbol{\mu} \rVert^{2} \right) + n\left( \lVert \boldsymbol{\mu} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \lVert \frac{S}{n} \rVert^{2} \right) + n\left( \lVert \frac{S}{n} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) &amp; \left[ \text{replace some } \boldsymbol{\mu} \text{ with } \frac{S}{n} \text{ where } S = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \mathbf{x} \right] \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - \sum_{\mathbf{x} \in C_{\mathbf{u}}} 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2 \lVert S \rVert \lVert \frac{S}{n} \rVert + n\lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert x \rVert = \lVert S \rVert \text{ and } \sum_{\mathbf{x} \in C_{\mathbf{u}}} 1 = n \right] \\ 
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \lVert S \rVert \lVert \frac{S}{n} \rVert = n\lVert \frac{S}{n} \rVert^{2}  \right] \\ 
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} ( \lVert \mathbf{x} \rVert^{2} - 2\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} ) \\
+    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \mathbf{u} \rVert^{2} \\
+    \end{align}
+    \end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lvert C_{\mathbf{\mathbf{u}}} \rvert \cdot \lVert \boldsymbol{\mu} - \mathbf{u} \rVert\)</span> is always positive,</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{loss}(\boldsymbol{\mu}, C_{\mathbf{u}}) \leq \operatorname{loss}(\mathbf{\mathbf{u}}, C_{\mathbf{\mathbf{u}}}) \]</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="the-k-means-initializer">
+<h2>The K-means++ initializer<a class="headerlink" href="#the-k-means-initializer" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Although the default behavior of the K-means algorithm is to initialize the centroids randomly, the quality of the final solution depends heavily on the initialization because K-means is only guaranteed to converge to a local point.</p>
+<p>The K-means++ initializer is a special way of initializing the centroids so that</p>
+<ul class="simple">
+<li><p>the convergence of K-means is faster,</p></li>
+<li><p>the final loss is bounded (the quality of the final solution won’t be very bad).</p></li>
+</ul>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Pick an instance <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> uniformly at random and set <span class="math notranslate nohighlight">\(T \gets \{\mathbf{x}\}\)</span></p></li>
+<li><p>While <span class="math notranslate nohighlight">\(\lvert T \rvert &lt; k\)</span>:</p>
+<ol class="arabic">
+<li><p>Pick an instance <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> at random, with probability proportional to</p>
+<div class="math notranslate nohighlight">
+\[ \operatorname{cost}(\mathbf{x}, T) = \min_{\mathbf{u} \in T} \lVert \mathbf{x} - \mathbf{u} \rVert^{2} \]</div>
+</li>
+<li><p>Add <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+</ol>
+</li>
+</ol>
+</div></blockquote>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://stanford.edu/~cpiech/cs221/handouts/kmeans.html">https://stanford.edu/~cpiech/cs221/handouts/kmeans.html</a></p></li>
+<li><p><a class="reference external" href="https://cseweb.ucsd.edu/~dasgupta/291-geom/kmeans.pdf">https://cseweb.ucsd.edu/~dasgupta/291-geom/kmeans.pdf</a></p></li>
 </ol>
 </section>
 <section id="implementation">
@@ -494,7 +670,7 @@ which is more intuitive and easy-to-understand.</p></li>
 94it [00:00, 1188.89it/s, KMeans=0.909]                                                                                                                                                                                                                                                 
 </pre></div>
 </div>
-<img alt="../_images/K-means_6_1.png" src="../_images/K-means_6_1.png" />
+<img alt="../_images/K-means_7_1.png" src="../_images/K-means_7_1.png" />
 </div>
 </div>
 </section>

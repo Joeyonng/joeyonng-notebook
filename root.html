@@ -54,6 +54,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/root.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="K-means" href="Unsupervised%20Learning/K-means.html" />
@@ -348,34 +349,32 @@
 <tr class="row-odd"><th class="text-center head"><p>Symbol</p></th>
 <th class="text-center head"><p>Name</p></th>
 <th class="text-center head"><p>Description</p></th>
-<th class="text-center head"><p>Example</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
 <td class="text-center"><p>Scalar</p></td>
 <td class="text-center"><p>Variables are scalars (numbers).</p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(x = 1\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></td>
 <td class="text-center"><p>Vector</p></td>
 <td class="text-center"><p>Bold non-capitalized variables are vectors.</p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\lVert \mathbf{x} \rVert^{2}\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\hat{\mathbf{x}}\)</span></p></td>
 <td class="text-center"><p>Unit vector</p></td>
 <td class="text-center"><p>Vectors that have a hat are unit vectors.</p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\lVert \hat{\mathbf{x}} \rVert\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\mathbf{X}\)</span></p></td>
 <td class="text-center"><p>Matrix</p></td>
 <td class="text-center"><p>Bold capitalized variables are matrices.</p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(\mathbf{X}^T\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(X\)</span></p></td>
 <td class="text-center"><p>Random variable</p></td>
 <td class="text-center"><p>Capitalized variables are random variables.</p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(P(X)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(P_{\theta}(X)\)</span></p></td>
+<td class="text-center"><p>Probability distribution</p></td>
+<td class="text-center"><p>Probability distribution of the random variable <span class="math notranslate nohighlight">\(X\)</span> parameterized by <span class="math notranslate nohighlight">\(\theta\)</span>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -460,20 +459,24 @@
 <h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this headline">¶</a></h2>
 <section id="linear-algebra">
 <h3>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>The squared norm of vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>
+<ol class="arabic">
+<li><p>The squared norm of vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p>
 <div class="math notranslate nohighlight">
-\[ \lVert \mathbf{x} \rVert_{2}^{2} = \mathbf{x} \cdot \mathbf{x} = \mathbf{x}^{T} \mathbf{x}\]</div>
-</p></li>
-<li><p>The matrix form of the dot product between two vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> with a coefficient <span class="math notranslate nohighlight">\(\lambda\)</span>
+\[ \lVert \mathbf{x} \rVert^{2} = \mathbf{x} \cdot \mathbf{x} = \mathbf{x}^{T} \mathbf{x}\]</div>
+</li>
+<li><p>The squared norm of a vector difference between <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \lVert \mathbf{a} - \mathbf{b} \rVert^{2} = (\mathbf{a} - \mathbf{b})^{T} (\mathbf{a} - \mathbf{b}) = \mathbf{a}^{T}\mathbf{a} - 2 \mathbf{a}^T\mathbf{b} + \mathbf{b}^{T}\mathbf{b} \]</div>
+</li>
+<li><p>The matrix form of the dot product between two vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> with a coefficient <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="math notranslate nohighlight">
 \[ \lambda(\mathbf{a} \cdot \mathbf{b}) = \mathbf{a}^{T} \mathbf{\Lambda} \mathbf{b} \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with value <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
-<li><p>The transpose of the product of two matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with value <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+</li>
+<li><p>The transpose of the product of two matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span></p>
 <div class="math notranslate nohighlight">
 \[ (\mathbf{A}\mathbf{B})^{T} = \mathbf{B}^{T}\mathbf{A}^{T} \]</div>
-</p></li>
+</li>
 </ol>
 </section>
 <section id="calculus">
@@ -482,17 +485,17 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 <li><p>The derivative of the sigmoid function <span class="math notranslate nohighlight">\(\sigma\)</span> is <span class="math notranslate nohighlight">\(\sigma (1 - \sigma)\)</span>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
-\begin{align}
-\frac{\partial \sigma}{\partial x} &amp; = \frac{\partial}{\partial x} \frac{1}{1 + e^{-x}} \\
-&amp; = \frac{\partial}{\partial x} (1 + e^{-x})^{-1} \\
-&amp; = -(1 + e^{-x})^{-2} \times -e^{-x} \\
-&amp; = \frac{e^{-x}}{(1 + e^{-x})^{2}} \\
-&amp; = \frac{e^{-x}}{1 + e^{-x}} \frac{1}{1 + e^{-x}} \\
-&amp; = \frac{e^{-x}}{1 + e^{-x}} \left( \frac{1 + e^{-x}}{1 + e^{-x}} - \frac{e^{-x}}{1 + e^{-x}} \right) \\
-&amp; = \frac{e^{-x}}{1 + e^{-x}} \left( 1 - \frac{e^{-x}}{1 + e^{-x}} \right) \\
-&amp; = \sigma (1 - \sigma) \\
-\end{align}
-\end{split}\]</div>
+ \begin{align}
+ \frac{\partial \sigma}{\partial x} &amp; = \frac{\partial}{\partial x} \frac{1}{1 + e^{-x}} \\
+ &amp; = \frac{\partial}{\partial x} (1 + e^{-x})^{-1} \\
+ &amp; = -(1 + e^{-x})^{-2} \times -e^{-x} \\
+ &amp; = \frac{e^{-x}}{(1 + e^{-x})^{2}} \\
+ &amp; = \frac{e^{-x}}{1 + e^{-x}} \frac{1}{1 + e^{-x}} \\
+ &amp; = \frac{e^{-x}}{1 + e^{-x}} \left( \frac{1 + e^{-x}}{1 + e^{-x}} - \frac{e^{-x}}{1 + e^{-x}} \right) \\
+ &amp; = \frac{e^{-x}}{1 + e^{-x}} \left( 1 - \frac{e^{-x}}{1 + e^{-x}} \right) \\
+ &amp; = \sigma (1 - \sigma) \\
+ \end{align}
+ \end{split}\]</div>
 </p></li>
 </ol>
 </section>
