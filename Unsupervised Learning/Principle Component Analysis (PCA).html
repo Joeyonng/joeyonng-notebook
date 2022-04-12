@@ -203,6 +203,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/MLIC%20IMLI.html">
+   MLIC IMLI
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Notes/MobileNets.html">
    MobileNets
   </a>
@@ -294,8 +299,8 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#expected-value">
-       Expected value
+      <a class="reference internal nav-link" href="#expected-value-expectation">
+       Expected value (Expectation)
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -409,9 +414,9 @@
 <hr class="docutils" />
 <section id="statistics">
 <h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
-<section id="expected-value">
-<h4>Expected value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h4>
-<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value is its mean value</strong>.
+<section id="expected-value-expectation">
+<h4>Expected value (Expectation)<a class="headerlink" href="#expected-value-expectation" title="Permalink to this headline">¶</a></h4>
+<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value (expectation) is its mean value</strong>.
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}[X] = \mu \]</div>
 
@@ -426,10 +431,13 @@ where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean valu
 <li><p>If <span class="math notranslate nohighlight">\(X\)</span> is a discrete random variable with a finite number of values <span class="math notranslate nohighlight">\(x_{1}, x_{2}, \dots, x_{k}\)</span> occurring with probabilities <span class="math notranslate nohighlight">\(p_{1}, p_{2}, \dots, p_{k}\)</span>, respectively, the expected value  of <span class="math notranslate nohighlight">\(X\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}[X] = \sum_{i=1}^{k} x_{i}p_{i} \]</div>
-</li>
-<li><p>If the possibilities are the same (<span class="math notranslate nohighlight">\(p_{1} = p_{2} = \dots = p_{n} = \frac{1}{n}\)</span>), then</p>
+<p>If the possibilities are the same (<span class="math notranslate nohighlight">\(p_{1} = p_{2} = \dots = p_{n} = \frac{1}{n}\)</span>), then</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}[X] = \frac{1}{n} \sum_{i=1}^{k} x_{i} \]</div>
+</li>
+<li><p>In general, given a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> with probability mass function (PMF) <span class="math notranslate nohighlight">\(P_{X}(x)\)</span>, the expected value of a function <span class="math notranslate nohighlight">\(f(x)\)</span> that takes <span class="math notranslate nohighlight">\(X\)</span> as the inputs is</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}_{X}[f(X)] = \sum_{x \in X} f(x)P_{X}(x) \]</div>
 </li>
 </ol>
 </section>

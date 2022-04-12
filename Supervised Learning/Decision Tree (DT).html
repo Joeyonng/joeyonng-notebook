@@ -203,6 +203,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../Notes/MLIC%20IMLI.html">
+   MLIC IMLI
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Notes/MobileNets.html">
    MobileNets
   </a>
@@ -284,6 +289,47 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary">
+   Preliminary
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#kullback-leibler-divergence-kl-divergence">
+       Kullback-Leibler Divergence (KL Divergence)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impurity-function">
+   Impurity function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gini-impurity-index-gini-impurity">
+     Gini Impurity Index (Gini Impurity)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shannon-entropy-entropy">
+     Shannon Entropy (Entropy)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tree-building">
+   Tree building
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -307,17 +353,79 @@
 <li><p>To train a classification decision tree, we greedily split on certain feature value that has the max uncertainty gain among all possible splitting choices. The uncertainty gain is calculated using Gini impurity index or information gain that measure how much uncertainty can be reduced in the dataset after the splitting. After the splitting, two or more new child nodes will be created. For each new node, we apply the same algorithm again with the subset of the training instances that follows the decision path. We only stop splitting when we only have one class left in the remaining training instances and that node is a leaf node with the label given by the remaining training instances.</p></li>
 <li><p>Decision tree is interpretable and very efficient to learn, but suffers from over-fitting because tree can be constructed very complex so that a slight difference of the instance will cause the label change. We can apply post pruning or setting the maximum depth to reduce it.</p></li>
 </ol>
+<section id="preliminary">
+<h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<section id="kullback-leibler-divergence-kl-divergence">
+<h4>Kullback-Leibler Divergence (KL Divergence)<a class="headerlink" href="#kullback-leibler-divergence-kl-divergence" title="Permalink to this headline">¶</a></h4>
+<p>KL Divergence is a method to measure <strong>difference between two probability distributions</strong> over the same random variable <span class="math notranslate nohighlight">\(X\)</span>. Given a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> and two probability distributions <span class="math notranslate nohighlight">\(P(X)\)</span> and <span class="math notranslate nohighlight">\(Q(X)\)</span>, KL Divergence is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+D_{KL}(P \Vert Q) &amp; = \mathbb{E}_{X \sim P}[\log P(X) - \log Q(X)] \\ 
+&amp; = \sum_{x \in X} P(x) (\log P(x) - \log Q(x)) &amp; [\text{definition of expected value of } \log P(x) - \log Q(x)] \\
+&amp; = \sum_{x \in X} P(x) \log \frac{P(x)}{Q(x)}  &amp; [\log a - \log b = \log \frac{a}{b}] \\
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>KL Divergence is not symmetric and thus cannot be used as an distance metric
+<div class="math notranslate nohighlight">
+\[ D_{KL}(P \Vert Q) \neq D_{KL}(Q \Vert P) \]</div>
+</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="impurity-function">
+<h2>Impurity function<a class="headerlink" href="#impurity-function" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> with <span class="math notranslate nohighlight">\(C\)</span> unique labels, impurity functions measure the impureness of the labels in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
+<ul class="simple">
+<li><p>When there is only one class in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>, the dataset is pure and thus impurity functions should return 0.</p></li>
+<li><p>On the contrary, if all possible labels are in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and also have the same number of instances, <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is the most impure and impurity functions should return a very large value.</p></li>
+</ul>
+<section id="gini-impurity-index-gini-impurity">
+<h3>Gini Impurity Index (Gini Impurity)<a class="headerlink" href="#gini-impurity-index-gini-impurity" title="Permalink to this headline">¶</a></h3>
+<p>Gini impurity measures the probability of incorrectly classifying a randomly chosen element in the dataset if it were randomly labeled according to the class distribution in the dataset.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+G(\mathbf{D}) &amp; = \sum_{c \in C} P(c)(1 - P(c)) \\ 
+&amp; = \sum_{c \in C} P(c) - P(c)^{2} \\
+&amp; = 1 - \sum_{c \in C} P(c)^2 \\
+\end{align}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(P(c)\)</span> is the probability of label <span class="math notranslate nohighlight">\(c\)</span> in the dataset, which is computed by dividing the number of instances with label <span class="math notranslate nohighlight">\(c\)</span> by the total number instances in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
+</section>
+<section id="shannon-entropy-entropy">
+<h3>Shannon Entropy (Entropy)<a class="headerlink" href="#shannon-entropy-entropy" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[ E(\mathbf{D}) = \sum_{c \in C} P(c) \log P(c) \]</div>
+<p>Entropy can be thought as the difference measured by KL Divergence between the probability distribution of the unique labels represented in the current dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and the distribution of the most impure dataset.</p>
+<ul class="simple">
+<li><p>The larger the entropy, the more far away from a uniform distribution is the distribution of the labels represented by <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{align}
+D_{KL}(P \Vert Q) &amp; = \sum_{x \in X} P(x)(\log P(x) - \log Q(x)) &amp; [\text{KL Divergence definition}] \\
+&amp; = \sum_{c \in C} P(c)(\log P(c) - \log Q(c)) &amp; [\text{substitute } x \text{ with label } c] \\ 
+&amp; = \sum_{c \in C} P(c)(\log P(c) - \log \frac{1}{C}) &amp; [Q(c) = \frac{1}{C} \text{ is uniform distribution}] \\
+&amp; = \sum_{c \in C} P(c)(\log P(c) - (\log 1 - \log C)) \\
+&amp; = \sum_{c \in C} P(c)(\log P(c) + \log C) \\
+&amp; = \sum_{c \in C} P(c)\log P(c) + \log C \sum_{c \in C} P(c) \\
+&amp; = \sum_{c \in C} P(c) \log P(c) + \log C &amp; [\sum_{c \in C} P(c) = 1] \\
+&amp; = \sum_{c \in C} P(c) \log P(c) &amp; [\log C \text{ is a constant and can be dropped}] \\
+\end{align}
+\end{split}\]</div>
+</section>
+</section>
+<section id="tree-building">
+<h2>Tree building<a class="headerlink" href="#tree-building" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
 <ol class="arabic simple">
-<li><p><strong>[Gini Index and Information Entropy]</strong>: Both applies to a dataset (instances with labels) to measure its uncertainty. They both become 0 when there is only one class in the set. <br />
-Gini Index (Gini impurity) measures the probability of incorrectly classifying a randomly chosen element in the dataset if it were randomly labeled according to the class distribution in the dataset.
-<div class="math notranslate nohighlight">
-\[ G(\mathcal{D}) = \sum_{c=1}^{C} \textrm{P}(c)(1-\textrm{P}(c)) = 1 - \sum_{c=1}^{C} \textrm{P}(c)^2 \]</div>
-
-Information Entropy can be roughly thought as the dataset’s variance.
-<div class="math notranslate nohighlight">
-\[ E(\mathcal{D}) = \sum_{c=1}^{C} \textrm{P}(c)\log_2\textrm{P}(c) \]</div>
-
-In both cases, <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the dataset to be evaluated, <span class="math notranslate nohighlight">\(C\)</span> is the total number of classes in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> and <span class="math notranslate nohighlight">\(\textrm{P}(c)\)</span> is the probability of picking an instance with the class <span class="math notranslate nohighlight">\(c\)</span> (fraction of instances with class <span class="math notranslate nohighlight">\(c\)</span> in <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>).</p></li>
 <li><p><strong>[Gini Gain and Information Gain]</strong>: Both measure the uncertainty (Gini Index and Information Entropy) difference between before and after a splitting on the dataset.
 <div class="math notranslate nohighlight">
 \[ G(\mathcal{D}, S) = M(\mathcal{D}) - \sum_{s\in S}\frac{\lvert s \rvert}{\lvert D \rvert} M(s)\]</div>
@@ -332,12 +440,14 @@ where <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the d
 </ol>
 </li>
 </ol>
+</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://victorzhou.com/blog/intro-to-random-forests/">https://victorzhou.com/blog/intro-to-random-forests/</a></p></li>
 <li><p><a class="reference external" href="https://www.math.snu.ac.kr/~hichoi/machinelearning/lecturenotes/CART.pdf">https://www.math.snu.ac.kr/~hichoi/machinelearning/lecturenotes/CART.pdf</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html">https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html</a></p></li>
 </ol>
 </section>
 </section>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Quantization Survey &#8212; Joeyonng&#39;s Notebook</title>
+    <title>MLIC IMLI &#8212; Joeyonng&#39;s Notebook</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,11 +54,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/Notes/Quantization Survey.html" />
+    <link rel="canonical" href="https://joeyonng.github.io/joeyonng-notebook/Notes/MLIC IMLI.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MLIC IMLI" href="MLIC%20IMLI.html" />
-    <link rel="prev" title="L0 Regularization" href="L0%20Regularization.html" />
+    <link rel="next" title="Mobile Nets" href="MobileNets.html" />
+    <link rel="prev" title="Quantization Survey" href="Quantization%20Survey.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -197,13 +197,13 @@
    L0 Regularization
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quantization%20Survey.html">
    Quantization Survey
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MLIC%20IMLI.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    MLIC IMLI
   </a>
  </li>
@@ -258,7 +258,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Notes/Quantization Survey.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Notes/MLIC IMLI.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -289,13 +289,20 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problem">
-   Problem:
+  <a class="reference internal nav-link" href="#maximum-satisfiability-problem-maxsat">
+   Maximum satisfiability problem (MaxSat)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-maxsat-problem">
+     Partial MaxSat problem
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uniform-quantization">
-   Uniform Quantization
+  <a class="reference internal nav-link" href="#problem-formulation">
+   Problem formulation
   </a>
  </li>
 </ul>
@@ -309,56 +316,68 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="quantization-survey">
-<h1>Quantization Survey<a class="headerlink" href="#quantization-survey" title="Permalink to this headline">¶</a></h1>
-<p><em>07-28-2021</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="mlic-imli">
+<h1>MLIC IMLI<a class="headerlink" href="#mlic-imli" title="Permalink to this headline">¶</a></h1>
+<p><em>04-11-2022</em></p>
 <p>This page contains my reading notes on</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/A-Survey-of-Quantization-Methods-for-Efficient-Gholami-Kim/04e283adccf66742130bde4a4dedcda8f549dd7e"><strong>A Survey of Quantization Methods for Efficient Neural Network Inference</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/MLIC%3A-A-MaxSAT-Based-Framework-for-Learning-Rules-Malioutov-Meel/d4294e394f9fad9bc29e4c8b5d653ff9b2dfbca8"><strong>MLIC: A MaxSAT-Based Framework for Learning Interpretable Classification Rules</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/IMLI%3A-An-Incremental-Framework-for-MaxSAT-Based-of-Ghosh-Meel/f52d22d1bb0394b7c26d955a6bbadbfe7f60d191"><strong>IMLI: An Incremental Framework for MaxSAT-Based Learning of Interpretable Classification Rules</strong></a></p></li>
 </ul>
-<section id="problem">
-<h2>Problem:<a class="headerlink" href="#problem" title="Permalink to this headline">¶</a></h2>
-<p>Given a full precision number <span class="math notranslate nohighlight">\(x\)</span>, which is either a weight or an activation in the network, we want to only use <span class="math notranslate nohighlight">\(2^{k}\)</span> number of distinct values <span class="math notranslate nohighlight">\(\hat{x}\)</span> to replace <span class="math notranslate nohighlight">\(x\)</span> in the inference time.</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(k\)</span> here is called the bit-width.</p></li>
-<li><p>The goal is to reduce the inference time and memory usage because less number of distinct values uses less memory and benefit from integer arithmetic hardware.</p></li>
-<li><p>Unlike the application of quantization method used in signal processing, whose primary goal is to minimze the difference between the quantized values and the full-precision values, the quantization in neural network aims to minimize the accuracy drop, which can be achieved even if the average difference is huge.</p></li>
-<li></li>
-</ol>
+<section id="maximum-satisfiability-problem-maxsat">
+<h2>Maximum satisfiability problem (MaxSat)<a class="headerlink" href="#maximum-satisfiability-problem-maxsat" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> be a set of Boolean clauses on variables <span class="math notranslate nohighlight">\(x_{1}, \dots, x_{n}\)</span> where each clause is a disjunction of literals, each literal being a Boolean variable or its negation. Let there be
+a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> associated with each clause. Find an assignment of the Boolean variables that maximizes the total weight of the satisfied clauses.</p>
+<section id="partial-maxsat-problem">
+<h3>Partial MaxSat problem<a class="headerlink" href="#partial-maxsat-problem" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> consist of <em>soft</em> clauses and <em>hard</em> clauses. Let there be a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> and a infinite weight <span class="math notranslate nohighlight">\(W(C) = \infty\)</span> associated with each soft clause and hard clause respectively.
+Partial MaxSat is the problem of finding an assignment to the variables of C that minimizes the cost (weight) of the falsified (unsatisfied) clauses.</p>
 </section>
-<section id="uniform-quantization">
-<h2>Uniform Quantization<a class="headerlink" href="#uniform-quantization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="problem-formulation">
+<h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
+<p>Inputs:</p>
 <ol class="arabic simple">
-<li><p>Uniform quantization means that the values after the quantization are equally spaced:
-<div class="math notranslate nohighlight">
-\[\hat{x}_{n} - \hat{x}_{n - 1} = \hat{x}_{n - 1} - \hat{x}_{n - 2}\]</div>
-</p></li>
-<li><p>A widely used method of uniform quantization is as follows:</p>
+<li><p>Binary matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times m}\)</span> of <span class="math notranslate nohighlight">\(n\)</span> instances with <span class="math notranslate nohighlight">\(m\)</span> binary features.</p></li>
+<li><p>Binary vector <span class="math notranslate nohighlight">\(\mathbf{y} \in \mathbb{R}^{n}\)</span> of <span class="math notranslate nohighlight">\(n\)</span> binary labels.</p></li>
+<li><p>Integer <span class="math notranslate nohighlight">\(k\)</span> indicating the number of clauses in the CNF rule</p></li>
+<li><p>Regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+</ol>
+<p>Outputs:</p>
 <ol class="arabic simple">
-<li><p>The quantization operator maps the real values to a set of consecutive integers in the range of <span class="math notranslate nohighlight">\([-2^{k-1}, 2^{k-1} - 1]\)</span>:
-<div class="math notranslate nohighlight">
-\[ Q(x) = \mathrm{round}(\frac{x - b}{s}) \]</div>
-
-Here <span class="math notranslate nohighlight">\(s\)</span> is the scaling factor, <span class="math notranslate nohighlight">\(b\)</span> is the bias and <span class="math notranslate nohighlight">\(\mathrm{round}()\)</span> is to round the float to nearest integer.</p></li>
-<li><p>Both <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(b\)</span> can be directly calculated if we have selected a range of <span class="math notranslate nohighlight">\(x\)</span> to be <span class="math notranslate nohighlight">\([\alpha, \beta]\)</span>:
-<div class="math notranslate nohighlight">
-\[ s = \frac{\beta - \alpha}{2^{k} - 1} \]</div>
-
-<div class="math notranslate nohighlight">
-\[ b = \frac{\beta - \alpha}{2} \]</div>
-
-The scaling factor essentially divide the range <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> into <span class="math notranslate nohighlight">\(2^{k}\)</span> numbers of same size partitions. The bias shifts the selected range to be zero centered.</p></li>
-<li><p>Finally, the quantized value <span class="math notranslate nohighlight">\(\hat{x}\)</span> that should be used in the inference can be mapped from <span class="math notranslate nohighlight">\(Q(x)\)</span>:
-<div class="math notranslate nohighlight">
-\[ \hat{x} = sQ(x) + b \]</div>
-</p></li>
+<li><p>a CNF rule.</p></li>
+</ol>
+<p>Variables:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(k \times m\)</span> binary matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> of the variables <span class="math notranslate nohighlight">\(\{b_{1, 1}, b_{1, 2}, \dots, b_{1, m}, \dots, b_{k, m}\}\)</span> that represents the result CNF rule.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{B}_{l, j} = 1\)</span> means that the feature <span class="math notranslate nohighlight">\(f_{j}\)</span> appears in clause <span class="math notranslate nohighlight">\(C_{i}\)</span> of the CNF rule.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{B}_{l}\)</span> means the <span class="math notranslate nohighlight">\(l\)</span>th row of the matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, which is also the <span class="math notranslate nohighlight">\(l\)</span>th clause <span class="math notranslate nohighlight">\(C_{l}\)</span>.</p></li>
 </ol>
 </li>
-<li><p>Symmetric and asymmetric quantization</p>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> binary noise variables <span class="math notranslate nohighlight">\(\{\eta_{1}, \dots, \eta_{n}\}\)</span> that indicates the instances that can be treated as noise.</p>
 <ol class="arabic simple">
-<li><p>If the selected range <span class="math notranslate nohighlight">\([\alpha, \beta]\)</span> is symmetric around 0 i.e. <span class="math notranslate nohighlight">\(\alpha = -\beta\)</span>, then the quantization is called symmertric. Otherwise, it is called asymmertric.</p></li>
-<li><p>Symmetric quantization doesn’t require b <span class="math notranslate nohighlight">\((b=0)\)</span> since the selected range is already zero centered. However, it can cause unused/over-used quantized value if the <span class="math notranslate nohighlight">\(x\)</span> is not symmertric.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\eta_{i} = 1\)</span>, the results CNF rule doesn’t have to classifies the <span class="math notranslate nohighlight">\(\mathbf{x}_{i}\)</span> correctly.</p></li>
 </ol>
+</li>
+</ol>
+<p>Partial MaxSAT formulation:</p>
+<ol class="arabic">
+<li><p>CNF constraint</p>
+<div class="math notranslate nohighlight">
+\[ Q = \bigwedge_{i=1}^{n} N_{i} \wedge \bigwedge_{i=1, j=1}^{i=k, j=m} V_{i, j} \wedge \bigwedge_{i=1}^{n} D_{i}  \]</div>
+</li>
+<li><p>We want the training accuracy to be higher. Each non-noise will have a <span class="math notranslate nohighlight">\(\lambda\)</span> weight. (soft clauses)</p>
+<div class="math notranslate nohighlight">
+\[ N_{i} = \neg \eta_{i} \quad W(N_{i}) = \lambda \]</div>
+</li>
+<li><p>We want the CNF rule to be sparse. Each don’t care literal will have a <span class="math notranslate nohighlight">\(1\)</span> weight. (soft clauses)</p>
+<div class="math notranslate nohighlight">
+\[ V_{l, j} = \neg \mathbf{B}_{l, j} \quad W(V_{l, j}) = 1 \]</div>
+</li>
+<li><p>We want each non-noise instance to be correctly classified by the CNF rule. (hard clauses)</p>
+<div class="math notranslate nohighlight">
+\[ D_{i} = \left( \neg \eta_{q} \rightarrow \left( y_{i} \leftrightarrow \bigwedge_{l = 1}^{k} \left( \bigvee_{j=1}^{m} \mathbf{X}_{i, j} \wedge \mathbf{B}_{l, j} \right) \right) \right) \quad W(D_{i}) = \infty \]</div>
 </li>
 </ol>
 </section>
@@ -389,17 +408,17 @@ The scaling factor essentially divide the range <span class="math notranslate no
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="L0%20Regularization.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Quantization%20Survey.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">L0 Regularization</p>
+            <p class="prev-next-title">Quantization Survey</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="MLIC%20IMLI.html" title="next page">
+    <a class='right-next' id="next-link" href="MobileNets.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MLIC IMLI</p>
+        <p class="prev-next-title">Mobile Nets</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
