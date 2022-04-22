@@ -336,8 +336,8 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orthonormal-basis">
-       Orthonormal basis
+      <a class="reference internal nav-link" href="#orthonormal-basis-orthonormal-matrix">
+       Orthonormal basis, orthonormal matrix
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -416,11 +416,10 @@
 <h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
 <section id="expected-value-expectation">
 <h4>Expected value (Expectation)<a class="headerlink" href="#expected-value-expectation" title="Permalink to this headline">¶</a></h4>
-<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value (expectation) is its mean value</strong>.
+<p>Given a random variable <span class="math notranslate nohighlight">\(X\)</span>, its <strong>expected value (expectation) is its mean value</strong>.</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}[X] = \mu \]</div>
-
-where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
 <ol class="arabic">
 <li><p>Linearity of Expectation</p>
 <div class="math notranslate nohighlight">
@@ -443,26 +442,23 @@ where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean valu
 </section>
 <section id="variance">
 <h4>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h4>
-<p>The <strong>variance</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is the expected value of the squared deviation from the mean of <span class="math notranslate nohighlight">\(X\)</span>:
+<p>The <strong>variance</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is the expected value of the squared deviation from the mean of <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ \operatorname{var}(X) = \mathbb{E}[(X - \mu)^{2}] \]</div>
-
-which can also be expressed as:
+\[ \operatorname{var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \]</div>
+<p>which can also be expressed as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-\operatorname{var}(X) &amp; = \mathbb{E}[(X - \mu)^{2}] \\
-&amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
+\operatorname{var}(X) &amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
 &amp; = \mathbb{E}[X^{2} - 2X\mathbb{E}[X] + \mathbb{E}[X]^{2}] \\
 &amp; = \mathbb{E}[X^{2}] - 2\mathbb{E}[X]\mathbb{E}[X] + \mathbb{E}[X]^{2} \\
 &amp; = \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2} \\
 \end{align}
 \end{split}\]</div>
-</p>
 </section>
 <section id="covariance">
 <h4>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">¶</a></h4>
-<p>The <strong>covariance</strong> of two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures the strength of the correlation between them:
+<p>The <strong>covariance</strong> of two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures the strength of the correlation between them:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -470,36 +466,36 @@ which can also be expressed as:
 &amp; = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \\
 \end{align}
 \end{split}\]</div>
-</p>
+<ol class="arabic">
+<li><p>We can interpret covariance as follows:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &gt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to increase as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(Y\)</span> tends to decrease as <span class="math notranslate nohighlight">\(X\)</span> increases.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y) = 0\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are uncorrelated.</p></li>
 </ul>
-<ol class="arabic simple">
-<li><p>If we sample <span class="math notranslate nohighlight">\(n\)</span> observations from <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> to get vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, then we can actually compute <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y)\)</span> based on the values in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, since the expected value of a random variable is just the mean of the its observations:
+</li>
+<li><p>If we sample <span class="math notranslate nohighlight">\(n\)</span> observations from <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> to get vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, then we can actually compute <span class="math notranslate nohighlight">\(\operatorname{cov}(X, Y)\)</span> based on the values in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, since the expected value of a random variable is just the mean of the its observations:</p>
 <div class="math notranslate nohighlight">
 \[ \operatorname{cov}(\mathbf{x}, \mathbf{y}) = \frac{1}{n} \sum_{i=1}^{n} (\mathbf{x}_{i} - \bar{\mathbf{x}}) (\mathbf{y}_{i} - \bar{\mathbf{y}}) \]</div>
-
-where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and <span class="math notranslate nohighlight">\(\bar{\mathbf{y}}\)</span> are the mean of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, respectively.</p></li>
-<li><p>In the special case of <span class="math notranslate nohighlight">\(Y = X\)</span>, the covariance reduces to variance.
+<p>where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and <span class="math notranslate nohighlight">\(\bar{\mathbf{y}}\)</span> are the mean of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, respectively.</p>
+</li>
+<li><p>In the special case of <span class="math notranslate nohighlight">\(Y = X\)</span>, the covariance reduces to variance.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{align}
- \operatorname{cov}(X, X) &amp; = \mathbb{E}[(X - \mathbb{E}[X]) (X - \mathbb{E}[X])] \\
- &amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
- &amp; = \operatorname{var}(X) \\
- \end{align}
- \end{split}\]</div>
-</p></li>
+    \begin{align}
+    \operatorname{cov}(X, X) &amp; = \mathbb{E}[(X - \mathbb{E}[X]) (X - \mathbb{E}[X])] \\
+    &amp; = \mathbb{E}[(X - \mathbb{E}[X])^{2}] \\
+    &amp; = \operatorname{var}(X) \\
+    \end{align}
+    \end{split}\]</div>
+</li>
 </ol>
 </section>
 <section id="covariance-matrix-variance-covariance-matrix">
 <h4>Covariance matrix (variance-covariance matrix)<a class="headerlink" href="#covariance-matrix-variance-covariance-matrix" title="Permalink to this headline">¶</a></h4>
-<p>Given <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \dots, X_{n}\)</span>, the <strong>covariance matrix</strong> is a square matrix of the size <span class="math notranslate nohighlight">\(n \times n\)</span> giving the covariance between every pair of random variables, where
+<p>Given <span class="math notranslate nohighlight">\(n\)</span> random variables <span class="math notranslate nohighlight">\(X_{1}, X_{2}, \dots, X_{n}\)</span>, the <strong>covariance matrix</strong> <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> is a square matrix of the size <span class="math notranslate nohighlight">\(n \times n\)</span> giving the covariance between every pair of random variables, where</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{V}_{i, j} = \operatorname{cov}(X_{i}, X_{j}) \]</div>
-</p>
 <ol class="arabic">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span> is always symmetric, since <span class="math notranslate nohighlight">\(\operatorname{cov}(X_{i}, X_{j}) = \operatorname{cov}(X_{j}, X_{i})\)</span>.</p></li>
 <li><p>The diagonal elements of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> are the variances of the random variables (<span class="math notranslate nohighlight">\(\mathbf{V}_{i, i} = \operatorname{cov}(X_{i}, X_{i}) = \operatorname{var}(X_{i})\)</span>).</p></li>
@@ -537,14 +533,13 @@ where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and
 <h3>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
 <section id="orthogonal">
 <h4>Orthogonal<a class="headerlink" href="#orthogonal" title="Permalink to this headline">¶</a></h4>
-<p>Two vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are <strong>orthogonal</strong> if their inner product is 0:
+<p>Two vectors <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are <strong>orthogonal</strong> if their inner product is 0:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{a} \cdot \mathbf{b} = 0 \]</div>
-</p>
 </section>
 <section id="vector-projection">
 <h4>Vector projection<a class="headerlink" href="#vector-projection" title="Permalink to this headline">¶</a></h4>
-<p>The <strong>vector projection</strong> of a vector <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> on a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> onto <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>:
+<p>The <strong>vector projection</strong> of a vector <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> on a vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> onto <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -552,65 +547,73 @@ where <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and
 &amp; = (\mathbf{a} \cdot \hat{\mathbf{b}}) \hat{\mathbf{b}} \\
 \end{align}
 \end{split}\]</div>
-
-where <span class="math notranslate nohighlight">\(\lvert \mathbf{a} \rvert\)</span> is the length of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}\)</span> is the unit vector that has the same direction with <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\lvert \mathbf{a} \rvert\)</span> is the length of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}\)</span> is the unit vector that has the same direction with <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>.</p>
 </section>
-<section id="orthonormal-basis">
-<h4>Orthonormal basis<a class="headerlink" href="#orthonormal-basis" title="Permalink to this headline">¶</a></h4>
-<p>The vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> form an <strong>orthonormal basis</strong> for the space <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(d\)</span> dimensions, if the vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> are unit vectors and orthogonal to each other.</p>
-<p>Given that the vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1}, \mathbf{v}_{2}, \dots, \mathbf{v}_{d}\)</span> form an orthonormal basis for the space <span class="math notranslate nohighlight">\(V\)</span>, the projection of a vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto <span class="math notranslate nohighlight">\(V\)</span> is the sum of the projections of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto the individual basis vectors:
+<section id="orthonormal-basis-orthonormal-matrix">
+<h4>Orthonormal basis, orthonormal matrix<a class="headerlink" href="#orthonormal-basis-orthonormal-matrix" title="Permalink to this headline">¶</a></h4>
+<p>The vectors <span class="math notranslate nohighlight">\(\hat{\mathbf{v}}_{1}, \hat{\mathbf{v}}_{2}, \dots, \hat{\mathbf{v}}_{d} \in \mathbb{R}^{d}\)</span> form an <strong>orthonormal basis</strong> for the space <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(d\)</span> dimensions if the vectors <span class="math notranslate nohighlight">\(\hat{\mathbf{v}}_{1}, \hat{\mathbf{v}}_{2}, \dots, \hat{\mathbf{v}}_{d}\)</span> are unit vectors and orthogonal to each other.</p>
+<p>Given that the vectors <span class="math notranslate nohighlight">\(\hat{\mathbf{v}}_{1}, \hat{\mathbf{v}}_{2}, \dots, \hat{\mathbf{v}}_{d}\)</span> form an orthonormal basis for the space <span class="math notranslate nohighlight">\(V\)</span>, the projection of a vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto <span class="math notranslate nohighlight">\(V\)</span> is the sum of the projections of <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> onto the individual basis vectors:</p>
 <div class="math notranslate nohighlight">
-\[ \tilde{\mathbf{w}} = \sum_{i=1}^{d} (\mathbf{w} \cdot \mathbf{v}_{i}) \mathbf{v}_{i} \]</div>
-</p>
+\[ \tilde{\mathbf{w}} = \sum_{i=1}^{d} (\mathbf{w} \cdot \hat{\mathbf{v}}_{i}) \hat{\mathbf{v}}_{i} \]</div>
 </section>
 <section id="eigenvectors-eigenvalues">
 <h4>Eigenvectors, Eigenvalues<a class="headerlink" href="#eigenvectors-eigenvalues" title="Permalink to this headline">¶</a></h4>
-<p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{R}^{n \times n}\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> is said to be an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> if there exists a <strong>eigenvector</strong> <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^n \neq 0\)</span>, such that:
+<p>Given a matrix <span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{R}^{n \times n}\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> is said to be an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> if there exists a <strong>eigenvector</strong> <span class="math notranslate nohighlight">\(\mathbf{z} \in \mathbb{R}^n \neq 0\)</span>, such that:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{A}\mathbf{z} = \lambda\mathbf{z} \]</div>
-</p>
+<ul class="simple">
+<li><p>It can interpreted as: the application of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> to <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> is the same as changing the length of <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> by a factor of <span class="math notranslate nohighlight">\(\lambda\)</span>
+without changing <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>’s direction</p></li>
+</ul>
 </section>
 <section id="eigendecomposition-spectral-decomposition">
 <h4>Eigendecomposition (spectral decomposition)<a class="headerlink" href="#eigendecomposition-spectral-decomposition" title="Permalink to this headline">¶</a></h4>
-<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> be a real symmetric <span class="math notranslate nohighlight">\(d \times d\)</span> matrix with eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> and corresponding orthonormal eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>. Then:
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> be a real symmetric <span class="math notranslate nohighlight">\(d \times d\)</span> matrix with eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> and corresponding orthonormal eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>. Then:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{M} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^T \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> in diagonal and 0 elsewhere and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> matrix has <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span> vectors as columns.</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is a diagonal matrix with <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots , \lambda_{d}\)</span> in diagonal and 0 elsewhere and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> matrix has <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span> vectors as columns.</p>
 </section>
 </section>
 </section>
 <section id="pca-algorithm">
 <h2>PCA algorithm<a class="headerlink" href="#pca-algorithm" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<blockquote>
-<div><p><strong>Function</strong>: PCA.<br />
-<strong>Input</strong>: A matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> and a integer value indicating the objective dimension <span class="math notranslate nohighlight">\(a\)</span>.<br />
+<p><strong>Function</strong>: PCA.<br />
+<strong>Input</strong>: A matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> and an integer value indicating the objective dimension <span class="math notranslate nohighlight">\(a\)</span>.<br />
 <strong>Output</strong>: a transformed matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} \in \mathbb{R}^{n \times a}\)</span>.</p>
-<ol class="arabic simple">
-<li><p>Standardize the input. For <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\([1, 2, \dots, d]\)</span>: <span class="math notranslate nohighlight">\(\mathbf{X}_{*, j} = \frac{\mathbf{X}_{*, j} - \operatorname{mean}(\mathbf{X}_{*, j})}{\operatorname{std}(\mathbf{X}_{*, j})}\)</span>.</p></li>
-<li><p>Calculate the covariance matrix between columns. <span class="math notranslate nohighlight">\(\mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X}\)</span>.</p></li>
+<ol class="arabic">
+<li><p>Standardize the input. For <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\([1, 2, \dots, d]\)</span></p>
+<p><div class="math notranslate nohighlight">
+\[ \mathbf{X}_{*, j} = \frac{\mathbf{X}_{*, j} - \operatorname{mean}(\mathbf{X}_{*, j})}{\operatorname{std}(\mathbf{X}_{*, j})} \]</div>
+.</p>
+</li>
+<li><p>Calculate the covariance matrix between columns.</p>
+<p><div class="math notranslate nohighlight">
+\[ \mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X} \]</div>
+.</p>
+</li>
 <li><p>Use eigendecomposition to decompose <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> to get a list of eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots, \lambda_{d}\)</span> and corresponding eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>.</p></li>
 <li><p>Sort eigenvalues in the decreasing order and select the eigenvectors with <span class="math notranslate nohighlight">\(a\)</span> largest eigenvalues. View the <span class="math notranslate nohighlight">\(a\)</span> eigenvectors as <span class="math notranslate nohighlight">\(a\)</span> columns of the matrix <span class="math notranslate nohighlight">\(\mathbf{E} \in \mathbb{R}^{d \times a}\)</span>.</p></li>
-<li><p>Get the projected matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> in <span class="math notranslate nohighlight">\(a\)</span> dimensions. <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} = \mathbf{X}\mathbf{E}\)</span></p></li>
+<li><p>Get the projected matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> in <span class="math notranslate nohighlight">\(a\)</span> dimensions.</p>
+<p><div class="math notranslate nohighlight">
+\[ \hat{\mathbf{X}} = \mathbf{X}\mathbf{E} \]</div>
+.</p>
+</li>
 <li><p>Return <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span>.</p></li>
 </ol>
-</div></blockquote>
 </section>
 <section id="pca-objective-derivation">
 <h2>PCA objective derivation<a class="headerlink" href="#pca-objective-derivation" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <section id="projection-of-a-single-instance-vector-to-the-subspace">
 <h3>Projection of a single instance (vector) to the subspace<a class="headerlink" href="#projection-of-a-single-instance-vector-to-the-subspace" title="Permalink to this headline">¶</a></h3>
-<p>An instance <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{d}\)</span> can be projected to any given orthonormal basis <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{d}\)</span> of dimension <span class="math notranslate nohighlight">\(d\)</span> without any error:
+<p>An instance <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{d}\)</span> can be projected to any given orthonormal basis <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{d} \in \mathbb{R}^{d}\)</span> of dimension <span class="math notranslate nohighlight">\(d\)</span> without any error:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{x} = \tilde{\mathbf{x}} = \sum_{i=1}^{d} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \]</div>
-</p>
-<p>However, there is a inevitable reconstruction error if <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is projected to only <span class="math notranslate nohighlight">\(m\)</span> (<span class="math notranslate nohighlight">\(m &lt; d\)</span>) dimensions <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}\)</span>:
+<p>However, there is a inevitable reconstruction error if <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is projected to only <span class="math notranslate nohighlight">\(m\)</span> (<span class="math notranslate nohighlight">\(m &lt; d\)</span>) dimensions <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{x} \neq \tilde{\mathbf{x}} = \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \]</div>
-</p>
-<p>We can measure the error by the squared distance:
+<p>We can measure the error by the squared distance:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -618,17 +621,16 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 &amp; = \big\lVert \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \big\rVert^{2} \\
 &amp; = \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \cdot \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \\
 &amp; = \mathbf{x} \cdot \mathbf{x} - \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} - \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \mathbf{x} + \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \\ 
-&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \left( \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \right) + \sum_{i=1}^{m} ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) &amp; \text{[$\because \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{j} = 0$ if $i \neq j$]} \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \left( \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \right) + \sum_{i=1}^{m} ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) &amp; [\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{j} = 0 \text{ if } i \neq j] \\
 &amp; = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})(\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i}) \\
-&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} &amp; \text{[$\because \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1$]} \\
+&amp; = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} &amp; [\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1] \\
 &amp; = \mathbf{x} \cdot \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} \\
 \end{align}
 \end{split}\]</div>
-</p>
 </section>
 <section id="pca-as-minimizing-projection-error">
 <h3>PCA as minimizing projection error<a class="headerlink" href="#pca-as-minimizing-projection-error" title="Permalink to this headline">¶</a></h3>
-<p>Given a dataset of <span class="math notranslate nohighlight">\(n\)</span> instances and <span class="math notranslate nohighlight">\(d\)</span> variables, we can use mean squared error to measure the reconstruction error of all instances in the dataset projected to <span class="math notranslate nohighlight">\(m\)</span> dimensions:
+<p>Given a dataset of <span class="math notranslate nohighlight">\(n\)</span> instances and <span class="math notranslate nohighlight">\(d\)</span> variables, we can use mean squared error to measure the reconstruction error of all instances in the dataset projected to <span class="math notranslate nohighlight">\(m\)</span> dimensions:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -637,8 +639,7 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 &amp; = \frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j} - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
 \end{align}
 \end{split}\]</div>
-</p>
-<p>The goal of PCA is to get a particular orthonormal basis of only <span class="math notranslate nohighlight">\(m\)</span> dimensions such that the mean squared error of projecting all instances on to it is minimized:
+<p>The goal of PCA is to get a particular orthonormal basis of only <span class="math notranslate nohighlight">\(m\)</span> dimensions such that the mean squared error of projecting all instances on to it is minimized:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -646,7 +647,6 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 \text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
 \end{align}
 \end{split}\]</div>
-</p>
 <ol class="arabic simple">
 <li><p>The constraint is added so that the <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}\)</span> are all unit vectors.</p></li>
 <li><p>The first term <span class="math notranslate nohighlight">\(\frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j}\)</span> is omitted in the objective because it is a fixed value once the dataset is provided.</p></li>
@@ -654,7 +654,7 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 </section>
 <section id="pca-as-maximizing-projection-variance">
 <h3>PCA as maximizing projection variance<a class="headerlink" href="#pca-as-maximizing-projection-variance" title="Permalink to this headline">¶</a></h3>
-<p>The objective of minimizing projection error defined above is the same as maximizing its negation.
+<p>The objective of minimizing projection error defined above is the same as maximizing its negation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -662,8 +662,7 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 \max \quad &amp; \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
 \end{align}
 \end{split}\]</div>
-</p>
-<p>The variance of the projection of all instances to the dimension <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> is:
+<p>The variance of the projection of all instances to the dimension <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
@@ -672,25 +671,21 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) &amp; = \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \\
 \end{align}
 \end{split}\]</div>
-</p>
-<p>The sum of the variances of the projections to all <span class="math notranslate nohighlight">\(m\)</span> dimensions is:
+<p>The sum of the variances of the projections to all <span class="math notranslate nohighlight">\(m\)</span> dimensions is:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \]</div>
-</p>
-<p>Since the dataset is preprocessed to be zero-centered (each variable has mean 0), the last term of the equation above becomes 0:
+<p>Since the dataset is preprocessed to be zero-centered (each variable has mean 0), the last term of the equation above becomes 0:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} \left( \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \right) \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} (0 \cdot \hat{\mathbf{w}}_{i})^{2} = 0 \]</div>
-</p>
-<p>Thus, we can see that minimizing projection error is the same as maximizing the sum of the projection variance:
+<p>Thus, we can see that minimizing projection error is the same as maximizing the sum of the projection variance:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 = \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \]</div>
-</p>
 </section>
 </section>
 <section id="solving-pca-objective">
 <h2>Solving PCA objective<a class="headerlink" href="#solving-pca-objective" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<p>Given the minimization problem:
+<p>Given the minimization problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -698,8 +693,7 @@ where <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> is 
 \text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
 \end{align}
 \end{split}\]</div>
-
-we can first rewrite the objective in the matrix form:
+<p>we can first rewrite the objective in the matrix form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -710,8 +704,7 @@ we can first rewrite the objective in the matrix form:
 = &amp; \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \frac{\mathbf{X}^{T}\mathbf{X}}{n} \hat{\mathbf{w}}_{i} \\
 \end{align}
 \end{split}\]</div>
-</p>
-<p>Since we have already zero-centered the dataset, we can replace <span class="math notranslate nohighlight">\(\frac{\mathbf{X}^{T}\mathbf{X}}{n}\)</span> with the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>. Thus, the maximization problem in the matrix form is:
+<p>Since we have already zero-centered the dataset, we can replace <span class="math notranslate nohighlight">\(\frac{\mathbf{X}^{T}\mathbf{X}}{n}\)</span> with the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>. Thus, the minimization problem in the matrix form is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -719,41 +712,39 @@ we can first rewrite the objective in the matrix form:
 \text{s.t. } \quad &amp; \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
 \end{align}
 \end{split}\]</div>
-</p>
-<p>The Lagrangian of the optimization problem is:
+<p>The Lagrangian of the optimization problem is:</p>
 <div class="math notranslate nohighlight">
 \[ L(\mathbf{w}_{1}, \dots, \mathbf{w}_{m}, \lambda_{1} \dots, \lambda_{m}) = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} \lambda_{i}(\hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1) \]</div>
-</p>
 <p>Solving <span class="math notranslate nohighlight">\(L\)</span> by</p>
-<ol class="arabic simple">
-<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> to be 0:
+<ol class="arabic">
+<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> to be 0:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{align}
- \frac{\partial L}{\partial \hat{\mathbf{w}}}_{i} &amp; = 0 \\
- -\sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} &amp; = 0 \\
- \sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} \\
- \mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \lambda_{i}\hat{\mathbf{w}}_{i}, \quad i = 1, \dots m \\
- \end{align}
- \end{split}\]</div>
-
-The results show that the results we want are the eigenvectors <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> and eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>.</p></li>
-<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> to be 0:
+    \begin{align}
+    \frac{\partial L}{\partial \hat{\mathbf{w}}}_{i} &amp; = 0 \\
+    -\sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} &amp; = 0 \\
+    \sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} \\
+    \mathbf{V}\hat{\mathbf{w}}_{i} &amp; = \lambda_{i}\hat{\mathbf{w}}_{i}, \quad i = 1, \dots m \\
+    \end{align}
+    \end{split}\]</div>
+<p>The results show that the results we want are the eigenvectors <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}_{i}\)</span> and eigenvalues <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> of <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>.</p>
+</li>
+<li><p>Setting the derivative of <span class="math notranslate nohighlight">\(L\)</span> w.r.t <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> to be 0:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{align}
- \frac{\partial L}{\partial \lambda_{i}} &amp; = 0 \\
- \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1 &amp; = 0 \\ 
- \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} &amp; = 1, \quad i = 1, \dots m \\
- \end{align}
- \end{split}\]</div>
-
-The constraints show that the eigenvectors must also be unit vectors.</p></li>
-<li><p>Plug in the results back to the objective:
+    \begin{align}
+    \frac{\partial L}{\partial \lambda_{i}} &amp; = 0 \\
+    \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1 &amp; = 0 \\ 
+    \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} &amp; = 1, \quad i = 1, \dots m \\
+    \end{align}
+    \end{split}\]</div>
+<p>The constraints show that the eigenvectors must also be unit vectors.</p>
+</li>
+<li><p>Plug in the results back to the objective:</p>
 <div class="math notranslate nohighlight">
 \[ -\sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \lambda_{i} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} \hat{\mathbf{w}}_{i}^{T} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} \]</div>
-
-The last equation shows that we need to select the <span class="math notranslate nohighlight">\(m\)</span> largest eigenvalues to minimize the objective.</p></li>
+<p>The last equation shows that we need to select the <span class="math notranslate nohighlight">\(m\)</span> largest eigenvalues to minimize the objective.</p>
+</li>
 </ol>
 </section>
 <section id="reference">

@@ -308,26 +308,101 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tree-basics">
+   Tree basics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impurity-function">
    Impurity function
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gini-impurity-index-gini-impurity">
-     Gini Impurity Index (Gini Impurity)
+    <a class="reference internal nav-link" href="#classification">
+     Classification
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gini-impurity-index-gini-impurity">
+       Gini Impurity Index (Gini Impurity)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shannon-entropy-entropy">
+       Shannon Entropy (Entropy)
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shannon-entropy-entropy">
-     Shannon Entropy (Entropy)
+    <a class="reference internal nav-link" href="#regression">
+     Regression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mean-squared-error">
+       Mean squared error
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#splitting-criteria">
+   Splitting criteria
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stopping-condition">
+   Stopping condition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#label-assignment">
+   Label assignment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#misclassification-cost">
+     Misclassification cost
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tree-building">
-   Tree building
+  <a class="reference internal nav-link" href="#pruning">
+   Pruning
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimal-cost-complexity-pruning">
+     Minimal cost-complexity pruning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weakest-link-cutting">
+     Weakest-link cutting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cart-tree-building">
+   CART Tree building
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-all-possible-splits">
+     Identify all possible splits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursive-tree-building">
+     Recursive tree building
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
@@ -369,40 +444,64 @@ D_{KL}(P \Vert Q) &amp; = \mathbb{E}_{X \sim P}[\log P(X) - \log Q(X)] \\
 &amp; = \sum_{x \in X} P(x) \log \frac{P(x)}{Q(x)}  &amp; [\log a - \log b = \log \frac{a}{b}] \\
 \end{align}
 \end{split}\]</div>
-<ul class="simple">
-<li><p>KL Divergence is not symmetric and thus cannot be used as an distance metric
+<ul>
+<li><p>KL Divergence is not symmetric and thus cannot be used as an distance metric</p>
 <div class="math notranslate nohighlight">
 \[ D_{KL}(P \Vert Q) \neq D_{KL}(Q \Vert P) \]</div>
-</p></li>
+</li>
 </ul>
 </section>
 </section>
+</section>
+<section id="tree-basics">
+<h2>Tree basics<a class="headerlink" href="#tree-basics" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Decision tree is composed of <strong>nodes</strong> and <strong>edges</strong>.</p>
+<ul class="simple">
+<li><p>Each node corresponds to a subset of the original dataset.</p></li>
+<li><p>The root node is the original training dataset provided to train the decision tree.</p></li>
+<li><p>The path from the root node to a node specifies how the subset of the dataset is partitioned from the original training dataset.</p></li>
+</ul>
+<p>We follow the notations listed below:</p>
+<ul class="simple">
+<li><p>A node: <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>A decision tree is a set of nodes: <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p>The original training set: <span class="math notranslate nohighlight">\(\mathbf{D}\)</span></p></li>
+<li><p>The subset of the dataset that corresponds to node <span class="math notranslate nohighlight">\(t\)</span>: <span class="math notranslate nohighlight">\(\mathbf{D}_{t}\)</span></p></li>
+</ul>
 </section>
 <section id="impurity-function">
 <h2>Impurity function<a class="headerlink" href="#impurity-function" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> with <span class="math notranslate nohighlight">\(C\)</span> unique labels, impurity functions measure the impureness of the labels in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
+<p>The <strong>impurity function</strong> <span class="math notranslate nohighlight">\(F(\cdot)\)</span> measures the impureness of a set of labels.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(\cdot)\)</span> achieves maximum only when the labels are in uniform distribution.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(\cdot)\)</span> achieves minimum only when the labels provided are the same.</p></li>
+</ul>
+<p>We use <span class="math notranslate nohighlight">\(F(\mathbf{D})\)</span> in the following context to compute the impureness of the labels in the dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> using the impurity function <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<section id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> with <span class="math notranslate nohighlight">\(C\)</span> unique labels, <span class="math notranslate nohighlight">\(P(c)\)</span> is the probability of label <span class="math notranslate nohighlight">\(c\)</span> in the dataset, which is computed by dividing the number of instances with label <span class="math notranslate nohighlight">\(c\)</span> by the total number instances in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
 <ul class="simple">
 <li><p>When there is only one class in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>, the dataset is pure and thus impurity functions should return 0.</p></li>
-<li><p>On the contrary, if all possible labels are in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and also have the same number of instances, <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is the most impure and impurity functions should return a very large value.</p></li>
+<li><p>On the contrary, if all possible labels are in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and also have the same number of instances, <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> achieves the maximum impureness.</p></li>
 </ul>
 <section id="gini-impurity-index-gini-impurity">
-<h3>Gini Impurity Index (Gini Impurity)<a class="headerlink" href="#gini-impurity-index-gini-impurity" title="Permalink to this headline">¶</a></h3>
+<h4>Gini Impurity Index (Gini Impurity)<a class="headerlink" href="#gini-impurity-index-gini-impurity" title="Permalink to this headline">¶</a></h4>
 <p>Gini impurity measures the probability of incorrectly classifying a randomly chosen element in the dataset if it were randomly labeled according to the class distribution in the dataset.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-G(\mathbf{D}) &amp; = \sum_{c \in C} P(c)(1 - P(c)) \\ 
+F(\mathbf{D}) &amp; = \sum_{c \in C} P(c)(1 - P(c)) \\ 
 &amp; = \sum_{c \in C} P(c) - P(c)^{2} \\
 &amp; = 1 - \sum_{c \in C} P(c)^2 \\
 \end{align}
 \end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(P(c)\)</span> is the probability of label <span class="math notranslate nohighlight">\(c\)</span> in the dataset, which is computed by dividing the number of instances with label <span class="math notranslate nohighlight">\(c\)</span> by the total number instances in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
 </section>
 <section id="shannon-entropy-entropy">
-<h3>Shannon Entropy (Entropy)<a class="headerlink" href="#shannon-entropy-entropy" title="Permalink to this headline">¶</a></h3>
+<h4>Shannon Entropy (Entropy)<a class="headerlink" href="#shannon-entropy-entropy" title="Permalink to this headline">¶</a></h4>
 <div class="math notranslate nohighlight">
-\[ E(\mathbf{D}) = \sum_{c \in C} P(c) \log P(c) \]</div>
+\[ F(\mathbf{D}) = \sum_{c \in C} P(c) \log P(c) \]</div>
 <p>Entropy can be thought as the difference measured by KL Divergence between the probability distribution of the unique labels represented in the current dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and the distribution of the most impure dataset.</p>
 <ul class="simple">
 <li><p>The larger the entropy, the more far away from a uniform distribution is the distribution of the labels represented by <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p></li>
@@ -422,24 +521,279 @@ D_{KL}(P \Vert Q) &amp; = \sum_{x \in X} P(x)(\log P(x) - \log Q(x)) &amp; [\tex
 \end{split}\]</div>
 </section>
 </section>
-<section id="tree-building">
-<h2>Tree building<a class="headerlink" href="#tree-building" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
-<ol class="arabic simple">
-<li><p><strong>[Gini Gain and Information Gain]</strong>: Both measure the uncertainty (Gini Index and Information Entropy) difference between before and after a splitting on the dataset.
+<section id="regression">
+<h3>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
+<p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>  with continuous labels <span class="math notranslate nohighlight">\(\{y_{1}, y_{2}, \dots, y_{n}\}\)</span>, impurity functions can be defined a similar way.</p>
+<ul class="simple">
+<li><p>If the labels in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> are very similar (low variance), the impurity functions should return a value closed to 0.</p></li>
+<li><p>If the labels in <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> are very different from each other (high variance), impurity functions should return a very large value.</p></li>
+</ul>
+<section id="mean-squared-error">
+<h4>Mean squared error<a class="headerlink" href="#mean-squared-error" title="Permalink to this headline">¶</a></h4>
+<p>A dataset’s impurity can be simply measured by the mean squared error.</p>
 <div class="math notranslate nohighlight">
-\[ G(\mathcal{D}, S) = M(\mathcal{D}) - \sum_{s\in S}\frac{\lvert s \rvert}{\lvert D \rvert} M(s)\]</div>
-
-where <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the dataset before splitting, <span class="math notranslate nohighlight">\(S\)</span> are subsets of <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> created from all possible splitting of <span class="math notranslate nohighlight">\(\mathcal{d}\)</span>, <span class="math notranslate nohighlight">\(M\)</span> is Gini Index (<span class="math notranslate nohighlight">\(G\)</span>) or Information Entropy (<span class="math notranslate nohighlight">\(E\)</span>), and <span class="math notranslate nohighlight">\(\lvert \cdot \rvert\)</span> gives the number of items in a set.</p></li>
-<li><p><strong>[Decision tree training algorithm]</strong>: We consider binary classification decision tree. Given a dataset <span class="math notranslate nohighlight">\(\mathcal{D}\)</span>,</p>
+\[ F(\mathbf{D}) = \frac{1}{N} \sum_{i}^{n} (y_{i} - \bar{y})^{2} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{y}\)</span> is the mean value of the labels in dataset <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
+</section>
+</section>
+</section>
+<section id="splitting-criteria">
+<h2>Splitting criteria<a class="headerlink" href="#splitting-criteria" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>A <strong>split</strong> is a way that divides a feature space into different groups and is used in the tree building process to split a node to children nodes.</p>
+<ul class="simple">
+<li><p>Binary split (2-way split): split a feature space into 2 groups. A node will have 2 sub-nodes.</p></li>
+<li><p>k-way split: split a feature space into k groups. A node will have k sub-nodes.</p></li>
+</ul>
+<p>The most important question of building a decision tree is how to choose the best split to split a node (dataset) into different child nodes (sub-datasets).</p>
+<ul class="simple">
+<li><p>A <strong>splitting criteria</strong> is a function that measures the impurity difference between the dataset before splitting and the datasets after splitting.</p></li>
+<li><p>The best split <span class="math notranslate nohighlight">\(s\)</span> for the node <span class="math notranslate nohighlight">\(t\)</span> should be the one that has the maximum splitting criteria <span class="math notranslate nohighlight">\(\Delta F(\mathbf{D}_{t}, s)\)</span>.</p></li>
+</ul>
+<p>Given a set of datasets <span class="math notranslate nohighlight">\(D = \{ \mathbf{D}_{1}, \mathbf{D}_{2}, \dots, \mathbf{D}_{k} \}\)</span> created by applying split <span class="math notranslate nohighlight">\(s\)</span> to the dataset <span class="math notranslate nohighlight">\(\mathbf{D}_{t}\)</span>, the splitting criteria is defined as:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta F(\mathbf{D}_{t}, s) = F(\mathbf{D}_{t}) - \sum_{\mathbf{D}_{t} \in D} \frac{\lvert \mathbf{D} \rvert}{\lvert \mathbf{D}_{t} \rvert} F(\mathbf{D}) \]</div>
+<p>If <span class="math notranslate nohighlight">\(F(\cdot)\)</span> is the entropy function, <span class="math notranslate nohighlight">\(\Delta F(\mathbf{D}, s)\)</span> is called <strong>Information Gain</strong>.</p>
+</section>
+<section id="stopping-condition">
+<h2>Stopping condition<a class="headerlink" href="#stopping-condition" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Each split produces new nodes that recursively become the starting points for new splits.</p>
+<ul class="simple">
+<li><p>A node stops splitting when certain <strong>stopping conditions</strong> are satisfied. and such nodes are <strong>leaf nodes</strong>.</p></li>
+<li><p>The leaf node doesn’t have children but has a label according to the dataset it corresponds to.</p></li>
+</ul>
+<p>The basic stopping condition is that the dataset that the leaf node corresponds to has impureness of 0 (single training instance or all training instance have the same label), in which case the splitting stops because there is no need to reduce the impureness.</p>
+<p>However, always splitting into pureness usually induces overfitting. Thus, there are other stopping conditions that can achieve <strong>early stopping</strong> to avoid overfitting.</p>
+<ul class="simple">
+<li><p>Dataset size is below a threshold.</p></li>
+<li><p>Splitting criteria improvement is below a threshold.</p></li>
+<li><p>Tree depth is above a threshold.</p></li>
+<li><p>Number of nodes is above a threshold.</p></li>
+</ul>
+</section>
+<section id="label-assignment">
+<h2>Label assignment<a class="headerlink" href="#label-assignment" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>For each node, we can assign a label to the node according to the labels of the dataset it corresponds to.</p>
+<ul class="simple">
+<li><p>Classification: majority label.</p></li>
+<li><p>Regression: mean label.</p></li>
+</ul>
+<p>Every node can have a label assigned, but only leaf nodes use labels.</p>
+<section id="misclassification-cost">
+<h3>Misclassification cost<a class="headerlink" href="#misclassification-cost" title="Permalink to this headline">¶</a></h3>
+<p>Assuming the assigned label of the node <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(y_{t}\)</span>, the <strong>misclassification cost</strong> of a node <span class="math notranslate nohighlight">\(t\)</span> is</p>
+<ul>
+<li><p>Classification:</p>
+<div class="math notranslate nohighlight">
+\[ r(t) = 1 - P(y_{t}) \]</div>
+</li>
+<li><p>Regression:</p>
+<div class="math notranslate nohighlight">
+\[ r(t) = \frac{1}{N(t)} \sum_{y \in t} (y - y_{t}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(y \in t\)</span> means all labels in the dataset that node <span class="math notranslate nohighlight">\(t\)</span> corresponds to.</p>
+</li>
+</ul>
+<p>Then weighted misclassification cost of the node <span class="math notranslate nohighlight">\(t\)</span> is defined as the product of misclassification cost and the probability of picking an instance that is in the node <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ R(t) = P(t) r(t) = \frac{\lvert \mathbf{D}_{t} \rvert}{\lvert \mathbf{D} \rvert} r(t) \]</div>
+<p>Then the misclassification cost of the a tree <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ R(T) = \sum_{t \in \hat{T}} R(t) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{T}\)</span> is the set of the leaf nodes in tree <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>The weighted misclassification cost of a node <span class="math notranslate nohighlight">\(t\)</span> is always higher than the sum of the weighted misclassification costs of the children nodes <span class="math notranslate nohighlight">\(T_{c} = \{t_{1}, t_{2}, \dots, t_{k}\}\)</span> that <span class="math notranslate nohighlight">\(t\)</span> splits to.</p>
+<div class="math notranslate nohighlight">
+\[ R(t) \geq \sum_{t_{i} \in T_{c}} R(t_{i}) \]</div>
+<p>Thus, if we split one of the leaf nodes of <span class="math notranslate nohighlight">\(T\)</span> to get a new and larger tree <span class="math notranslate nohighlight">\(T'\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[ R(T) \geq R(T') \]</div>
+<p>This shows that the misclassification cost of a tree will always decrease or stay the same if we continue to split its leaf nodes.</p>
+</section>
+</section>
+<section id="pruning">
+<h2>Pruning<a class="headerlink" href="#pruning" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Another way to avoid overfitting is through <strong>pruning</strong>, which is the process to make some internal nodes leaf nodes and remove their children from a sufficiently large tree <span class="math notranslate nohighlight">\(T_{max}\)</span> that is rooted at <span class="math notranslate nohighlight">\(t_{max}\)</span>.</p>
+<section id="minimal-cost-complexity-pruning">
+<h3>Minimal cost-complexity pruning<a class="headerlink" href="#minimal-cost-complexity-pruning" title="Permalink to this headline">¶</a></h3>
+<p>Previously we show that <span class="math notranslate nohighlight">\(R(T)\)</span> is not a good measure of the performance of a tree because it always favors a larger tree. Thus we introduce another metric called <strong>cost-complexity</strong> that also considers the size of the tree.</p>
+<ul>
+<li><p>If we consider each node has a complexity of <span class="math notranslate nohighlight">\(\alpha\)</span>, the cost-complexity of a node <span class="math notranslate nohighlight">\(t\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ R_{\alpha}(t) = R(t) + \alpha  \]</div>
+</li>
+<li><p>Thus, the cost-complexity of a tree <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ R_{\alpha}(T) = \sum_{t \in \hat{T}} R_{\alpha}(t) = \sum_{t \in \hat{T}} (R(t) + \alpha) = R(T) + \alpha \lvert \hat{T} \rvert \]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{T}\)</span> is the set of leaf nodes of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</li>
+</ul>
+<p>Cost-complexity can be seen as adding a regularization term that penalize the complexity of the tree to the misclassification cost.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> is the regularization parameter that balances the training accuracy and tree complexity.</p></li>
+<li><p>Given <span class="math notranslate nohighlight">\(\alpha\)</span>, the goal of the pruning of <span class="math notranslate nohighlight">\(T_{max}\)</span> is to get a pruned tree <span class="math notranslate nohighlight">\(\hat{T}_{max}\)</span> (a subtree of <span class="math notranslate nohighlight">\(T_{max}\)</span> that also rooted at <span class="math notranslate nohighlight">\(t_{max}\)</span>) that minimizes <span class="math notranslate nohighlight">\(R_{\alpha}(\hat{T}_{max})\)</span>.</p></li>
+</ul>
+</section>
+<section id="weakest-link-cutting">
+<h3>Weakest-link cutting<a class="headerlink" href="#weakest-link-cutting" title="Permalink to this headline">¶</a></h3>
+<p><strong>Weakest-link cutting</strong> is an efficient way of doing the minimal cost-complexity pruning.</p>
+<p>If the tree <span class="math notranslate nohighlight">\(T\)</span> is pruned by deleting subtree <span class="math notranslate nohighlight">\(T_{t}\)</span> rooted at the node <span class="math notranslate nohighlight">\(t\)</span> (replaced with <span class="math notranslate nohighlight">\(t\)</span>), the cost-complexity difference between pruned tree <span class="math notranslate nohighlight">\(\hat{T}\)</span> and unpruned tree <span class="math notranslate nohighlight">\(T\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ R_{\alpha}(\hat{T}) - R_{\alpha}(T) = R_{\alpha}(t) - R_{\alpha}(T_{t}) \]</div>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\alpha = 0\)</span>, <span class="math notranslate nohighlight">\(R_{\alpha}(t) - R_{\alpha}(T_{t}) = R(t) - R(T_{t}) \geq 0\)</span>.</p></li>
+<li><p>As <span class="math notranslate nohighlight">\(\alpha\)</span> becomes larger, <span class="math notranslate nohighlight">\(R_{\alpha}(t) - R_{\alpha}(T_{t})\)</span> is getting smaller and will eventually becomes <span class="math notranslate nohighlight">\(&lt; 0\)</span>, since <span class="math notranslate nohighlight">\(\alpha\)</span> is increasing slower than <span class="math notranslate nohighlight">\(\alpha \lvert \hat{T} \rvert\)</span>.</p></li>
+<li><p>Given a sufficiently large <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(R_{\alpha}(t) - R_{\alpha}(T_{t}) &lt; 0\)</span>, which means that the cost-complexity of the node <span class="math notranslate nohighlight">\(t\)</span> is better than its subtree <span class="math notranslate nohighlight">\(T_{t}\)</span>, and thus <span class="math notranslate nohighlight">\(T_{t}\)</span> should be pruned.</p></li>
+</ul>
+<p>Given a tree <span class="math notranslate nohighlight">\(T\)</span>, the <strong>weakest link</strong> <span class="math notranslate nohighlight">\(\bar{t}\)</span> is the <em>internal node</em> in <span class="math notranslate nohighlight">\(T\)</span> that achieves <span class="math notranslate nohighlight">\(R_{\alpha}(\bar{t}) - R_{\alpha}(T_{\bar{t}}) = 0\)</span> with the smallest <span class="math notranslate nohighlight">\(\alpha\)</span> value.</p>
+<ul>
+<li><p>The <span class="math notranslate nohighlight">\(\alpha\)</span> value that achieves <span class="math notranslate nohighlight">\(R_{\alpha}(t) - R_{\alpha}(T_{t}) = 0\)</span> can be directly calculated.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+    \begin{align}
+    R_{\alpha}(t) - R_{\alpha}(T_{t}) &amp; = 0 \\
+    R(t) + \alpha - (R(T) + \alpha \lvert \hat{T} \rvert) &amp; = 0 \\
+    R(t) - R(T) + \alpha (1 + \lvert \hat{T} \rvert) &amp; = 0 \\
+    \alpha &amp; = \frac{R(t) - R(T_{t})}{\lvert T_{t} \rvert - 1} \\
+    \end{align}
+    \end{split}\]</div>
+</li>
+<li><p>The weakest link is defined as</p>
+<div class="math notranslate nohighlight">
+\[ \bar{t} = \arg \min_{t \in T \setminus \hat{T}} \frac{R(t) - R(T_{t})}{\lvert T_{t} \rvert - 1} \]</div>
+<p>where <span class="math notranslate nohighlight">\(T \setminus \hat{T}\)</span> means the set of the internal nodes of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</li>
+<li><p>If there are more than 1 internal node that achieves <span class="math notranslate nohighlight">\(R_{\alpha}(\bar{t}) - R_{\alpha}(T_{\bar{t}}) = 0\)</span> with same minimum <span class="math notranslate nohighlight">\(\alpha\)</span> value, they are all called the weakest links.</p></li>
+</ul>
+<p>Weakest-link cutting finds the optimal subtree <span class="math notranslate nohighlight">\(\hat{T}\)</span> of <span class="math notranslate nohighlight">\(T_{max}\)</span> that minimizes <span class="math notranslate nohighlight">\(R_{\alpha}(\hat{T})\)</span> with a predefined threshold <span class="math notranslate nohighlight">\(\alpha_{max}\)</span> in a iterative way.</p>
+<ul>
+<li><p>We start the pruning process by first removing from <span class="math notranslate nohighlight">\(T_{max}\)</span> the subtrees <span class="math notranslate nohighlight">\(T_{t}\)</span> rooted at nodes <span class="math notranslate nohighlight">\(t\)</span> that have already achieved <span class="math notranslate nohighlight">\(R_{\alpha}(t) - R_{\alpha}(T_{t}) = 0\)</span>. We denote the resulting tree <span class="math notranslate nohighlight">\(T_{0}\)</span>.</p></li>
+<li><p>In each iteration <span class="math notranslate nohighlight">\(i\)</span>, the weakest link(s) <span class="math notranslate nohighlight">\(\bar{t}\)</span> of tree <span class="math notranslate nohighlight">\(T_{i - 1}\)</span> is identified by calculating</p>
+<div class="math notranslate nohighlight">
+\[ \bar{t} = \arg \min_{t \in T_{i - 1} \setminus \hat{T}_{i - 1}} \frac{R(t) - R(T_{t})}{\lvert T_{t} \rvert - 1} \]</div>
+<p>In the meantime, we can also calculate the <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> that identifies the weakest link(s).</p>
+<div class="math notranslate nohighlight">
+\[ \alpha_{i} = \min_{t \in T_{i - 1} \setminus \hat{T}_{i - 1}} \frac{R(t) - R(T_{t})}{\lvert T_{t} \rvert - 1} \]</div>
+</li>
+<li><p>We replace <span class="math notranslate nohighlight">\(T_{\bar{t}}\)</span> (the subtree rooted at <span class="math notranslate nohighlight">\(\bar{t}\)</span>) by <span class="math notranslate nohighlight">\(\bar{t}\)</span> and denote the resulting tree <span class="math notranslate nohighlight">\(T_{i}\)</span>.</p></li>
+<li><p>Continue the iteration until the minimum <span class="math notranslate nohighlight">\(\alpha\)</span> required to achieve <span class="math notranslate nohighlight">\(R_{\alpha}(\bar{t}) - R_{\alpha}(T_{\bar{t}}) = 0\)</span> is above a predefined threshold <span class="math notranslate nohighlight">\(\alpha_{max}\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="cart-tree-building">
+<h2>CART Tree building<a class="headerlink" href="#cart-tree-building" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<section id="identify-all-possible-splits">
+<h3>Identify all possible splits<a class="headerlink" href="#identify-all-possible-splits" title="Permalink to this headline">¶</a></h3>
+<p>CART considers binary split of a single feature for each node (each node only splits a one feature and only has 2 children).</p>
+<ul>
+<li><p>For a categorical feature that has <span class="math notranslate nohighlight">\(k\)</span> distinct values, CART considers all possible ways to split the <em>k</em> distinct values into 2 groups.</p>
+<ul>
+<li><p>The maximum ways of splitting is <span class="math notranslate nohighlight">\(2^{k - 1} - 1\)</span>.</p></li>
+<li><p>e.g. If the categorical feature has 4 distinct values: <span class="math notranslate nohighlight">\(\{1, 2, 3, 4\}\)</span>, then all possible splits are</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>index</p></th>
+<th class="text-center head"><p>1</p></th>
+<th class="text-center head"><p>2</p></th>
+<th class="text-center head"><p>3</p></th>
+<th class="text-center head"><p>4</p></th>
+<th class="text-center head"><p>5</p></th>
+<th class="text-center head"><p>6</p></th>
+<th class="text-center head"><p>7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>left child</p></td>
+<td class="text-center"><p>{1}</p></td>
+<td class="text-center"><p>{2}</p></td>
+<td class="text-center"><p>{3}</p></td>
+<td class="text-center"><p>{4}</p></td>
+<td class="text-center"><p>{1, 2}</p></td>
+<td class="text-center"><p>{1, 3}</p></td>
+<td class="text-center"><p>{1, 4}</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>right child</p></td>
+<td class="text-center"><p>{2, 3, 4}</p></td>
+<td class="text-center"><p>{1, 3, 4}</p></td>
+<td class="text-center"><p>1, 2, 4}</p></td>
+<td class="text-center"><p>{1, 2, 3}</p></td>
+<td class="text-center"><p>{3, 4}</p></td>
+<td class="text-center"><p>{2, 4}</p></td>
+<td class="text-center"><p>{2, 3}</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><p>For a numerical feature that has <span class="math notranslate nohighlight">\(k\)</span> distinct values appeared in the dataset, CART considers all the intervals between 2 consecutive values as the splits.</p>
+<ul>
+<li><p>The maximum ways of splitting is <span class="math notranslate nohighlight">\(k - 1\)</span>.</p></li>
+<li><p>e.g. If the numerical feature has 6 distinct values: <span class="math notranslate nohighlight">\(\{-5.0, 1.0, 3.0, 5.0, 7.0, 11.0\}\)</span>, then all possible splits are</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>index</p></th>
+<th class="text-center head"><p>1</p></th>
+<th class="text-center head"><p>2</p></th>
+<th class="text-center head"><p>3</p></th>
+<th class="text-center head"><p>4</p></th>
+<th class="text-center head"><p>5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>left child</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ \leq -2.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ \leq 2.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ \leq 4.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ \leq 6.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ \leq 9.0 \]</div>
+</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>right child</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ &gt; -2.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ &gt; 2.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ &gt; 4.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ &gt; 6.0 \]</div>
+</p></td>
+<td class="text-center"><p><div class="math notranslate nohighlight">
+\[ &gt; 9.0 \]</div>
+</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<p>At a given node, CART considers all possible splits of all features and chooses the one that has the maximum splitting criteria.</p>
+</section>
+<section id="recursive-tree-building">
+<h3>Recursive tree building<a class="headerlink" href="#recursive-tree-building" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Identify all possible splittings among all features. For each categorical feature, each discrete value is a possible splitting. For each numerical feature, we can do either a) treat it as categorical feature by discretizing it or b) sort all training value of this numerical feature in ascending order and each interval between two consecutive number is a possible split.</p></li>
 <li><p>Calculate the uncertainty difference (Gini Gain or Information Gain) for all possible splitting and select the splitting with max uncertainty difference to split.</p></li>
 <li><p>Once a node splits into two children, compute the data points that satisfy the two branches respectively. For each branch, return to procedure 1 with the new sub dataset.</p></li>
 <li><p>The splitting stops when no further splitting can be made (the dataset contains only one class).</p></li>
 </ol>
-</li>
-</ol>
+</section>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -448,6 +802,9 @@ where <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> is the d
 <li><p><a class="reference external" href="https://victorzhou.com/blog/intro-to-random-forests/">https://victorzhou.com/blog/intro-to-random-forests/</a></p></li>
 <li><p><a class="reference external" href="https://www.math.snu.ac.kr/~hichoi/machinelearning/lecturenotes/CART.pdf">https://www.math.snu.ac.kr/~hichoi/machinelearning/lecturenotes/CART.pdf</a></p></li>
 <li><p><a class="reference external" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html">https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html</a></p></li>
+<li><p><a class="reference external" href="http://www.odbms.org/wp-content/uploads/2014/07/DecisionTrees.pdf">http://www.odbms.org/wp-content/uploads/2014/07/DecisionTrees.pdf</a></p></li>
+<li><p><a class="reference external" href="https://scientistcafe.com/ids/splitting-criteria.html">https://scientistcafe.com/ids/splitting-criteria.html</a></p></li>
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat508/book/export/html/647">https://online.stat.psu.edu/stat508/book/export/html/647</a></p></li>
 </ol>
 </section>
 </section>

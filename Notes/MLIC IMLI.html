@@ -289,13 +289,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#maximum-satisfiability-problem-maxsat">
-   Maximum satisfiability problem (MaxSat)
+  <a class="reference internal nav-link" href="#satisfiability-problem-sat">
+   Satisfiability problem (SAT)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maximum-satisfiability-problem-maxsat">
+     Maximum satisfiability problem (MaxSAT)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#partial-maxsat-problem">
-     Partial MaxSat problem
+     Partial MaxSAT problem
     </a>
    </li>
   </ul>
@@ -324,14 +329,16 @@
 <li><p><a class="reference external" href="https://www.semanticscholar.org/paper/MLIC%3A-A-MaxSAT-Based-Framework-for-Learning-Rules-Malioutov-Meel/d4294e394f9fad9bc29e4c8b5d653ff9b2dfbca8"><strong>MLIC: A MaxSAT-Based Framework for Learning Interpretable Classification Rules</strong></a></p></li>
 <li><p><a class="reference external" href="https://www.semanticscholar.org/paper/IMLI%3A-An-Incremental-Framework-for-MaxSAT-Based-of-Ghosh-Meel/f52d22d1bb0394b7c26d955a6bbadbfe7f60d191"><strong>IMLI: An Incremental Framework for MaxSAT-Based Learning of Interpretable Classification Rules</strong></a></p></li>
 </ul>
+<section id="satisfiability-problem-sat">
+<h2>Satisfiability problem (SAT)<a class="headerlink" href="#satisfiability-problem-sat" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> be a set of Boolean clauses on variables <span class="math notranslate nohighlight">\(x_{1}, \dots, x_{n}\)</span> where each clause is a disjunction of literals, each literal being a Boolean variable or its negation. SAT is the problem of finding an assignment of the boolean variables that makes all clauses true</p>
 <section id="maximum-satisfiability-problem-maxsat">
-<h2>Maximum satisfiability problem (MaxSat)<a class="headerlink" href="#maximum-satisfiability-problem-maxsat" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> be a set of Boolean clauses on variables <span class="math notranslate nohighlight">\(x_{1}, \dots, x_{n}\)</span> where each clause is a disjunction of literals, each literal being a Boolean variable or its negation. Let there be
-a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> associated with each clause. Find an assignment of the Boolean variables that maximizes the total weight of the satisfied clauses.</p>
+<h3>Maximum satisfiability problem (MaxSAT)<a class="headerlink" href="#maximum-satisfiability-problem-maxsat" title="Permalink to this headline">¶</a></h3>
+<p>Let there be a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> associated with each clause. MaxSAT is the problem of finding an assignment of the boolean variables that maximizes the total weight of the satisfied clauses.</p>
+</section>
 <section id="partial-maxsat-problem">
-<h3>Partial MaxSat problem<a class="headerlink" href="#partial-maxsat-problem" title="Permalink to this headline">¶</a></h3>
-<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> consist of <em>soft</em> clauses and <em>hard</em> clauses. Let there be a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> and a infinite weight <span class="math notranslate nohighlight">\(W(C) = \infty\)</span> associated with each soft clause and hard clause respectively.
-Partial MaxSat is the problem of finding an assignment to the variables of C that minimizes the cost (weight) of the falsified (unsatisfied) clauses.</p>
+<h3>Partial MaxSAT problem<a class="headerlink" href="#partial-maxsat-problem" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\{C_{1}, \dots, C_{m}\}\)</span> consist of <em>soft</em> clauses and <em>hard</em> clauses. Let there be a nonnegative weight <span class="math notranslate nohighlight">\(W(C) = w_{c}\)</span> associated with each soft clause. Partial MaxSAT is the problem of finding an assignment to the boolean variables that makes all hard clauses true and maximizes the total weight of the satisfied soft clauses.</p>
 </section>
 </section>
 <section id="problem-formulation">
