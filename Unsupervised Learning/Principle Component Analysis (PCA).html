@@ -579,8 +579,8 @@ without changing <span class="math notranslate nohighlight">\(\mathbf{z}\)</span
 <h2>PCA algorithm<a class="headerlink" href="#pca-algorithm" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <p><strong>Function</strong>: PCA.<br />
-<strong>Input</strong>: A matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> and an integer value indicating the objective dimension <span class="math notranslate nohighlight">\(a\)</span>.<br />
-<strong>Output</strong>: a transformed matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} \in \mathbb{R}^{n \times a}\)</span>.</p>
+<strong>Input</strong>: A matrix <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> and an integer value indicating the objective dimension <span class="math notranslate nohighlight">\(m\)</span>.<br />
+<strong>Output</strong>: a transformed matrix in low dimension <span class="math notranslate nohighlight">\(\hat{\mathbf{X}} \in \mathbb{R}^{n \times m}\)</span>.</p>
 <ol class="arabic">
 <li><p>Standardize the input. For <span class="math notranslate nohighlight">\(j\)</span> in <span class="math notranslate nohighlight">\([1, 2, \dots, d]\)</span></p>
 <p><div class="math notranslate nohighlight">
@@ -593,8 +593,8 @@ without changing <span class="math notranslate nohighlight">\(\mathbf{z}\)</span
 .</p>
 </li>
 <li><p>Use eigendecomposition to decompose <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> to get a list of eigenvalues <span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \dots, \lambda_{d}\)</span> and corresponding eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}\)</span>.</p></li>
-<li><p>Sort eigenvalues in the decreasing order and select the eigenvectors with <span class="math notranslate nohighlight">\(a\)</span> largest eigenvalues. View the <span class="math notranslate nohighlight">\(a\)</span> eigenvectors as <span class="math notranslate nohighlight">\(a\)</span> columns of the matrix <span class="math notranslate nohighlight">\(\mathbf{E} \in \mathbb{R}^{d \times a}\)</span>.</p></li>
-<li><p>Get the projected matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> in <span class="math notranslate nohighlight">\(a\)</span> dimensions.</p>
+<li><p>Sort eigenvalues in the decreasing order and select the eigenvectors with <span class="math notranslate nohighlight">\(a\)</span> largest eigenvalues. View the <span class="math notranslate nohighlight">\(a\)</span> eigenvectors as <span class="math notranslate nohighlight">\(a\)</span> columns of the matrix <span class="math notranslate nohighlight">\(\mathbf{E} \in \mathbb{R}^{d \times m}\)</span>.</p></li>
+<li><p>Get the transformed matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> in <span class="math notranslate nohighlight">\(m\)</span> dimensions.</p>
 <p><div class="math notranslate nohighlight">
 \[ \hat{\mathbf{X}} = \mathbf{X}\mathbf{E} \]</div>
 .</p>

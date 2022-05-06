@@ -287,6 +287,16 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bootstrap">
+   Bootstrap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bagging-bootstrap-aggregating">
+   Bagging (Bootstrap aggregating)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -310,9 +320,14 @@
 <li><p>A particular goal in training a random forest is to make each tree in the forest different from each other. First is to use bootstrapping, which means that each decision tree is trained on different dataset that is randomly sampled with replacement from the original dataset. Then to further inject randomness, random subset of the features instead of all features are considered in each split of the decision tree. Then the final output of random forest is to take the majority vote or average each output.</p></li>
 <li><p>The goal of randomize the decision trees and taking the aggregation result is to reduce the variance and thus prevent over-fitting of the single decision tree. By taking an average of the random predictions, some errors can cancel out. Using multiple trees in the prediction make random forest a black box and the explanation for a prediction is hard to be understood by the users.</p></li>
 </ol>
-<ol class="arabic simple">
-<li><p><strong>[Bagging]</strong>: Bagging involves two procedures: bootstrapping and Aggregating. Bootstrapping means training each model with sampled with replacement subset of the dataset. Aggregating means combining each model in some specific way to give the final output.</p></li>
-</ol>
+<section id="bootstrap">
+<h2>Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h2>
+</section>
+<hr class="docutils" />
+<section id="bagging-bootstrap-aggregating">
+<h2>Bagging (Bootstrap aggregating)<a class="headerlink" href="#bagging-bootstrap-aggregating" title="Permalink to this headline">¶</a></h2>
+<p>Bagging involves two procedures: bootstrapping and Aggregating. Bootstrapping means training each model with sampled with replacement subset of the dataset. Aggregating means combining each model in some specific way to give the final output.</p>
+</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
