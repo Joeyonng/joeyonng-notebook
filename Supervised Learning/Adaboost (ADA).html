@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/style-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
@@ -345,18 +346,17 @@
 <h2>AdaBoost algorithm<a class="headerlink" href="#adaboost-algorithm" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <p>Given a dataset <span class="math notranslate nohighlight">\(\mathbf{x}_{1}, \mathbf{x}_{2}, \dots, \mathbf{x}_{n} \in \mathbb{R}^{d}\)</span> with labels <span class="math notranslate nohighlight">\(y_{1}, y_{2}, \dots, y_{n} \in \{-1, 1\}\)</span>.</p>
-<ol class="arabic simple">
-<li><p>Initialize the observation weight <span class="math notranslate nohighlight">\(D_{1}\)</span> for each instance.</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Initialize the observation weight <span class="math notranslate nohighlight">\(D_{1}\)</span> for each instance.</p>
 <div class="math notranslate nohighlight">
 \[ D_{1}(x_{i}) = \frac{1}{n}, \quad i \in \{1, 2, \dots, n\} \]</div>
-<ol class="arabic">
+</li>
 <li><p>For <span class="math notranslate nohighlight">\(t = 1 \dots T\)</span>,</p>
 <ol class="arabic">
-<li><p>Fit a classifier <span class="math notranslate nohighlight">\(G_{t}\)</span> to the training instances with weights <span class="math notranslate nohighlight">\(D_{t}\)</span>.</p></li>
+<li><p>Fit a classifier <span class="math notranslate nohighlight">\(h_{t}\)</span> to the training instances with weights <span class="math notranslate nohighlight">\(D_{t}\)</span>.</p></li>
 <li><p>Compute the error rate of the classifier:</p>
 <div class="math notranslate nohighlight">
-\[ \epsilon_{t} = \sum_{i=1}^{n} D_{t}(x_{i}) \times \mathbb{1}(y_i \neq G_{t}(x_i)) \]</div>
+\[ \epsilon_{t} = \sum_{i=1}^{n} D_{t}(x_{i}) \times \mathbb{1}(y_i \neq h_{t}(x_i)) \]</div>
 </li>
 <li><p>Compute the classifier weight:</p>
 <div class="math notranslate nohighlight">
@@ -364,48 +364,43 @@
 </li>
 <li><p>Update the observation weight for each instance:</p>
 <div class="math notranslate nohighlight">
-\[ D_{t + 1}(x_{i}) = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)), \quad i \in \{1, 2, \dots, n\} \]</div>
+\[ D_{t + 1}(x_{i}) = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)), \quad i \in \{1, 2, \dots, n\} \]</div>
 <p>where <span class="math notranslate nohighlight">\(Z_{t}\)</span> is the normalized factor that makes <span class="math notranslate nohighlight">\(\sum_{i = 1}^{n} D_{t + 1}(x_{i}) = 1\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[ {Z_{t}} = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)) \]</div>
+\[ {Z_{t}} = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \]</div>
 </li>
 </ol>
 </li>
 <li><p>Final output of AdaBoost:</p>
 <div class="math notranslate nohighlight">
-\[ F(x) = \operatorname{sign} \left( \sum_{t=1}^{T} \alpha_t G_{t}(x) \right) \]</div>
+\[ F(x) = \operatorname{sign} \left( \sum_{t=1}^{T} \alpha_t h_{t}(x) \right) \]</div>
 </li>
 </ol>
 <section id="facts-about-adaboost">
 <h3>Facts about AdaBoost:<a class="headerlink" href="#facts-about-adaboost" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p><span class="math notranslate nohighlight">\(\alpha_{t}\)</span> is always positive.</p>
-<p>Proof:</p>
-<p>Since the requirement for the weak learner is to have the weighed training error <span class="math notranslate nohighlight">\(\epsilon_{t} &lt; \frac{1}{2}\)</span> and thus <span class="math notranslate nohighlight">\( 1 - \epsilon_{t} \geq \frac{1}{2} \)</span>,</p>
-<div class="math notranslate nohighlight">
-\[ \frac{1 - \epsilon_{t}}{\epsilon_{t}} &gt; 1 \Rightarrow \alpha_{t} = \frac{1}{2} \ln{\frac{1 - \epsilon_{t}}{\epsilon_{t}}} &gt; 0 \]</div>
-</li>
-<li><p>The smaller the classification error of <span class="math notranslate nohighlight">\(G_{t}\)</span>, the larger the weight <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and thus the more impact that <span class="math notranslate nohighlight">\(G_{t}\)</span> will have on the final classifier.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_{t}\)</span> is always positive.</p></li>
+<li><p>The smaller the classification error of <span class="math notranslate nohighlight">\(h_{t}\)</span>, the larger the weight <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and thus the more impact that <span class="math notranslate nohighlight">\(h_{t}\)</span> will have on the final classifier.</p></li>
 <li><p>The weights of correctly classified points are reduced and the weights of incorrectly classified points are increased. Hence, the incorrectly classified points will receive more attention in the next run.</p>
 <p>Proof:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)) = 
+    \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) = 
     \begin{cases} 
-    \exp(-\alpha_{t}) &amp; \text{if } y_{i} = G_{t}(x_{i}) \\
-    \exp(\alpha_{t}) &amp; \text{if } y_{i} \neq G_{t}(x_{i}) \\
+    \exp(-\alpha_{t}) &amp; \text{if } y_{i} = h_{t}(x_{i}) \\
+    \exp(\alpha_{t}) &amp; \text{if } y_{i} \neq h_{t}(x_{i}) \\
     \end{cases}
     \end{split}\]</div>
 </li>
-<li><p>The weighted training error of the weak rule <span class="math notranslate nohighlight">\(G_{t}\)</span> on the reweighted training set in the next iteration with weights <span class="math notranslate nohighlight">\(D_{t + 1}\)</span> is always 0.5.</p>
+<li><p>The weighted training error of the weak rule <span class="math notranslate nohighlight">\(h_{t}\)</span> on the reweighted training set in the next iteration with weights <span class="math notranslate nohighlight">\(D_{t + 1}\)</span> is always 0.5.</p>
 <p>Proof:</p>
 <ol class="arabic">
-<li><p>Assume that the weighted training error of <span class="math notranslate nohighlight">\(G_{t}\)</span> on iteration <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>,</p>
+<li><p>Assume that the weighted training error of <span class="math notranslate nohighlight">\(h_{t}\)</span> on iteration <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \epsilon = \sum_{x_{i} \in E} D_{t}(x_{i}) \]</div>
 <p>where <span class="math notranslate nohighlight">\(E\)</span> is the set of the incorrectly classified instances.</p>
 </li>
-<li><p>By adding <span class="math notranslate nohighlight">\(G_{t}\)</span>, the new weights of the incorrectly classified training instances are</p>
+<li><p>By adding <span class="math notranslate nohighlight">\(h_{t}\)</span>, the new weights of the incorrectly classified training instances are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
         \begin{align}
@@ -415,7 +410,7 @@
         \end{align}
         \end{split}\]</div>
 </li>
-<li><p>Since the set of incorrectly classified instances <span class="math notranslate nohighlight">\(E\)</span> doesn’t change, the weighted training error of <span class="math notranslate nohighlight">\(G_{t}\)</span> on the reweighted training set is</p>
+<li><p>Since the set of incorrectly classified instances <span class="math notranslate nohighlight">\(E\)</span> doesn’t change, the weighted training error of <span class="math notranslate nohighlight">\(h_{t}\)</span> on the reweighted training set is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
         \begin{align}
@@ -430,7 +425,7 @@
 <div class="math notranslate nohighlight">
 \[\begin{split} 
         \begin{align}
-        {Z_{t}} &amp; = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)) \\
+        {Z_{t}} &amp; = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \\
         &amp; = \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) + \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) \\
         &amp; = \sqrt{(1 - \epsilon) \epsilon} + (1 - \epsilon) \sqrt{\frac{\epsilon}{1 - \epsilon}} \\
         &amp; = 2 \sqrt{(1 - \epsilon) \epsilon} \\
@@ -454,13 +449,13 @@
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{align}
-D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)) \\
-&amp; = \frac{1}{Z_{t}} \left( \frac{1}{Z_{t - 1}} D_{t - 1}(x_{i}) \times \exp(-\alpha_{t - 1} \times y_{i}G_{t - 1}(x_i)) \right) \times \exp(-\alpha_{t} \times y_{i}G_{t}(x_i)) \\
-&amp; = \frac{1}{Z_{t} Z_{t - 1}} D_{t - 1}(x_{i}) \times \exp(- y_{i}(\alpha_{t}G_{t}(x_i) + \alpha_{t - 1}G_{t - 1}(x_i))) \\
+D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \\
+&amp; = \frac{1}{Z_{t}} \left( \frac{1}{Z_{t - 1}} D_{t - 1}(x_{i}) \times \exp(-\alpha_{t - 1} \times y_{i}h_{t - 1}(x_i)) \right) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \\
+&amp; = \frac{1}{Z_{t} Z_{t - 1}} D_{t - 1}(x_{i}) \times \exp(- y_{i}(\alpha_{t}h_{t}(x_i) + \alpha_{t - 1}h_{t - 1}(x_i))) \\
 &amp; = \dots &amp; [\text{expand } Z_{t - 1}, Z_{t - 2}, \dots, Z_{1}] \\
-&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} D_{1}(x_{i}) \times \exp(- y_{i}(\alpha_{t}G_{t}(x_i) + \alpha_{t - 1}G_{t - 1}(x_i) + \dots \alpha_{1}G_{1}(x_i))) \\
-&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} \frac{1}{n} \times \exp(- y_{i}(\alpha_{t}G_{t}(x_i) + \alpha_{t - 1}G_{t - 1}(x_i) + \dots \alpha_{1}G_{1}(x_i))) &amp; [D_{1}(x_{i}) = \frac{1}{n}] \\
-&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} \frac{1}{n} \times \exp(- y_{i}F_{t}(x_{i})) &amp; [F_{t}(x_{i}) = \alpha_{t}G_{t}(x_i) + \alpha_{t - 1}G_{t - 1}(x_i) + \dots \alpha_{1}G_{1}(x_i))] \\
+&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} D_{1}(x_{i}) \times \exp(- y_{i}(\alpha_{t}h_{t}(x_i) + \alpha_{t - 1}h_{t - 1}(x_i) + \dots \alpha_{1}h_{1}(x_i))) \\
+&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} \frac{1}{n} \times \exp(- y_{i}(\alpha_{t}h_{t}(x_i) + \alpha_{t - 1}h_{t - 1}(x_i) + \dots \alpha_{1}h_{1}(x_i))) &amp; [D_{1}(x_{i}) = \frac{1}{n}] \\
+&amp; = \frac{1}{\prod_{k=1}^{t} Z_{k}} \frac{1}{n} \times \exp(- y_{i}F_{t}(x_{i})) &amp; [F_{t}(x_{i}) = \alpha_{t}h_{t}(x_i) + \alpha_{t - 1}h_{t - 1}(x_i) + \dots \alpha_{1}h_{1}(x_i))] \\
 \end{align}
 \end{split}\]</div>
 <p>Since the sum of the weights is 1:</p>
@@ -484,7 +479,7 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
      &amp; = Z_{t} \prod_{k=1}^{t - 1} Z_{k}
     \end{align}
     \end{split}\]</div>
-<p>In iteration <span class="math notranslate nohighlight">\(t\)</span>, all previous <span class="math notranslate nohighlight">\(Z_{1}, Z_{2}, \dots, Z_{t - 1}\)</span> don’t depend on <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(G_{t}\)</span>. Thus the loss function that AdaBoost minimizes in iteration <span class="math notranslate nohighlight">\(t\)</span> is just <span class="math notranslate nohighlight">\(Z_{t}\)</span>.</p>
+<p>In iteration <span class="math notranslate nohighlight">\(t\)</span>, all previous <span class="math notranslate nohighlight">\(Z_{1}, Z_{2}, \dots, Z_{t - 1}\)</span> don’t depend on <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Thus the loss function that AdaBoost minimizes in iteration <span class="math notranslate nohighlight">\(t\)</span> is just <span class="math notranslate nohighlight">\(Z_{t}\)</span>.</p>
 <p>We know that <span class="math notranslate nohighlight">\(Z_{t}\)</span> depends on the choice of <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Minimizing <span class="math notranslate nohighlight">\(Z_{t}\)</span> can be solved by taking its derivative w.r.t <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span> and set it to 0. Here we show that the <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> that minimizes the <span class="math notranslate nohighlight">\(Z_{t}\)</span> is exactly the one used in AdaBoost algorithm.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -509,7 +504,7 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
 <li><p>After <span class="math notranslate nohighlight">\(t\)</span> iterations, the weighted training error of <span class="math notranslate nohighlight">\(F_{t}\)</span> is bounded by</p>
 <div class="math notranslate nohighlight">
 \[ Err(F_{t}) \leq \exp(-2 \sum_{k = 1}^{t} \gamma_{k}^{2}) \]</div>
-<p>where <span class="math notranslate nohighlight">\(\gamma_{k} = 0.5 - \epsilon_{k}\)</span> to denote how much better <span class="math notranslate nohighlight">\(G_{t}\)</span> is than the random guessing,</p>
+<p>where <span class="math notranslate nohighlight">\(\gamma_{k} = 0.5 - \epsilon_{k}\)</span> to denote how much better <span class="math notranslate nohighlight">\(h_{t}\)</span> is than the random guessing,</p>
 <p>Proof:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
