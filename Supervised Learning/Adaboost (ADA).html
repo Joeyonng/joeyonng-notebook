@@ -389,18 +389,21 @@
 </li>
 <li><p>The smaller the classification error of <span class="math notranslate nohighlight">\(h_{t}\)</span>, the larger the weight <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and thus the more impact that <span class="math notranslate nohighlight">\(h_{t}\)</span> will have on the final classifier.</p></li>
 <li><p>The weights of correctly classified points are reduced and the weights of incorrectly classified points are increased. Hence, the incorrectly classified points will receive more attention in the next run.</p>
-<p>Proof:</p>
+<div class="admonition-proof admonition">
+<p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) = 
-    \begin{cases} 
-    \exp(-\alpha_{t}) &amp; \text{if } y_{i} = h_{t}(x_{i}) \\
-    \exp(\alpha_{t}) &amp; \text{if } y_{i} \neq h_{t}(x_{i}) \\
-    \end{cases}
-    \end{split}\]</div>
+\exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) = 
+\begin{cases} 
+\exp(-\alpha_{t}) &amp; \text{if } y_{i} = h_{t}(x_{i}) \\
+\exp(\alpha_{t}) &amp; \text{if } y_{i} \neq h_{t}(x_{i}) \\
+\end{cases}
+\end{split}\]</div>
+</div>
 </li>
 <li><p>The weighted training error of the weak rule <span class="math notranslate nohighlight">\(h_{t}\)</span> on the reweighted training set in the next iteration with weights <span class="math notranslate nohighlight">\(D_{t + 1}\)</span> is always 0.5.</p>
-<p>Proof:</p>
+<div class="admonition-proof admonition">
+<p class="admonition-title">Proof</p>
 <ol class="arabic">
 <li><p>Assume that the weighted training error of <span class="math notranslate nohighlight">\(h_{t}\)</span> on iteration <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>,</p>
 <div class="math notranslate nohighlight">
@@ -410,40 +413,41 @@
 <li><p>By adding <span class="math notranslate nohighlight">\(h_{t}\)</span>, the new weights of the incorrectly classified training instances are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
-        \begin{align}
-        D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \exp(-\alpha_{t} \times (-1)) \\
-        &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \exp \left(\frac{1}{2} \ln \left( \frac{1 - \epsilon}{\epsilon} \right) \right) \\
-        &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \sqrt{\frac{1 - \epsilon}{\epsilon}} 
-        \end{align}
-        \end{split}\]</div>
+    \begin{align}
+    D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \exp(-\alpha_{t} \times (-1)) \\
+    &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \exp \left(\frac{1}{2} \ln \left( \frac{1 - \epsilon}{\epsilon} \right) \right) \\
+    &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \sqrt{\frac{1 - \epsilon}{\epsilon}} 
+    \end{align}
+    \end{split}\]</div>
 </li>
 <li><p>Since the set of incorrectly classified instances <span class="math notranslate nohighlight">\(E\)</span> doesn’t change, the weighted training error of <span class="math notranslate nohighlight">\(h_{t}\)</span> on the reweighted training set is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
-        \begin{align}
-        \hat{\epsilon} &amp; = \sum_{x_{i} \in E} D_{t + 1}(x_{i}) \\
-        &amp; = \frac{1}{Z_{t}} \sum_{x_{i} \in E} D_{t}(x_{i}) \sqrt{\frac{1 - \epsilon}{\epsilon}} \\
-        &amp; = \frac{1}{Z_{t}} \epsilon \sqrt{\frac{1 - \epsilon}{\epsilon}} \\
-        &amp; = \frac{1}{Z_{t}} \sqrt{(1 - \epsilon) \epsilon}
-        \end{align}
-        \end{split}\]</div>
+    \begin{align}
+    \hat{\epsilon} &amp; = \sum_{x_{i} \in E} D_{t + 1}(x_{i}) \\
+    &amp; = \frac{1}{Z_{t}} \sum_{x_{i} \in E} D_{t}(x_{i}) \sqrt{\frac{1 - \epsilon}{\epsilon}} \\
+    &amp; = \frac{1}{Z_{t}} \epsilon \sqrt{\frac{1 - \epsilon}{\epsilon}} \\
+    &amp; = \frac{1}{Z_{t}} \sqrt{(1 - \epsilon) \epsilon}
+    \end{align}
+    \end{split}\]</div>
 </li>
 <li><p>Denote <span class="math notranslate nohighlight">\(C\)</span> to be the set of the correctly classified instances.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
-        \begin{align}
-        {Z_{t}} &amp; = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \\
-        &amp; = \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) + \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) \\
-        &amp; = \sqrt{(1 - \epsilon) \epsilon} + (1 - \epsilon) \sqrt{\frac{\epsilon}{1 - \epsilon}} \\
-        &amp; = 2 \sqrt{(1 - \epsilon) \epsilon} \\
-        \end{align}
-        \end{split}\]</div>
+    \begin{align}
+    {Z_{t}} &amp; = \sum_{i = 1}^{n} D_{t}(x_{i}) \times \exp(-\alpha_{t} \times y_{i}h_{t}(x_i)) \\
+    &amp; = \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) + \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) \\
+    &amp; = \sqrt{(1 - \epsilon) \epsilon} + (1 - \epsilon) \sqrt{\frac{\epsilon}{1 - \epsilon}} \\
+    &amp; = 2 \sqrt{(1 - \epsilon) \epsilon} \\
+    \end{align}
+    \end{split}\]</div>
 </li>
 <li><p>Thus,</p>
 <div class="math notranslate nohighlight">
 \[ \hat{\epsilon} = \frac{\sqrt{(1 - \epsilon) \epsilon}}{2 \sqrt{(1 - \epsilon) \epsilon}} = 0.5 \]</div>
 </li>
 </ol>
+</div>
 </li>
 </ol>
 </section>
@@ -478,53 +482,59 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
 <li><p>AdaBoost is a greedy algorithm that minimizes the loss function:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \]</div>
-<p>Proof:</p>
+<div class="admonition-proof admonition">
+<p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \begin{align}
-    \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) &amp; = \prod_{k=1}^{t} Z_{k} \\
-     &amp; = Z_{t} \prod_{k=1}^{t - 1} Z_{k}
-    \end{align}
-    \end{split}\]</div>
+\begin{align}
+\frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) &amp; = \prod_{k=1}^{t} Z_{k} \\
+ &amp; = Z_{t} \prod_{k=1}^{t - 1} Z_{k}
+\end{align}
+\end{split}\]</div>
 <p>In iteration <span class="math notranslate nohighlight">\(t\)</span>, all previous <span class="math notranslate nohighlight">\(Z_{1}, Z_{2}, \dots, Z_{t - 1}\)</span> don’t depend on <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Thus the loss function that AdaBoost minimizes in iteration <span class="math notranslate nohighlight">\(t\)</span> is just <span class="math notranslate nohighlight">\(Z_{t}\)</span>.</p>
 <p>We know that <span class="math notranslate nohighlight">\(Z_{t}\)</span> depends on the choice of <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Minimizing <span class="math notranslate nohighlight">\(Z_{t}\)</span> can be solved by taking its derivative w.r.t <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span> and set it to 0. Here we show that the <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> that minimizes the <span class="math notranslate nohighlight">\(Z_{t}\)</span> is exactly the one used in AdaBoost algorithm.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
-    \begin{align}
-    \frac{\partial Z_{t}}{\partial \alpha_{t}} &amp; = 0 \\
-    \frac{\partial}{\partial \alpha_{t}} \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) + \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) &amp; = 0 \\
-    \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) - \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) &amp; = 0 \\
-    \frac{\exp(\alpha_{t})}{\exp(-\alpha_{t})} \sum_{i \in E} D_{t}(x_{i}) &amp; = \sum_{i \in C} D_{t}(x_{i}) \\
-    \exp(2 \alpha_{t}) \epsilon &amp; = 1 - \epsilon \\
-    \alpha_{t} &amp; = \frac{1}{2} \ln \frac{1 - \epsilon}{\epsilon}
-    \end{align}
-    \end{split}\]</div>
+\begin{align}
+\frac{\partial Z_{t}}{\partial \alpha_{t}} &amp; = 0 \\
+\frac{\partial}{\partial \alpha_{t}} \sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) + \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) &amp; = 0 \\
+\sum_{i \in E} D_{t}(x_{i}) \times \exp(\alpha_{t}) - \sum_{i \in C} D_{t}(x_{i}) \times \exp(-\alpha_{t}) &amp; = 0 \\
+\frac{\exp(\alpha_{t})}{\exp(-\alpha_{t})} \sum_{i \in E} D_{t}(x_{i}) &amp; = \sum_{i \in C} D_{t}(x_{i}) \\
+\exp(2 \alpha_{t}) \epsilon &amp; = 1 - \epsilon \\
+\alpha_{t} &amp; = \frac{1}{2} \ln \frac{1 - \epsilon}{\epsilon}
+\end{align}
+\end{split}\]</div>
+</div>
 </li>
 <li><p>The loss function is an upper bound on the weighted training error (0-1 loss) in any iteration <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ Err(F_{t}) = \frac{1}{n} \sum_{i}^{n} \mathbb{1}(y_{i} \neq \operatorname{sign}(F_{t}(x_{i}))) \leq \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \]</div>
-<p>Proof:</p>
+<div class="admonition-proof admonition">
+<p class="admonition-title">Proof</p>
 <p>For all <span class="math notranslate nohighlight">\(i\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{1} (y_{i} \neq \operatorname{sign}(F_{t}(x_{i})) = -\operatorname{step}(y_{i} F_{t}(x_{i}) \leq  \exp(- y_{i}F_{t}(x_{i}) \]</div>
+</div>
 </li>
 <li><p>After <span class="math notranslate nohighlight">\(t\)</span> iterations, the weighted training error of <span class="math notranslate nohighlight">\(F_{t}\)</span> is bounded by</p>
 <div class="math notranslate nohighlight">
 \[ Err(F_{t}) \leq \exp(-2 \sum_{k = 1}^{t} \gamma_{k}^{2}) \]</div>
 <p>where <span class="math notranslate nohighlight">\(\gamma_{k} = 0.5 - \epsilon_{k}\)</span> to denote how much better <span class="math notranslate nohighlight">\(h_{t}\)</span> is than the random guessing,</p>
-<p>Proof:</p>
+<div class="admonition-proof admonition">
+<p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \begin{align}
-    Err(F_{t}) &amp; \leq \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \\
-    &amp; \leq \prod_{k=1}^{t} Z_{k} \\
-    &amp; \leq \prod_{k=1}^{t} 2 \sqrt{(1 - \epsilon_{k}) \epsilon_{k}} \\
-    &amp; \leq \prod_{k=1}^{t} 2 \sqrt{(0.5 + \gamma_{k}) (0.5 - \gamma_{k})} &amp; [\epsilon_{k} = 0.5 - \gamma_{k}] \\
-    &amp; \leq \prod_{k=1}^{t} \sqrt{1 - 4 \gamma_{k}^{2}} \\
-    &amp; \leq \prod_{k=1}^{t} \exp(-2 \gamma_{k}^{2}) &amp; [\sqrt{1 - 4 \gamma_{t}^{2}} \leq \exp(-2 \gamma^{2})] \\
-    &amp; \leq \exp(-2 \sum_{k=i}^{t} \gamma_{k}^{2})
-    \end{align}
-    \end{split}\]</div>
+\begin{align}
+Err(F_{t}) &amp; \leq \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \\
+&amp; \leq \prod_{k=1}^{t} Z_{k} \\
+&amp; \leq \prod_{k=1}^{t} 2 \sqrt{(1 - \epsilon_{k}) \epsilon_{k}} \\
+&amp; \leq \prod_{k=1}^{t} 2 \sqrt{(0.5 + \gamma_{k}) (0.5 - \gamma_{k})} &amp; [\epsilon_{k} = 0.5 - \gamma_{k}] \\
+&amp; \leq \prod_{k=1}^{t} \sqrt{1 - 4 \gamma_{k}^{2}} \\
+&amp; \leq \prod_{k=1}^{t} \exp(-2 \gamma_{k}^{2}) &amp; [\sqrt{1 - 4 \gamma_{t}^{2}} \leq \exp(-2 \gamma^{2})] \\
+&amp; \leq \exp(-2 \sum_{k=i}^{t} \gamma_{k}^{2})
+\end{align}
+\end{split}\]</div>
+</div>
 </li>
 </ol>
 </section>
