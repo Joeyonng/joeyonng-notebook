@@ -376,15 +376,17 @@
 \[ F(x) = \operatorname{sign} \left( \sum_{t=1}^{T} \alpha_t h_{t}(x) \right) \]</div>
 </li>
 </ol>
-<div class="proof axiom admonition" id="my-axiom">
-<p class="admonition-title"><span class="caption-number">Axiom 1 </span> (Completeness of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>)</p>
-<section class="axiom-content" id="proof-content">
-<p>Every Cauchy sequence on the real line is convergent.</p>
-</section>
-</div><section id="facts-about-adaboost">
+<section id="facts-about-adaboost">
 <h3>Facts about AdaBoost:<a class="headerlink" href="#facts-about-adaboost" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p><span class="math notranslate nohighlight">\(\alpha_{t}\)</span> is always positive.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha_{t}\)</span> is always positive.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
+<p>Since the requirement for the weak learner is to have the weighed training error <span class="math notranslate nohighlight">\(\epsilon_{t} &lt; \frac{1}{2}\)</span> and thus <span class="math notranslate nohighlight">\( 1 - \epsilon_{t} \geq \frac{1}{2} \)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1 - \epsilon_{t}}{\epsilon_{t}} &gt; 1 \Rightarrow \alpha_{t} = \frac{1}{2} \ln{\frac{1 - \epsilon_{t}}{\epsilon_{t}}} &gt; 0 \]</div>
+</div>
+</li>
 <li><p>The smaller the classification error of <span class="math notranslate nohighlight">\(h_{t}\)</span>, the larger the weight <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and thus the more impact that <span class="math notranslate nohighlight">\(h_{t}\)</span> will have on the final classifier.</p></li>
 <li><p>The weights of correctly classified points are reduced and the weights of incorrectly classified points are increased. Hence, the incorrectly classified points will receive more attention in the next run.</p>
 <p>Proof:</p>
