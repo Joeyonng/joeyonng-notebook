@@ -389,7 +389,7 @@
 </li>
 <li><p>The smaller the classification error of <span class="math notranslate nohighlight">\(h_{t}\)</span>, the larger the weight <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and thus the more impact that <span class="math notranslate nohighlight">\(h_{t}\)</span> will have on the final classifier.</p></li>
 <li><p>The weights of correctly classified points are reduced and the weights of incorrectly classified points are increased. Hence, the incorrectly classified points will receive more attention in the next run.</p>
-<div class="admonition-proof admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -402,7 +402,7 @@
 </div>
 </li>
 <li><p>The weighted training error of the weak rule <span class="math notranslate nohighlight">\(h_{t}\)</span> on the reweighted training set in the next iteration with weights <span class="math notranslate nohighlight">\(D_{t + 1}\)</span> is always 0.5.</p>
-<div class="admonition-proof admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Proof</p>
 <ol class="arabic">
 <li><p>Assume that the weighted training error of <span class="math notranslate nohighlight">\(h_{t}\)</span> on iteration <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>,</p>
@@ -456,6 +456,12 @@
 <h2>Convergence analysis<a class="headerlink" href="#convergence-analysis" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <p>AdaBoost is a greedy algorithm that minimizes a loss function that upper bounds the classification error.</p>
+<ol class="arabic">
+<li><p>AdaBoost is a greedy algorithm that minimizes the loss function:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \]</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
 <p>We can expand <span class="math notranslate nohighlight">\(D_{t + 1}(x_{i})\)</span> recursively</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -478,12 +484,8 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
 \prod_{k=1}^{t} Z_{k} &amp; = \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \\
 \end{align}
 \end{split}\]</div>
-<ol class="arabic">
-<li><p>AdaBoost is a greedy algorithm that minimizes the loss function:</p>
-<div class="math notranslate nohighlight">
-\[ \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \]</div>
-<div class="admonition-proof admonition">
-<p class="admonition-title">Proof</p>
+<p>Thus, the loss function is the sum of the normalization terms.</p>
+<p>In iteration <span class="math notranslate nohighlight">\(t\)</span>, all previous <span class="math notranslate nohighlight">\(Z_{1}, Z_{2}, \dots, Z_{t - 1}\)</span> don’t depend on <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Thus the loss function that AdaBoost minimizes in iteration <span class="math notranslate nohighlight">\(t\)</span> is just <span class="math notranslate nohighlight">\(Z_{t}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -491,7 +493,6 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
  &amp; = Z_{t} \prod_{k=1}^{t - 1} Z_{k}
 \end{align}
 \end{split}\]</div>
-<p>In iteration <span class="math notranslate nohighlight">\(t\)</span>, all previous <span class="math notranslate nohighlight">\(Z_{1}, Z_{2}, \dots, Z_{t - 1}\)</span> don’t depend on <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Thus the loss function that AdaBoost minimizes in iteration <span class="math notranslate nohighlight">\(t\)</span> is just <span class="math notranslate nohighlight">\(Z_{t}\)</span>.</p>
 <p>We know that <span class="math notranslate nohighlight">\(Z_{t}\)</span> depends on the choice of <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span>. Minimizing <span class="math notranslate nohighlight">\(Z_{t}\)</span> can be solved by taking its derivative w.r.t <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> and <span class="math notranslate nohighlight">\(h_{t}\)</span> and set it to 0. Here we show that the <span class="math notranslate nohighlight">\(\alpha_{t}\)</span> that minimizes the <span class="math notranslate nohighlight">\(Z_{t}\)</span> is exactly the one used in AdaBoost algorithm.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -509,7 +510,7 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
 <li><p>The loss function is an upper bound on the weighted training error (0-1 loss) in any iteration <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ Err(F_{t}) = \frac{1}{n} \sum_{i}^{n} \mathbb{1}(y_{i} \neq \operatorname{sign}(F_{t}(x_{i}))) \leq \frac{1}{n} \sum_{i = 1}^{n} \exp(- y_{i}F_{t}(x_{i})) \]</div>
-<div class="admonition-proof admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Proof</p>
 <p>For all <span class="math notranslate nohighlight">\(i\)</span>,</p>
 <div class="math notranslate nohighlight">
@@ -520,7 +521,7 @@ D_{t + 1}(x_{i}) &amp; = \frac{1}{Z_{t}} D_{t}(x_{i}) \times \exp(-\alpha_{t} \t
 <div class="math notranslate nohighlight">
 \[ Err(F_{t}) \leq \exp(-2 \sum_{k = 1}^{t} \gamma_{k}^{2}) \]</div>
 <p>where <span class="math notranslate nohighlight">\(\gamma_{k} = 0.5 - \epsilon_{k}\)</span> to denote how much better <span class="math notranslate nohighlight">\(h_{t}\)</span> is than the random guessing,</p>
-<div class="admonition-proof admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
