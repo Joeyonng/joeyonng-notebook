@@ -385,23 +385,22 @@
 <section id="linear-combination-of-gaussian-distributions">
 <h3>Linear combination of Gaussian distributions<a class="headerlink" href="#linear-combination-of-gaussian-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Gaussian distribution is closed under linear transformation, which means:</p>
-<ol class="arabic simple">
-<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu, \sigma^{2})\)</span>. Then the random variable <span class="math notranslate nohighlight">\(Y = aX + b\)</span> also follows Gaussian distribution
+<ol class="arabic">
+<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu, \sigma^{2})\)</span>. Then the random variable <span class="math notranslate nohighlight">\(Y = aX + b\)</span> also follows Gaussian distribution</p>
 <div class="math notranslate nohighlight">
 \[ Y \sim \mathcal{N}(a\mu + b, a\sigma^{2}) \]</div>
-</p></li>
-<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu_{X}, \sigma_{X}^{2})\)</span> and <span class="math notranslate nohighlight">\(Y \sim \mathcal{N}(\mu_{Y}, \sigma_{Y}^{2})\)</span>. Then, if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, the random variable <span class="math notranslate nohighlight">\(Z = X + Y\)</span> also follows Gaussian distribution:
+</li>
+<li><p>Let <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu_{X}, \sigma_{X}^{2})\)</span> and <span class="math notranslate nohighlight">\(Y \sim \mathcal{N}(\mu_{Y}, \sigma_{Y}^{2})\)</span>. Then, if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, the random variable <span class="math notranslate nohighlight">\(Z = X + Y\)</span> also follows Gaussian distribution:</p>
 <div class="math notranslate nohighlight">
 \[ Z \sim \mathcal{N}(\mu_{X} + \mu_{Y}, \sigma_{X}^{2} + \sigma_{Y}^{2}) \]</div>
-</p></li>
-<li><p>Let <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> be <span class="math notranslate nohighlight">\(n\)</span> mutually independent Gaussian random variables with means <span class="math notranslate nohighlight">\(\mu_{1}, \dots, \mu_{n}\)</span> and variances <span class="math notranslate nohighlight">\(\sigma_{1}^{2}, \dots \sigma_{n}^{2}\)</span>. If the random variable <span class="math notranslate nohighlight">\(Y\)</span> is a linear combinations of the <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(w_{1}, \dots, w_{n}\)</span> coefficients and <span class="math notranslate nohighlight">\(b_{1}, \dots, b_{n}\)</span> biases:
+</li>
+<li><p>Let <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> be <span class="math notranslate nohighlight">\(n\)</span> mutually independent Gaussian random variables with means <span class="math notranslate nohighlight">\(\mu_{1}, \dots, \mu_{n}\)</span> and variances <span class="math notranslate nohighlight">\(\sigma_{1}^{2}, \dots \sigma_{n}^{2}\)</span>. If the random variable <span class="math notranslate nohighlight">\(Y\)</span> is a linear combinations of the <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(w_{1}, \dots, w_{n}\)</span> coefficients and <span class="math notranslate nohighlight">\(b_{1}, \dots, b_{n}\)</span> biases:</p>
 <div class="math notranslate nohighlight">
 \[ Y = \sum_{i=1}^{n} w_{i}X_{i} + b_{i}\]</div>
-
-then <span class="math notranslate nohighlight">\(Y\)</span> also follows Gaussian distribution:
+<p>then <span class="math notranslate nohighlight">\(Y\)</span> also follows Gaussian distribution:</p>
 <div class="math notranslate nohighlight">
 \[ Y \sim \mathcal{N}(\sum_{i=1}^{n} w_{i}\mu_{i} + b_{i}, \sum_{i=1}^{n} w_{i}^2\sigma_{i}^2) \]</div>
-</p></li>
+</li>
 </ol>
 </section>
 <section id="assumptions-of-linear-regression">
@@ -439,6 +438,9 @@ then <span class="math notranslate nohighlight">\(Y\)</span> also follows Gaussi
 </ol>
 <section id="logistic-regression-as-a-glm-for-bernoulli-distribution">
 <h3>Logistic regression as a GLM for Bernoulli distribution<a class="headerlink" href="#logistic-regression-as-a-glm-for-bernoulli-distribution" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
 </section>
 </section>
 <section id="generalized-addictive-models-gam">
@@ -447,9 +449,13 @@ then <span class="math notranslate nohighlight">\(Y\)</span> also follows Gaussi
 <div class="math notranslate nohighlight">
 \[ g(\mathrm{E}(Y)) = \sum_{1}^{n}f(x_i) \]</div>
 <p>where <span class="math notranslate nohighlight">\(f()\)</span> can be arbitrarily defined function.</p>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/extend-lm.html">https://christophm.github.io/interpretable-ml-book/extend-lm.html</a></p></li>
 <li><p><a class="reference external" href="http://www.stat.ucla.edu/~nchristo/introstatistics/introstats_normal_linear_combinations.pdf">http://www.stat.ucla.edu/~nchristo/introstatistics/introstats_normal_linear_combinations.pdf</a></p></li>

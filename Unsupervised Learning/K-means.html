@@ -427,7 +427,8 @@
 <p>A risk (loss) function can be often decomposed into a <strong>bias, a variance and a noise term</strong>. Here we take MSE as an example and expand it into a bias and variance term (noise is omitted).</p>
 <div class="math notranslate nohighlight">
 \[ \operatorname{MSE}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta}) = \operatorname{Var}(\hat{\boldsymbol{\theta}}) + \operatorname{Bias}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta})^{2} \]</div>
-<p>Proof:
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -439,7 +440,7 @@
 &amp; = \operatorname{Var}(\hat{\boldsymbol{\theta}}) + \operatorname{Bias}(\hat{\boldsymbol{\theta}}, \boldsymbol{\theta})^{2} &amp; [\mathbb{E}[ \lVert \hat{\boldsymbol{\theta}} - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert] = \lVert \mathbb{E}[\hat{\boldsymbol{\theta}}] - \mathbb{E}[\hat{\boldsymbol{\theta}}] \rVert = 0] \\
 \end{align}
 \end{split}\]</div>
-</p>
+</div>
 </section>
 </section>
 </section>
@@ -505,24 +506,26 @@
 <div class="math notranslate nohighlight">
 \[ \operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) = \operatorname{loss}(\mathbf{\boldsymbol{\mu}}, C_{\mathbf{\mathbf{u}}}) + n \lVert \boldsymbol{\mu} - \mathbf{u} \rVert \]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of instances in the cluster <span class="math notranslate nohighlight">\(C_{\mathbf{u}}\)</span>.</p>
-<p>Proof:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \begin{align}
-    \operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) &amp; = \operatorname{loss}(\boldsymbol{\mu}, C_{\mathbf{u}}) + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \boldsymbol{\mu} \rVert^{2} + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \boldsymbol{\mu} \rVert + \lVert \boldsymbol{\mu} \rVert^{2} \right) + n\left( \lVert \boldsymbol{\mu} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \lVert \frac{S}{n} \rVert^{2} \right) + n\left( \lVert \frac{S}{n} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) &amp; \left[ \text{replace some } \boldsymbol{\mu} \text{ with } \frac{S}{n} \text{ where } S = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \mathbf{x} \right] \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - \sum_{\mathbf{x} \in C_{\mathbf{u}}} 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2 \lVert S \rVert \lVert \frac{S}{n} \rVert + n\lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert x \rVert = \lVert S \rVert \text{ and } \sum_{\mathbf{x} \in C_{\mathbf{u}}} 1 = n \right] \\ 
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \lVert S \rVert \lVert \frac{S}{n} \rVert = n\lVert \frac{S}{n} \rVert^{2}  \right] \\ 
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} ( \lVert \mathbf{x} \rVert^{2} - 2\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} ) \\
-    &amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \mathbf{u} \rVert^{2} \\
-    \end{align}
-    \end{split}\]</div>
+\begin{align}
+\operatorname{loss}(\mathbf{u}, C_{\mathbf{u}}) &amp; = \operatorname{loss}(\boldsymbol{\mu}, C_{\mathbf{u}}) + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \boldsymbol{\mu} \rVert^{2} + n\lVert \boldsymbol{\mu} - \mathbf{u} \rVert^{2} \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \boldsymbol{\mu} \rVert + \lVert \boldsymbol{\mu} \rVert^{2} \right) + n\left( \lVert \boldsymbol{\mu} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \left( \lVert \mathbf{x} \rVert^{2} - 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \lVert \frac{S}{n} \rVert^{2} \right) + n\left( \lVert \frac{S}{n} \rVert^{2} - 2 \lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} \right) &amp; \left[ \text{replace some } \boldsymbol{\mu} \text{ with } \frac{S}{n} \text{ where } S = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \mathbf{x} \right] \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - \sum_{\mathbf{x} \in C_{\mathbf{u}}} 2\lVert \mathbf{x} \rVert \lVert \frac{S}{n} \rVert + \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2 \lVert S \rVert \lVert \frac{S}{n} \rVert + n\lVert \frac{S}{n} \rVert^{2} + n\lVert \frac{S}{n} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert x \rVert = \lVert S \rVert \text{ and } \sum_{\mathbf{x} \in C_{\mathbf{u}}} 1 = n \right] \\ 
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} \rVert^{2} - 2n\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + n\lVert \mathbf{u} \rVert^{2} &amp; \left[ \lVert S \rVert \lVert \frac{S}{n} \rVert = n\lVert \frac{S}{n} \rVert^{2}  \right] \\ 
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} ( \lVert \mathbf{x} \rVert^{2} - 2\lVert \boldsymbol{\mu} \rVert \lVert \mathbf{u} \rVert + \lVert \mathbf{u} \rVert^{2} ) \\
+&amp; = \sum_{\mathbf{x} \in C_{\mathbf{u}}} \lVert \mathbf{x} - \mathbf{u} \rVert^{2} \\
+\end{align}
+\end{split}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\lvert C_{\mathbf{\mathbf{u}}} \rvert \cdot \lVert \boldsymbol{\mu} - \mathbf{u} \rVert\)</span> is always positive,</p>
 <div class="math notranslate nohighlight">
 \[ \operatorname{loss}(\boldsymbol{\mu}, C_{\mathbf{u}}) \leq \operatorname{loss}(\mathbf{\mathbf{u}}, C_{\mathbf{\mathbf{u}}}) \]</div>
+</div>
 </li>
 </ul>
 </section>
@@ -676,7 +679,7 @@
 94it [00:00, 1188.89it/s, KMeans=0.909]                                                                                                                                                                                                                                                 
 </pre></div>
 </div>
-<img alt="../_images/K-means_7_1.png" src="../_images/K-means_7_1.png" />
+<img alt="../_images/K-means_13_1.png" src="../_images/K-means_13_1.png" />
 </div>
 </div>
 </section>

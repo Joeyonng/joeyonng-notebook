@@ -374,36 +374,36 @@
 <h2>Preliminary<a class="headerlink" href="#preliminary" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <section id="the-lagrangian-dual-problem-duality">
-<span id="lagrangian"></span><h3>The Lagrangian dual problem (Duality)<a class="headerlink" href="#the-lagrangian-dual-problem-duality" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Given a minimization primal problem:
+<h3>The Lagrangian dual problem (Duality)<a class="headerlink" href="#the-lagrangian-dual-problem-duality" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Given a minimization primal problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \min_{x} \quad &amp; f(x) \\
- \text{s.t. } \quad &amp; h_{i}(x) \leq 0, \quad i = 1, \dots, n \\
- \quad &amp; l_{j}(x) = 0, \quad j = 1, \dots, m \\
- \end{alignat}
- \end{split}\]</div>
-</p></li>
-<li><p>The Lagrangian of the primal problem is defined as:
+    \begin{alignat}{2}
+    \min_{x} \quad &amp; f(x) \\
+    \text{s.t. } \quad &amp; h_{i}(x) \leq 0, \quad i = 1, \dots, n \\
+    \quad &amp; l_{j}(x) = 0, \quad j = 1, \dots, m \\
+    \end{alignat}
+    \end{split}\]</div>
+</li>
+<li><p>The Lagrangian of the primal problem is defined as:</p>
 <div class="math notranslate nohighlight">
 \[ L(x, u, v) = f(x) + \sum_{i}^{n} u_{i}h_{i}(x) + \sum_{j}^{m} v_{j}l_{j}(x) \]</div>
-
-where <span class="math notranslate nohighlight">\(u_{i}\)</span> and <span class="math notranslate nohighlight">\(v_{j}\)</span> are new variables called Lagrangian multipliers.</p></li>
-<li><p>The Lagrange dual function is:
+<p>where <span class="math notranslate nohighlight">\(u_{i}\)</span> and <span class="math notranslate nohighlight">\(v_{j}\)</span> are new variables called Lagrangian multipliers.</p>
+</li>
+<li><p>The Lagrange dual function is:</p>
 <div class="math notranslate nohighlight">
 \[ g(u, v) = \min_{x} L(x, u, v) \]</div>
-</p></li>
-<li><p>The Lagrange dual problem is:
+</li>
+<li><p>The Lagrange dual problem is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \max_{u, v} \quad &amp; g(u, v) \\
- \text{s.t. } \quad &amp; u \geq 0 \\
- \end{alignat}
- \end{split}\]</div>
-</p></li>
+    \begin{alignat}{2}
+    \max_{u, v} \quad &amp; g(u, v) \\
+    \text{s.t. } \quad &amp; u \geq 0 \\
+    \end{alignat}
+    \end{split}\]</div>
+</li>
 <li><p>The properties of dual problem:</p>
 <ol class="arabic simple">
 <li><p>The dual problem is always convex even if the primal problem is not convex.</p></li>
@@ -414,28 +414,27 @@ where <span class="math notranslate nohighlight">\(u_{i}\)</span> and <span clas
 </section>
 <section id="karush-kuhn-tucker-kkt-conditions">
 <h3>Karush-Kuhn-Tucker (KKT) conditions<a class="headerlink" href="#karush-kuhn-tucker-kkt-conditions" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Given the Lagrange dual problem stated above, the KKT conditions are:</p>
-<ol class="arabic simple">
-<li><p>Stationarity condition:
+<ol class="arabic">
+<li><p>Stationarity condition:</p>
 <div class="math notranslate nohighlight">
 \[ 0 \in \partial \left( f(x) + \sum_{i=1}^{n} u_{i} h_{i}(x) + \sum_{j=1}^{m} v_{j}l_{j}(x) \right) \]</div>
-</p></li>
-<li><p>Complementary Slackness:
+</li>
+<li><p>Complementary Slackness:</p>
 <div class="math notranslate nohighlight">
 \[ u_{i}h_{i}(x) = 0, \quad i = 1, \dots, n \]</div>
-</p></li>
-<li><p>Primal feasibility:
+</li>
+<li><p>Primal feasibility:</p>
 <div class="math notranslate nohighlight">
 \[ h_{i}(x) \leq 0, \quad i = 1, \dots, n \]</div>
-
 <div class="math notranslate nohighlight">
 \[ l_{j}(x) = 0,  \quad j = 1, \dots, m \]</div>
-</p></li>
-<li><p>Dual feasibility:
+</li>
+<li><p>Dual feasibility:</p>
 <div class="math notranslate nohighlight">
 \[ u_{i} \geq 0, \quad i = 1, \dots, n \]</div>
-</p></li>
+</li>
 </ol>
 </li>
 <li><p>If a strong duality (the primal optimal objective and the dual optimal objective are equal) holds, the <span class="math notranslate nohighlight">\(x^{*}\)</span> and <span class="math notranslate nohighlight">\(u^{*}, v^{*}\)</span> are primal and dual solutions if and only if <span class="math notranslate nohighlight">\(x^{*}\)</span> and <span class="math notranslate nohighlight">\(u^{*}, v^{*}\)</span> satisfy the KKT conditions.</p></li>
@@ -447,7 +446,7 @@ where <span class="math notranslate nohighlight">\(u_{i}\)</span> and <span clas
 <hr class="docutils" />
 <section id="svm-without-slacks-hard-margin-svm">
 <h3>SVM without slacks (hard margin SVM)<a class="headerlink" href="#svm-without-slacks-hard-margin-svm" title="Permalink to this headline">¶</a></h3>
-<p>Given a dataset with <span class="math notranslate nohighlight">\(n\)</span> instances <span class="math notranslate nohighlight">\(x_{i} \in R^{d}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> labels <span class="math notranslate nohighlight">\(y_{i} \in \{-1, 1\}\)</span>, a hard margin SVM model is a linear function (hyperplane) that is defined by a set of weights <span class="math notranslate nohighlight">\(w \in R^{d}\)</span> and a bias <span class="math notranslate nohighlight">\(b \in R\)</span>, which has the largest distances to the support vectors. You can get the hyperplane by solving following optimization problem:
+<p>Given a dataset with <span class="math notranslate nohighlight">\(n\)</span> instances <span class="math notranslate nohighlight">\(x_{i} \in R^{d}\)</span> and <span class="math notranslate nohighlight">\(n\)</span> labels <span class="math notranslate nohighlight">\(y_{i} \in \{-1, 1\}\)</span>, a hard margin SVM model is a linear function (hyperplane) that is defined by a set of weights <span class="math notranslate nohighlight">\(w \in R^{d}\)</span> and a bias <span class="math notranslate nohighlight">\(b \in R\)</span>, which has the largest distances to the support vectors. You can get the hyperplane by solving following optimization problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{alignat}{2}
@@ -455,26 +454,24 @@ where <span class="math notranslate nohighlight">\(u_{i}\)</span> and <span clas
 \text{s.t. } \quad &amp; y_{i}(w x_{i} + b) \geq 1, \quad i = 1, \dots n \\
 \end{alignat}
 \end{split}\]</div>
-
-Solving the above optimization problem will give us two parallel hyperplanes (<span class="math notranslate nohighlight">\(w x + b = 1\)</span> and <span class="math notranslate nohighlight">\(w x + b = -1\)</span>) that strictly separate the positive and negative training instances and at the same time have the maximum gap in between.</p>
-<ol class="arabic simple">
-<li><p>The objective maximizes the squared distance between the parallel hyperplanes by minimizing the multiplicative inverse of the squared distance between the parallel hyperplanes, which is defined as
+<p>Solving the above optimization problem will give us two parallel hyperplanes (<span class="math notranslate nohighlight">\(w x + b = 1\)</span> and <span class="math notranslate nohighlight">\(w x + b = -1\)</span>) that strictly separate the positive and negative training instances and at the same time have the maximum gap in between.</p>
+<ol class="arabic">
+<li><p>The objective maximizes the squared distance between the parallel hyperplanes by minimizing the multiplicative inverse of the squared distance between the parallel hyperplanes, which is defined as</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\lvert b_{2} - b_{1} \rvert}{\lVert w \rVert} = \frac{\lvert (b + 1) - (b - 1) \rvert}{\lVert w \rVert} = \frac{2}{\lVert w \rVert} \]</div>
-</p></li>
-<li><p>The constraints specify that the instances must be on the correct side of the two hyperplanes:
+</li>
+<li><p>The constraints specify that the instances must be on the correct side of the two hyperplanes:</p>
 <div class="math notranslate nohighlight">
 \[ w x_{i} + b \geq 1 \quad \mathrm{if} y_{i} = 1 \]</div>
-
 <div class="math notranslate nohighlight">
 \[ w x_{i} + b \leq -1 \quad \mathrm{if} y_{i} = -1 \]</div>
-
-and <span class="math notranslate nohighlight">\(y_{i}(w x_{i} + b) \geq 1\)</span> summarizes the above two conditions.</p></li>
+<p>and <span class="math notranslate nohighlight">\(y_{i}(w x_{i} + b) \geq 1\)</span> summarizes the above two conditions.</p>
+</li>
 </ol>
 </section>
 <section id="svm-with-slacks-soft-margin-svm">
 <h3>SVM with slacks (soft margin SVM)<a class="headerlink" href="#svm-with-slacks-soft-margin-svm" title="Permalink to this headline">¶</a></h3>
-<p>In case there is no way that the instances can be linearly separated, we can use slack variables in the formulation to tolerate a small number of non-separable training instances.
+<p>In case there is no way that the instances can be linearly separated, we can use slack variables in the formulation to tolerate a small number of non-separable training instances.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{alignat}{2}
@@ -483,8 +480,7 @@ and <span class="math notranslate nohighlight">\(y_{i}(w x_{i} + b) \geq 1\)</sp
 \quad &amp; \xi_{i} \geq 0, \quad i = 1, \dots n \\
 \end{alignat}
 \end{split}\]</div>
-
-where <span class="math notranslate nohighlight">\(\xi_{i}\)</span> is the slack variable for the instance <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(C\)</span> is a hyperparameter that penalizes the misclassification of <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\xi_{i}\)</span> is the slack variable for the instance <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(C\)</span> is a hyperparameter that penalizes the misclassification of <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
 <ol class="arabic simple">
 <li><p>If <span class="math notranslate nohighlight">\(\xi_{i}\)</span> is nonzero for <span class="math notranslate nohighlight">\(x_{i}\)</span>, it means that <span class="math notranslate nohighlight">\(x_{i}\)</span> is on the misclassified side of <span class="math notranslate nohighlight">\(w x_{i} + b = 1\)</span> (or <span class="math notranslate nohighlight">\(w x_{i} + b = -1\)</span>) and the distance is <span class="math notranslate nohighlight">\(\xi_{i}\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(C = 0\)</span>, <span class="math notranslate nohighlight">\(\xi_{i}\)</span> can be arbitrary large for each <span class="math notranslate nohighlight">\(x_{i}\)</span>. If <span class="math notranslate nohighlight">\(C \to \inf\)</span>, it is the same as hard margin SVM because any misclassification can induce infinite loss.</p></li>
@@ -496,93 +492,95 @@ where <span class="math notranslate nohighlight">\(\xi_{i}\)</span> is the slack
 <hr class="docutils" />
 <section id="solving-hard-margin-svm">
 <h3>Solving hard margin SVM<a class="headerlink" href="#solving-hard-margin-svm" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Rewrite the primal program for easier Lagrangian computation below:
+<ol class="arabic">
+<li><p>Rewrite the primal program for easier Lagrangian computation below:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \min \quad &amp; \frac{1}{2} ww \\
- \text{s.t. } \quad &amp; -(y_{i}(w x_{i} + b) - 1) \leq 0, \quad i = 1, \dots n \\
- \end{alignat}
- \end{split}\]</div>
-</p></li>
-<li><p>We can derive the Lagrangian primal function from the primal program:
+    \begin{alignat}{2}
+    \min \quad &amp; \frac{1}{2} ww \\
+    \text{s.t. } \quad &amp; -(y_{i}(w x_{i} + b) - 1) \leq 0, \quad i = 1, \dots n \\
+    \end{alignat}
+    \end{split}\]</div>
+</li>
+<li><p>We can derive the Lagrangian primal function from the primal program:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- L(w, b, \alpha) &amp; = f(w, b) + \sum_{i}^{n} \alpha h_{i}(w, b) \\
- &amp; = \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
- \end{alignat}
- \end{split}\]</div>
-
-where <span class="math notranslate nohighlight">\(\alpha\)</span> is a new variable called Lagrangian multiplier.</p></li>
-<li><p>Then we can write and solve Lagrangian dual function:
+    \begin{alignat}{2}
+    L(w, b, \alpha) &amp; = f(w, b) + \sum_{i}^{n} \alpha h_{i}(w, b) \\
+    &amp; = \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is a new variable called Lagrangian multiplier.</p>
+</li>
+<li><p>Then we can write and solve Lagrangian dual function:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{alignat}{2}
- g(\alpha) &amp; = \min_{w, b} L(w, b, \alpha) \\
- &amp; = \min_{w, b} \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
- \end{alignat}
- \end{split}\]</div>
-
-Taking the derivation of <span class="math notranslate nohighlight">\(L(w, b, \alpha)\)</span> over <span class="math notranslate nohighlight">\(w\)</span>:
+    \begin{alignat}{2}
+    g(\alpha) &amp; = \min_{w, b} L(w, b, \alpha) \\
+    &amp; = \min_{w, b} \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>Taking the derivation of <span class="math notranslate nohighlight">\(L(w, b, \alpha)\)</span> over <span class="math notranslate nohighlight">\(w\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{alignat}{2}
- \frac{\partial L}{\partial w} &amp; = 0 \\
- w - \sum_{i}{n} \alpha_{i}y_{i}x_{i} &amp; = 0 \\
- w &amp; = \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \\
- \end{alignat}
- \end{split}\]</div>
-
-Taking the derivation of <span class="math notranslate nohighlight">\(L(w, b, \alpha)\)</span> over <span class="math notranslate nohighlight">\(b\)</span>:
+    \begin{alignat}{2}
+    \frac{\partial L}{\partial w} &amp; = 0 \\
+    w - \sum_{i}{n} \alpha_{i}y_{i}x_{i} &amp; = 0 \\
+    w &amp; = \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>Taking the derivation of <span class="math notranslate nohighlight">\(L(w, b, \alpha)\)</span> over <span class="math notranslate nohighlight">\(b\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \frac{\partial L}{\partial b} &amp; = 0 \\
- \sum_{i}^{n} \alpha_{i}y_{i} &amp; = 0 \\
- \end{alignat}
- \end{split}\]</div>
-
-Plug in <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> back to <span class="math notranslate nohighlight">\(g(\alpha)\)</span>:
+    \begin{alignat}{2}
+    \frac{\partial L}{\partial b} &amp; = 0 \\
+    \sum_{i}^{n} \alpha_{i}y_{i} &amp; = 0 \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>Plug in <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> back to <span class="math notranslate nohighlight">\(g(\alpha)\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} 
- \begin{alignat}{2}
- g(\alpha) 
- &amp; = \min_{w, b} \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
- &amp; = \min_{w, b} \frac{1}{2} \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) 
-     - \sum_{i}^{n} \alpha_{i} \left( y_{i} \left( \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) x_{i} + b \right) - 1 \right) \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
-     - \sum_{i}^{n} \alpha_{i}y_{i}\left( \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} + b \right) + \sum_{i}^{n}\alpha_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
-     - \sum_{i}^{n} \alpha_{i}y_{i} \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} 
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
-     - \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) 
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
-     - \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j})
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\    
- &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\  
- \end{alignat}
- \end{split}\]</div>
+\[ g(\alpha) = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \]</div>
+<div class="highlight-{admonition}Proof notranslate"><div class="highlight"><pre><span></span>:class: dropdown
 
-Since we know that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</span>, then <span class="math notranslate nohighlight">\(b\sum_{i}^{n} \alpha_{i}y_{i} = 0\)</span>, and thus the final Lagrange dual function is:
+$$ 
+\begin{alignat}{2}
+g(\alpha) 
+&amp; = \min_{w, b} \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
+&amp; = \min_{w, b} \frac{1}{2} \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) 
+    - \sum_{i}^{n} \alpha_{i} \left( y_{i} \left( \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) x_{i} + b \right) - 1 \right) \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
+    - \sum_{i}^{n} \alpha_{i}y_{i}\left( \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} + b \right) + \sum_{i}^{n}\alpha_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
+    - \sum_{i}^{n} \alpha_{i}y_{i} \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} 
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
+    - \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) 
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
+    - \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j})
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\    
+&amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\  
+\end{alignat}
+$$
+
+</pre></div>
+</div>
+<p>Since we know that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</span>, then <span class="math notranslate nohighlight">\(b\sum_{i}^{n} \alpha_{i}y_{i} = 0\)</span>, and thus the final Lagrange dual function is:</p>
 <div class="math notranslate nohighlight">
 \[ g(\alpha) = \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \]</div>
-</p></li>
-<li><p>The Lagrange dual problem is written as:
+</li>
+<li><p>The Lagrange dual problem is written as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
- \text{s.t. } \quad &amp; \alpha_{i} \geq 0, \quad i = 1, \dots n \\
- \quad &amp; \alpha_{i}y_{i} = 0 \\
- \end{alignat}
- \end{split}\]</div>
-
-Notice that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</span> is added as part of the constraint.</p></li>
+    \begin{alignat}{2}
+    \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
+    \text{s.t. } \quad &amp; \alpha_{i} \geq 0, \quad i = 1, \dots n \\
+    \quad &amp; \alpha_{i}y_{i} = 0 \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</span> is added as part of the constraint.</p>
+</li>
 <li><p>Since strong duality holds for hard margin SVM and also soft margin SVM, solving dual problem has the same solution as the primal problem. The benefits of solving its dual problem are:</p>
 <ol class="arabic simple">
 <li><p>The Lagrange dual problem only involves <span class="math notranslate nohighlight">\(\alpha_{i}\)</span>, but primal problem has <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, which are much more parameters.</p></li>
@@ -593,86 +591,92 @@ Notice that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</
 </section>
 <section id="solving-soft-margin-svm">
 <h3>Solving soft margin SVM<a class="headerlink" href="#solving-soft-margin-svm" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Similar as hard margin SVM, we can write Lagrangian dual function as:
+<ol class="arabic">
+<li><p>Similar as hard margin SVM, we can write Lagrangian dual function as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- g(\alpha, \beta) &amp; = \min_{w, b} \frac{1}{2} ww 
-     - \sum_{i}^{n} \alpha_{i}\left( y_{i}(w x_{i} + b) - 1 + \xi_{i} \right) - \sum_{i}^{n}\beta_{i}\xi_{i} \\
- \end{alignat}
- \end{split}\]</div>
-
-where a new Lagrange multiplier is introduced for the constraint <span class="math notranslate nohighlight">\(\xi_{i} \geq 0\)</span>.</p></li>
-<li><p>Similar as hard margin SVM, we can solve Lagrangian dual function by taking the derivatives over the <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(\xi_i\)</span>:
+    \begin{alignat}{2}
+    g(\alpha, \beta) &amp; = \min_{w, b} \frac{1}{2} ww 
+        - \sum_{i}^{n} \alpha_{i}\left( y_{i}(w x_{i} + b) - 1 + \xi_{i} \right) - \sum_{i}^{n}\beta_{i}\xi_{i} \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>where a new Lagrange multiplier is introduced for the constraint <span class="math notranslate nohighlight">\(\xi_{i} \geq 0\)</span>.</p>
+</li>
+<li><p>Similar as hard margin SVM, we can solve Lagrangian dual function by taking the derivatives over the <span class="math notranslate nohighlight">\(w\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(\xi_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
- \begin{alignat}{2}
- \frac{\partial L}{\partial w} = 0 &amp; \Rightarrow w - \sum_{i}{n} \alpha_{i}y_{i}x_{i} = 0 \Rightarrow w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \\
- \frac{\partial L}{\partial b} = 0 &amp; \Rightarrow \sum_{i}^{n} \alpha_{i}y_{i} = 0 \\
- \frac{\partial L}{\partial \xi_{i}} = 0 &amp; \Rightarrow C - \alpha_{i} - \beta_{i} = 0 \Rightarrow C = \alpha_{i} + \beta_{i} \\
- \end{alignat}
- \end{split}\]</div>
-
-and plug the <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> and <span class="math notranslate nohighlight">\(C = \alpha_{i} + \beta_{i}\)</span> back in <span class="math notranslate nohighlight">\(g(\alpha, \beta)\)</span>.
+    \begin{alignat}{2}
+    \frac{\partial L}{\partial w} = 0 &amp; \Rightarrow w - \sum_{i}{n} \alpha_{i}y_{i}x_{i} = 0 \Rightarrow w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \\
+    \frac{\partial L}{\partial b} = 0 &amp; \Rightarrow \sum_{i}^{n} \alpha_{i}y_{i} = 0 \\
+    \frac{\partial L}{\partial \xi_{i}} = 0 &amp; \Rightarrow C - \alpha_{i} - \beta_{i} = 0 \Rightarrow C = \alpha_{i} + \beta_{i} \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>and plug the <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> and <span class="math notranslate nohighlight">\(C = \alpha_{i} + \beta_{i}\)</span> back in <span class="math notranslate nohighlight">\(g(\alpha, \beta)\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} 
- \begin{alignat}{2}
- g(\alpha, \beta) 
- &amp; = \min_{w, b} \frac{1}{2} ww + C\sum_{i}^{n}\xi_{i} - \sum_{i}^{n} \alpha_{i}\left( y_{i}(w x_{i} + b) - 1 + \xi_{i} \right) - \sum_{i}^{n}\beta_{i}\xi_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     - \sum_{i}^{n} \alpha_{i} \left( y_{i} \left( \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) x_{i} + b \right) - 1 + \xi_{i} \right) - \sum_{i}^{n} \beta_{i} \xi_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     - \sum_{i}^{n} \alpha_{i}y_{i}\left( \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} + b \right) 
-     + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     - \sum_{i}^{n} \alpha_{i}y_{i} \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} 
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     - \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) 
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
- &amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     - \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j})
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\    
- &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\  
- &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n} \alpha_{i}\xi_{i} + \sum_{i}^{n} \beta_{i}\xi_{i}
-     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\  
- &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\ 
- &amp; = \min_{w, b} \sum_{i}^{n}\alpha_{i}  - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\ 
- \end{alignat}
- \end{split}\]</div>
+\[ g(\alpha, \beta) = \min_{w, b} \sum_{i}^{n}\alpha_{i}  - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \]</div>
+<div class="highlight-{admonition}Proof notranslate"><div class="highlight"><pre><span></span>:class: dropdown
 
-which has exactly the same form as Lagrangian dual function of hard margin SVM.</p></li>
-<li><p>The Lagrange dual problem is written as:
-<div class="math notranslate nohighlight">
-\[\begin{split}
- \begin{alignat}{2}
- \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
- \text{s.t. } \quad &amp; \alpha_{i} \geq 0, \quad i = 1, \dots n \\
- \quad &amp; \beta_{i} \geq 0, \quad i = 1, \dots n \\
- \quad &amp; \alpha_{i}y_{i} = 0 \\
- \end{alignat}
- \end{split}\]</div>
+$$ 
+\begin{alignat}{2}
+g(\alpha, \beta) 
+&amp; = \min_{w, b} \frac{1}{2} ww + C\sum_{i}^{n}\xi_{i} - \sum_{i}^{n} \alpha_{i}\left( y_{i}(w x_{i} + b) - 1 + \xi_{i} \right) - \sum_{i}^{n}\beta_{i}\xi_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    - \sum_{i}^{n} \alpha_{i} \left( y_{i} \left( \left( \sum_{j}^{n} \alpha_{j}y_{j}x_{j} \right) x_{i} + b \right) - 1 + \xi_{i} \right) - \sum_{i}^{n} \beta_{i} \xi_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    - \sum_{i}^{n} \alpha_{i}y_{i}\left( \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} + b \right) 
+    + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    - \sum_{i}^{n} \alpha_{i}y_{i} \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) x_{i} 
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    - \left( \sum_{i}^{n} \alpha_{i}y_{i}x_{i} \right) \left( \sum_{j}^{n} \alpha_{j} y_{j} x_{j} \right) 
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\
+&amp; = \min_{w, b} \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    - \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j})
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\    
+&amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n}(\alpha_{i} + \beta_{i})\xi_{i}
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\  
+&amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + \sum_{i}^{n} \alpha_{i}\xi_{i} + \sum_{i}^{n} \beta_{i}\xi_{i}
+    + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} - \sum_{i}^{n} \alpha_{i} \xi_{i} - \sum_{i}^{n} \beta_{i} \xi_{i} \\  
+&amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\ 
+&amp; = \min_{w, b} \sum_{i}^{n}\alpha_{i}  - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\ 
+\end{alignat}
+$$ 
 
-Since we know <span class="math notranslate nohighlight">\(C = \alpha_{i} + \beta_{i} \Rightarrow \alpha_{i} = C - \beta_{i}\)</span>, the constraint <span class="math notranslate nohighlight">\(\beta_{i} \geq 0\)</span> can be removed by merging into <span class="math notranslate nohighlight">\(\alpha_{i} \geq 0\)</span>:
+</pre></div>
+</div>
+<p>which has exactly the same form as Lagrangian dual function of hard margin SVM.</p>
+</li>
+<li><p>The Lagrange dual problem is written as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \begin{alignat}{2}
- \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
- \text{s.t. } \quad &amp; C \geq \alpha_{i} \geq 0, \quad i = 1, \dots n \\
- \quad &amp; \alpha_{i}y_{i} = 0 \\
- \end{alignat}
- \end{split}\]</div>
-
-The only difference with Lagrange dual problem of hard margin SVM is the addition of <span class="math notranslate nohighlight">\(C \geq \alpha_{i}\)</span>.</p></li>
+    \begin{alignat}{2}
+    \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
+    \text{s.t. } \quad &amp; \alpha_{i} \geq 0, \quad i = 1, \dots n \\
+    \quad &amp; \beta_{i} \geq 0, \quad i = 1, \dots n \\
+    \quad &amp; \alpha_{i}y_{i} = 0 \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>Since we know <span class="math notranslate nohighlight">\(C = \alpha_{i} + \beta_{i} \Rightarrow \alpha_{i} = C - \beta_{i}\)</span>, the constraint <span class="math notranslate nohighlight">\(\beta_{i} \geq 0\)</span> can be removed by merging into <span class="math notranslate nohighlight">\(\alpha_{i} \geq 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{alignat}{2}
+    \max \quad &amp; \sum_{i}^{n}\alpha_{i} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\
+    \text{s.t. } \quad &amp; C \geq \alpha_{i} \geq 0, \quad i = 1, \dots n \\
+    \quad &amp; \alpha_{i}y_{i} = 0 \\
+    \end{alignat}
+    \end{split}\]</div>
+<p>The only difference with Lagrange dual problem of hard margin SVM is the addition of <span class="math notranslate nohighlight">\(C \geq \alpha_{i}\)</span>.</p>
+</li>
 </ol>
 </section>
 </section>
 <section id="kernel-trick">
 <h2>Kernel trick<a class="headerlink" href="#kernel-trick" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
-<p>TODO</p>
+<blockquote>
+<div><p>TODO</p>
+</div></blockquote>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>

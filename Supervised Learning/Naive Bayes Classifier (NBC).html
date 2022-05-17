@@ -322,11 +322,13 @@
     <a class="reference internal nav-link" href="#maximum-a-posteriori-estimation-map">
      Maximum A Posteriori Estimation (MAP)
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mle-vs-map">
-     MLE vs MAP
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mle-vs-map">
+       MLE vs MAP
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -435,14 +437,14 @@
 &amp; = \arg\max_{\theta} \sum_{i=1}^{n} \log P(x_{i} \mid \theta) + \log P(\theta)  \\
 \end{align}
 \end{split}\]</div>
-</section>
 <section id="mle-vs-map">
-<h3>MLE vs MAP<a class="headerlink" href="#mle-vs-map" title="Permalink to this headline">¶</a></h3>
+<h4>MLE vs MAP<a class="headerlink" href="#mle-vs-map" title="Permalink to this headline">¶</a></h4>
 <p>Both MLE and MAP are ways to estimate unknown parameters <span class="math notranslate nohighlight">\(\theta\)</span> of a model based on the observed samples <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> from the model.</p>
 <ul class="simple">
 <li><p>MLE directly maximizes likelihood <span class="math notranslate nohighlight">\(P(\mathbf{x} \mid \theta)\)</span>, which is defined as the probability of the observation the samples <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> if the true parameter is <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
 <li><p>MAP incorporates the prior knowledge of the parameter <span class="math notranslate nohighlight">\(P(\theta)\)</span> and maximizes the prior times the likelihood.</p></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="naive-bayes-as-a-classifier">
