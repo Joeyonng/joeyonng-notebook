@@ -540,9 +540,10 @@
 <p>Plug in <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> back to <span class="math notranslate nohighlight">\(g(\alpha)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ g(\alpha) = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \]</div>
-<div class="highlight-{admonition}Proof notranslate"><div class="highlight"><pre><span></span>:class: dropdown
-
-$$ 
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
 \begin{alignat}{2}
 g(\alpha) 
 &amp; = \min_{w, b} \frac{1}{2} ww - \sum_{i}^{n} \alpha_{i}(y_{i}(w x_{i} + b) - 1) \\
@@ -562,9 +563,7 @@ g(\alpha)
 &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) 
     + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\  
 \end{alignat}
-$$
-
-</pre></div>
+\end{split}\]</div>
 </div>
 <p>Since we know that <span class="math notranslate nohighlight">\(\alpha_{i}y_{i} = 0\)</span>, then <span class="math notranslate nohighlight">\(b\sum_{i}^{n} \alpha_{i}y_{i} = 0\)</span>, and thus the final Lagrange dual function is:</p>
 <div class="math notranslate nohighlight">
@@ -614,9 +613,10 @@ $$
 <p>and plug the <span class="math notranslate nohighlight">\(w = \sum_{i}^{n} \alpha_{i}y_{i}x_{i}\)</span> and <span class="math notranslate nohighlight">\(C = \alpha_{i} + \beta_{i}\)</span> back in <span class="math notranslate nohighlight">\(g(\alpha, \beta)\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ g(\alpha, \beta) = \min_{w, b} \sum_{i}^{n}\alpha_{i}  - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \]</div>
-<div class="highlight-{admonition}Proof notranslate"><div class="highlight"><pre><span></span>:class: dropdown
-
-$$ 
+<div class="dropdown admonition">
+<p class="admonition-title">Proof</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
 \begin{alignat}{2}
 g(\alpha, \beta) 
 &amp; = \min_{w, b} \frac{1}{2} ww + C\sum_{i}^{n}\xi_{i} - \sum_{i}^{n} \alpha_{i}\left( y_{i}(w x_{i} + b) - 1 + \xi_{i} \right) - \sum_{i}^{n}\beta_{i}\xi_{i} \\
@@ -641,9 +641,7 @@ g(\alpha, \beta)
 &amp; = \min_{w, b} - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) + b\sum_{i}^{n} \alpha_{i}y_{i} + \sum_{i}^{n}\alpha_{i} \\ 
 &amp; = \min_{w, b} \sum_{i}^{n}\alpha_{i}  - \frac{1}{2} \sum_{i}^{n}\sum_{j}^{n} \alpha_{i}\alpha_{j}y_{i}y_{j}(x_{i}x_{j}) \\ 
 \end{alignat}
-$$ 
-
-</pre></div>
+\end{split}\]</div>
 </div>
 <p>which has exactly the same form as Lagrangian dual function of hard margin SVM.</p>
 </li>
