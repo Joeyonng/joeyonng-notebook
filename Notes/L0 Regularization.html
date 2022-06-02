@@ -307,6 +307,18 @@
   <a class="reference internal nav-link" href="#hard-concrete-distribution">
    Hard concrete distribution
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary-concrete-distribution">
+     Binary Concrete distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from-binary-concrete-to-hard-concrete">
+     From binary concrete to hard concrete
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -319,131 +331,165 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="l0-regularization">
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="l0-regularization">
 <h1>L0 Regularization<a class="headerlink" href="#l0-regularization" title="Permalink to this headline">¶</a></h1>
-<p><em>05-03-2021</em></p>
+<p><em>05-03-2021 (Updated 06-02-2022)</em></p>
 <p>This page contains my reading notes on</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Learning-Sparse-Neural-Networks-through-L0-Louizos-Welling/572f5d18a3943dce4e14f937ef66977a01891096"><strong>Learning Sparse Neural Networks through <span class="math notranslate nohighlight">\(L_{0}\)</span> Regularization</strong></a></p></li>
 </ul>
 <section id="problem-formulation">
 <h2>Problem formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Given a vector <span class="math notranslate nohighlight">\(x\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> (matrix can also be seen as a vector by stacking up the rows/cols), the common vector norms are:</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(L_{0}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} \mathbb{1}[x_{i} \neq 0]\)</span>, where <span class="math notranslate nohighlight">\(\mathbb{1}[x_{i} \neq 0]\)</span> means it evaluates to 1 if <span class="math notranslate nohighlight">\(x_{i} \neq 0\)</span>, 0 otherwise.</p></li>
-<li><p><span class="math notranslate nohighlight">\(L_{1}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} \lvert x_{i} \rvert\)</span>, which is also called ridge regularization in neural network.</p></li>
-<li><p><span class="math notranslate nohighlight">\(L_{2}\)</span> norm: <span class="math notranslate nohighlight">\(\sum_{i=1}^{n} x_{i}^2\)</span>, which is also called lasso regularization in neural network.</p></li>
-<li><p><span class="math notranslate nohighlight">\(L_{\infty}\)</span> norm: <span class="math notranslate nohighlight">\(\max_{i=1}^{n} \lvert x_i \rvert\)</span>.</p></li>
-</ol>
+<p>Given a vector <span class="math notranslate nohighlight">\(x\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> (matrix can also be seen as a vector by stacking up the rows/cols), the common vector norms are:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(L_{0}\)</span> norm:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{n} \mathbb{1}[x_{i} \neq 0] \]</div>
 </li>
-<li><p>The normal way to prune the edges of the neural network is to use <span class="math notranslate nohighlight">\(L_{1}\)</span> or <span class="math notranslate nohighlight">\(L_{2}\)</span> regularization to drive weights to near 0 (not exactly 0), and then directly set all weights that are less than threshold to 0.</p>
-<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(L_{1}\)</span> norm:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{n} \lvert x_{i} \rvert \]</div>
+<p>which is also called ridge regularization in neural network.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(L_{2}\)</span> norm:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{n} x_{i}^2 \]</div>
+<p>which is also called lasso regularization in neural network.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(L_{\infty}\)</span> norm:</p>
+<div class="math notranslate nohighlight">
+\[ \max_{i=1}^{n} \lvert x_i \rvert \]</div>
+</li>
+</ul>
+<p>The normal way to prune the edges of the neural network is to use <span class="math notranslate nohighlight">\(L_{1}\)</span> or <span class="math notranslate nohighlight">\(L_{2}\)</span> regularization to drive weights to near 0 (not exactly 0), and then directly set all weights that are less than threshold to 0.</p>
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(L_{0}\)</span> is not used because the operation of counting the number of 0s is not differentiable.</p></li>
-</ol>
-</li>
-</ol>
+<li><p>However, <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization is still desired because it won’t affect the magnitude of the weights in the pruning process.</p></li>
+</ul>
 </section>
 <section id="general-recipe-of-l-0-regularization">
 <h2>General recipe of <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization<a class="headerlink" href="#general-recipe-of-l-0-regularization" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>The loss function used to train a neural network with <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization is:
+<p>The loss function used to train a neural network with <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization is:</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{L}(f(x, \theta), y) + \lambda \sum_{i=1}^{\lvert \theta \rvert} \mathbb{1}[\theta_{i} \neq 0] \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is a standard loss function (cross-entropy loss, softmax), <span class="math notranslate nohighlight">\(\theta\)</span> are the parameters in the network, <span class="math notranslate nohighlight">\(h(\cdot, \theta)\)</span> is the network, <span class="math notranslate nohighlight">\(x, y\)</span> are training instances and <span class="math notranslate nohighlight">\(\lambda\)</span> is a hyper-parameter that balance loss and the regularization.</p></li>
-<li><p>If we attach a <strong>binary random variable</strong> <span class="math notranslate nohighlight">\(z_{i}\)</span> to each element of the model parameter <span class="math notranslate nohighlight">\(\theta_{i}\)</span>, then the weights used in the feed-forward operation of the neural network can be replaced by <span class="math notranslate nohighlight">\(\theta \odot z\)</span>. The loss function then becomes:
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is a standard loss function (cross-entropy loss, softmax)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> are the parameters in the network</p></li>
+<li><p><span class="math notranslate nohighlight">\(x, y\)</span> are training instances</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is a hyper-parameter that balance loss and the regularization.</p></li>
+</ul>
+<p>If we attach a <strong>binary random variable</strong> <span class="math notranslate nohighlight">\(z_{i}\)</span> to each element of the model parameter <span class="math notranslate nohighlight">\(\theta_{i}\)</span>, then the weights used in the feed-forward operation of the neural network can be replaced by <span class="math notranslate nohighlight">\(\theta \odot z\)</span>. The loss function then becomes:</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{L}(f(x, \theta \odot z), y) + \lambda \sum_{i=1}^{\lvert \theta \rvert} \mathbb{1}[z_{i} \neq 0]\]</div>
-
-where <span class="math notranslate nohighlight">\(z \in \{0, 1\}^{\lvert \theta \rvert}\)</span>.</p></li>
-<li><p>If we assume each <span class="math notranslate nohighlight">\(z_{i}\)</span> as a binary random variable with a <strong>Bernoulli distribution</strong> that has a parameter <span class="math notranslate nohighlight">\(\pi_{i}\)</span>, i.e. <span class="math notranslate nohighlight">\(z_{i} = \mathrm{Bern}(\pi_{i})\)</span>, then the loss function becomes:
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z \in \{0, 1\}^{\lvert \theta \rvert}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\odot\)</span> corresponds to the elementwise product.</p></li>
+</ul>
+<p>If we assume each <span class="math notranslate nohighlight">\(z_{i}\)</span> as a binary random variable with a <strong>Bernoulli distribution</strong> that has a parameter <span class="math notranslate nohighlight">\(\pi_{i}\)</span>, i.e. <span class="math notranslate nohighlight">\(z_{i} = \mathrm{Bern}(\pi_{i})\)</span>, then the loss function becomes:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} \pi_{i} \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} [\cdot]\)</span> gives an expectation value of a function that has a Bernoulli distribution <span class="math notranslate nohighlight">\(z\)</span> as the input.</p></li>
-<li><p>The reformulation of the above loss function can be established because</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} [\cdot]\)</span> gives an expectation value of a function that has a Bernoulli distribution <span class="math notranslate nohighlight">\(z\)</span> as the input.</p>
+<p>The reformulation of the above loss function can be established because</p>
 <ol class="arabic simple">
 <li><p>Since the minimum of a function is upper bounded by the expectation of the function, minimizing <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big]\)</span> is the same as minimizing the upper bound of <span class="math notranslate nohighlight">\(\mathcal{L}(f(x, \theta \odot z), y)\)</span>.</p></li>
-<li><p>According to the definition of the Bernoulli distribution, <span class="math notranslate nohighlight">\(\pi\)</span> gives the probability of <span class="math notranslate nohighlight">\(z\)</span> being 1. Thus, minimizing <span class="math notranslate nohighlight">\(\pi\)</span> is to increase the probability of <span class="math notranslate nohighlight">\(z\)</span> being 0.</p></li>
+<li><p>According to the definition of the Bernoulli distribution, <span class="math notranslate nohighlight">\(\pi\)</span> gives the probability of <span class="math notranslate nohighlight">\(z\)</span> being 1 (non zero). Thus, minimizing <span class="math notranslate nohighlight">\(\pi\)</span> is to increase the probability of <span class="math notranslate nohighlight">\(z\)</span> being 0.</p></li>
 </ol>
-</li>
-<li><p>In the equation above, the second term is very easy to minimize, but the first term is still problematic because Bernoulli distribution is a discrete distribution that has 0 gradient almost everywhere. The two <span class="math notranslate nohighlight">\(L_{0}\)</span> regularization methods below approximates the Bernoulli distribution with two different continuous distributions.</p></li>
-</ol>
+<p>In the equation above,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\pi_{i}\)</span> is a parameter that we want to be learned using gradient descent.</p></li>
+<li><p>Thus, the second term <span class="math notranslate nohighlight">\(\lambda \sum_{i=1}^{\lvert \theta \rvert} \pi_{i}\)</span> can be directly minimized to regularize <span class="math notranslate nohighlight">\(\pi\)</span> because gradient of the second term w.r.t to <span class="math notranslate nohighlight">\(pi_{i}\)</span> can be easily calculated.</p></li>
+<li><p>However, the first term <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big]\)</span> is still problematic because <span class="math notranslate nohighlight">\(z\)</span> as a categorical random variable cannot be differentiated with respect to <span class="math notranslate nohighlight">\(\pi\)</span>.</p></li>
+</ul>
 </section>
 <section id="hard-concrete-distribution">
 <h2>Hard concrete distribution<a class="headerlink" href="#hard-concrete-distribution" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Assume that we have a new random variable <span class="math notranslate nohighlight">\(s\)</span> that has a <strong>continuous distribution</strong> with a parameter <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
-<ol class="arabic simple">
-<li><p>Assume that the continuous distribution has a range from less than 0 to larger than 1, i.e. [-0.5, 1.5].
+<section id="binary-concrete-distribution">
+<h3>Binary Concrete distribution<a class="headerlink" href="#binary-concrete-distribution" title="Permalink to this headline">¶</a></h3>
+<p>The binary concrete distribution can be seen as a <strong>continuous</strong> approximation of the Bernoulli distribution. It has 2 parameters:</p>
+<ul class="simple">
+<li><p>location <span class="math notranslate nohighlight">\(\alpha\)</span>: similar to the probability parameter of the Bernoulli distribution.</p></li>
+<li><p>temperature <span class="math notranslate nohighlight">\(\beta\)</span>: it controls how similar the binary concrete distribution is with the Bernoulli distribution.</p></li>
+</ul>
+<p>Using the the reparametrization trick, the binary concrete distribution can be represented as:</p>
 <div class="math notranslate nohighlight">
-\[ s \sim \textrm{q}(s | \phi) \in [-0.5, 1.5] \]</div>
-
-where <span class="math notranslate nohighlight">\(\textrm{q}(\cdot)\)</span> is the probability density function (PDF).</p></li>
-<li><p>In this case, the probability of the variable <span class="math notranslate nohighlight">\(s\)</span> being positive can be easily calculated by subtracting the probability of <span class="math notranslate nohighlight">\(s\)</span> being negative from 1 (the total probability):
-<div class="math notranslate nohighlight">
-\[ \textrm{q}(s &gt; 0 | \phi) = 1 - \mathrm{Q}(s \leq 0 | \phi) \]</div>
-
-where <span class="math notranslate nohighlight">\(\textrm{Q}(\cdot)\)</span> is the cumulative density function (CDF) and <span class="math notranslate nohighlight">\(\mathrm{Q}(s \leq 0 | \phi)\)</span> gives the probability of <span class="math notranslate nohighlight">\(s\)</span> being negative.</p></li>
-<li><p>If we clip the distribution into the range of [0, 1], then we can use the clipped version of the continuous distribution to replace <span class="math notranslate nohighlight">\(z\)</span>.
-<div class="math notranslate nohighlight">
-\[ z = \mathrm{clip}(s, 0, 1) \]</div>
-
-where <span class="math notranslate nohighlight">\(\mathrm{clip}(x, \mathrm{min}, \mathrm{max})\)</span> means to clip <span class="math notranslate nohighlight">\(x\)</span> between the range <span class="math notranslate nohighlight">\([\mathrm{min}, \mathrm{max}]\)</span>.</p></li>
-<li><p>After clipping, the probability of the variable <span class="math notranslate nohighlight">\(s\)</span> being positive is the same as the probability of <span class="math notranslate nohighlight">\(z\)</span> being non-zero. Thus, the loss function above can be rewritten using <span class="math notranslate nohighlight">\(s\)</span> by:
-<div class="math notranslate nohighlight">
-\[ \mathbb{E}_{s \sim \textrm{q}(s | \phi)} \big[ \mathcal{L}(f(x, \theta \odot \mathrm{clip}(s, 0, 1)), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} (1 - \mathrm{Q}(s \leq 0 | \phi)) \]</div>
-</p></li>
-</ol>
-</li>
-<li><p>Hard concrete distribution is a slight modification version of <a class="reference external" href="https://vitalab.github.io/article/2018/11/29/concrete.html">binary concrete</a> random variable.</p>
-<ol class="arabic simple">
-<li><p>TODO</p></li>
-</ol>
-</li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">hard_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">):</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">loc</span><span class="p">)</span> <span class="o">/</span> <span class="n">temp</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">zeta</span> <span class="o">-</span> <span class="n">gamma</span><span class="p">)</span> <span class="o">+</span> <span class="n">gamma</span>
-    <span class="k">return</span> <span class="n">hard_sigmoid</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">plot_hard_concreate</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">zeta</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">)],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    
-<span class="k">def</span> <span class="nf">interactive_hard_concrete</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
-    <span class="n">plot_hard_concreate</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">zeta</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
-
-<span class="n">interact</span><span class="p">(</span><span class="n">interactive_hard_concrete</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">temp</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
+\[ s = \operatorname{sigmoid} \left( \frac{\alpha + l}{\beta} \right) \]</div>
+<p>where <span class="math notranslate nohighlight">\(l\)</span> is a sample from the logistic distribution.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9074989659ff4a1cb07269e3af936da0", "version_major": 2, "version_minor": 0}
-</script><img alt="../_images/L0 Regularization_5_1.png" src="../_images/L0 Regularization_5_1.png" />
+{"model_id": "748459e07daa43b3a3f03ff753a53798", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2405f01972944d8e9d30e4f95adbdbf7", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
+</section>
+<section id="from-binary-concrete-to-hard-concrete">
+<h3>From binary concrete to hard concrete<a class="headerlink" href="#from-binary-concrete-to-hard-concrete" title="Permalink to this headline">¶</a></h3>
+<p>We cannot use <span class="math notranslate nohighlight">\(s\)</span> (binary concrete distribution) to directly replace <span class="math notranslate nohighlight">\(z\)</span> (Bernoulli distribution)</p>
+<ul class="simple">
+<li><p>The range of <span class="math notranslate nohighlight">\(s\)</span> is <span class="math notranslate nohighlight">\((0, 1)\)</span> and never touches 0 or 1</p></li>
+<li><p>However, we want <span class="math notranslate nohighlight">\(z\)</span> to be either 0 or 1.</p></li>
+</ul>
+<p>A simple trick to solve this problem is</p>
+<ol class="arabic">
+<li><p>First “stretch” the binary concrete distribution from interval <span class="math notranslate nohighlight">\((0, 1)\)</span> to interval <span class="math notranslate nohighlight">\((\gamma, \zeta)\)</span> with <span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span> and <span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \bar{s} = s(\zeta - \gamma) + \gamma \]</div>
+</li>
+<li><p>Then clip the stretch binary concrete distribution into the range <span class="math notranslate nohighlight">\([0, 1]\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \bar{z} = \mathrm{clip}(\bar{s}, 0, 1) \]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{clip}(x, \mathrm{min}, \mathrm{max})\)</span> means to clip <span class="math notranslate nohighlight">\(x\)</span> between the range <span class="math notranslate nohighlight">\([\mathrm{min}, \mathrm{max}]\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{z}\)</span> is a random variable that follows the hard concrete distribution and it can be used to replace <span class="math notranslate nohighlight">\(z\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p>Also, we cannot use <span class="math notranslate nohighlight">\(\alpha\)</span> (location parameter of binary concrete distribution) to replace <span class="math notranslate nohighlight">\(\pi\)</span> (probability parameter of Bernoulli distribution) in the regularization term of the loss function.</p>
+<ul>
+<li><p>Remember that the regularization term above measures the sum of the probabilities of the <span class="math notranslate nohighlight">\(z\)</span> (Bernoulli distribution) being non-zero.</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{\lvert \theta \rvert} \pi_{i} \]</div>
+</li>
+<li><p>Measuring the probability of <span class="math notranslate nohighlight">\(\bar{z}\)</span> of being non-zero is the same as measuring the probability of <span class="math notranslate nohighlight">\(\bar{s}\)</span> being positive.</p>
+<ul>
+<li><p>Because all negative values of <span class="math notranslate nohighlight">\(\bar{s}\)</span> is clipped to be 0.</p></li>
+<li><p>Since we know that the total probability of a random variable being all values is 1, the probability of <span class="math notranslate nohighlight">\(\bar{s}\)</span> being positive is written as:</p>
+<div class="math notranslate nohighlight">
+\[ \textrm{q}(\bar{s} &gt; 0 | \phi) = 1 - \mathrm{Q}(\bar{s} \leq 0 | \phi) \]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textrm{Q}(\cdot)\)</span> is the cumulative density function (CDF)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Q}(s \leq 0 | \phi)\)</span> gives the probability of <span class="math notranslate nohighlight">\(s\)</span> being negative.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Thus, the loss function above can be rewritten using the hard concrete distribution by:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{E}_{\bar{s}} \big[ \mathcal{L}(f(x, \theta \odot \bar{z}), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} (1 - \mathrm{Q}(\bar{s} \leq 0 | \phi)) \]</div>
+<p>The loss function is “fully” differentiable with respect to <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Q}(\bar{s} \leq 0 | \phi)\)</span> can be written as a differentiable function with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{z} = \mathrm{clip}(\bar{s}, 0, 1)\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> is a differentiable function with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "765f76b605c3469ea193204b4a55e499", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</section>
 </section>
 </section>
 
