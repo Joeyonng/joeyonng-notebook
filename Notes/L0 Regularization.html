@@ -353,6 +353,8 @@
 \[ \sum_{i=1}^{n} \lvert x_{i} \rvert \]</div>
 <p>which is also called ridge regularization in neural network.</p>
 </li>
+</ul>
+<ul>
 <li><p><span class="math notranslate nohighlight">\(L_{2}\)</span> norm:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{i=1}^{n} x_{i}^2 \]</div>
@@ -381,12 +383,12 @@
 <li><p><span class="math notranslate nohighlight">\(x, y\)</span> are training instances</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is a hyper-parameter that balance loss and the regularization.</p></li>
 </ul>
-<p>If we attach a <strong>binary random variable</strong> <span class="math notranslate nohighlight">\(z_{i}\)</span> to each element of the model parameter <span class="math notranslate nohighlight">\(\theta_{i}\)</span>, then the weights used in the feed-forward operation of the neural network can be replaced by <span class="math notranslate nohighlight">\(\theta \odot z\)</span>. The loss function then becomes:</p>
+<p>If we attach a <strong>trainable</strong> binary random variable <span class="math notranslate nohighlight">\(z_{i}\)</span> to each element of the model parameter <span class="math notranslate nohighlight">\(\theta_{i}\)</span>, then the weights used in the feed-forward operation of the neural network can be replaced by <span class="math notranslate nohighlight">\(\theta \odot z\)</span>. The loss function then becomes:</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{L}(f(x, \theta \odot z), y) + \lambda \sum_{i=1}^{\lvert \theta \rvert} \mathbb{1}[z_{i} \neq 0]\]</div>
 <p>where</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(z \in \{0, 1\}^{\lvert \theta \rvert}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z \in \{0, 1\}^{\lvert \theta \rvert}\)</span> is <strong>randomly sampled in each forward propagation</strong> according to some distribution.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\odot\)</span> corresponds to the elementwise product.</p></li>
 </ul>
 <p>If we assume each <span class="math notranslate nohighlight">\(z_{i}\)</span> as a binary random variable with a <strong>Bernoulli distribution</strong> that has a parameter <span class="math notranslate nohighlight">\(\pi_{i}\)</span>, i.e. <span class="math notranslate nohighlight">\(z_{i} = \mathrm{Bern}(\pi_{i})\)</span>, then the loss function becomes:</p>
@@ -396,7 +398,7 @@
 <p>The reformulation of the above loss function can be established because</p>
 <ol class="arabic simple">
 <li><p>Since the minimum of a function is upper bounded by the expectation of the function, minimizing <span class="math notranslate nohighlight">\(\mathbb{E}_{z=\mathrm{Bern}(\pi)} \big[ \mathcal{L}(f(x, \theta \odot z), y) \big]\)</span> is the same as minimizing the upper bound of <span class="math notranslate nohighlight">\(\mathcal{L}(f(x, \theta \odot z), y)\)</span>.</p></li>
-<li><p>According to the definition of the Bernoulli distribution, <span class="math notranslate nohighlight">\(\pi\)</span> gives the probability of <span class="math notranslate nohighlight">\(z\)</span> being 1 (non zero). Thus, minimizing <span class="math notranslate nohighlight">\(\pi\)</span> is to increase the probability of <span class="math notranslate nohighlight">\(z\)</span> being 0.</p></li>
+<li><p>According to the definition of the Bernoulli distribution, <span class="math notranslate nohighlight">\(\pi\)</span> gives the probability of <span class="math notranslate nohighlight">\(z\)</span> being 1 (non zero). Thus, <strong>minimizing <span class="math notranslate nohighlight">\(\pi\)</span> is to increase the probability of <span class="math notranslate nohighlight">\(z\)</span> being 0</strong>.</p></li>
 </ol>
 <p>In the equation above,</p>
 <ul class="simple">
@@ -414,20 +416,20 @@
 <li><p>location <span class="math notranslate nohighlight">\(\alpha\)</span>: similar to the probability parameter of the Bernoulli distribution.</p></li>
 <li><p>temperature <span class="math notranslate nohighlight">\(\beta\)</span>: it controls how similar the binary concrete distribution is with the Bernoulli distribution.</p></li>
 </ul>
-<p>Using the the reparametrization trick, the binary concrete distribution can be represented as:</p>
+<p>Using the the reparametrization trick, the binary concrete distribution <span class="math notranslate nohighlight">\(s\)</span> can be represented as:</p>
 <div class="math notranslate nohighlight">
 \[ s = \operatorname{sigmoid} \left( \frac{\alpha + l}{\beta} \right) \]</div>
 <p>where <span class="math notranslate nohighlight">\(l\)</span> is a sample from the logistic distribution.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "748459e07daa43b3a3f03ff753a53798", "version_major": 2, "version_minor": 0}
+{"model_id": "7c609ff46804483cbbc078626eeecb7c", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "2405f01972944d8e9d30e4f95adbdbf7", "version_major": 2, "version_minor": 0}
+{"model_id": "f73042ad6690425c87a36d14a2d92437", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </section>
@@ -435,7 +437,7 @@
 <h3>From binary concrete to hard concrete<a class="headerlink" href="#from-binary-concrete-to-hard-concrete" title="Permalink to this headline">¶</a></h3>
 <p>We cannot use <span class="math notranslate nohighlight">\(s\)</span> (binary concrete distribution) to directly replace <span class="math notranslate nohighlight">\(z\)</span> (Bernoulli distribution)</p>
 <ul class="simple">
-<li><p>The range of <span class="math notranslate nohighlight">\(s\)</span> is <span class="math notranslate nohighlight">\((0, 1)\)</span> and never touches 0 or 1</p></li>
+<li><p>The range of <span class="math notranslate nohighlight">\(s\)</span> is <span class="math notranslate nohighlight">\((0, 1)\)</span> and <strong>never touches 0 or 1</strong>.</p></li>
 <li><p>However, we want <span class="math notranslate nohighlight">\(z\)</span> to be either 0 or 1.</p></li>
 </ul>
 <p>A simple trick to solve this problem is</p>
@@ -450,17 +452,30 @@
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathrm{clip}(x, \mathrm{min}, \mathrm{max})\)</span> means to clip <span class="math notranslate nohighlight">\(x\)</span> between the range <span class="math notranslate nohighlight">\([\mathrm{min}, \mathrm{max}]\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\bar{z}\)</span> is a random variable that follows the hard concrete distribution and it can be used to replace <span class="math notranslate nohighlight">\(z\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\bar{z}\)</span> is a random variable that follows the hard concrete distribution and it can be used to replace <span class="math notranslate nohighlight">\(z\)</span></strong>.</p></li>
 </ul>
 </li>
 </ol>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "fb32e219e9ed4ec3bf2b3c3cb4efa4fa", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f5aaf3b071be48fcb4546c3430a449d8", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
 <p>Also, we cannot use <span class="math notranslate nohighlight">\(\alpha\)</span> (location parameter of binary concrete distribution) to replace <span class="math notranslate nohighlight">\(\pi\)</span> (probability parameter of Bernoulli distribution) in the regularization term of the loss function.</p>
 <ul>
 <li><p>Remember that the regularization term above measures the sum of the probabilities of the <span class="math notranslate nohighlight">\(z\)</span> (Bernoulli distribution) being non-zero.</p>
 <div class="math notranslate nohighlight">
 \[ \sum_{i=1}^{\lvert \theta \rvert} \pi_{i} \]</div>
 </li>
-<li><p>Measuring the probability of <span class="math notranslate nohighlight">\(\bar{z}\)</span> of being non-zero is the same as measuring the probability of <span class="math notranslate nohighlight">\(\bar{s}\)</span> being positive.</p>
+</ul>
+<p>Measuring the probability of <span class="math notranslate nohighlight">\(\bar{z}\)</span> of being non-zero is the same as <strong>measuring the probability of <span class="math notranslate nohighlight">\(\bar{s}\)</span> being positive</strong>.</p>
 <ul>
 <li><p>Because all negative values of <span class="math notranslate nohighlight">\(\bar{s}\)</span> is clipped to be 0.</p></li>
 <li><p>Since we know that the total probability of a random variable being all values is 1, the probability of <span class="math notranslate nohighlight">\(\bar{s}\)</span> being positive is written as:</p>
@@ -473,22 +488,14 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <p>Thus, the loss function above can be rewritten using the hard concrete distribution by:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{E}_{\bar{s}} \big[ \mathcal{L}(f(x, \theta \odot \bar{z}), y) \big] + \lambda \sum_{i=1}^{\lvert \theta \rvert} (1 - \mathrm{Q}(\bar{s} \leq 0 | \phi)) \]</div>
-<p>The loss function is “fully” differentiable with respect to <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<p><strong>The loss function is “fully” differentiable with respect to <span class="math notranslate nohighlight">\(\alpha\)</span></strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathrm{Q}(\bar{s} \leq 0 | \phi)\)</span> can be written as a differentiable function with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\bar{z} = \mathrm{clip}(\bar{s}, 0, 1)\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> is a differentiable function with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Q}(\bar{s} \leq 0 | \phi)\)</span> can be written as a differentiable function with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
 </ul>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "765f76b605c3469ea193204b4a55e499", "version_major": 2, "version_minor": 0}
-</script></div>
-</div>
 </section>
 </section>
 </section>
