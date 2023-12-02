@@ -1,0 +1,77 @@
+project:
+  type: book
+  preview:
+    port: 3000
+    browser: false
+
+format:
+  html:
+    theme: 
+      - litera
+      - theme.scss
+    toc: true
+    html-math-method: katex
+    callout-icon: false
+    callout-appearance: simple
+    page-layout: full
+    grid:
+      sidebar-width: 300px
+      body-width: 1200px
+  pdf:
+    documentclass: scrreprt
+
+book:
+  title: "Joeyonng's Notebook"
+  author: "Litao Qiao"
+
+  chapters:
+    - "index.md"
+    - "notations.md"
+    - part: "Linear Algebra"
+      chapters:
+        - "Linear Algebra/01_Fields_and_Spaces.md"
+        - "Linear Algebra/02_Vectors_and_Matrices.md"
+        - "Linear Algebra/03_Span_and_Linear_Independence.md"
+        - "Linear Algebra/04_Basis_and_Dimension.md"
+        - "Linear Algebra/05_Linear_Map_and_Rank.md"
+        - "Linear Algebra/06_Inner_Product_and_Norm.md"
+        - "Linear Algebra/07_Orthogonality_and_Unitary_Matrix.md"
+        - "Linear Algebra/08_Complementary_Subspaces_and_Projection.md"
+        - "Linear Algebra/09_Orthogonal_Complement_and_Decomposition.md"
+        - "Linear Algebra/10_URV_Factorization_and_SVD.md"
+        - "Linear Algebra/11_Pseudoinverse.md"
+        - "Linear Algebra/12_Orthogonal_and_Affine_Projection.md"
+        - "Linear Algebra/13_Determinants_and_Eigensystems.md"
+        - "Linear Algebra/14_Similarity_and_Diagonalization.md"
+        - "Linear Algebra/15_Normal_and_Positive_Definite_Matrices.md"
+    - part: "Learning Theory"
+      chapters:
+        - "Learning Theory/1_Statistical_Learning.md"
+        - "Learning Theory/2_Bayesian_Classifier.md"
+        - "Learning Theory/3_Effective_Class_Size.md"
+        - "Learning Theory/4_Empirical_Risk_Minimization.md"
+        - "Learning Theory/5_Uniform_Convergence.md"
+        - "Learning Theory/6_PAC_Learning.md"
+        - "Learning Theory/7_Rademacher_Complexity.md"
+
+  search: 
+    location: sidebar
+    type: textbox
+
+  navbar:
+    title: "Joeyonng"
+    pinned: true
+    left:
+      - href: "index.md"
+        text: "Notebook"
+      - href: "https://joeyonng.github.io/joeyonng/Notes/" 
+        text: "Drafts"
+      - href: "https://joeyonng.github.io/joeyonng/about.html"
+        text: "About"
+
+    right:
+      - href: "https://joeyonng.github.io/joeyonng-backyard/"
+        text: "Backyard"
+  
+  sidebar:
+    collapse-level: 1
