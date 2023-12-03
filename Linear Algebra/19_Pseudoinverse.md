@@ -1,7 +1,3 @@
----
-title: Pseudoinverse
----
-
 # Pseudoinverse
 
 A generalized inverse for any matrix can be defined using URV factorization or SVD. 

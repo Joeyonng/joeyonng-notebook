@@ -17,8 +17,7 @@ format:
     grid:
       sidebar-width: 300px
       body-width: 1200px
-  pdf:
-    documentclass: scrreprt
+    number-depth: 2
 
 book:
   title: "Joeyonng's Notebook"
@@ -29,21 +28,33 @@ book:
     - "notations.md"
     - part: "Linear Algebra"
       chapters:
-        - "Linear Algebra/01_Fields_and_Spaces.md"
-        - "Linear Algebra/02_Vectors_and_Matrices.md"
-        - "Linear Algebra/03_Span_and_Linear_Independence.md"
-        - "Linear Algebra/04_Basis_and_Dimension.md"
-        - "Linear Algebra/05_Linear_Map_and_Rank.md"
-        - "Linear Algebra/06_Inner_Product_and_Norm.md"
-        - "Linear Algebra/07_Orthogonality_and_Unitary_Matrix.md"
-        - "Linear Algebra/08_Complementary_Subspaces_and_Projection.md"
-        - "Linear Algebra/09_Orthogonal_Complement_and_Decomposition.md"
-        - "Linear Algebra/10_URV_Factorization_and_SVD.md"
-        - "Linear Algebra/11_Pseudoinverse.md"
-        - "Linear Algebra/12_Orthogonal_and_Affine_Projection.md"
-        - "Linear Algebra/13_Determinants_and_Eigensystems.md"
-        - "Linear Algebra/14_Similarity_and_Diagonalization.md"
-        - "Linear Algebra/15_Normal_and_Positive_Definite_Matrices.md"
+        - "Linear Algebra/01_Fields.md"
+        - "Linear Algebra/02_Spaces.md"
+        - "Linear Algebra/03_Vectors_and_Matrices.md"
+        - "Linear Algebra/04_Span.md"
+        - "Linear Algebra/05_Linear_Independence.md"
+        - "Linear Algebra/06_Basis.md"
+        - "Linear Algebra/07_Dimension.md"
+        - "Linear Algebra/08_Linear_Map.md"
+        - "Linear Algebra/09_Rank.md"
+        - "Linear Algebra/10_Inner_Product.md"
+        - "Linear Algebra/11_Norm.md"
+        - "Linear Algebra/12_Orthogonality.md"
+        - "Linear Algebra/13_Unitary_Matrix.md"
+        - "Linear Algebra/14_Complementary_Subspaces.md"
+        - "Linear Algebra/15_Projection.md"
+        - "Linear Algebra/16_Orthogonal_Complement.md"
+        - "Linear Algebra/17_Orthogonal_Decomposition.md"
+        - "Linear Algebra/18_Singular_Value_Decomposition.md"
+        - "Linear Algebra/19_Pseudoinverse.md"
+        - "Linear Algebra/20_Orthogonal_Projection.md"
+        - "Linear Algebra/21_Affine_Projection.md"
+        - "Linear Algebra/22_Determinants.md"
+        - "Linear Algebra/23_Eigensystems.md"
+        - "Linear Algebra/24_Similarity.md"
+        - "Linear Algebra/25_Diagonalization.md"
+        - "Linear Algebra/26_Normal_Matrices.md"
+        - "Linear Algebra/27_Positive_Definite_Matrices.md"
     - part: "Learning Theory"
       chapters:
         - "Learning Theory/1_Statistical_Learning.md"
@@ -61,12 +72,13 @@ book:
   navbar:
     title: "Joeyonng"
     pinned: true
+    logo-href: "https://joeyonng.github.io/joeyonng/"
     left:
       - href: "index.md"
         text: "Notebook"
       - href: "https://joeyonng.github.io/joeyonng/Notes/" 
         text: "Drafts"
-      - href: "https://joeyonng.github.io/joeyonng/about.html"
+      - href: "https://joeyonng.github.io/joeyonng/"
         text: "About"
 
     right:

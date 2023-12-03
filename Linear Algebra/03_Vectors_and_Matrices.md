@@ -1,10 +1,10 @@
----
-title: Vectors and Matrices
----
+# Vectors and Matrices
 
-# Vectors
+## Definitions 
 
-Let $\mathbb{F}$ be a field. The vector space $\mathbb{F}^{n}$ is defined as the set of all tuples (ordered lists) that have $n$ field elements of $\mathbb{F}$
+### Vectors
+
+Let $\mathbb{F}$ be a field. The vector vector space $\mathbb{F}^{n}$ is defined as the set of all tuples (ordered lists) that have $n$ field elements of $\mathbb{F}$
 
 $$
 \mathbb{F}^{n} = 
@@ -64,9 +64,9 @@ where each element member is called a $n$ dimensional column vector.
     \end{bmatrix}.
     $$
 
-# Matrices
+### Matrices
 
-Let $\mathbb{F}$ be a field. The vector space $\mathbb{F}^{m \times n}$ is defined as the set of all tables that have $m$ rows and $n$ columns of field elements of $\mathbb{F}$
+Let $\mathbb{F}$ be a field. The matrix vector space $\mathbb{F}^{m \times n}$ is defined as the set of all tables that have $m$ rows and $n$ columns of field elements of $\mathbb{F}$
 
 $$
 \mathbb{F}^{m \times n} = 
@@ -84,9 +84,9 @@ where each element member is called $m \times n$ dimensional matrix.
 
 The definition of vector addition, scalar multiplication, zero, and addictive inverse are the same as $n$ dimensional column vectors.
 
-(matrix-vector-multiplication)=
+## Multiplications 
 
-## Matrix-vector multiplication
+### Matrix-vector multiplication {#sec-matrix-vector-multiplication}
 
 Given a matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$, 
 the matrix-vector multiplication is a function that maps from vector space $\mathbf{x} \in \mathbb{F}^{n}$ to $\mathbf{y} \in \mathbb{F}^{m}$
@@ -116,9 +116,7 @@ $$
 \mathbf{y} = \sum_{i=1}^{n} x_{i} \mathbf{a}_{i}.
 $$
 
-(matrix-multiplication)=
-
-## Matrix multiplication
+### Matrix multiplication {#sec-matrix-multiplication}
 
 Given two matrices $\mathbf{A} \in \mathbb{F}^{m \times n}$ and $\mathbf{B} \in \mathbb{F}^{n \times r}$, 
 the matrix multiplication is a function that applies vector matrix multiplication on the matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$ and the vector $\mathbf{b}_{i} \in \mathbb{F}^{n}$ 
@@ -137,7 +135,7 @@ which results in a vector $\mathbf{c}_{i} \in \mathbb{F}^{m}$ as the $i$th colum
 
 - The row $i$ of $\mathbf{C}$ is a linear combination of rows of $\mathbf{B}$ using the elements of row $i$ of $\mathbf{A}$ as coefficients.
 
-# Well-known Subspaces for Matrix
+## Well-known Subspaces for Matrix
 
 Given a matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$, the matrix-vector multiplication 
 
@@ -154,7 +152,7 @@ is a function that maps from vector space $x \in \mathbb{F}^{n}$ to $y \in \math
 
 Given a matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$, we can define several subspaces of $\mathbb{F}^{n}$ or $\mathbb{F}^{m}$ using the matrix-vector multiplication of matrix $\mathbf{A}$.
 
-## Null space
+### Null space
 
 The null space of the matrix $\mathbf{A}$ is the set
 
@@ -214,7 +212,7 @@ Thus, $N (\mathbf{A})$ is a non-empty set that is closed for both vector additio
 
 :::
 
-## Range (image) space
+### Range (image) space
 
 The range (image) space of the matrix $\mathbf{A}$ is the set 
 
@@ -284,7 +282,7 @@ Thus, $R (\mathbf{A})$ is a non-empty set that is closed for both vector additio
 
 :::
 
-## Column and row space
+### Column and row space
 
 The column space of the matrix $\mathbf{A}$ is the set of linear combinations of columns of $\mathbf{A}$
 

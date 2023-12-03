@@ -1,8 +1,6 @@
----
-title: URV Factorization and SVD
----
+# Singular Value Decomposition
 
-# URV Factorization
+## URV Factorization
 
 For each $A \in \mathbb{R}^{m \times n}$ of rank $r$, there are orthogonal matrices $\mathbf{U}_{m \times m}$ and $\mathbf{V}_{n \times n}$ and a nonsingular matrix $\mathbf{C}_{r \times r}$ such that
 
@@ -152,7 +150,7 @@ $$
 
 :::
 
-# Singular Value Decomposition (SVD)
+## Singular Value Decomposition (SVD)
 
 Singular value decomposition is a special case of the URV factorization where the $\mathbf{C}$ matrix is a diagonal matrix with increasing values in the diagonal.
 
