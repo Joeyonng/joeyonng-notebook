@@ -10,3 +10,9 @@ Feel free to point any error you found in my notes.
 Any suggestions will be much appreciated!.
 
 ## Update History
+
+- 12/16/2023: add "Probability and Statistics" section with some TODOs.
+
+- 12/05/2023: add "Linear Algebra" section with some TODOs.
+
+- 12/02/2023: website init with "Learning Theory" section. 

@@ -1,31 +1,28 @@
-## Boole's inequality (union bound)
+# Concentration Inequalities I
 
-The **union bound** states that the probability that at least one event in any finite set of events happens $A_{1}, \dots, A_{n}$ is no greater than the sum of the probabilities of the individual events
-
-$$
-\mathbb{P} \left(
-    \exists i \in [1, n]: A_{i}
-\right) = \mathbb{P} \left(
-    \bigcup_{i = 1}^{n} A_{i} 
-\right) \leq \sum_{i = 1}^{n} \mathbb{P} (A_{i}). 
-$$
+Concentration inequalities provide mathematical bounds on the probability of a random variable deviating from some value.
+They can answer the questions such as "what is the largest probability that $X$ can deviates from its mean by more than $t$"?
 
 ## Markov's inequality
 
 **Markov's inequality** states that the probability of a random variable larger than $t$ is less than $\frac{\mu}{t}$. 
 
+:::{#thm-markovs-inequality}
+
+#### Markov's inequality
+
 Let $X \geq 0$ be a non-negative random variable with finite mean $\mu$. 
 Then for any $t > 0$, 
 
 $$
-\mathbb{P}_{X} \left(
-    x \geq t
+\mathbb{P} \left(
+    X \geq t
 \right) \leq \frac{ \mu }{ t }.
 $$
 
-:::{prf:proof} Markov's inequality
-:label:markov's-inequality
-:class:dropdown
+:::
+
+:::{.callout-note collapse="true" title="Proof"}
 
 Assuming $X$ is a discrete random variable, 
 
@@ -60,47 +57,43 @@ $$
 
 **Chebyshev's inequality** states that the probability of the difference between a random variable and its mean larger than $a$ is less than $\frac{\sigma^{2}}{t^{2}}$.
 
+:::{#thm-chebyshevs-inequality}
+
+#### Chebyshev's inequality
+
 Let $X$ be a random variable with finite mean $\mu$ and finite variance $\sigma^{2}$. 
 Then for any $t > 0$, 
 
 $$
-\mathbb{P}_{X} \left(
-    \lvert x - \mu \rvert \geq t
+\mathbb{P} \left(
+    \lvert X - \mu \rvert \geq t
 \right) \leq \frac{ \sigma^{2} }{ t^{2} }.
 $$
 
-:::{prf:proof} Chebyshev's inequality
-:label:chebyshev's-inequality
-:class:dropdown
+:::
 
-Let $Y = (x - \mathbb{E}_{X} [x])^{2}$ and apply Markov's inequality on $Y$ to get
+:::{.callout-note collapse="true" title="Proof"}
+
+Let $Y = (X - \mathbb{E}_{X} [X])^{2}$ and apply Markov's inequality on $Y$ to get
 
 $$
 \begin{aligned}
-\mathbb{P}_{Y} (y \geq t^{2}) 
+\mathbb{P} (Y \geq t^{2}) 
 & \leq \frac{ \mathbb{E}_{Y} [y] }{ t^{2} }
 \\
-& = \frac{
-    \mathbb{E}_{X} [(x - \mathbb{E}_{X} [x])^{2}]
-}{ 
-    a^{2}
-}
+& = \frac{ \mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{2}] }{ a^{2} }
 \\
-& = \frac{
-    \mathrm{Var}_{X} [x]
-}{
-    t^{2}
-}.
+& = \frac{ \mathrm{Var}_{X} [X] }{ t^{2} }.
 \end{aligned}
 $$
 
 Note that 
 
 $$
-\mathbb{P}_{Y} (y \geq t^{2}) = \mathbb{P}_{X} \left(
-    (x - \mathbb{E}_{X} [x])^{2} \geq t^{2}
-\right) = \mathbb{P}_{X} \left( 
-    \lvert x - \mathbb{E}_{X} [x] \rvert \geq t
+\mathbb{P} (Y \geq t^{2}) = \mathbb{P} \left(
+    (X - \mathbb{E}_{X} [X])^{2} \geq t^{2}
+\right) = \mathbb{P} \left( 
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
 \right).
 $$
 
@@ -108,13 +101,13 @@ Therefore,
 
 $$
 \begin{aligned}
-\mathbb{P}_{X} \left( 
-    \lvert x - \mathbb{E}_{X} [x] \rvert \geq t
+\mathbb{P} \left( 
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
 \right) 
-& \leq \frac{ \mathrm{Var}_{X} [x] }{ t^{2} }.
+& \leq \frac{ \mathrm{Var} [X] }{ t^{2} }.
 \\
-\mathbb{P}_{X} \left( 
-    \lvert x - \mu \rvert \geq t
+\mathbb{P} \left( 
+    \lvert X - \mu \rvert \geq t
 \right) 
 & \leq \frac{ \sigma^{2} }{ t^{2} }.
 \end{aligned}
@@ -128,9 +121,9 @@ Let $X_{1}, \dots, X_{n}$ be independent random variables with finite means $\mu
 Then, for any $t > 0$
 
 $$
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
+\mathbb{P} \left(
     \left\lvert 
-        \sum_{i = 1}^{n} x_{i} - \sum_{i = 1}^{n} \mu_{i}
+        \sum_{i = 1}^{n} X_{i} - \sum_{i = 1}^{n} \mu_{i}
     \right\rvert \geq t 
 \right) \leq \frac{
     \sum_{i = 1}^{n} \sigma_{i}^{2}
@@ -139,159 +132,22 @@ $$
 }
 $$
 
-## Weak law of large numbers
-
-The **weak law of large numbers** (WLLN) states that the mean of the i.i.d random variables $X_{1}, \dots, X_{n}$ converges to the mean of the distribution as $n$ increases. 
-
-Let $X_{1}, \dots, X_{n}$ be i.i.d random variables with finite mean $\mu$ and finite variance $\sigma^{2}$. 
-Then for any $a > 0$
-
-$$
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
-    \left\lvert 
-        \frac{\sum_{i = 1}^{n} x_{i}}{n} - \mu
-        \right\rvert \geq \epsilon
-\right) \leq \frac{\sigma^{2}}{n \epsilon^{2}}
-$$
-
-
-:::{prf:proof} Weak law of large number
-:label:weak-law-of-large-number
-:class:dropdown
-
-Applying the Chebyshev's inequality over multiple random variables,
-we get
-
-$$
-\begin{aligned}
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
-    \left\lvert 
-        \sum_{i = 1}^{n} x_{i} - \sum_{i = 1}^{n} \mu_{i}
-    \right\rvert \geq a
-\right) 
-& \leq \frac{\sum_{i = 1}^{n} \sigma_{i}^{2}}{a^{2}} 
-\\
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
-    \left\lvert 
-        \sum_{i = 1}^{n} x_{i} - n \mu
-    \right\rvert \geq a
-\right) 
-& \leq \frac{n \sigma^{2}}{a^{2}} 
-\end{aligned}
-$$
-
-Setting $a = n \epsilon$,
-
-$$
-\begin{aligned}
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
-    \left\lvert 
-        \sum_{i = 1}^{n} x_{i} - n \mu
-    \right\rvert \geq n \epsilon
-\right) 
-& \leq \frac{n \sigma^{2}}{n^{2} \epsilon^{2}}.
-\\
-\mathbb{P}_{X_{1}, \dots, X_{n}} \left(
-    \left\lvert 
-        \frac{\sum_{i = 1}^{n} x_{i}}{n} - \mu
-    \right\rvert \geq \epsilon
-\right) 
-& \leq \frac{\sigma^{2}}{n \epsilon^{2}}.
-\end{aligned}
-$$
-
-:::
-
-## Moment Generating Function
-
-The $n$th moment of a random variable $X$ is $\mathbb{E}_{X} [x^{n}]$ and the $n$th central moment of $X$ is $\mathbb{E}_{X} [(x - \mathbb{E}_{X} [x])^{n}]$. 
-
-The moment generating function (MGF) of a random variable $X$ is a function $M_{X} (s)$ that is defined as 
-
-$$
-M_{X} (s) = \mathbb{E}_{X} [e^{s x}].
-$$
-
-The $n$th moment of the random variable can be derived by taking the $n$th derivative of $M_{X} (s)$ and evaluating it at $s = 0$
-
-$$
-\mathbb{E}_{X} [x^{n}] = \frac{d^{n}}{ds^{n}} M_{X} (s) \left.\right|_{s = 0}.
-$$
-
-:::{prf:proof} Finding moments from MGF
-:label: finding-moments-from-mgf
-:class:dropdown
-
-Recall that the Taylor series for $e^{x}$ is 
-
-$$
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
-$$
-
-Therefore, the Taylor series of $e^{s x}$ is 
-
-$$
-e^{sx} = \sum_{i = 0}^{\infty} \frac{(s x)^{i}}{i !} = \sum_{i = 0}^{\infty} \frac{s^{i} x^{i}}{i !}.
-$$
-
-The moment generating function can be written as 
-
-$$
-M_{X} (s) = \mathbb{E}_{X} [e^{s x}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} x^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [x^{i}] s^{i} }{i !}.
-$$
-
-The $n$th moment is the coefficient of $\frac{s^{k}}{k !}$ in the Taylor series of$M_{X} (s)$,
-which can be obtained by taking $n$th derivative $M_{X} (s)$ and evaluating it at $s = 0$.
-
-:::
-
-### Properties of moment generating function
-
-Suppose $X_{1}, \dots, X_{n}$ are independent random variables and $X = \sum_{i = 1}^{n} X_{i}$.
-
-$$
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s)
-$$
-
-:::{prf:proof} Finding moments from MGF
-:label: finding-moments-from-mgf
-:class:dropdown
-
-$$
-\begin{aligned}
-M_{X} (s) 
-& = \mathbb{E} [e^{s X}]
-\\
-& = \mathbb{E} [e^{s \sum_{i = 1} X_{i}}]
-\\
-& = \mathbb{E} [\prod_{i = 1}^{n} e^{s X_{i}}]
-\\
-& = \prod_{i = 1}^{n} [e^{s X_{i}}] 
-& [X_{i}\text{s are independent}]
-\\
-& = \prod_{i = 1}^{n} M_{X_{i}} (s)
-\\
-\end{aligned}
-$$
-
-:::
-
 ## Chernoff bound
 
 ### Chernoff's bounding method 
+
+:::{#thm-chernoffs-bounding-method}
 
 Let $X$ be a random variable on $\mathbb{R}$. 
 Then for all the $t > 0$
 
 $$
-\mathbb{P}_{X} (x \geq t) \leq \inf_{s > 0} \frac{
+\mathbb{P} (X \geq t) \leq \inf_{s > 0} \frac{
     M_{X} (s)
 }{
     e^{s t}
 } = \inf_{s > 0} \frac{
-    \mathbb{E}_{X} [e^{s x}]
+    \mathbb{E}_{X} [e^{s X}]
 }{
     e^{s t}
 }
@@ -299,39 +155,41 @@ $$
 
 where $M_{X} (s)$ is the MGF of $X$. 
 
-:::{prf:proof} Chernoff's bounding method
-:label: chernoff's-bounding-method
-:class:dropdown
+:::
+
+:::{.callout-note collapse="true" title="Proof"}
 
 For any $t > 0$,
 we can apply Markov's inequality
 
 $$
 \begin{aligned}
-\mathbb{P}_{X} (x \geq t) 
-& = \mathbb{P}_{X} (e^{s x} \geq e^{s t})
+\mathbb{P} (X \geq t) 
+& = \mathbb{P} (e^{s X} \geq e^{s t})
 \\
-& \leq \frac{ \mathbb{E}_{X} [e^{s x}] }{ e^{s t} }
+& \leq \frac{ \mathbb{E}_{X} [e^{s X}] }{ e^{s t} }
 \\
 & \leq \frac{M_{X} (s) }{ e^{s t} }.
 \end{aligned}
 $$
 
-Since $\mathbb{P}_{X} (x \geq t) \leq \frac{ M_{X} (s) }{ e^{s t} }$ for any $s > 0$,
-$\mathbb{P}_{X} (x \geq t)$ is less than the $s$ that minimizes $\frac{ M_{X} (s) }{ e^{s t} }$,
+Since $\mathbb{P} (X \geq t) \leq \frac{ M_{X} (s) }{ e^{s t} }$ for any $s > 0$,
+$\mathbb{P} (X \geq t)$ is less than the $s$ that minimizes $\frac{ M_{X} (s) }{ e^{s t} }$,
 which is written as 
 
 $$
-\mathbb{P}_{X} (x \geq t) \leq \inf_{s > 0} \frac{M_{X} (s)}{e^{s t}}.
+\mathbb{P} (X \geq t) \leq \inf_{s > 0} \frac{M_{X} (s)}{e^{s t}}.
 $$
 
 :::
+
+:::{.remark}
 
 The closed-form solution of the optimization problem 
 
 $$
 \inf_{s > 0} \frac{
-    \mathbb{E}_{X} [e^{s x}]
+    \mathbb{E}_{X} [e^{s X}]
 }{
     e^{s t}
 } = \inf_{s > 0} f (s)
@@ -339,15 +197,17 @@ $$
 
 can be obtained by solving $f' (s) = 0$ if $f (s)$ is a convex function.
 
+:::
+
 ### Chernoff bound for Bernoulli random variables
 
 Let $X_{1}, \dots, X_{n}$ be bounded independent Bernoulli random variables such that $X_{i} \sim \mathrm{Ber} (p_{i}), \forall i$. 
-Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} (x)$.
+Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} (X)$.
 
 - Upper tail: for all $\delta > 0$
 
     $$
-    \mathbb{P}_{X} (X \geq (1 + \delta) \mu) \leq \exp \left[
+    \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
         -\frac{ \delta^{2} \mu }{ 2 + \delta }
     \right]
     $$
@@ -355,14 +215,12 @@ Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} (x)$.
 - Lower tail: for all $0 < \delta < 1$
 
     $$
-    \mathbb{P}_{X} (X \leq (1 - \delta) \mu) \leq \exp \left[
+    \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
         -\frac{ \delta^{2} \mu }{ 2 }
     \right]
     $$
 
-:::{prf:proof} Chernoff bound
-:label: chernoff-bound
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 Let $X_{i} \sim \mathrm{Ber} (p)$ be a Bernoulli variable. 
 Then the MGF of $X_{i}$ can be written as
@@ -392,7 +250,7 @@ the same inequality can be obtained for the MGF of $X = \sum_{i = 1}^{n} X_{i}$
 
 $$
 \begin{aligned}
-\mathbb{E}_{X} [e^{s x}]
+\mathbb{E}_{X} [e^{s X}]
 & = M_{X} (s) 
 \\
 & = \prod_{i = 1}^{n} M_{X_{i}} (s) 
@@ -409,16 +267,16 @@ $$
 \end{aligned}
 $$
 
-where $\mu = \mathbb{E}_{X} (x) = \sum_{i = 1}^{n} p_{i}$. 
+where $\mu = \mathbb{E}_{X} [X] = \sum_{i = 1}^{n} p_{i}$. 
 
 By applying the Chernoff bounding method with $t = (1 + \delta) \mu$,
 we can derive a upper bound
 
 $$
 \begin{aligned}
-\mathbb{P}_{X} (x \geq (1 + \delta) \mu) 
+\mathbb{P} (X \geq (1 + \delta) \mu) 
 & \leq \inf_{s > 0} \frac{
-    \mathbb{E}_{X} [e^{s x}]
+    \mathbb{E}_{X} [e^{s X}]
 }{
     e^{s (1 + \delta) \mu}
 }
@@ -548,7 +406,7 @@ $$
 Putting all together to derive the upper tail of Chernoff bound
 
 $$
-\mathbb{P}_{X} (x \geq (1 + \delta) \mu) \leq \exp \left[
+\mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
     - \left(
         \frac{ \delta^{2} }{ 2 + \delta }
     \right) \mu
@@ -566,12 +424,12 @@ The proof for the lower tail is similar except that
 ### General Chernoff bound
 
 Let $X_{1}, \dots, X_{n}$ be bounded independent random variables such that $X_{i} \in [a, b], \forall i$. 
-Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} (x)$. Then for $\delta > 0$
+Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} [X]$. Then for $\delta > 0$
 
 - Upper tail: 
 
     $$
-    \mathbb{P}_{X} (X \geq (1 + \delta) \mu) \leq \exp \left[
+    \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
         -\frac{ 2 \delta^{2} \mu^{2} }{ n (b - a)^{2} }
     \right]
     $$
@@ -579,7 +437,7 @@ Let $X = \sum_{i=1}^{n} X_{i}$ and $\mu = \mathbb{E}_{X} (x)$. Then for $\delta 
 - Lower tail:
 
     $$
-    \mathbb{P}_{X} (X \leq (1 - \delta) \mu) \leq \exp \left[
+    \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
         -\frac{ \delta^{2} \mu^{2} }{ n (b - a)^{2} }
     \right]
     $$

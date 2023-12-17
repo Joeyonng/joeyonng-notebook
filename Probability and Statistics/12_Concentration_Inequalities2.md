@@ -1,3 +1,5 @@
+# Concentration Inequalities II
+
 ## Sub-Gaussian random variables
 
 A random variable $X$ with mean $\mu$ is called **Sub-Gaussian** with parameter $\sigma$ ($X \sim SubGau (\sigma)$) if 
@@ -22,9 +24,7 @@ $$
 \right].
 $$
 
-:::{prf:proof} Bound of Sub-Gaussian
-:label: bound-of-sub-gaussian
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 First use Chernoff bound to derive
 
@@ -98,9 +98,7 @@ $$
 \right].
 $$
 
-:::{prf:proof} Hoeffding's Lemma
-:label: hoeffding's-lemma
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 Since $f (x) = e^{a x}$ is a convex function,
 the definition of the convex function states that 
@@ -253,9 +251,7 @@ $$
 \right].
 $$
 
-:::{prf:proof} Hoeffding's inequality
-:label: hoeffding's-inequality
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 We can first apply Chernoff's bounding method 
 
@@ -464,9 +460,7 @@ $$
 \right].
 $$
 
-:::{prf:proof} Azuma Inequality
-:label: azuma-inequality
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 First we can apply Chernoff bound to derive
 
@@ -679,9 +673,7 @@ $$
 \right].
 $$
 
-:::{prf:proof} McDiarmid's Inequality
-:label: micdiarmid's-inequality
-:class:dropdown
+:::{.callout-note collapse="true" title="Proof"}
 
 Let $X_{1}, \dots, X_{n}$ be a sequence of independent random variable, 
 and $Y_{1}, \dots, Y_{n}$ be a Martingale sequence with respect to $X_{1}, \dots, X_{n}$ where
