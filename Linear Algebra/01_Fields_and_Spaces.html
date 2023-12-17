@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 1&nbsp; Fields and Spaces</title>
+<title>Joeyonng’s Notebook - 1&nbsp; Fields</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,20 +321,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fields" id="toc-fields" class="nav-link active" data-scroll-target="#fields"><span class="header-section-number">2</span> Fields</a>
+  <li><a href="#axioms-of-fields" id="toc-axioms-of-fields" class="nav-link active" data-scroll-target="#axioms-of-fields"><span class="header-section-number">1.1</span> Axioms of fields</a></li>
+  <li><a href="#properties-of-fields" id="toc-properties-of-fields" class="nav-link" data-scroll-target="#properties-of-fields"><span class="header-section-number">1.2</span> Properties of fields</a></li>
+  <li><a href="#vector-spaces" id="toc-vector-spaces" class="nav-link" data-scroll-target="#vector-spaces"><span class="header-section-number">2</span> Vector spaces</a>
   <ul class="collapse">
-  <li><a href="#axioms-of-fields" id="toc-axioms-of-fields" class="nav-link" data-scroll-target="#axioms-of-fields"><span class="header-section-number">2.1</span> Axioms of fields</a></li>
-  <li><a href="#properties-of-fields" id="toc-properties-of-fields" class="nav-link" data-scroll-target="#properties-of-fields"><span class="header-section-number">2.2</span> Properties of fields</a></li>
+  <li><a href="#axioms-of-vector-spaces" id="toc-axioms-of-vector-spaces" class="nav-link" data-scroll-target="#axioms-of-vector-spaces"><span class="header-section-number">2.1</span> Axioms of vector spaces</a></li>
+  <li><a href="#linear-combination" id="toc-linear-combination" class="nav-link" data-scroll-target="#linear-combination"><span class="header-section-number">2.2</span> Linear combination</a></li>
   </ul></li>
-  <li><a href="#vector-spaces" id="toc-vector-spaces" class="nav-link" data-scroll-target="#vector-spaces"><span class="header-section-number">3</span> Vector spaces</a>
+  <li><a href="#subspaces" id="toc-subspaces" class="nav-link" data-scroll-target="#subspaces"><span class="header-section-number">3</span> Subspaces</a>
   <ul class="collapse">
-  <li><a href="#axioms-of-vector-spaces" id="toc-axioms-of-vector-spaces" class="nav-link" data-scroll-target="#axioms-of-vector-spaces"><span class="header-section-number">3.1</span> Axioms of vector spaces</a></li>
-  <li><a href="#linear-combination" id="toc-linear-combination" class="nav-link" data-scroll-target="#linear-combination"><span class="header-section-number">3.2</span> Linear combination</a></li>
-  </ul></li>
-  <li><a href="#subspaces" id="toc-subspaces" class="nav-link" data-scroll-target="#subspaces"><span class="header-section-number">4</span> Subspaces</a>
-  <ul class="collapse">
-  <li><a href="#properties-of-subspace" id="toc-properties-of-subspace" class="nav-link" data-scroll-target="#properties-of-subspace"><span class="header-section-number">4.1</span> Properties of subspace</a></li>
-  <li><a href="#example-subspaces-of-2-dimensional-real-value-column-vectors" id="toc-example-subspaces-of-2-dimensional-real-value-column-vectors" class="nav-link" data-scroll-target="#example-subspaces-of-2-dimensional-real-value-column-vectors"><span class="header-section-number">4.2</span> Example: subspaces of 2-dimensional real-value column vectors</a></li>
+  <li><a href="#properties-of-subspace" id="toc-properties-of-subspace" class="nav-link" data-scroll-target="#properties-of-subspace"><span class="header-section-number">3.1</span> Properties of subspace</a></li>
+  <li><a href="#example-subspaces-of-2-dimensional-real-value-column-vectors" id="toc-example-subspaces-of-2-dimensional-real-value-column-vectors" class="nav-link" data-scroll-target="#example-subspaces-of-2-dimensional-real-value-column-vectors"><span class="header-section-number">3.2</span> Example: subspaces of 2-dimensional real-value column vectors</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -344,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></h1>
 </div>
 
 
@@ -359,11 +356,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fields" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Fields</h1>
 <p>A field is a <strong>set</strong> <span class="math inline">\mathbb{F}</span>, equipped with two operations addition <span class="math inline">+</span> and multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-fields" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="axioms-of-fields"><span class="header-section-number">2.1</span> Axioms of fields</h2>
+<section id="axioms-of-fields" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="axioms-of-fields"><span class="header-section-number">1.1</span> Axioms of fields</h2>
 <p>For all <span class="math inline">x</span>, <span class="math inline">y</span>, and <span class="math inline">z</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall x, y, z \in \mathbb{F}</span>), we have:</p>
 <ul>
 <li><p><strong>Closure</strong> under addition and multiplication:</p>
@@ -409,8 +404,8 @@ ul.task-list li input[type="checkbox"] {
   </span></p></li>
 </ul>
 </section>
-<section id="properties-of-fields" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="properties-of-fields"><span class="header-section-number">2.2</span> Properties of fields</h2>
+<section id="properties-of-fields" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="properties-of-fields"><span class="header-section-number">1.2</span> Properties of fields</h2>
 <ul>
 <li><p><strong>Zero and one are unique</strong>: there is only one “zero” and one “one” in any field <span class="math inline">\mathbb{F}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -596,12 +591,11 @@ Proof
 </div></li>
 </ul>
 </section>
-</section>
-<section id="vector-spaces" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Vector spaces</h1>
+<section id="vector-spaces" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Vector spaces</h1>
 <p>A vector space, defined over a field <span class="math inline">\mathbb{F}</span>, is a <strong>non-empty set</strong> <span class="math inline">\mathcal{V}</span> (whose members are called vectors), equipped with two operations: vector addition <span class="math inline">+</span> and scalar multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-vector-spaces" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="axioms-of-vector-spaces"><span class="header-section-number">3.1</span> Axioms of vector spaces</h2>
+<section id="axioms-of-vector-spaces" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="axioms-of-vector-spaces"><span class="header-section-number">2.1</span> Axioms of vector spaces</h2>
 <p>For all <span class="math inline">u</span>, <span class="math inline">v</span>, and <span class="math inline">w</span> in the vector space <span class="math inline">\mathcal{V}</span> (<span class="math inline">\forall u, v, w \in \mathcal{V}</span>) and for all <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> in the field <span class="math inline">\mathbb{F}</span>, we have</p>
 <ul>
 <li><strong>Closure</strong> under vector addition and scalar multiplication</li>
@@ -649,16 +643,16 @@ u + v \in \mathcal{V},
 <p>Note that there is no requirement for the scalar multiplicative inverse in the definition of the vector space.</p></li>
 </ul>
 </section>
-<section id="linear-combination" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="linear-combination"><span class="header-section-number">3.2</span> Linear combination</h2>
+<section id="linear-combination" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="linear-combination"><span class="header-section-number">2.2</span> Linear combination</h2>
 <p>Let <span class="math inline">\mathcal{V}</span> be a vector space over the field <span class="math inline">\mathbb{F}</span>. Given a set of vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> and a set of field elements <span class="math inline">\alpha_{1}, \dots, \alpha_{n} \in \mathbb{F}</span>, the vector <span class="math inline">u</span> is a linear combination of <span class="math inline">v_{1}, \dots, v_{n}</span> with <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> as coefficients if</p>
 <p><span class="math display">
 u = \sum_{i=1}^{n} \alpha_{i} v_{i}.
 </span></p>
 </section>
 </section>
-<section id="subspaces" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Subspaces</h1>
+<section id="subspaces" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Subspaces</h1>
 <p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a subspace <span class="math inline">\mathcal{W}</span> of <span class="math inline">\mathcal{V}</span> is a non-empty subset of <span class="math inline">\mathcal{V}</span> (<span class="math inline">\mathcal{W} \subseteq \mathcal{V}</span>) that follows the <strong>closure</strong> axioms.</p>
 <p>For all <span class="math inline">u</span> and <span class="math inline">v</span> in the subspace <span class="math inline">\mathcal{W}</span> (<span class="math inline">\forall u, v \in \mathcal{W}</span>) and for all <span class="math inline">\alpha</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall \alpha \in \mathbb{F}</span>), we have</p>
 <p><span class="math display">
@@ -667,8 +661,8 @@ u + v \in \mathcal{W},
 <p><span class="math display">
 \alpha \cdot v \in \mathcal{W}.
 </span></p>
-<section id="properties-of-subspace" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="properties-of-subspace"><span class="header-section-number">4.1</span> Properties of subspace</h2>
+<section id="properties-of-subspace" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="properties-of-subspace"><span class="header-section-number">3.1</span> Properties of subspace</h2>
 <p>Let <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> be the subspaces of a vector space over <span class="math inline">\mathbb{F}</span>.</p>
 <ul>
 <li><p><span class="math inline">0 \in \mathcal{W}</span>.</p>
@@ -874,8 +868,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="example-subspaces-of-2-dimensional-real-value-column-vectors" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="example-subspaces-of-2-dimensional-real-value-column-vectors"><span class="header-section-number">4.2</span> Example: subspaces of 2-dimensional real-value column vectors</h2>
+<section id="example-subspaces-of-2-dimensional-real-value-column-vectors" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="example-subspaces-of-2-dimensional-real-value-column-vectors"><span class="header-section-number">3.2</span> Example: subspaces of 2-dimensional real-value column vectors</h2>
 <p>The 2-dimensional real-value column vector space <span class="math inline">\mathbb{R}^{2}</span> has 3 types of subspaces</p>
 <ol type="1">
 <li><p>The subspace of the zero vector only,</p>

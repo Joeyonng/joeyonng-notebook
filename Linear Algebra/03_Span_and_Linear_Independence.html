@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 3&nbsp; Span and Linear Independence</title>
+<title>Joeyonng’s Notebook - 4&nbsp; Span and Linear Independence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/03_Span_and_Linear_Independence.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/03_Span_and_Linear_Independence.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,92 +168,98 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
+  <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/02_Spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/03_Span_and_Linear_Independence.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/05_Linear_Map_and_Rank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/06_Inner_Product_and_Norm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/07_Orthogonality_and_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/08_Complementary_Subspaces_and_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/10_URV_Factorization_and_SVD.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">URV Factorization and SVD</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">URV Factorization and SVD</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/11_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/12_Orthogonal_and_Affine_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/13_Determinants_and_Eigensystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/14_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/15_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,43 +276,43 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,15 +327,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#span" id="toc-span" class="nav-link active" data-scroll-target="#span"><span class="header-section-number">4</span> Span</a>
+  <li><a href="#span" id="toc-span" class="nav-link active" data-scroll-target="#span"><span class="header-section-number">5</span> Span</a>
   <ul class="collapse">
-  <li><a href="#spanning-set" id="toc-spanning-set" class="nav-link" data-scroll-target="#spanning-set"><span class="header-section-number">4.1</span> Spanning set</a></li>
-  <li><a href="#properties-of-the-spanning-set" id="toc-properties-of-the-spanning-set" class="nav-link" data-scroll-target="#properties-of-the-spanning-set"><span class="header-section-number">4.2</span> Properties of the spanning set</a></li>
+  <li><a href="#spanning-set" id="toc-spanning-set" class="nav-link" data-scroll-target="#spanning-set"><span class="header-section-number">5.1</span> Spanning set</a></li>
+  <li><a href="#properties-of-the-spanning-set" id="toc-properties-of-the-spanning-set" class="nav-link" data-scroll-target="#properties-of-the-spanning-set"><span class="header-section-number">5.2</span> Properties of the spanning set</a></li>
   </ul></li>
-  <li><a href="#linear-independence" id="toc-linear-independence" class="nav-link" data-scroll-target="#linear-independence"><span class="header-section-number">5</span> Linear independence</a>
+  <li><a href="#linear-independence" id="toc-linear-independence" class="nav-link" data-scroll-target="#linear-independence"><span class="header-section-number">6</span> Linear independence</a>
   <ul class="collapse">
-  <li><a href="#properties-of-linear-independence" id="toc-properties-of-linear-independence" class="nav-link" data-scroll-target="#properties-of-linear-independence"><span class="header-section-number">5.1</span> Properties of linear independence</a></li>
-  <li><a href="#linear-dependence" id="toc-linear-dependence" class="nav-link" data-scroll-target="#linear-dependence"><span class="header-section-number">5.2</span> Linear dependence</a></li>
+  <li><a href="#properties-of-linear-independence" id="toc-properties-of-linear-independence" class="nav-link" data-scroll-target="#properties-of-linear-independence"><span class="header-section-number">6.1</span> Properties of linear independence</a></li>
+  <li><a href="#linear-dependence" id="toc-linear-dependence" class="nav-link" data-scroll-target="#linear-dependence"><span class="header-section-number">6.2</span> Linear dependence</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -339,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></h1>
 </div>
 
 
@@ -354,8 +360,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="span" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Span</h1>
+<section id="span" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Span</h1>
 <p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, the span of a set of vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> is the set of all possible linear combinations of <span class="math inline">v_{1}, \dots, v_{m}</span></p>
 <p><span class="math display">
 \text{span} (v_{1}, \dots, v_{n}) = \left\{
@@ -367,16 +373,16 @@ ul.task-list li input[type="checkbox"] {
 \text{span} (v_{1}, \dots, v_{n}) = R (\mathbf{A}).
 </span></p>
 <p>Since we have proved <span class="math inline">R (\mathbf{A})</span> is a subspace of <span class="math inline">\mathcal{V}</span>, the span of a set of vectors is a subspace of <span class="math inline">\mathcal{V}</span>.</p>
-<section id="spanning-set" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="spanning-set"><span class="header-section-number">4.1</span> Spanning set</h2>
+<section id="spanning-set" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="spanning-set"><span class="header-section-number">5.1</span> Spanning set</h2>
 <p>For a set of vectors <span class="math inline">\mathcal{S} = v_{1}, \dots, v_{n}</span>, if the subspace <span class="math inline">\mathcal{W}</span> is the span of <span class="math inline">\mathcal{S}</span></p>
 <p><span class="math display">
 \mathcal{W} = \text{span} (\mathcal{S}),
 </span></p>
 <p>then the set of vectors <span class="math inline">\mathcal{S}</span> is the spanning set of the subspace <span class="math inline">\mathcal{W}</span>.S.</p>
 </section>
-<section id="properties-of-the-spanning-set" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="properties-of-the-spanning-set"><span class="header-section-number">4.2</span> Properties of the spanning set</h2>
+<section id="properties-of-the-spanning-set" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="properties-of-the-spanning-set"><span class="header-section-number">5.2</span> Properties of the spanning set</h2>
 <p>Consider a set of vectors <span class="math inline">\mathcal{A} = \left\{ v_{1}, \dots, v_{n} \right\}</span> and a subspace <span class="math inline">\mathcal{W}</span>.</p>
 <p>(spanning-set-property-1)=</p>
 <ul>
@@ -506,14 +512,14 @@ Proof
 </ul>
 </section>
 </section>
-<section id="linear-independence" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Linear independence</h1>
+<section id="linear-independence" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Linear independence</h1>
 <p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a set of non-zero vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> is linearly independent when</p>
 <p><span class="math display">
 \sum_{i=1}^{n} \alpha_{i} \cdot v_{i} = 0 \iff \alpha_{i} = 0, i = 1, \dots, n.
 </span></p>
-<section id="properties-of-linear-independence" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="properties-of-linear-independence"><span class="header-section-number">5.1</span> Properties of linear independence</h2>
+<section id="properties-of-linear-independence" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="properties-of-linear-independence"><span class="header-section-number">6.1</span> Properties of linear independence</h2>
 <ul>
 <li><p>Given a matrix <span class="math inline">\mathbf{A}</span> whose columns are vectors <span class="math inline">\mathbf{v}_{1}, \dots, \mathbf{v}_{n} \in \mathbb{F}^{m}</span> the set of vectors <span class="math inline">\mathcal{S} = \{ \mathbf{v}_{1}, \dots, \mathbf{v}_{n} \}</span> is linearly independent when the null space of <span class="math inline">\mathbf{A}</span> only contains <span class="math inline">\mathbf{0} \in \mathbb{F}^{n}</span>.</p>
 <p><span class="math display">
@@ -585,8 +591,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="linear-dependence" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="linear-dependence"><span class="header-section-number">5.2</span> Linear dependence</h2>
+<section id="linear-dependence" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="linear-dependence"><span class="header-section-number">6.2</span> Linear dependence</h2>
 <p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a set of non-zero vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> is linear dependent when there exists an <span class="math inline">\alpha_{i} \neq 0</span> such that</p>
 <p><span class="math display">
 \sum_{i=1}^{n} \alpha_{i} \cdot v_{i} = 0.
@@ -875,12 +881,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

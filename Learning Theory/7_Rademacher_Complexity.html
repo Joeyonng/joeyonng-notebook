@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 22&nbsp; Rademacher Complexity</title>
+<title>Joeyonng’s Notebook - 46&nbsp; Rademacher Complexity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/7_Rademacher_Complexity.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/7_Rademacher_Complexity.html"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,145 +167,300 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
+  <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
+  <a href="../Linear Algebra/02_Spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/03_Span_and_Linear_Independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
+  <a href="../Linear Algebra/03_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
+  <a href="../Linear Algebra/04_Span.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/05_Linear_Map_and_Rank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
+  <a href="../Linear Algebra/05_Linear_Independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear independence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/06_Inner_Product_and_Norm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
+  <a href="../Linear Algebra/06_Basis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Orthogonality_and_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
+  <a href="../Linear Algebra/07_Dimension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dimension</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/08_Complementary_Subspaces_and_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
+  <a href="../Linear Algebra/08_Linear_Map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
+  <a href="../Linear Algebra/09_Rank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Rank</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/10_URV_Factorization_and_SVD.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">URV Factorization and SVD</span></span></a>
+  <a href="../Linear Algebra/10_Inner_Product.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inner Product</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/11_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
+  <a href="../Linear Algebra/11_Norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Norm</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/12_Orthogonal_and_Affine_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
+  <a href="../Linear Algebra/12_Orthogonality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonality</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Determinants_and_Eigensystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
+  <a href="../Linear Algebra/13_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Unitary matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
+  <a href="../Linear Algebra/14_Complementary_Subspaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Complementary Subspaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/15_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/15_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Projection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/16_Orthogonal_Complement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonal Complement</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/17_Orthogonal_Decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Orthogonal Decomposition</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/18_Singular_Value_Decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Singular Value Decomposition</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/19_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/21_Affine_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Affine projection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/22_Determinants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Determinants</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/23_Eigensystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Eigensystems</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/24_Similarity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Similarity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/25_Diagonalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Diagonalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Probability and Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Learning Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -320,21 +475,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#definitions" id="toc-definitions" class="nav-link active" data-scroll-target="#definitions"><span class="header-section-number">22.1</span> Definitions</a></li>
-  <li><a href="#rademacher-complexity-properties" id="toc-rademacher-complexity-properties" class="nav-link" data-scroll-target="#rademacher-complexity-properties"><span class="header-section-number">22.2</span> Rademacher complexity properties</a>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link active" data-scroll-target="#definitions"><span class="header-section-number">46.1</span> Definitions</a></li>
+  <li><a href="#rademacher-complexity-properties" id="toc-rademacher-complexity-properties" class="nav-link" data-scroll-target="#rademacher-complexity-properties"><span class="header-section-number">46.2</span> Rademacher complexity properties</a>
   <ul class="collapse">
-  <li><a href="#non-negativity" id="toc-non-negativity" class="nav-link" data-scroll-target="#non-negativity"><span class="header-section-number">22.2.1</span> Non-negativity</a></li>
-  <li><a href="#scaling-and-translation" id="toc-scaling-and-translation" class="nav-link" data-scroll-target="#scaling-and-translation"><span class="header-section-number">22.2.2</span> Scaling and translation</a></li>
+  <li><a href="#non-negativity" id="toc-non-negativity" class="nav-link" data-scroll-target="#non-negativity">Non-negativity</a></li>
+  <li><a href="#scaling-and-translation" id="toc-scaling-and-translation" class="nav-link" data-scroll-target="#scaling-and-translation">Scaling and translation</a></li>
   </ul></li>
-  <li><a href="#symmetrization-lemma" id="toc-symmetrization-lemma" class="nav-link" data-scroll-target="#symmetrization-lemma"><span class="header-section-number">22.3</span> Symmetrization lemma</a></li>
-  <li><a href="#rademacher-based-uniform-convergence" id="toc-rademacher-based-uniform-convergence" class="nav-link" data-scroll-target="#rademacher-based-uniform-convergence"><span class="header-section-number">22.4</span> Rademacher-based uniform convergence</a>
+  <li><a href="#symmetrization-lemma" id="toc-symmetrization-lemma" class="nav-link" data-scroll-target="#symmetrization-lemma"><span class="header-section-number">46.3</span> Symmetrization lemma</a></li>
+  <li><a href="#rademacher-based-uniform-convergence" id="toc-rademacher-based-uniform-convergence" class="nav-link" data-scroll-target="#rademacher-based-uniform-convergence"><span class="header-section-number">46.4</span> Rademacher-based uniform convergence</a>
   <ul class="collapse">
-  <li><a href="#results-for-risks" id="toc-results-for-risks" class="nav-link" data-scroll-target="#results-for-risks"><span class="header-section-number">22.4.1</span> Results for risks</a></li>
+  <li><a href="#results-for-risks" id="toc-results-for-risks" class="nav-link" data-scroll-target="#results-for-risks">Results for risks</a></li>
   </ul></li>
-  <li><a href="#bounding-rademacher-complexity" id="toc-bounding-rademacher-complexity" class="nav-link" data-scroll-target="#bounding-rademacher-complexity"><span class="header-section-number">22.5</span> Bounding Rademacher complexity</a>
+  <li><a href="#bounding-rademacher-complexity" id="toc-bounding-rademacher-complexity" class="nav-link" data-scroll-target="#bounding-rademacher-complexity"><span class="header-section-number">46.5</span> Bounding Rademacher complexity</a>
   <ul class="collapse">
-  <li><a href="#massarts-lemma" id="toc-massarts-lemma" class="nav-link" data-scroll-target="#massarts-lemma"><span class="header-section-number">22.5.1</span> Massart’s lemma</a></li>
-  <li><a href="#connection-with-vc-theory" id="toc-connection-with-vc-theory" class="nav-link" data-scroll-target="#connection-with-vc-theory"><span class="header-section-number">22.5.2</span> Connection with VC theory</a></li>
+  <li><a href="#massarts-lemma" id="toc-massarts-lemma" class="nav-link" data-scroll-target="#massarts-lemma">Massart’s lemma</a></li>
+  <li><a href="#connection-with-vc-theory" id="toc-connection-with-vc-theory" class="nav-link" data-scroll-target="#connection-with-vc-theory">Connection with VC theory</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -344,7 +499,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></h1>
+<h1 class="title"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></h1>
 </div>
 
 
@@ -360,14 +515,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Rademacher complexity measures the complexity of a function class in a sense that if <span class="math inline">\mathcal{F}</span> contains so many functions such that there exists some functions in <span class="math inline">\mathcal{F}</span> that can always output the same signs with the random generated Rademacher random variables, then <span class="math inline">\mathcal{F}</span> will have a high Rademacher complexity.</p>
-<section id="definitions" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">22.1</span> Definitions</h2>
+<section id="definitions" class="level2" data-number="46.1">
+<h2 data-number="46.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">46.1</span> Definitions</h2>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 </strong></span>A <strong>Rademacher variable</strong> has a discrete probability distribution where <span class="math inline">X</span> has the equal probability of being +1 and -1.</p>
+<p><span class="theorem-title"><strong>Definition 46.1 </strong></span>A <strong>Rademacher variable</strong> has a discrete probability distribution where <span class="math inline">X</span> has the equal probability of being +1 and -1.</p>
 </div>
 <p>The empirical Rademacher complexity measures the ability of the functions in a function class <span class="math inline">\mathcal{F}</span> to fit the random noise for a fixed sample <span class="math inline">\mathcal{S}</span>, which is described by the maximum correlation over all <span class="math inline">f \in \mathcal{F}</span> between <span class="math inline">f (z_{i})</span> and <span class="math inline">\sigma_{i}</span>.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.2 </strong></span>Given an i.i.d sample <span class="math inline">\mathcal{S} = \{ z_{1}, \dots, z_{n} \}</span> from the distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span> and <span class="math inline">n</span> independent Rademacher random variables <span class="math inline">\sigma = \{ \sigma_{1}, \dots, \sigma_{n} \}</span>, the <strong>empirical Rademacher complexity</strong> of a class of binary function <span class="math inline">\mathcal{F}</span> is defined as</p>
+<p><span class="theorem-title"><strong>Definition 46.2 </strong></span>Given an i.i.d sample <span class="math inline">\mathcal{S} = \{ z_{1}, \dots, z_{n} \}</span> from the distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span> and <span class="math inline">n</span> independent Rademacher random variables <span class="math inline">\sigma = \{ \sigma_{1}, \dots, \sigma_{n} \}</span>, the <strong>empirical Rademacher complexity</strong> of a class of binary function <span class="math inline">\mathcal{F}</span> is defined as</p>
 <p><span class="math display">
 \mathrm{Rad}_{\mathcal{S}} (\mathcal{F}) = \mathbb{E}_{\sigma} \left[
     \sup_{f \in \mathcal{F}} \frac{ 1 }{ n } \sum_{i = 1}^{n} \sigma_{i} f (z_{i})
@@ -377,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Therefore, the Rademacher complexity of <span class="math inline">\mathcal{F}</span> measures the expected noise-fitting-ability of <span class="math inline">\mathcal{F}</span> over all data sets <span class="math inline">\mathcal{S} \in \mathcal{Z}^{n}</span> that could be drawn according to the distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span>.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.3 </strong></span>Then the <strong>Rademacher complexity</strong> is defined as the expectation of the empirical Rademacher complexity over all i.i.d samples of size <span class="math inline">n</span></p>
+<p><span class="theorem-title"><strong>Definition 46.3 </strong></span>Then the <strong>Rademacher complexity</strong> is defined as the expectation of the empirical Rademacher complexity over all i.i.d samples of size <span class="math inline">n</span></p>
 <p><span class="math display">
 \mathrm{Rad}_{n} (\mathcal{F}) = \mathbb{E}_{\mathcal{S}} \left[
     \mathrm{Rad}_{\mathcal{S}} (\mathcal{F})
@@ -390,7 +545,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>For completeness, we include the definition of Rademacher average of a set of vectors.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.4 </strong></span>Given <span class="math inline">n</span> independent Rademacher random variables <span class="math inline">\sigma = \{ \sigma_{1}, \dots, \sigma_{n} \}</span>, the <strong>Rademacher average</strong> of a set of vectors <span class="math inline">\mathcal{A} \subseteq \mathbb{R}^{n}</span> is</p>
+<p><span class="theorem-title"><strong>Definition 46.4 </strong></span>Given <span class="math inline">n</span> independent Rademacher random variables <span class="math inline">\sigma = \{ \sigma_{1}, \dots, \sigma_{n} \}</span>, the <strong>Rademacher average</strong> of a set of vectors <span class="math inline">\mathcal{A} \subseteq \mathbb{R}^{n}</span> is</p>
 <p><span class="math display">
 \mathrm{Rad}_{\mathcal{A}} = \mathbb{E}_{\sigma} \left[
     \sup_{\mathbf{a} \in \mathcal{A}} \frac{ 1 }{ n } \sum_{i = 1}^{n} \sigma_{i} a_{i}
@@ -398,10 +553,10 @@ ul.task-list li input[type="checkbox"] {
 </span></p>
 </div>
 </section>
-<section id="rademacher-complexity-properties" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="rademacher-complexity-properties"><span class="header-section-number">22.2</span> Rademacher complexity properties</h2>
-<section id="non-negativity" class="level3" data-number="22.2.1">
-<h3 data-number="22.2.1" class="anchored" data-anchor-id="non-negativity"><span class="header-section-number">22.2.1</span> Non-negativity</h3>
+<section id="rademacher-complexity-properties" class="level2" data-number="46.2">
+<h2 data-number="46.2" class="anchored" data-anchor-id="rademacher-complexity-properties"><span class="header-section-number">46.2</span> Rademacher complexity properties</h2>
+<section id="non-negativity" class="level3">
+<h3 class="anchored" data-anchor-id="non-negativity">Non-negativity</h3>
 <p>The empirical Rademacher complexity and Rademacher complexity are non-negative.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -442,8 +597,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="scaling-and-translation" class="level3" data-number="22.2.2">
-<h3 data-number="22.2.2" class="anchored" data-anchor-id="scaling-and-translation"><span class="header-section-number">22.2.2</span> Scaling and translation</h3>
+<section id="scaling-and-translation" class="level3">
+<h3 class="anchored" data-anchor-id="scaling-and-translation">Scaling and translation</h3>
 <p>Given any function class <span class="math inline">\mathcal{F}</span> and constants <span class="math inline">a, b \in \mathbb{R}</span>, denote the function class <span class="math inline">\mathcal{G} = \{ g (x) = a f (x) + b \}</span>.</p>
 <p><span class="math display">
 \mathrm{Rad}_{\mathcal{S}} (\mathcal{G}) = \lvert a \rvert \mathrm{Rad}_{\mathcal{S}} (\mathcal{F})
@@ -517,11 +672,11 @@ Proof
 </div>
 </section>
 </section>
-<section id="symmetrization-lemma" class="level2" data-number="22.3">
-<h2 data-number="22.3" class="anchored" data-anchor-id="symmetrization-lemma"><span class="header-section-number">22.3</span> Symmetrization lemma</h2>
+<section id="symmetrization-lemma" class="level2" data-number="46.3">
+<h2 data-number="46.3" class="anchored" data-anchor-id="symmetrization-lemma"><span class="header-section-number">46.3</span> Symmetrization lemma</h2>
 <p>Here we proved an important result with the Rademacher complexity using so called <strong>symmetrization</strong> technique, which involves creating a “ghost” sample as a hypothetical independent copy of the original sample.</p>
 <div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 22.1 </strong></span>For any class of measurable functions <span class="math inline">\mathcal{F}</span>, the expectation of the maximum error in estimating the mean of any function <span class="math inline">f \in \mathcal{F}</span> is bounded by 2 times of the Rademacher complexity</p>
+<p><span class="theorem-title"><strong>Theorem 46.1 </strong></span>For any class of measurable functions <span class="math inline">\mathcal{F}</span>, the expectation of the maximum error in estimating the mean of any function <span class="math inline">f \in \mathcal{F}</span> is bounded by 2 times of the Rademacher complexity</p>
 <p><span class="math display">
 \mathbb{E}_{\mathcal{S}} [\phi (\mathcal{S})]
 = \mathbb{E}_{\mathcal{S}} \left[
@@ -641,10 +796,10 @@ Proof
 </div>
 </div>
 </section>
-<section id="rademacher-based-uniform-convergence" class="level2" data-number="22.4">
-<h2 data-number="22.4" class="anchored" data-anchor-id="rademacher-based-uniform-convergence"><span class="header-section-number">22.4</span> Rademacher-based uniform convergence</h2>
+<section id="rademacher-based-uniform-convergence" class="level2" data-number="46.4">
+<h2 data-number="46.4" class="anchored" data-anchor-id="rademacher-based-uniform-convergence"><span class="header-section-number">46.4</span> Rademacher-based uniform convergence</h2>
 <div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 22.2 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span>, if the function class <span class="math inline">\mathcal{F}</span> only contains the functions <span class="math inline">f</span> such that <span class="math inline">f (x) \in [a, a + 1]</span>, then for every <span class="math inline">f \in \mathcal{F}</span>, the <em>difference between its true expectation and estimated expectation</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
+<p><span class="theorem-title"><strong>Theorem 46.2 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span>, if the function class <span class="math inline">\mathcal{F}</span> only contains the functions <span class="math inline">f</span> such that <span class="math inline">f (x) \in [a, a + 1]</span>, then for every <span class="math inline">f \in \mathcal{F}</span>, the <em>difference between its true expectation and estimated expectation</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
 <p><span class="math display">
 \mathbb{P} (\lvert \mathbb{E}_{\mathcal{Z}} [f (z_{i})] - E_{\mathcal{S}} (f) \rvert \leq \epsilon) \geq 1 - \delta,
 \quad \forall f \in \mathcal{F}
@@ -772,8 +927,8 @@ Proof
 </div>
 </div>
 </div>
-<section id="results-for-risks" class="level3" data-number="22.4.1">
-<h3 data-number="22.4.1" class="anchored" data-anchor-id="results-for-risks"><span class="header-section-number">22.4.1</span> Results for risks</h3>
+<section id="results-for-risks" class="level3">
+<h3 class="anchored" data-anchor-id="results-for-risks">Results for risks</h3>
 <p>Given a hypothesis class <span class="math inline">\mathcal{H}</span>, a corresponding loss class with the 0-1 loss can be defined as</p>
 <p><span class="math display">
 \mathcal{L} = \{ l_{h} \mid l_{h} (z) = L (h (\mathbf{x}), y), h \in \mathcal{H}, z \sim \mathcal{Z} \}
@@ -784,7 +939,7 @@ R_{\mathcal{S}} (h) = E_{\mathcal{S}} (l_{h}), R (h) = \mathbb{E}_{\mathcal{Z}} 
 </span></p>
 <p>Since all the loss functions <span class="math inline">l_{h} \in \mathcal{L}</span> have output range <span class="math inline">[0, 1]</span>, we can apply the uniform theorem above to the loss class <span class="math inline">\mathcal{L}</span> to derive the uniform convergence results for risks.</p>
 <div id="cor-" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span>, a hypothesis class <span class="math inline">\mathcal{H}</span>, and the corresponding 0-1 loss class <span class="math inline">\mathcal{L}</span>, for every hypothesis <span class="math inline">h \in \mathcal{H}</span>, the <em>difference between its true risk and estimated risk</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
+<p><span class="theorem-title"><strong>Corollary 46.1 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span>, a hypothesis class <span class="math inline">\mathcal{H}</span>, and the corresponding 0-1 loss class <span class="math inline">\mathcal{L}</span>, for every hypothesis <span class="math inline">h \in \mathcal{H}</span>, the <em>difference between its true risk and estimated risk</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
 <p><span class="math display">
 \mathbb{P} (\lvert R_{\mathcal{S}} (h) - R (h) \rvert \leq \epsilon) \geq 1 - \delta,
 \quad \forall h \in \mathcal{H}
@@ -796,7 +951,7 @@ R_{\mathcal{S}} (h) = E_{\mathcal{S}} (l_{h}), R (h) = \mathbb{E}_{\mathcal{Z}} 
 </div>
 <p>By using the following lemma, we can write the results in terms of the Rademacher complexity the hypothesis class <span class="math inline">\mathcal{H}</span> instead of the loss class <span class="math inline">\mathcal{L}</span>.</p>
 <div id="lem-" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 22.1 </strong></span>Given a hypothesis class <span class="math inline">\mathcal{H}</span> and the corresponding loss class <span class="math inline">\mathcal{L}</span>, we have</p>
+<p><span class="theorem-title"><strong>Lemma 46.1 </strong></span>Given a hypothesis class <span class="math inline">\mathcal{H}</span> and the corresponding loss class <span class="math inline">\mathcal{L}</span>, we have</p>
 <p><span class="math display">
 \mathrm{Rad}_{n} (\mathcal{H}) = 2 \mathrm{Rad}_{n} (\mathcal{L}).
 </span></p>
@@ -852,7 +1007,7 @@ $$
 </div>
 </div>
 <div id="cor-" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span> and a hypothesis class <span class="math inline">\mathcal{H}</span>, for every hypothesis <span class="math inline">h \in \mathcal{H}</span>, the <em>difference between its true risk and estimated risk</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
+<p><span class="theorem-title"><strong>Corollary 46.2 </strong></span>Given a sample <span class="math inline">\mathcal{S}</span> that is drawn i.i.d from any distribution <span class="math inline">\mathbb{P}_{\mathcal{Z}^{n}}</span> and a hypothesis class <span class="math inline">\mathcal{H}</span>, for every hypothesis <span class="math inline">h \in \mathcal{H}</span>, the <em>difference between its true risk and estimated risk</em> is no greater than the error <span class="math inline">\epsilon</span> with probability at least <span class="math inline">1 - \delta</span></p>
 <p><span class="math display">
 \mathbb{P} (\lvert R_{\mathcal{S}} (h) - R (h) \rvert \leq \epsilon) \geq 1 - \delta,
 \quad \forall h \in \mathcal{H}
@@ -864,13 +1019,13 @@ $$
 </div>
 </section>
 </section>
-<section id="bounding-rademacher-complexity" class="level2" data-number="22.5">
-<h2 data-number="22.5" class="anchored" data-anchor-id="bounding-rademacher-complexity"><span class="header-section-number">22.5</span> Bounding Rademacher complexity</h2>
+<section id="bounding-rademacher-complexity" class="level2" data-number="46.5">
+<h2 data-number="46.5" class="anchored" data-anchor-id="bounding-rademacher-complexity"><span class="header-section-number">46.5</span> Bounding Rademacher complexity</h2>
 <p>The Rademacher complexity can be upper bounded for any function class with a finite VC dimension.</p>
-<section id="massarts-lemma" class="level3" data-number="22.5.1">
-<h3 data-number="22.5.1" class="anchored" data-anchor-id="massarts-lemma"><span class="header-section-number">22.5.1</span> Massart’s lemma</h3>
+<section id="massarts-lemma" class="level3">
+<h3 class="anchored" data-anchor-id="massarts-lemma">Massart’s lemma</h3>
 <div id="lem-massarts-lemma" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 22.2 (Massart’s lemma) </strong></span>Given any set of vectors <span class="math inline">\mathcal{A} \subseteq \mathbb{R}^{n}</span> the empirical Rademacher average is upper-bounded</p>
+<p><span class="theorem-title"><strong>Lemma 46.2 (Massart’s lemma) </strong></span>Given any set of vectors <span class="math inline">\mathcal{A} \subseteq \mathbb{R}^{n}</span> the empirical Rademacher average is upper-bounded</p>
 <p><span class="math display">
 \mathrm{Rad} (\mathcal{A}) \leq \frac{ R \sqrt{2 \log \lvert \mathcal{A} \rvert} }{ n }
 </span></p>
@@ -1036,10 +1191,10 @@ s
 </div>
 </div>
 </section>
-<section id="connection-with-vc-theory" class="level3" data-number="22.5.2">
-<h3 data-number="22.5.2" class="anchored" data-anchor-id="connection-with-vc-theory"><span class="header-section-number">22.5.2</span> Connection with VC theory</h3>
+<section id="connection-with-vc-theory" class="level3">
+<h3 class="anchored" data-anchor-id="connection-with-vc-theory">Connection with VC theory</h3>
 <div id="lem-" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 22.3 </strong></span>The Rademacher complexity of the hypothesis class <span class="math inline">\mathcal{H}</span> with the finite VC dimension <span class="math inline">d</span> is upper-bounded</p>
+<p><span class="theorem-title"><strong>Lemma 46.3 </strong></span>The Rademacher complexity of the hypothesis class <span class="math inline">\mathcal{H}</span> with the finite VC dimension <span class="math inline">d</span> is upper-bounded</p>
 <p><span class="math display">
 \mathrm{Rad}_{n} (\mathcal{H})
 \leq \sqrt{\frac{ 2 d \log \frac{ e n }{ d } }{ n }}.
@@ -1057,7 +1212,7 @@ Proof
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\mathcal{H}</span> has a finite VC dimension, its projection to any sample <span class="math inline">\mathcal{S}</span> with size <span class="math inline">n</span> is finite. Since each <span class="math inline">\mathcal{H} (\mathcal{S})</span> can be seen as a set of vectors of length <span class="math inline">n</span>, we can replace the set of vectors <span class="math inline">\mathcal{A}</span> in <a href="#lem-massarts-lemma">Lemma&nbsp;<span>22.2</span></a> with <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
+<p>If <span class="math inline">\mathcal{H}</span> has a finite VC dimension, its projection to any sample <span class="math inline">\mathcal{S}</span> with size <span class="math inline">n</span> is finite. Since each <span class="math inline">\mathcal{H} (\mathcal{S})</span> can be seen as a set of vectors of length <span class="math inline">n</span>, we can replace the set of vectors <span class="math inline">\mathcal{A}</span> in <a href="#lem-massarts-lemma">Lemma&nbsp;<span>46.2</span></a> with <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
 <p>Since <span class="math inline">h^{2} (z_{i}) = 1, \forall z_{i}, \forall h \in \mathcal{H}</span>,</p>
 <p><span class="math display">
 R = \sup_{h \in \mathcal{H}} \sqrt{\sum_{i = 1}^{n} h^{2} (z_{i})} = \sqrt{n}.
@@ -1320,7 +1475,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../Learning Theory/6_PAC_Learning.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">PAC Learning</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 42&nbsp; Effective Class Size</title>
+<title>Joeyonng’s Notebook - 28&nbsp; Probability</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Learning Theory/4_Empirical_Risk_Minimization.html" rel="next">
-<link href="../Learning Theory/2_Bayesian_Classifier.html" rel="prev">
+<link href="../Probability and Statistics/02_Random_Variables.html" rel="next">
+<link href="../Linear Algebra/27_Positive_Definite_Matrices.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/3_Effective_Class_Size.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -332,16 +332,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
@@ -415,13 +415,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
@@ -476,9 +476,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#growth-function-shattering-coefficient" id="toc-growth-function-shattering-coefficient" class="nav-link active" data-scroll-target="#growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</a></li>
-  <li><a href="#vapnik-chervonenkis-vc-dimension" id="toc-vapnik-chervonenkis-vc-dimension" class="nav-link" data-scroll-target="#vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</a></li>
-  <li><a href="#sauers-lemma" id="toc-sauers-lemma" class="nav-link" data-scroll-target="#sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</a></li>
+  <li><a href="#basic-probability-properties" id="toc-basic-probability-properties" class="nav-link active" data-scroll-target="#basic-probability-properties"><span class="header-section-number">28.1</span> Basic probability properties</a></li>
+  <li><a href="#joint-probability" id="toc-joint-probability" class="nav-link" data-scroll-target="#joint-probability"><span class="header-section-number">28.2</span> Joint probability</a>
+  <ul class="collapse">
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability">Conditional probability</a></li>
+  <li><a href="#marginal-probability" id="toc-marginal-probability" class="nav-link" data-scroll-target="#marginal-probability">Marginal probability</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -487,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></h1>
+<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></h1>
 </div>
 
 
@@ -502,43 +506,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>If there is an infinite number of possible hypotheses in a hypothesis class, all the bounds that are positively related to the size of the hypothesis class will be infinite as well, which provides no information and therefore become useless.</p>
-<p>However, even if a hypothesis class <span class="math inline">\mathcal{H}</span> can contain an infinite number of hypotheses, the number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any finite set of instances is finite, which is at most <span class="math inline">2^{n}</span> if the set has <span class="math inline">n</span> instances.</p>
-<section id="growth-function-shattering-coefficient" class="level2" data-number="42.1">
-<h2 data-number="42.1" class="anchored" data-anchor-id="growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</h2>
-<p>Given a set of instances <span class="math inline">\mathcal{S} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the <strong>projection</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> onto <span class="math inline">\mathcal{S}</span> is the set of all distinct labels that <span class="math inline">\mathcal{H}</span> can produce onto <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \{ \{ h (x_{1}), \dots, h (x_{n}) \}, \forall h \in \mathcal{H} \}.
-</span></p>
-<p>The concept of the growth function (shattering coefficient) is to measure the richness of the decisions that a hypothesis class can make with respect to a dataset of size <span class="math inline">n</span>.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 42.1 </strong></span>The <strong>growth function</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> is defined as the maximum number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any set of <span class="math inline">n</span> instances</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sup_{\mathcal{S}: \lvert \mathcal{S} \rvert = n} \lvert \mathcal{H} (\mathcal{S}) \rvert.
-</span></p>
+<div id="def-probability-space" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 28.1 </strong></span>The <strong>probability space</strong> <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> of a random experiment consists of the following quantities.</p>
+<ul>
+<li><p>The sample space <span class="math inline">\Omega</span> is the set of all possible outcomes of the random experiment.</p></li>
+<li><p>The set of events <span class="math inline">\mathcal{F}</span>, where each event <span class="math inline">A</span> is a subset of the sample space <span class="math inline">\Omega</span> and we say that <span class="math inline">A</span> occurs if the outcome <span class="math inline">\omega \in \Omega</span> of the random experiment is an element of <span class="math inline">A</span>. By definition, <span class="math inline">\mathcal{F}</span> is a <span class="math inline">\sigma</span>-algebra, which means it must satisfies the following requirements</p>
+<ul>
+<li><p>Contains the sample space: <span class="math inline">\Omega \in \mathcal{F}</span>.</p></li>
+<li><p>Closed under complement: if <span class="math inline">A \in \mathcal{F}</span>, then <span class="math inline">\Omega \setminus A \in \mathcal{F}</span>.</p></li>
+<li><p>Closed under countable unions: if <span class="math inline">A_{1}, \dots, A_{n} \in \mathcal{F}</span>, then <span class="math inline">\bigcup_{i = 1}^{n} A_{i} \in \mathcal{F}</span>.</p></li>
+</ul></li>
+<li><p>A probability measure <span class="math inline">\mathbb{P}: \mathcal{F} \to [0, 1]</span> is a function that assigns probabilities to the events in <span class="math inline">\mathcal{F}</span> and satisfy the following axioms.</p>
+<ul>
+<li><p>Non-negativity: <span class="math inline">\mathbb{P} (A) \geq 0, \forall A \in \mathcal{F}</span>.</p></li>
+<li><p>Normalization: <span class="math inline">\mathbb{P} (\Omega) = 1</span>.</p></li>
+<li><p>Countable additivity: If <span class="math inline">A_{1}, \dots, A_{n}</span> are mutually disjoint, then <span class="math inline">\mathbb{P} \left( \bigcup_{i = 1}^{n} A_{i} \right) = \sum_{i = 1}^{n} \mathbb{P} (A_{i})</span>.</p></li>
+</ul></li>
+</ul>
 </div>
-<p>Note that <span class="math inline">\Pi_{\mathcal{H}} (n) \leq 2^{n}</span> for any <span class="math inline">\mathcal{H}</span> with binary labels.</p>
-</section>
-<section id="vapnik-chervonenkis-vc-dimension" class="level2" data-number="42.2">
-<h2 data-number="42.2" class="anchored" data-anchor-id="vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</h2>
-<p>We say that a sample <span class="math inline">\mathcal{S}</span> is <strong>shattered</strong> by the hypothesis class <span class="math inline">\mathcal{H}</span> if a <span class="math inline">\mathcal{H}</span> can label <span class="math inline">\mathcal{S}</span> in every possible way. That is, <span class="math inline">\mathcal{S}</span> is shattered by <span class="math inline">\mathcal{H}</span> if</p>
+<p>If the sample space <span class="math inline">\Omega</span> is finite, the probability space <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> defined in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> is said to be <strong>discrete</strong>.</p>
+<p>If the sample space <span class="math inline">\Omega</span> is infinite, the probability space <span class="math inline">(\Omega, \mathcal{B}, \mathbb{P})</span> is said to be <strong>continuous</strong> if the set of events <span class="math inline">\mathcal{B}</span> is a <em>Borel</em> <span class="math inline">\sigma</span>-algebra. If the sample space <span class="math inline">\Omega</span> is the real space <span class="math inline">\mathbb{R}</span>, Borel <span class="math inline">\sigma</span>-algebra is the <em>smallest</em> <span class="math inline">\sigma</span>-algebra that contains all open sub-intervals in <span class="math inline">\Omega = \mathbb{R}</span>.</p>
+<section id="basic-probability-properties" class="level2" data-number="28.1">
+<h2 data-number="28.1" class="anchored" data-anchor-id="basic-probability-properties"><span class="header-section-number">28.1</span> Basic probability properties</h2>
+<div id="cor-probability-union" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 28.1 </strong></span>The probability of the union events is</p>
 <p><span class="math display">
-\mathcal{H} (\mathcal{S}) = 2^{\lvert \mathcal{S} \rvert}.
-</span></p>
-<div class="{prf:definition}">
-<p>The <strong>Vapnik-Chervonenkis (VC) dimension</strong> of <span class="math inline">\mathcal{H}</span> is the size of the largest set that is shattered by <span class="math inline">\mathcal{H}</span></p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}) = \max_{n: \mathcal{H} (\mathcal{S}) = 2^{n}} n.
-</span></p>
-</div>
-</section>
-<section id="sauers-lemma" class="level2" data-number="42.3">
-<h2 data-number="42.3" class="anchored" data-anchor-id="sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</h2>
-<p>Sauer’s lemma shows that the growth function of any hypothesis class <span class="math inline">\mathcal{H}</span> is upper-bounded by a function of its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.1 </strong></span>For any hypothesis class <span class="math inline">\mathcal{H}</span> and any dataset size <span class="math inline">n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
+\mathbb{P} (A \cup B) = \mathbb{P} (A) + \mathbb{P} (B) - \mathbb{P} (A \cap B).
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -553,118 +546,30 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will prove the lemma for any set of <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span> with <span class="math inline">\mathrm{VC} (\mathcal{H}) = d</span> using induction on <span class="math inline">n</span> and <span class="math inline">d</span>.</p>
-<p>That is, we will prove</p>
-<ul>
-<li><p>the lemma is correct under the base cases where <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>,</p></li>
-<li><p>the lemma is correct under general case for <span class="math inline">(n ,d)</span> by assuming the lemma is true under the previous cases <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n</span> and <span class="math inline">c &lt; d</span>.</p></li>
-</ul>
-<p>First the base case <span class="math inline">(n, d) = (0, d)</span> implies that</p>
+<p>Since <span class="math inline">A \cup B</span> can be partitioned into 3 disjoint sets: <span class="math inline">A \setminus B</span>, <span class="math inline">B \setminus A</span>, and <span class="math inline">A \cap B</span>, we can use the countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> to prove the following</p>
 <p><span class="math display">
-\Pi_{\mathcal{H}} (0) = 1 = {0 \choose 0} = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {0 \choose i}
+\mathbb{P} (A) = \mathbb{P} (A \setminus B) + \mathbb{P} (A \cap B) \\
+\mathbb{P} (B) = \mathbb{P} (B \setminus A) + \mathbb{P} (A \cap B) \\
+\mathbb{P} (A \cup B) = \mathbb{P} (A \setminus B) + \mathbb{P} (B \setminus A) + \mathbb{P} (A \cap B).
 </span></p>
-<p>because any hypothesis class can have at most 1 distinct label on an empty set (<span class="math inline">n = 0</span>).</p>
-<p>Then the base case <span class="math inline">(n, d) = (n, 0)</span> means that <span class="math inline">\mathcal{H}</span> can only shatter the empty set <span class="math inline">\emptyset</span> and therefore according to the definition of shattering</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \mathcal{H} (\emptyset) = 2^{0} = 1 = {n \choose 0} = \sum_{i = 0}^{0} {n \choose i}.
-</span></p>
-<p>Therefore we have proven the lemma is true in the base case, that is,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}
-</span></p>
-<p>is true when <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>.</p>
-<p>To prove the general case of the lemma, take any set <span class="math inline">\mathcal{S} = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n} \}</span> with <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span>, we can classify each unique way of the label assignment <span class="math inline">\pi \in \mathcal{H} (\mathcal{S})</span> into 2 groups <span class="math inline">\mathcal{G}_{1}</span> and <span class="math inline">\mathcal{G}_{2}</span> based on whether <span class="math inline">\pi</span> can form a pair in <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
-<ul>
-<li><p><span class="math inline">(\pi, \pi')</span> form a pair if <span class="math inline">\pi (x_{i}) = \pi' (x_{i}), \forall i \in [1, n - 1]</span> and <span class="math inline">\pi (x_{n}) = \pi' (x_{n})</span> (<span class="math inline">\pi</span> agree with <span class="math inline">\pi'</span> for all <span class="math inline">x_{1}, \dots, x_{n - 1}</span> but not for <span class="math inline">x_{n}</span>). We add the both <span class="math inline">\pi</span> and <span class="math inline">\pi'</span> to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-<li><p><span class="math inline">\pi</span> belongs to <span class="math inline">\mathcal{G}_{2}</span> if doesn’t belong to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-</ul>
-<p>Since the pairs <span class="math inline">(\pi, \pi') \in \mathcal{G}_{1}</span> have the same labels for <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1}</span> if we create <span class="math inline">\mathcal{G}'_{1}</span> by removing the labels for <span class="math inline">\mathbf{x}_{n}</span> in each <span class="math inline">\pi \in \mathcal{G}_{1}</span></p>
-<p><span class="math display">
-\mathcal{G}'_{1} = \{ (\pi (\mathbf{x}_{1}), \dots, \pi (\mathbf{x}_{n - 1})), \forall \pi \in \mathcal{G}_{1} \} \\
-</span></p>
-<p>then all of the pairs in <span class="math inline">\mathcal{G}_{1}</span> become the same label assignment, but if we create <span class="math inline">\mathcal{G}_{2}'</span> using the same procedure above, the resulting label assignments in <span class="math inline">\mathcal{G}_{2}'</span> are still unique.</p>
-<p>Also, by the definition of <span class="math inline">\mathcal{G}_{1}</span>, <span class="math inline">\mathcal{G}_{2}</span>, <span class="math inline">\mathcal{G}_{1}'</span>, and <span class="math inline">\mathcal{G}_{2}'</span>, the label assignments in <span class="math inline">\mathcal{G}_{1}'</span> and <span class="math inline">\mathcal{G}_{2}'</span> do not overlap, and therefore</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \lvert \mathcal{G}_{1} \rvert + \lvert \mathcal{G}_{2} \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert.
-</span></p>
-<p>Then we will define 2 new hypotheses classes <span class="math inline">\mathcal{H}_{1}</span>, <span class="math inline">\mathcal{H}_{2}</span> whose domain is a set <span class="math inline">\mathcal{S}'</span> that is constructed by removing <span class="math inline">x_{n}</span> from <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{S}' = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n - 1} \}.
-</span></p>
-<p>and whose projections on <span class="math inline">\mathcal{S}'</span> are defined as</p>
-<p><span class="math display">
-\mathcal{H}_{1} (\mathcal{S}') = \mathcal{G}_{1}' \cup \mathcal{G}_{2}' \\
-\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}',
-</span></p>
-<p>and therefore,</p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert = (\lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert) + \lvert \mathcal{G}_{1}' \rvert = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert.
-</span></p>
-<p>Although we never exactly defined what <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span> are, we have completely specified their projections on the entire domain <span class="math inline">\mathcal{S}'</span>, using which we can derive</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{1}) \leq \mathrm{VC} (\mathcal{H}),
-</span></p>
-<p>since the <span class="math inline">\mathcal{H}</span> has all the same label assignments for <span class="math inline">\mathcal{S}' = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1} \}</span> that <span class="math inline">\mathcal{H}_{1}</span> has and any subset of <span class="math inline">\mathcal{S}'</span> that is shattered by <span class="math inline">\mathcal{H}_{1}</span> is shattered by <span class="math inline">\mathcal{H}</span>.</p>
-<p>Furthermore, since <span class="math inline">\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}</span>, if a subset <span class="math inline">\mathcal{T} \subseteq \mathcal{S}'</span> is shattered by <span class="math inline">\mathcal{H}_{2}</span>, then the set <span class="math inline">\mathcal{T} \cup \{ x_{n} \}</span> must be shattered by <span class="math inline">\mathcal{H}</span>, which means</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{2}) + 1 \leq \mathrm{VC} (\mathcal{H}).
-</span></p>
-<p>Now we are ready to prove the general case of the lemma using the all results we proved above with <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span>.</p>
-<p>According to the definition of growth function, for any hypothesis class <span class="math inline">\mathcal{H}</span> and any set <span class="math inline">\mathcal{S}</span> of size <span class="math inline">n</span></p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert \leq \Pi_{\mathcal{H}} (n)
-</span></p>
-<p>and since we have assumed that the lemma is correct for the case <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n, c &lt; d</span>,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (m) \leq \sum_{i = 0}^{c} {m \choose i},
-</span></p>
-<p>we have</p>
+<p>Therefore, we have</p>
 <p><span class="math display">
 \begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert
+\mathbb{P} (A) + \mathbb{P} (B) - \mathbb{P} (A \cap B)
+&amp; = \mathbb{P} (A \setminus B) + \mathbb{P} (B \setminus A) + \mathbb{P} (A \cap B)
 \\
-&amp; \leq \Pi_{\mathcal{H}_{1}} (n - 1) + \Pi_{\mathcal{H}_{2}} (n - 1).
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
+&amp; = \mathbb{P} (A \cup B).
 \end{aligned}
 </span></p>
-<p>Since we have proved that the relations between <span class="math inline">\mathrm{VC} (\mathcal{H}_{1})</span>, <span class="math inline">\mathrm{VC} (\mathcal{H}_{2})</span> and <span class="math inline">\mathrm{VC} (\mathcal{H})</span>,</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}) - 1} {n - 1 \choose i}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 1}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1} + {n - 1 \choose -1}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1}
-&amp; [{n - 1 \choose - 1} = 0]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} \left[
-    {n - 1 \choose i} + {n - 1 \choose i - 1}
-\right]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-\end{aligned}
-</span></p>
-<p>Since all of the above proof is for any <span class="math inline">\mathcal{S}</span>, it also works for the largest <span class="math inline">\lvert \mathcal{H} (\mathcal{S}) \rvert</span>,</p>
-<p><span class="math display">
-\sup_{\mathcal{S}} \lvert \mathcal{H} (\mathcal{S}) \rvert = \Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i},
-</span></p>
-<p>which proves the lemma under the general case.</p>
 </div>
 </div>
 </div>
-<p>The following theorem uses Sauer’s lemma to provide a closed form upper-bound of the growth function of any hypothesis class with its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.2 </strong></span>For any <span class="math inline">1 &lt; d = \mathrm{VC} (\mathcal{H}) &lt; n</span>, we have</p>
+<div id="cor-union-bound" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 28.2 (Union bound) </strong></span>The probability of an event that is a union of a finite set of events <span class="math inline">A_{1}, \dots, A_{n}</span> is no greater than the sum of the probabilities of all events.</p>
 <p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{d} {n \choose i} \leq \left(
-    \frac{ e }{ d } n
-\right)^{d} = O (n^d).
+\mathbb{P} \left(
+    \bigcup_{i = 1}^{n} A_{i}
+\right) \leq \sum_{i = 1}^{n} \mathbb{P} (A_{i}).
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -679,60 +584,208 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First note that <span class="math inline">(\frac{ d }{ n })^{d} &lt; (\frac{ d }{ n })^{i}, i &lt; d</span> since <span class="math inline">d &lt; n</span>, and therefore</p>
+<p>According to <a href="#cor-probability-union">Corollary&nbsp;<span>28.1</span></a>,</p>
 <p><span class="math display">
 \begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i}
-\right]
+\mathbb{P} (A \cup B)
+&amp; = \mathbb{P} (A) + \mathbb{P} (B) - \mathbb{P} (A \cap B)
 \\
-&amp; = \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
+&amp; \leq \mathbb{P} (A) + \mathbb{P} (B)
+&amp; [\mathbb{P} (A \cap B) \geq 0].
 \end{aligned}
 </span></p>
-<p>By applying Binomial theorem <span class="math inline">(x + y)^{n} = \sum_{i = 0}^{n} {n \choose i} x^{i} y^{n - i}</span></p>
+<p>Therefore, we can extend the above fact for <span class="math inline">A</span> and <span class="math inline">B</span> to <span class="math inline">A_{1}, \dots, A_{n}</span> to derive the union bound.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="joint-probability" class="level2" data-number="28.2">
+<h2 data-number="28.2" class="anchored" data-anchor-id="joint-probability"><span class="header-section-number">28.2</span> Joint probability</h2>
+<p>Usually we refer the probability that the events <span class="math inline">A, B</span> occur at the same time as the <strong>joint probability</strong> of <span class="math inline">A</span> and <span class="math inline">B</span></p>
+<p><span class="math display">
+\mathbb{P} (A \cap B) = \mathbb{P} (A, B).
+</span></p>
+<section id="conditional-probability" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-probability">Conditional probability</h3>
+<div id="def-conditional-probability" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 28.2 (Conditional probability) </strong></span>Let <span class="math inline">B</span> be an event such that <span class="math inline">\mathbb{P} (B) &gt; 0</span>. The conditional probability of the event <span class="math inline">A</span> given <span class="math inline">B</span> is defined to be</p>
+<p><span class="math display">
+\mathbb{P} (A \mid B) = \frac{ \mathbb{P} (A \cap B) }{ \mathbb{P} (B) }.
+</span></p>
+</div>
+<p>Note that <span class="math inline">\mathbb{P} (\cdot \mid \cdot )</span> is also a probability measure and therefore satisfies the axioms of the probability measure in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a>.</p>
+<div id="cor-chain-rule" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 28.3 (Chain rule) </strong></span>Given a set of events <span class="math inline">A_{1}, \dots, A_{n}</span>, the probability of their intersection can be calculated as</p>
+<p><span class="math display">
+\mathbb{P} \left(
+    \bigcap_{i = 1}^{n} A_{i}
+\right)
+= \prod_{j = 1}^{n} \mathbb{P} \left(
+    A_{j} \;\middle|\; \bigcap_{k = j + 1}^{n} A_{k}
+\right)
+</span></p>
+<p>where <span class="math inline">\mathbb{P} \left( A_{j} \;\middle|\; \bigcap_{k &gt; n}^{n} A_{k} \right) = \mathbb{P} (A_{j})</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the intersection between 2 events <span class="math inline">A</span> and <span class="math inline">B</span>, we have</p>
+<p><span class="math display">
+\mathbb{P} (A \cap B) = \mathbb{P} (A \mid B) \mathbb{P} (B)
+</span></p>
+<p>by the definition of <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a>.</p>
+<p>To apply it for the multiple events, we can treat <span class="math inline">A = A_{1}</span> and <span class="math inline">B = \bigcap_{i = 2}^{n} A_{i}</span> to get</p>
 <p><span class="math display">
 \begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
+\mathbb{P} \left(
+    \bigcap_{i = 1}^{n} A_{i}
+\right)
+&amp; = \mathbb{P} \left(
+    A_{1} \;\middle|\; \bigcap_{i = 2}^{n} A_{i}
+\right)
+\mathbb{P} \left(
+    \bigcap_{i = 2}^{n} A_{i}
+\right)
 \\
-&amp; = \left(
-    \frac{ d }{ n } + 1
-\right)^{n}
+&amp; = \mathbb{P} \left(
+    A_{1} \;\middle|\; \bigcap_{i = 2}^{n} A_{i}
+\right)
+\mathbb{P} \left(
+    A_{2} \;\middle|\; \bigcap_{i = 3}^{n} A_{i}
+\right)
+\mathbb{P} \left(
+    \bigcap_{i = 3}^{n} A_{i}
+\right)
 \\
-&amp; \leq e^{d}.
+&amp; = \mathbb{P} \left(
+    A_{1} \;\middle|\; \bigcap_{i = 2}^{n} A_{i}
+\right)
+\mathbb{P} \left(
+    A_{2} \;\middle|\; \bigcap_{i = 3}^{n} A_{i}
+\right)
+\dots
+\mathbb{P} (A_{n})
+\\
+&amp; = \prod_{j = 1}^{n} \mathbb{P} \left(
+    A_{j} \;\middle|\; \bigcap_{k = j + 1}^{n} A_{k}
+\right).
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<p>The theorem above shows that the VC dimension marks the threshold between the exponential growth and polynomial growth of the growth function.</p>
+<div id="thm-bayes-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 28.1 (Bayes’s theorem) </strong></span>Let A, B be events with nonzero probability. Then,</p>
+<p><span class="math display">
+\mathbb{P} (A \mid B) = \frac{
+    \mathbb{P} (B \mid A) \mathbb{P} (A)
+}{
+    \mathbb{P} (B)
+}.
+</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This follows directly from <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a></p>
+<p><span class="math display">
+\mathbb{P} (A \mid B)
+= \frac{ \mathbb{P} (A \cap B) }{ \mathbb{P} (B) }
+= \frac{ \mathbb{P} (B \cap A) }{ \mathbb{P} (B) }
+= \frac{ \mathbb{P} (B \mid A) \mathbb{P} (A) }{ \mathbb{P} (B) }.
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="marginal-probability" class="level3">
+<h3 class="anchored" data-anchor-id="marginal-probability">Marginal probability</h3>
+<div id="thm-law-of-total-probability" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 28.2 (Law of total probability) </strong></span>Let <span class="math inline">A_{1}, \dots, A_{n}</span> be events that partition <span class="math inline">\Omega</span>, that is, <span class="math inline">A_{1}, \dots, A_{n}</span> are disjoint and there union is <span class="math inline">\Omega</span>, the for any event <span class="math inline">B</span>,</p>
+<p><span class="math display">
+\mathbb{P} (B)
+= \sum_{i = 1}^{n} \mathbb{P} (B \cap A_{i})
+= \sum_{i = 1}^{n} \mathbb{P} (B \mid A_{i}) \mathbb{P} (A_{i}).
+</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">A_{1}, \dots, A_{n}</span> partition <span class="math inline">\Omega</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+B
+&amp; = B \cap \Omega
+&amp; [B \subseteq \Omega]
+\\
+&amp; = B \cap \left(
+    \bigcup_{i = 1}^{n} A_{i}
+\right)
+\\
+&amp; = \bigcup_{i = 1}^{n} \left(
+    B \cap A_{i}
+\right).
+\end{aligned}
+</span></p>
+<p>By the axiom of countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> and <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a>, we have</p>
+<p><span class="math display">
+\mathbb{P} (B)
+= \sum_{i = 1}^{n} \mathbb{P} (B \cap A_{i})
+= \sum_{i = 1}^{n} \mathbb{P} (B \mid A_{i}) \mathbb{P} (A_{i}).
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="independence" class="level3">
+<h3 class="anchored" data-anchor-id="independence">Independence</h3>
+<div id="def-independence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 28.3 (Independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be independent if any of the following holds.</p>
 <ul>
-<li><p>When <span class="math inline">n &lt; d</span>, by the definition of the VC dimension, we can always find a set of instances of size <span class="math inline">n</span> <span class="math inline">\mathcal{H}</span> can shatter, so the growth function <span class="math inline">\Pi_{\mathcal{H}} (n) = 2^{n}</span>, which means it grows exponentially with a factor of 2 as <span class="math inline">n</span> increases,</p></li>
-<li><p>When <span class="math inline">n &gt; d</span>, by the theorem above, the growth function is upper bounded by <span class="math inline">n^{d}</span>, so it only grows in polynomials as <span class="math inline">n</span> increases.</p></li>
+<li><p><span class="math inline">\mathbb{P} (A \cap B) = \mathbb{P} (A) \mathbb{P} (B)</span>.</p></li>
+<li><p><span class="math inline">\mathbb{P} (A \mid B) = \mathbb{P} (A)</span>.</p></li>
+<li><p><span class="math inline">\mathbb{P} (B \mid A) = \mathbb{P} (B)</span>.</p></li>
 </ul>
+</div>
+<div id="def-conditional-independence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 28.4 (conditional-independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be conditional independent given an event <span class="math inline">C</span> if any of the following holds.</p>
+<ul>
+<li><p><span class="math inline">\mathbb{P} (A \cap B \mid C) = \mathbb{P} (A \mid C) \mathbb{P} (B \mid C)</span>.</p></li>
+<li><p><span class="math inline">\mathbb{P} (A \mid B \cap C) = \mathbb{P} (A \cap C)</span>.</p></li>
+<li><p><span class="math inline">\mathbb{P} (B \mid A \cap C) = \mathbb{P} (B \cap C)</span>.</p></li>
+</ul>
+</div>
+<p>We can use independence properties to calculate the probability of the intersection of independent events by calculating the product of their probabilities.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -971,13 +1024,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Learning Theory/2_Bayesian_Classifier.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span>
+      <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/02_Random_Variables.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 42&nbsp; Effective Class Size</title>
+<title>Joeyonng’s Notebook - 20&nbsp; Orthogonal projection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Learning Theory/4_Empirical_Risk_Minimization.html" rel="next">
-<link href="../Learning Theory/2_Bayesian_Classifier.html" rel="prev">
+<link href="../Linear Algebra/21_Affine_Projection.html" rel="next">
+<link href="../Linear Algebra/19_Pseudoinverse.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/3_Effective_Class_Size.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/20_Orthogonal_Projection.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,13 +159,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
@@ -282,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link">
+  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></span></a>
   </div>
 </li>
@@ -415,13 +415,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
@@ -476,9 +476,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#growth-function-shattering-coefficient" id="toc-growth-function-shattering-coefficient" class="nav-link active" data-scroll-target="#growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</a></li>
-  <li><a href="#vapnik-chervonenkis-vc-dimension" id="toc-vapnik-chervonenkis-vc-dimension" class="nav-link" data-scroll-target="#vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</a></li>
-  <li><a href="#sauers-lemma" id="toc-sauers-lemma" class="nav-link" data-scroll-target="#sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</a></li>
+  <li><a href="#properties-of-orthogonal-projection" id="toc-properties-of-orthogonal-projection" class="nav-link active" data-scroll-target="#properties-of-orthogonal-projection"><span class="header-section-number">20.1</span> Properties of orthogonal projection</a></li>
+  <li><a href="#orthogonal-projection-matrix" id="toc-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#orthogonal-projection-matrix"><span class="header-section-number">20.2</span> Orthogonal projection matrix</a></li>
+  <li><a href="#properties-of-orthogonal-projection-matrix" id="toc-properties-of-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#properties-of-orthogonal-projection-matrix"><span class="header-section-number">20.3</span> Properties of orthogonal projection matrix</a></li>
+  <li><a href="#application-least-square-problem" id="toc-application-least-square-problem" class="nav-link" data-scroll-target="#application-least-square-problem"><span class="header-section-number">20.4</span> Application: least square problem</a></li>
   </ul>
 </nav>
     </div>
@@ -487,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></h1>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></h1>
 </div>
 
 
@@ -502,45 +503,25 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>If there is an infinite number of possible hypotheses in a hypothesis class, all the bounds that are positively related to the size of the hypothesis class will be infinite as well, which provides no information and therefore become useless.</p>
-<p>However, even if a hypothesis class <span class="math inline">\mathcal{H}</span> can contain an infinite number of hypotheses, the number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any finite set of instances is finite, which is at most <span class="math inline">2^{n}</span> if the set has <span class="math inline">n</span> instances.</p>
-<section id="growth-function-shattering-coefficient" class="level2" data-number="42.1">
-<h2 data-number="42.1" class="anchored" data-anchor-id="growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</h2>
-<p>Given a set of instances <span class="math inline">\mathcal{S} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the <strong>projection</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> onto <span class="math inline">\mathcal{S}</span> is the set of all distinct labels that <span class="math inline">\mathcal{H}</span> can produce onto <span class="math inline">\mathcal{S}</span></p>
+<p>Suppose <span class="math inline">\mathcal{M}</span> is a subspace in the vector space <span class="math inline">\mathcal{V}</span>. Since <span class="math inline">\mathcal{M}^{\perp}</span> is a orthogonal complementary subspace of <span class="math inline">\mathcal{M}</span>, we have <span class="math inline">\mathcal{M} \oplus \mathcal{M}^{\perp} = \mathcal{V}</span>.</p>
+<p>For <span class="math inline">v \in \mathcal{V}</span>, let <span class="math inline">v = m + n</span>, where <span class="math inline">m \in \mathcal{M}</span> and <span class="math inline">n \in \mathcal{M}^{\perp}</span>. We define a linear operator <span class="math inline">\mathbf{P}_{\mathcal{M}} \in \mathbb{C}^{n \times n}</span> such that</p>
 <p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \{ \{ h (x_{1}), \dots, h (x_{n}) \}, \forall h \in \mathcal{H} \}.
+\mathbf{P}_{\mathcal{M}} v = m.
 </span></p>
-<p>The concept of the growth function (shattering coefficient) is to measure the richness of the decisions that a hypothesis class can make with respect to a dataset of size <span class="math inline">n</span>.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 42.1 </strong></span>The <strong>growth function</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> is defined as the maximum number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any set of <span class="math inline">n</span> instances</p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">m</span> is the <strong>orthogonal projection</strong> of <span class="math inline">v</span> onto <span class="math inline">\mathcal{M}</span> along <span class="math inline">\mathcal{M}^{\perp}</span>,</p></li>
+<li><p><span class="math inline">\mathbf{P}_{\mathcal{M}}</span> is the <strong>orthogonal projection matrix</strong> of <span class="math inline">v</span> onto <span class="math inline">\mathcal{M}</span> along <span class="math inline">\mathcal{M}^{\perp}</span>.</p></li>
+</ul>
+<section id="properties-of-orthogonal-projection" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="properties-of-orthogonal-projection"><span class="header-section-number">20.1</span> Properties of orthogonal projection</h2>
+<p>Suppose <span class="math inline">m</span> is the orthogonal projection of <span class="math inline">v</span> on the subspace <span class="math inline">\mathcal{M}</span></p>
 <p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sup_{\mathcal{S}: \lvert \mathcal{S} \rvert = n} \lvert \mathcal{H} (\mathcal{S}) \rvert.
+m = \mathbf{P}_{\mathcal{M}} v.
 </span></p>
-</div>
-<p>Note that <span class="math inline">\Pi_{\mathcal{H}} (n) \leq 2^{n}</span> for any <span class="math inline">\mathcal{H}</span> with binary labels.</p>
-</section>
-<section id="vapnik-chervonenkis-vc-dimension" class="level2" data-number="42.2">
-<h2 data-number="42.2" class="anchored" data-anchor-id="vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</h2>
-<p>We say that a sample <span class="math inline">\mathcal{S}</span> is <strong>shattered</strong> by the hypothesis class <span class="math inline">\mathcal{H}</span> if a <span class="math inline">\mathcal{H}</span> can label <span class="math inline">\mathcal{S}</span> in every possible way. That is, <span class="math inline">\mathcal{S}</span> is shattered by <span class="math inline">\mathcal{H}</span> if</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = 2^{\lvert \mathcal{S} \rvert}.
-</span></p>
-<div class="{prf:definition}">
-<p>The <strong>Vapnik-Chervonenkis (VC) dimension</strong> of <span class="math inline">\mathcal{H}</span> is the size of the largest set that is shattered by <span class="math inline">\mathcal{H}</span></p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}) = \max_{n: \mathcal{H} (\mathcal{S}) = 2^{n}} n.
-</span></p>
-</div>
-</section>
-<section id="sauers-lemma" class="level2" data-number="42.3">
-<h2 data-number="42.3" class="anchored" data-anchor-id="sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</h2>
-<p>Sauer’s lemma shows that the growth function of any hypothesis class <span class="math inline">\mathcal{H}</span> is upper-bounded by a function of its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.1 </strong></span>For any hypothesis class <span class="math inline">\mathcal{H}</span> and any dataset size <span class="math inline">n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-</span></p>
-</div>
+<p>(orthogonal-projection-property-1)=</p>
+<ul>
+<li><p><span class="math inline">m</span> always exists and is unique.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -553,120 +534,17 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will prove the lemma for any set of <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span> with <span class="math inline">\mathrm{VC} (\mathcal{H}) = d</span> using induction on <span class="math inline">n</span> and <span class="math inline">d</span>.</p>
-<p>That is, we will prove</p>
-<ul>
-<li><p>the lemma is correct under the base cases where <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>,</p></li>
-<li><p>the lemma is correct under general case for <span class="math inline">(n ,d)</span> by assuming the lemma is true under the previous cases <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n</span> and <span class="math inline">c &lt; d</span>.</p></li>
+<p>TODO</p>
+</div>
+</div>
+</div></li>
 </ul>
-<p>First the base case <span class="math inline">(n, d) = (0, d)</span> implies that</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (0) = 1 = {0 \choose 0} = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {0 \choose i}
-</span></p>
-<p>because any hypothesis class can have at most 1 distinct label on an empty set (<span class="math inline">n = 0</span>).</p>
-<p>Then the base case <span class="math inline">(n, d) = (n, 0)</span> means that <span class="math inline">\mathcal{H}</span> can only shatter the empty set <span class="math inline">\emptyset</span> and therefore according to the definition of shattering</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \mathcal{H} (\emptyset) = 2^{0} = 1 = {n \choose 0} = \sum_{i = 0}^{0} {n \choose i}.
-</span></p>
-<p>Therefore we have proven the lemma is true in the base case, that is,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}
-</span></p>
-<p>is true when <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>.</p>
-<p>To prove the general case of the lemma, take any set <span class="math inline">\mathcal{S} = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n} \}</span> with <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span>, we can classify each unique way of the label assignment <span class="math inline">\pi \in \mathcal{H} (\mathcal{S})</span> into 2 groups <span class="math inline">\mathcal{G}_{1}</span> and <span class="math inline">\mathcal{G}_{2}</span> based on whether <span class="math inline">\pi</span> can form a pair in <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
+<p>(orthogonal-projection-property-2)=</p>
 <ul>
-<li><p><span class="math inline">(\pi, \pi')</span> form a pair if <span class="math inline">\pi (x_{i}) = \pi' (x_{i}), \forall i \in [1, n - 1]</span> and <span class="math inline">\pi (x_{n}) = \pi' (x_{n})</span> (<span class="math inline">\pi</span> agree with <span class="math inline">\pi'</span> for all <span class="math inline">x_{1}, \dots, x_{n - 1}</span> but not for <span class="math inline">x_{n}</span>). We add the both <span class="math inline">\pi</span> and <span class="math inline">\pi'</span> to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-<li><p><span class="math inline">\pi</span> belongs to <span class="math inline">\mathcal{G}_{2}</span> if doesn’t belong to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-</ul>
-<p>Since the pairs <span class="math inline">(\pi, \pi') \in \mathcal{G}_{1}</span> have the same labels for <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1}</span> if we create <span class="math inline">\mathcal{G}'_{1}</span> by removing the labels for <span class="math inline">\mathbf{x}_{n}</span> in each <span class="math inline">\pi \in \mathcal{G}_{1}</span></p>
+<li><p>Orthogonality of the difference.</p>
 <p><span class="math display">
-\mathcal{G}'_{1} = \{ (\pi (\mathbf{x}_{1}), \dots, \pi (\mathbf{x}_{n - 1})), \forall \pi \in \mathcal{G}_{1} \} \\
-</span></p>
-<p>then all of the pairs in <span class="math inline">\mathcal{G}_{1}</span> become the same label assignment, but if we create <span class="math inline">\mathcal{G}_{2}'</span> using the same procedure above, the resulting label assignments in <span class="math inline">\mathcal{G}_{2}'</span> are still unique.</p>
-<p>Also, by the definition of <span class="math inline">\mathcal{G}_{1}</span>, <span class="math inline">\mathcal{G}_{2}</span>, <span class="math inline">\mathcal{G}_{1}'</span>, and <span class="math inline">\mathcal{G}_{2}'</span>, the label assignments in <span class="math inline">\mathcal{G}_{1}'</span> and <span class="math inline">\mathcal{G}_{2}'</span> do not overlap, and therefore</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \lvert \mathcal{G}_{1} \rvert + \lvert \mathcal{G}_{2} \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert.
-</span></p>
-<p>Then we will define 2 new hypotheses classes <span class="math inline">\mathcal{H}_{1}</span>, <span class="math inline">\mathcal{H}_{2}</span> whose domain is a set <span class="math inline">\mathcal{S}'</span> that is constructed by removing <span class="math inline">x_{n}</span> from <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{S}' = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n - 1} \}.
-</span></p>
-<p>and whose projections on <span class="math inline">\mathcal{S}'</span> are defined as</p>
-<p><span class="math display">
-\mathcal{H}_{1} (\mathcal{S}') = \mathcal{G}_{1}' \cup \mathcal{G}_{2}' \\
-\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}',
-</span></p>
-<p>and therefore,</p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert = (\lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert) + \lvert \mathcal{G}_{1}' \rvert = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert.
-</span></p>
-<p>Although we never exactly defined what <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span> are, we have completely specified their projections on the entire domain <span class="math inline">\mathcal{S}'</span>, using which we can derive</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{1}) \leq \mathrm{VC} (\mathcal{H}),
-</span></p>
-<p>since the <span class="math inline">\mathcal{H}</span> has all the same label assignments for <span class="math inline">\mathcal{S}' = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1} \}</span> that <span class="math inline">\mathcal{H}_{1}</span> has and any subset of <span class="math inline">\mathcal{S}'</span> that is shattered by <span class="math inline">\mathcal{H}_{1}</span> is shattered by <span class="math inline">\mathcal{H}</span>.</p>
-<p>Furthermore, since <span class="math inline">\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}</span>, if a subset <span class="math inline">\mathcal{T} \subseteq \mathcal{S}'</span> is shattered by <span class="math inline">\mathcal{H}_{2}</span>, then the set <span class="math inline">\mathcal{T} \cup \{ x_{n} \}</span> must be shattered by <span class="math inline">\mathcal{H}</span>, which means</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{2}) + 1 \leq \mathrm{VC} (\mathcal{H}).
-</span></p>
-<p>Now we are ready to prove the general case of the lemma using the all results we proved above with <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span>.</p>
-<p>According to the definition of growth function, for any hypothesis class <span class="math inline">\mathcal{H}</span> and any set <span class="math inline">\mathcal{S}</span> of size <span class="math inline">n</span></p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert \leq \Pi_{\mathcal{H}} (n)
-</span></p>
-<p>and since we have assumed that the lemma is correct for the case <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n, c &lt; d</span>,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (m) \leq \sum_{i = 0}^{c} {m \choose i},
-</span></p>
-<p>we have</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert
-\\
-&amp; \leq \Pi_{\mathcal{H}_{1}} (n - 1) + \Pi_{\mathcal{H}_{2}} (n - 1).
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-\end{aligned}
-</span></p>
-<p>Since we have proved that the relations between <span class="math inline">\mathrm{VC} (\mathcal{H}_{1})</span>, <span class="math inline">\mathrm{VC} (\mathcal{H}_{2})</span> and <span class="math inline">\mathrm{VC} (\mathcal{H})</span>,</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}) - 1} {n - 1 \choose i}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 1}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1} + {n - 1 \choose -1}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1}
-&amp; [{n - 1 \choose - 1} = 0]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} \left[
-    {n - 1 \choose i} + {n - 1 \choose i - 1}
-\right]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-\end{aligned}
-</span></p>
-<p>Since all of the above proof is for any <span class="math inline">\mathcal{S}</span>, it also works for the largest <span class="math inline">\lvert \mathcal{H} (\mathcal{S}) \rvert</span>,</p>
-<p><span class="math display">
-\sup_{\mathcal{S}} \lvert \mathcal{H} (\mathcal{S}) \rvert = \Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i},
-</span></p>
-<p>which proves the lemma under the general case.</p>
-</div>
-</div>
-</div>
-<p>The following theorem uses Sauer’s lemma to provide a closed form upper-bound of the growth function of any hypothesis class with its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.2 </strong></span>For any <span class="math inline">1 &lt; d = \mathrm{VC} (\mathcal{H}) &lt; n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{d} {n \choose i} \leq \left(
-    \frac{ e }{ d } n
-\right)^{d} = O (n^d).
-</span></p>
-</div>
+  \langle v - m, x \rangle = 0, \quad \forall x \in \mathcal{M}
+  </span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -679,58 +557,325 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First note that <span class="math inline">(\frac{ d }{ n })^{d} &lt; (\frac{ d }{ n })^{i}, i &lt; d</span> since <span class="math inline">d &lt; n</span>, and therefore</p>
+<p>Since <span class="math inline">n \in \mathcal{M}^{\perp}</span>, by definition of the orthogonal complement of subspaces,</p>
 <p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i}
-\right]
-\\
-&amp; = \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\end{aligned}
-</span></p>
-<p>By applying Binomial theorem <span class="math inline">(x + y)^{n} = \sum_{i = 0}^{n} {n \choose i} x^{i} y^{n - i}</span></p>
+  \langle n, x \rangle = 0, \quad \forall x \in \mathcal{M}.
+  </span></p>
+<p>Since by definition <span class="math inline">v = m + n</span>,</p>
 <p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; = \left(
-    \frac{ d }{ n } + 1
-\right)^{n}
-\\
-&amp; \leq e^{d}.
-\end{aligned}
-</span></p>
+  \langle v - m, x \rangle = 0, \quad \forall x \in \mathcal{M}.
+  </span></p>
 </div>
 </div>
-</div>
-<p>The theorem above shows that the VC dimension marks the threshold between the exponential growth and polynomial growth of the growth function.</p>
-<ul>
-<li><p>When <span class="math inline">n &lt; d</span>, by the definition of the VC dimension, we can always find a set of instances of size <span class="math inline">n</span> <span class="math inline">\mathcal{H}</span> can shatter, so the growth function <span class="math inline">\Pi_{\mathcal{H}} (n) = 2^{n}</span>, which means it grows exponentially with a factor of 2 as <span class="math inline">n</span> increases,</p></li>
-<li><p>When <span class="math inline">n &gt; d</span>, by the theorem above, the growth function is upper bounded by <span class="math inline">n^{d}</span>, so it only grows in polynomials as <span class="math inline">n</span> increases.</p></li>
+</div></li>
 </ul>
+<p>(orthogonal-projection-property-3)=</p>
+<ul>
+<li><p>Closest point theorem: <span class="math inline">m</span> is the closest point in <span class="math inline">\mathcal{M}</span> to <span class="math inline">v</span> in terms of the ip norm:</p>
+<p><span class="math display">
+  m = \min_{x \in \mathcal{M}} \lVert v - x \rVert.
+  </span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>According to the <a href="orthogonal-projection-property-1">property of orthogonal projection</a>, the projection <span class="math inline">m</span> always exists.</p>
+<p>Thus, we can add and subtract <span class="math inline">m</span>,</p>
+<p><span class="math display">
+  \begin{aligned}
+  \lVert v - x \rVert^{2}
+  &amp; = \lVert v - m + m - x \rVert^{2} \quad \forall x \in \mathcal{M}
+  \\
+  &amp; = \langle v - m + m - x, v - m + m - x \rangle
+  \\
+  &amp; = \langle v - m, v - m + m - x \rangle + \langle m - x, v - m + m - x \rangle
+  \\
+  &amp; = \lVert v - m \rVert^{2} + \langle v - m, m - x \rangle + \langle m - x, v - m \rangle + \lVert m - x \rVert^{2}
+  \\
+  \end{aligned}
+  </span></p>
+<p>Since <span class="math inline">m - x \in \mathcal{M}</span>, according to the <a href="orthogonal-projection-property-2">property of orthogonal projection</a>,</p>
+<p><span class="math display">
+  \langle v - m, m - x \rangle = \langle m - x, v - m \rangle = 0.
+  </span></p>
+<p>Thus,</p>
+<p><span class="math display">
+  \begin{aligned}
+  \lVert v - x \rVert^{2}
+  &amp; = \lVert v - m \rVert^{2} + \lVert m - x \rVert^{2}
+  \\
+  \lVert v - x \rVert^{2}
+  &amp; \geq \lVert v - m \rVert^{2}
+  &amp; [\lVert m - x \rVert^{2} \geq 0]
+  \end{aligned}
+  </span></p>
+<p>which shows that</p>
+<p><span class="math display">
+  \lVert v - m \rVert^{2}
+  </span></p>
+<p>minimizes the distances between <span class="math inline">v</span> to all vectors <span class="math inline">x</span> in the subspace <span class="math inline">\mathcal{M}</span>.</p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="orthogonal-projection-matrix" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="orthogonal-projection-matrix"><span class="header-section-number">20.2</span> Orthogonal projection matrix</h2>
+<p>If <span class="math inline">\mathbf{P}_{\mathcal{M}}</span> is the orthogonal projection matrix of <span class="math inline">v</span> onto the subspace <span class="math inline">\mathcal{M}</span>, and the columns of <span class="math inline">\mathbf{M} \in \mathbb{C}^{n \times r}</span> are <span class="math inline">r</span> bases for <span class="math inline">\mathcal{M}</span>, then</p>
+<p><span class="math display">
+\mathbf{P}_{\mathcal{M}} = \mathbf{M} (\mathbf{M}^{H} \mathbf{M})^{-1} \mathbf{M}^{H}.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\text{rank} (\mathbf{M}^{H} \mathbf{H}) = \text{rank} (\mathcal{M}) = r</span> and <span class="math inline">\mathbf{M}^{H} \mathbf{H} \in \mathbb{C}^{r \times r}</span>, according to the <a href="rank-property-5">property of rank</a>, <span class="math inline">(\mathbf{M}^{H} \mathbf{H})^{-1}</span> exists.</p>
+<p>Suppose the columns of <span class="math inline">\mathbf{N} \in \mathbb{C}^{n \times s}</span> are orthonormal bases for <span class="math inline">\mathcal{M}^{\perp}</span>, where <span class="math inline">s = n - r</span> according to the <a href="complementary-subspaces-property-2">property of complementary subspaces</a>.</p>
+<p>Thus, we can construct the below matrix</p>
+<p><span class="math display">
+\begin{bmatrix}
+    (\mathbf{M}^{H} \mathbf{H})^{-1} \mathbf{M}^{H} \\
+    \mathbf{N}^{H} \\
+\end{bmatrix}.
+</span></p>
+<p>According to the definition of complementary subspaces, <span class="math inline">\mathbf{N}^{T} \mathbf{M} = 0</span> and <span class="math inline">\mathbf{M}^{T} \mathbf{N} = 0</span>.</p>
+<p>Thus,</p>
+<p><span class="math display">
+\begin{aligned}
+\begin{bmatrix}
+    (\mathbf{M}^{H} \mathbf{H})^{-1} \mathbf{M}^{H} \\
+    \mathbf{N}^{H} \\
+\end{bmatrix}
+\begin{bmatrix}
+    \mathbf{M} &amp; \mathbf{N} \\
+\end{bmatrix}
+&amp; =
+\begin{bmatrix}
+    \mathbf{I}_{r \times r} &amp; \mathbf{0} \\
+    \mathbf{0} &amp; \mathbf{I}_{s \times s} \\
+\end{bmatrix}
+\\
+\begin{bmatrix}
+    \mathbf{M} &amp; \mathbf{N} \\
+\end{bmatrix}^{-1}
+&amp; =
+\begin{bmatrix}
+    (\mathbf{M}^{H} \mathbf{H})^{-1} \mathbf{M}^{H} \\
+    \mathbf{N}^{H} \\
+\end{bmatrix}.
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathcal{M}</span> and <span class="math inline">\mathcal{M}^{\perp}</span> are complementary subspaces, by the definition of projector,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{P}_{\mathcal{M}}
+&amp; =
+\begin{bmatrix}
+    \mathbf{M} &amp; \mathbf{0}
+\end{bmatrix}
+\begin{bmatrix}
+    \mathbf{M} &amp; \mathbf{N}
+\end{bmatrix}^{-1} \\
+&amp; =
+\begin{bmatrix}
+    \mathbf{M} &amp; \mathbf{0}
+\end{bmatrix}
+\begin{bmatrix}
+    (\mathbf{M}^{H} \mathbf{H})^{-1} \mathbf{M}^{H} \\
+    \mathbf{N}^{H} \\
+\end{bmatrix}
+\\
+&amp; = \mathbf{M} (\mathbf{M}^{H} \mathbf{H})^{-1} \mathbf{M}^{H}.
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="properties-of-orthogonal-projection-matrix" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="properties-of-orthogonal-projection-matrix"><span class="header-section-number">20.3</span> Properties of orthogonal projection matrix</h2>
+<p>(orthogonal-projection-matrix-property-1)=</p>
+<ul>
+<li><p><span class="math inline">\mathbf{P}</span> is a orthogonal projection matrix if and only if</p>
+<p><span class="math display">
+  R (\mathbf{P}) = N (\mathbf{P})^{\perp}.
+  </span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
+</div>
+</div></li>
+</ul>
+<p>(orthogonal-projection-matrix-property-2)=</p>
+<ul>
+<li><p><span class="math inline">\mathbf{P}</span> is a orthogonal projection matrix if and only if</p>
+<p><span class="math display">
+  \mathbf{P}^{H} = \mathbf{P}.
+  </span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>According to the orthogonal decomposition theorem,</p>
+<p><span class="math display">
+  \begin{aligned}
+  R (\mathbf{P})^{\perp}
+  &amp; = N (\mathbf{P}^{H})
+  \\
+  R (\mathbf{P})
+  &amp; = N (\mathbf{P}^{H})^{\perp}.
+  \\
+  \end{aligned}
+  </span></p>
+<p>According to the property of the <a href="orthogonal-projection-matrix-property-1">orthogonal projection matrix</a>,</p>
+<p><span class="math display">
+  \begin{aligned}
+  N (\mathbf{P})^{\perp}
+  &amp; = N (\mathbf{P}^{H})^{\perp}
+  \\
+  \mathbf{P}
+  &amp; = \mathbf{P}^{H}.
+  \\
+  \end{aligned}
+  </span></p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="application-least-square-problem" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="application-least-square-problem"><span class="header-section-number">20.4</span> Application: least square problem</h2>
+<p>Consider the problem of solving a system of linear equation for <span class="math inline">\mathbf{x} \in \mathbb{C}^{n}</span> given <span class="math inline">\mathbf{y} \in \mathbb{C}^{m}</span> and <span class="math inline">\mathbf{A} \in \mathbb{C}^{m \times n}</span>,</p>
+<p><span class="math display">
+\mathbf{y} = \mathbf{A} \mathbf{x}.
+</span></p>
+<p>This problem has a solution only when <span class="math inline">\mathbf{y} \in R (\mathbf{A})</span>. When it has no solution, the objective is changed to solve the least square problem</p>
+<p><span class="math display">
+\mathbf{x}^{*} = \min_{\mathbf{x} \in \mathbb{C}^{n}} \lVert \mathbf{y} - \mathbf{A} \mathbf{x} \rVert_{2}^{2}
+</span></p>
+<p>so that <span class="math inline">\mathbf{A} \mathbf{x}</span> can be as close to <span class="math inline">\mathbf{y}</span> as possible.</p>
+<p>Solving the least square problem is the same as solving an orthogonal projection problem,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{x}^{*}
+&amp; = \min_{\mathbf{x} \in \mathbb{C}^{n}} \lVert \mathbf{y} - \mathbf{A} \mathbf{x} \rVert_{2}^{2}
+\\
+&amp; = \min_{\mathbf{x} \in \mathbb{C}^{n}} \lVert \mathbf{y} - \mathbf{A} \mathbf{x} \rVert_{2}
+&amp; [\lVert \mathbf{y} - \mathbf{A} \mathbf{x} \rVert_{2} \geq 0]
+\\
+\mathbf{z}^{*}
+&amp; = \min_{\mathbf{z} \in R (\mathbf{A})} \lVert \mathbf{y} - \mathbf{z} \rVert_{2}
+&amp; [\mathbf{z} = \mathbf{A} \mathbf{x}, \mathbf{z}^{*} = \mathbf{A} \mathbf{x}^{*}].
+\end{aligned}
+</span></p>
+<p>which is the problem of finding the closest point of <span class="math inline">\mathbf{y}</span> on <span class="math inline">R (\mathbf{A})</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{z}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})} \mathbf{y}
+\\
+\mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})} \mathbf{y}.
+\end{aligned}
+</span></p>
+<p>We can then deduce the system of normal equations:</p>
+<p><span class="math display">
+\mathbf{A} \mathbf{x}^{*} = \mathbf{P}_{R (\mathbf{A})} \mathbf{y} \iff \mathbf{A}^{H} \mathbf{A} \mathbf{x}^{*} = \mathbf{A}^{H} \mathbf{y}.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First multiplying both ends by <span class="math inline">\mathbf{P}_{R (\mathbf{A})}</span> and use the <a href="projector-property-3">projector property</a>,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})} \mathbf{y}
+\\
+\mathbf{P}_{R (\mathbf{A})} \mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})}^{2} \mathbf{y}
+\\
+\mathbf{P}_{R (\mathbf{A})} \mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})} \mathbf{y}.
+&amp; [\mathbf{P}_{R (\mathbf{A})}^{2} = \mathbf{P}_{R (\mathbf{A})}]
+\\
+\end{aligned}
+</span></p>
+<p>Then,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{P}_{R (\mathbf{A})} \mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{P}_{R (\mathbf{A})} \mathbf{y}.
+\\
+\mathbf{P}_{R (\mathbf{A})} (\mathbf{A} \mathbf{x}^{*} - \mathbf{y})
+&amp; = 0
+\\
+\end{aligned}
+</span></p>
+<p>which shows that</p>
+<p><span class="math display">
+\mathbf{A} \mathbf{x}^{*} - \mathbf{y} \in N (\mathbf{P}_{R (\mathbf{A})}).
+</span></p>
+<p>According to the <a href="orthogonal-projection-matrix-property-1">property of the orthogonal projection matrix</a>,</p>
+<p><span class="math display">
+N (\mathbf{P}_{R (\mathbf{A})}) = R (\mathbf{A})^{\perp} = N (\mathbf{A}^{H}),
+</span></p>
+<p>which means</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{A}^{H} (\mathbf{A} \mathbf{x}^{*} - \mathbf{y})
+&amp; = 0
+\\
+\mathbf{A}^{H} \mathbf{A} \mathbf{x}^{*}
+&amp; = \mathbf{A}^{H} \mathbf{y}.
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -971,13 +1116,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Learning Theory/2_Bayesian_Classifier.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span>
+      <a href="../Linear Algebra/19_Pseudoinverse.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Linear Algebra/21_Affine_Projection.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Affine projection</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 42&nbsp; Effective Class Size</title>
+<title>Joeyonng’s Notebook - 26&nbsp; Normal Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Learning Theory/4_Empirical_Risk_Minimization.html" rel="next">
-<link href="../Learning Theory/2_Bayesian_Classifier.html" rel="prev">
+<link href="../Linear Algebra/27_Positive_Definite_Matrices.html" rel="next">
+<link href="../Linear Algebra/25_Diagonalization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/3_Effective_Class_Size.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/26_Normal_Matrices.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,13 +159,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
@@ -318,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></span></a>
   </div>
 </li>
@@ -415,13 +415,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
@@ -476,9 +476,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#growth-function-shattering-coefficient" id="toc-growth-function-shattering-coefficient" class="nav-link active" data-scroll-target="#growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</a></li>
-  <li><a href="#vapnik-chervonenkis-vc-dimension" id="toc-vapnik-chervonenkis-vc-dimension" class="nav-link" data-scroll-target="#vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</a></li>
-  <li><a href="#sauers-lemma" id="toc-sauers-lemma" class="nav-link" data-scroll-target="#sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</a></li>
+  <li><a href="#properties-of-normal-matrices" id="toc-properties-of-normal-matrices" class="nav-link active" data-scroll-target="#properties-of-normal-matrices"><span class="header-section-number">26.1</span> Properties of normal matrices</a></li>
+  <li><a href="#unitary-diagonalization" id="toc-unitary-diagonalization" class="nav-link" data-scroll-target="#unitary-diagonalization"><span class="header-section-number">26.2</span> Unitary diagonalization</a></li>
+  <li><a href="#hermitian-symmetric-matrices" id="toc-hermitian-symmetric-matrices" class="nav-link" data-scroll-target="#hermitian-symmetric-matrices"><span class="header-section-number">26.3</span> Hermitian (symmetric) matrices</a></li>
+  <li><a href="#rayleigh-quotient" id="toc-rayleigh-quotient" class="nav-link" data-scroll-target="#rayleigh-quotient"><span class="header-section-number">26.4</span> Rayleigh quotient</a></li>
   </ul>
 </nav>
     </div>
@@ -487,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></h1>
+<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></h1>
 </div>
 
 
@@ -502,45 +503,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>If there is an infinite number of possible hypotheses in a hypothesis class, all the bounds that are positively related to the size of the hypothesis class will be infinite as well, which provides no information and therefore become useless.</p>
-<p>However, even if a hypothesis class <span class="math inline">\mathcal{H}</span> can contain an infinite number of hypotheses, the number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any finite set of instances is finite, which is at most <span class="math inline">2^{n}</span> if the set has <span class="math inline">n</span> instances.</p>
-<section id="growth-function-shattering-coefficient" class="level2" data-number="42.1">
-<h2 data-number="42.1" class="anchored" data-anchor-id="growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</h2>
-<p>Given a set of instances <span class="math inline">\mathcal{S} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the <strong>projection</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> onto <span class="math inline">\mathcal{S}</span> is the set of all distinct labels that <span class="math inline">\mathcal{H}</span> can produce onto <span class="math inline">\mathcal{S}</span></p>
+<p>The matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is a <strong>normal matrix</strong> if and only if</p>
 <p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \{ \{ h (x_{1}), \dots, h (x_{n}) \}, \forall h \in \mathcal{H} \}.
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
 </span></p>
-<p>The concept of the growth function (shattering coefficient) is to measure the richness of the decisions that a hypothesis class can make with respect to a dataset of size <span class="math inline">n</span>.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 42.1 </strong></span>The <strong>growth function</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> is defined as the maximum number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any set of <span class="math inline">n</span> instances</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sup_{\mathcal{S}: \lvert \mathcal{S} \rvert = n} \lvert \mathcal{H} (\mathcal{S}) \rvert.
-</span></p>
-</div>
-<p>Note that <span class="math inline">\Pi_{\mathcal{H}} (n) \leq 2^{n}</span> for any <span class="math inline">\mathcal{H}</span> with binary labels.</p>
-</section>
-<section id="vapnik-chervonenkis-vc-dimension" class="level2" data-number="42.2">
-<h2 data-number="42.2" class="anchored" data-anchor-id="vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</h2>
-<p>We say that a sample <span class="math inline">\mathcal{S}</span> is <strong>shattered</strong> by the hypothesis class <span class="math inline">\mathcal{H}</span> if a <span class="math inline">\mathcal{H}</span> can label <span class="math inline">\mathcal{S}</span> in every possible way. That is, <span class="math inline">\mathcal{S}</span> is shattered by <span class="math inline">\mathcal{H}</span> if</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = 2^{\lvert \mathcal{S} \rvert}.
-</span></p>
-<div class="{prf:definition}">
-<p>The <strong>Vapnik-Chervonenkis (VC) dimension</strong> of <span class="math inline">\mathcal{H}</span> is the size of the largest set that is shattered by <span class="math inline">\mathcal{H}</span></p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}) = \max_{n: \mathcal{H} (\mathcal{S}) = 2^{n}} n.
-</span></p>
-</div>
-</section>
-<section id="sauers-lemma" class="level2" data-number="42.3">
-<h2 data-number="42.3" class="anchored" data-anchor-id="sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</h2>
-<p>Sauer’s lemma shows that the growth function of any hypothesis class <span class="math inline">\mathcal{H}</span> is upper-bounded by a function of its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.1 </strong></span>For any hypothesis class <span class="math inline">\mathcal{H}</span> and any dataset size <span class="math inline">n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-</span></p>
-</div>
+<section id="properties-of-normal-matrices" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="properties-of-normal-matrices"><span class="header-section-number">26.1</span> Properties of normal matrices</h2>
+<p>(normal-matrices-property-1)=</p>
+<ul>
+<li><p>Unitary matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -553,120 +524,18 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will prove the lemma for any set of <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span> with <span class="math inline">\mathrm{VC} (\mathcal{H}) = d</span> using induction on <span class="math inline">n</span> and <span class="math inline">d</span>.</p>
-<p>That is, we will prove</p>
-<ul>
-<li><p>the lemma is correct under the base cases where <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>,</p></li>
-<li><p>the lemma is correct under general case for <span class="math inline">(n ,d)</span> by assuming the lemma is true under the previous cases <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n</span> and <span class="math inline">c &lt; d</span>.</p></li>
+<p>According to the <a href="unitary-matrix-property-2">property of unitary matrices</a>, a matrix <span class="math inline">\mathbf{U}</span> is unitary if and only if</p>
+<p><span class="math display">
+  \mathbf{U}^{-1} \mathbf{U} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}.
+  </span></p>
+<p>Thus, unitary matrices are normal.</p>
+</div>
+</div>
+</div></li>
 </ul>
-<p>First the base case <span class="math inline">(n, d) = (0, d)</span> implies that</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (0) = 1 = {0 \choose 0} = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {0 \choose i}
-</span></p>
-<p>because any hypothesis class can have at most 1 distinct label on an empty set (<span class="math inline">n = 0</span>).</p>
-<p>Then the base case <span class="math inline">(n, d) = (n, 0)</span> means that <span class="math inline">\mathcal{H}</span> can only shatter the empty set <span class="math inline">\emptyset</span> and therefore according to the definition of shattering</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \mathcal{H} (\emptyset) = 2^{0} = 1 = {n \choose 0} = \sum_{i = 0}^{0} {n \choose i}.
-</span></p>
-<p>Therefore we have proven the lemma is true in the base case, that is,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}
-</span></p>
-<p>is true when <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>.</p>
-<p>To prove the general case of the lemma, take any set <span class="math inline">\mathcal{S} = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n} \}</span> with <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span>, we can classify each unique way of the label assignment <span class="math inline">\pi \in \mathcal{H} (\mathcal{S})</span> into 2 groups <span class="math inline">\mathcal{G}_{1}</span> and <span class="math inline">\mathcal{G}_{2}</span> based on whether <span class="math inline">\pi</span> can form a pair in <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
+<p>(normal-matrices-property-2)=</p>
 <ul>
-<li><p><span class="math inline">(\pi, \pi')</span> form a pair if <span class="math inline">\pi (x_{i}) = \pi' (x_{i}), \forall i \in [1, n - 1]</span> and <span class="math inline">\pi (x_{n}) = \pi' (x_{n})</span> (<span class="math inline">\pi</span> agree with <span class="math inline">\pi'</span> for all <span class="math inline">x_{1}, \dots, x_{n - 1}</span> but not for <span class="math inline">x_{n}</span>). We add the both <span class="math inline">\pi</span> and <span class="math inline">\pi'</span> to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-<li><p><span class="math inline">\pi</span> belongs to <span class="math inline">\mathcal{G}_{2}</span> if doesn’t belong to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-</ul>
-<p>Since the pairs <span class="math inline">(\pi, \pi') \in \mathcal{G}_{1}</span> have the same labels for <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1}</span> if we create <span class="math inline">\mathcal{G}'_{1}</span> by removing the labels for <span class="math inline">\mathbf{x}_{n}</span> in each <span class="math inline">\pi \in \mathcal{G}_{1}</span></p>
-<p><span class="math display">
-\mathcal{G}'_{1} = \{ (\pi (\mathbf{x}_{1}), \dots, \pi (\mathbf{x}_{n - 1})), \forall \pi \in \mathcal{G}_{1} \} \\
-</span></p>
-<p>then all of the pairs in <span class="math inline">\mathcal{G}_{1}</span> become the same label assignment, but if we create <span class="math inline">\mathcal{G}_{2}'</span> using the same procedure above, the resulting label assignments in <span class="math inline">\mathcal{G}_{2}'</span> are still unique.</p>
-<p>Also, by the definition of <span class="math inline">\mathcal{G}_{1}</span>, <span class="math inline">\mathcal{G}_{2}</span>, <span class="math inline">\mathcal{G}_{1}'</span>, and <span class="math inline">\mathcal{G}_{2}'</span>, the label assignments in <span class="math inline">\mathcal{G}_{1}'</span> and <span class="math inline">\mathcal{G}_{2}'</span> do not overlap, and therefore</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \lvert \mathcal{G}_{1} \rvert + \lvert \mathcal{G}_{2} \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert.
-</span></p>
-<p>Then we will define 2 new hypotheses classes <span class="math inline">\mathcal{H}_{1}</span>, <span class="math inline">\mathcal{H}_{2}</span> whose domain is a set <span class="math inline">\mathcal{S}'</span> that is constructed by removing <span class="math inline">x_{n}</span> from <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{S}' = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n - 1} \}.
-</span></p>
-<p>and whose projections on <span class="math inline">\mathcal{S}'</span> are defined as</p>
-<p><span class="math display">
-\mathcal{H}_{1} (\mathcal{S}') = \mathcal{G}_{1}' \cup \mathcal{G}_{2}' \\
-\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}',
-</span></p>
-<p>and therefore,</p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert = (\lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert) + \lvert \mathcal{G}_{1}' \rvert = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert.
-</span></p>
-<p>Although we never exactly defined what <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span> are, we have completely specified their projections on the entire domain <span class="math inline">\mathcal{S}'</span>, using which we can derive</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{1}) \leq \mathrm{VC} (\mathcal{H}),
-</span></p>
-<p>since the <span class="math inline">\mathcal{H}</span> has all the same label assignments for <span class="math inline">\mathcal{S}' = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1} \}</span> that <span class="math inline">\mathcal{H}_{1}</span> has and any subset of <span class="math inline">\mathcal{S}'</span> that is shattered by <span class="math inline">\mathcal{H}_{1}</span> is shattered by <span class="math inline">\mathcal{H}</span>.</p>
-<p>Furthermore, since <span class="math inline">\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}</span>, if a subset <span class="math inline">\mathcal{T} \subseteq \mathcal{S}'</span> is shattered by <span class="math inline">\mathcal{H}_{2}</span>, then the set <span class="math inline">\mathcal{T} \cup \{ x_{n} \}</span> must be shattered by <span class="math inline">\mathcal{H}</span>, which means</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{2}) + 1 \leq \mathrm{VC} (\mathcal{H}).
-</span></p>
-<p>Now we are ready to prove the general case of the lemma using the all results we proved above with <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span>.</p>
-<p>According to the definition of growth function, for any hypothesis class <span class="math inline">\mathcal{H}</span> and any set <span class="math inline">\mathcal{S}</span> of size <span class="math inline">n</span></p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert \leq \Pi_{\mathcal{H}} (n)
-</span></p>
-<p>and since we have assumed that the lemma is correct for the case <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n, c &lt; d</span>,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (m) \leq \sum_{i = 0}^{c} {m \choose i},
-</span></p>
-<p>we have</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert
-\\
-&amp; \leq \Pi_{\mathcal{H}_{1}} (n - 1) + \Pi_{\mathcal{H}_{2}} (n - 1).
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-\end{aligned}
-</span></p>
-<p>Since we have proved that the relations between <span class="math inline">\mathrm{VC} (\mathcal{H}_{1})</span>, <span class="math inline">\mathrm{VC} (\mathcal{H}_{2})</span> and <span class="math inline">\mathrm{VC} (\mathcal{H})</span>,</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}) - 1} {n - 1 \choose i}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 1}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1} + {n - 1 \choose -1}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1}
-&amp; [{n - 1 \choose - 1} = 0]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} \left[
-    {n - 1 \choose i} + {n - 1 \choose i - 1}
-\right]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-\end{aligned}
-</span></p>
-<p>Since all of the above proof is for any <span class="math inline">\mathcal{S}</span>, it also works for the largest <span class="math inline">\lvert \mathcal{H} (\mathcal{S}) \rvert</span>,</p>
-<p><span class="math display">
-\sup_{\mathcal{S}} \lvert \mathcal{H} (\mathcal{S}) \rvert = \Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i},
-</span></p>
-<p>which proves the lemma under the general case.</p>
-</div>
-</div>
-</div>
-<p>The following theorem uses Sauer’s lemma to provide a closed form upper-bound of the growth function of any hypothesis class with its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.2 </strong></span>For any <span class="math inline">1 &lt; d = \mathrm{VC} (\mathcal{H}) &lt; n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{d} {n \choose i} \leq \left(
-    \frac{ e }{ d } n
-\right)^{d} = O (n^d).
-</span></p>
-</div>
+<li><p>Diagonal matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -679,58 +548,340 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First note that <span class="math inline">(\frac{ d }{ n })^{d} &lt; (\frac{ d }{ n })^{i}, i &lt; d</span> since <span class="math inline">d &lt; n</span>, and therefore</p>
+<p>Consider <span class="math inline">\mathbf{D} \in \mathbb{C}^{n \times n}</span> as a diagonal matrix with <span class="math inline">d_{1}, \dots, d_{n}</span> in its diagonal.</p>
 <p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i}
-\right]
-\\
-&amp; = \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\end{aligned}
-</span></p>
-<p>By applying Binomial theorem <span class="math inline">(x + y)^{n} = \sum_{i = 0}^{n} {n \choose i} x^{i} y^{n - i}</span></p>
-<p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; = \left(
-    \frac{ d }{ n } + 1
-\right)^{n}
-\\
-&amp; \leq e^{d}.
-\end{aligned}
-</span></p>
+  \mathbf{D}^{H} \mathbf{D} = \sum_{i=1}^{n} d_{i}^{2} = \mathbf{D} \mathbf{D}^{H}.
+  </span></p>
 </div>
 </div>
-</div>
-<p>The theorem above shows that the VC dimension marks the threshold between the exponential growth and polynomial growth of the growth function.</p>
-<ul>
-<li><p>When <span class="math inline">n &lt; d</span>, by the definition of the VC dimension, we can always find a set of instances of size <span class="math inline">n</span> <span class="math inline">\mathcal{H}</span> can shatter, so the growth function <span class="math inline">\Pi_{\mathcal{H}} (n) = 2^{n}</span>, which means it grows exponentially with a factor of 2 as <span class="math inline">n</span> increases,</p></li>
-<li><p>When <span class="math inline">n &gt; d</span>, by the theorem above, the growth function is upper bounded by <span class="math inline">n^{d}</span>, so it only grows in polynomials as <span class="math inline">n</span> increases.</p></li>
+</div></li>
 </ul>
+<p>(normal-matrices-property-3)=</p>
+<ul>
+<li><p>Unitary similarity preserves normality. That is, if <span class="math inline">\mathbf{A}</span> is a normal matrix and is unitarily similar to <span class="math inline">\mathbf{B}</span></p>
+<p><span class="math display">
+  \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B}
+  </span></p>
+<p>or</p>
+<p><span class="math display">
+  \mathbf{U}^{H} \mathbf{A} \mathbf{U} = \mathbf{B},
+  </span></p>
+<p>then <span class="math inline">\mathbf{B}</span> is also a normal matrix.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The goal is to prove</p>
+<p><span class="math display">
+  \mathbf{B}^{H} \mathbf{B} = \mathbf{B} \mathbf{B}^{H}.
+  </span></p>
+<p>First we expand <span class="math inline">\mathbf{B}^{H} \mathbf{B}</span> to have</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{B}^{H} \mathbf{B}
+  &amp; = (\mathbf{U}^{H} \mathbf{A} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
+  \\
+  &amp; = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  &amp; [TODO]
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
+  &amp; [\mathbf{U} \mathbf{U}^{H} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}]
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}.
+  \end{aligned}
+  </span></p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a normal matrix,</p>
+<p><span class="math display">
+  \mathbf{A} \mathbf{A}^{H} = \mathbf{A}^{H} \mathbf{A}.
+  </span></p>
+<p>Continue from the derivation above,</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{B}^{H} \mathbf{B}
+  &amp; = \mathbf{U}^{H} \mathbf{A} \mathbf{A}^{H} \mathbf{U}
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  \\
+  &amp; = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  &amp; [TODO]
+  \\
+  &amp; = (\mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
+  \\
+  &amp; = \mathbf{B} \mathbf{B}^{H}.
+  \end{aligned}
+  </span></p>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="unitary-diagonalization" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="unitary-diagonalization"><span class="header-section-number">26.2</span> Unitary diagonalization</h2>
+<p>A matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is normal if and only if <span class="math inline">\mathbf{A}</span> is unitarily similar to a diagonal matrix</p>
+<p><span class="math display">
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+</span></p>
+<p>where <span class="math inline">\mathbf{U}</span> is a unitary matrix and <span class="math inline">\mathbf{\Lambda}</span> is a diagonal matrix.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We first prove that</p>
+<p><span class="math display">
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \Rightarrow \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+</span></p>
+<p>TODO</p>
+<p>Then we prove that</p>
+<p><span class="math display">
+\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda} \Rightarrow \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
+</span></p>
+<p>According to the <a href="normal-matrices-property-3">property of unitary matrices</a>, unitary similarity preserves normality.</p>
+<p>Also according to <a href="normal-matrices-property-2">property of unitary matrices</a>, all diagonal matrices are normal.</p>
+<p>Thus, <span class="math inline">\mathbf{A}</span> is normal because <span class="math inline">\mathbf{A}</span> is unitarily similar to a diagonal matrix, which is always normal.</p>
+</div>
+</div>
+</div>
+<p>Since the columns of <span class="math inline">\mathbf{U}</span> are eigenvectors of <span class="math inline">\mathbf{A}</span> and are orthonormal to each other the columns of <span class="math inline">\mathbf{U}</span> must be a complete orthonormal set of eigenvectors for <span class="math inline">\mathbf{A}</span>, and the diagonal entries of <span class="math inline">\mathbf{\Lambda}</span> are the associated eigenvalues.</p>
+</section>
+<section id="hermitian-symmetric-matrices" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="hermitian-symmetric-matrices"><span class="header-section-number">26.3</span> Hermitian (symmetric) matrices</h2>
+<p>A square complex (real) matrix <span class="math inline">\mathbf{A}</span> is hermitian (symmetric) if and only if</p>
+<p><span class="math display">
+\mathbf{A}^{H} = \mathbf{A},
+</span></p>
+<p>which implies <strong>a hermitian (symmetric) matrix is a normal matrix</strong>.</p>
+<p>All eigenvalues of Hermitian matrices are real.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">(\lambda, \mathbf{v})</span> is a eigenpair for the Hermitian matrix <span class="math inline">\mathbf{A}</span>.</p>
+<p><span class="math display">
+\mathbf{A} \mathbf{v} = \lambda \mathbf{v}.
+</span></p>
+<p>Multiplying both sides by <span class="math inline">\mathbf{v}^{H}</span> on the left to get,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}^{H} \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \lambda \lVert \mathbf{v} \rVert^{2}.
+\\
+\end{aligned}
+</span></p>
+<p>Alternatively we can take the transpose conjugate of both sides, and then multiply both sides by <span class="math inline">\mathbf{v}</span> on the right to get,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}
+\\
+(\mathbf{A} \mathbf{v})^{H}
+&amp; = (\lambda \mathbf{v})^{H}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H}
+&amp; = \lambda^{*} \mathbf{v}^{H}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+&amp; = \lambda^{*} \mathbf{v}^{H} \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+&amp; = \lambda^{*} \lVert \mathbf{v} \rVert^{2}
+\\
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a hermitian matrix</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+\\
+\lambda \lVert \mathbf{v} \rVert^{2}
+&amp; = \lambda^{*} \lVert \mathbf{v} \rVert^{2}
+\\
+\lambda
+&amp; = \lambda^{*},
+\end{aligned}
+</span></p>
+<p>which means <span class="math inline">\lambda</span> is a real number.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rayleigh-quotient" class="level2" data-number="26.4">
+<h2 data-number="26.4" class="anchored" data-anchor-id="rayleigh-quotient"><span class="header-section-number">26.4</span> Rayleigh quotient</h2>
+<p>Given a Hermitian matrix <span class="math inline">\mathbf{M} \in \mathbb{C}^{n \times n}</span>, the Rayleigh quotient is a function <span class="math inline">R_{\mathbf{M}} (\mathbf{x}): \mathbb{C}^{n} \setminus \{ 0 \} \rightarrow \mathbb{R}</span></p>
+<p><span class="math display">
+R_{\mathbf{M}} (\mathbf{x}) = \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+</span></p>
+<p>that takes a nonzero vector <span class="math inline">\mathbf{x}</span> and returns a real number.</p>
+<p>Since the Hermitian matrix <span class="math inline">\mathbf{M}</span> has all real eigenvalues, they can be ordered. Suppose <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> is the eigenvalues in descending orders.</p>
+<p>Then, given a Hermitian matrix, its Rayleigh quotient is upper bounded and lower bounded by maximum and minimum eigenvalues of <span class="math inline">\mathbf{M}</span> respectively,</p>
+<p><span class="math display">
+\lambda_{1} \geq R_{\mathbf{M}} (\mathbf{x}) \geq \lambda_{n}.
+</span></p>
+<p>That is,</p>
+<p><span class="math display">
+\lambda_{1} = \max_{\mathbf{x} \neq 0} \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+},
+</span></p>
+<p><span class="math display">
+\lambda_{n} = \min_{\mathbf{x} \neq 0} \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\mathbf{M}</span> is a Hermitian matrix, we can expand it using unitary diagonalization:</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp; = \frac{
+    \mathbf{x}^{H} \mathbf{U}^{H} \mathbf{\Lambda} \mathbf{U} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+\\
+&amp; = \frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp;
+[\mathbf{y} = \mathbf{U} \mathbf{x}].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbf{U}</span> is a unitary matrix, according to the <a href="unitary-matrix-property-3">property of the unitary matrix</a>,</p>
+<p><span class="math display">
+\mathbf{y}^{H} \mathbf{y} = \mathbf{x}^{H} \mathbf{x}.
+</span></p>
+<p>Thus,</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp; =
+\frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{y}^{H} \mathbf{y}
+}
+\\
+&amp; =
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}.
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\lambda_{1} \geq \lambda_{i} \geq \lambda_{n}, \forall i = 1, \dots, n</span>,</p>
+<p><span class="math display">
+\lambda_{1}
+=
+\lambda_{1}
+\frac{
+    \sum_{i=1}^{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+=
+\frac{
+    \sum_{i=1}^{n} \lambda_{1} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+\geq
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+},
+</span></p>
+<p><span class="math display">
+\lambda_{n}
+=
+\lambda_{n}
+\frac{
+    \sum_{i=1}^{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+=
+\frac{
+    \sum_{i=1}^{n} \lambda_{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+\leq
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}.
+</span></p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -971,13 +1122,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Learning Theory/2_Bayesian_Classifier.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span>
+      <a href="../Linear Algebra/25_Diagonalization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Diagonalization</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

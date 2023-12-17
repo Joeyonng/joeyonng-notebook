@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 42&nbsp; Effective Class Size</title>
+<title>Joeyonng’s Notebook - 29&nbsp; Bayesian Estimation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Learning Theory/4_Empirical_Risk_Minimization.html" rel="next">
-<link href="../Learning Theory/2_Bayesian_Classifier.html" rel="prev">
+<link href="../Probability and Statistics/4_Expectation_Maximization.html" rel="next">
+<link href="../Probability and Statistics/2_Maximum_Likelihood_Estimation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/3_Effective_Class_Size.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/2_Maximum_Likelihood_Estimation.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/3_Bayesian_Estimation.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -332,136 +332,94 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  <a href="../Probability and Statistics/2_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation (MLE)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  <a href="../Probability and Statistics/3_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+  <a href="../Probability and Statistics/4_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+  <a href="../Probability and Statistics/5_Concentration_Inequalities1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Boole’s inequality (union bound)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/6_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Sub-Gaussian random variables</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -476,9 +434,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#growth-function-shattering-coefficient" id="toc-growth-function-shattering-coefficient" class="nav-link active" data-scroll-target="#growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</a></li>
-  <li><a href="#vapnik-chervonenkis-vc-dimension" id="toc-vapnik-chervonenkis-vc-dimension" class="nav-link" data-scroll-target="#vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</a></li>
-  <li><a href="#sauers-lemma" id="toc-sauers-lemma" class="nav-link" data-scroll-target="#sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</a></li>
+  <li><a href="#preliminary" id="toc-preliminary" class="nav-link active" data-scroll-target="#preliminary"><span class="header-section-number">29.1</span> Preliminary</a>
+  <ul class="collapse">
+  <li><a href="#statistical-learning" id="toc-statistical-learning" class="nav-link" data-scroll-target="#statistical-learning">Statistical Learning</a></li>
+  </ul></li>
+  <li><a href="#views-on-parameter-estimation" id="toc-views-on-parameter-estimation" class="nav-link" data-scroll-target="#views-on-parameter-estimation"><span class="header-section-number">29.2</span> Views on parameter estimation</a>
+  <ul class="collapse">
+  <li><a href="#frequentist-view" id="toc-frequentist-view" class="nav-link" data-scroll-target="#frequentist-view">Frequentist view</a></li>
+  <li><a href="#bayesian-view" id="toc-bayesian-view" class="nav-link" data-scroll-target="#bayesian-view">Bayesian view</a></li>
+  </ul></li>
+  <li><a href="#bayesian-estimation" id="toc-bayesian-estimation" class="nav-link" data-scroll-target="#bayesian-estimation"><span class="header-section-number">29.3</span> Bayesian estimation</a>
+  <ul class="collapse">
+  <li><a href="#maximum-a-posteriori-map-estimation" id="toc-maximum-a-posteriori-map-estimation" class="nav-link" data-scroll-target="#maximum-a-posteriori-map-estimation">Maximum a posteriori (MAP) estimation</a></li>
+  </ul></li>
+  <li><a href="#bayesian-bdr" id="toc-bayesian-bdr" class="nav-link" data-scroll-target="#bayesian-bdr"><span class="header-section-number">29.4</span> Bayesian BDR</a></li>
+  <li><a href="#example-mean-of-the-univariate-gaussian" id="toc-example-mean-of-the-univariate-gaussian" class="nav-link" data-scroll-target="#example-mean-of-the-univariate-gaussian"><span class="header-section-number">29.5</span> Example: mean of the univariate Gaussian</a>
+  <ul class="collapse">
+  <li><a href="#posterior-distribution-of-mean-parameter" id="toc-posterior-distribution-of-mean-parameter" class="nav-link" data-scroll-target="#posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</a></li>
+  <li><a href="#predictive-distribution-function" id="toc-predictive-distribution-function" class="nav-link" data-scroll-target="#predictive-distribution-function">Predictive distribution function</a></li>
+  <li><a href="#selecting-parameter-priors" id="toc-selecting-parameter-priors" class="nav-link" data-scroll-target="#selecting-parameter-priors">Selecting parameter priors</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">29.6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -487,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></h1>
+<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
 </div>
 
 
@@ -502,234 +478,374 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>If there is an infinite number of possible hypotheses in a hypothesis class, all the bounds that are positively related to the size of the hypothesis class will be infinite as well, which provides no information and therefore become useless.</p>
-<p>However, even if a hypothesis class <span class="math inline">\mathcal{H}</span> can contain an infinite number of hypotheses, the number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any finite set of instances is finite, which is at most <span class="math inline">2^{n}</span> if the set has <span class="math inline">n</span> instances.</p>
-<section id="growth-function-shattering-coefficient" class="level2" data-number="42.1">
-<h2 data-number="42.1" class="anchored" data-anchor-id="growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</h2>
-<p>Given a set of instances <span class="math inline">\mathcal{S} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the <strong>projection</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> onto <span class="math inline">\mathcal{S}</span> is the set of all distinct labels that <span class="math inline">\mathcal{H}</span> can produce onto <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \{ \{ h (x_{1}), \dots, h (x_{n}) \}, \forall h \in \mathcal{H} \}.
-</span></p>
-<p>The concept of the growth function (shattering coefficient) is to measure the richness of the decisions that a hypothesis class can make with respect to a dataset of size <span class="math inline">n</span>.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 42.1 </strong></span>The <strong>growth function</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> is defined as the maximum number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any set of <span class="math inline">n</span> instances</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sup_{\mathcal{S}: \lvert \mathcal{S} \rvert = n} \lvert \mathcal{H} (\mathcal{S}) \rvert.
-</span></p>
-</div>
-<p>Note that <span class="math inline">\Pi_{\mathcal{H}} (n) \leq 2^{n}</span> for any <span class="math inline">\mathcal{H}</span> with binary labels.</p>
-</section>
-<section id="vapnik-chervonenkis-vc-dimension" class="level2" data-number="42.2">
-<h2 data-number="42.2" class="anchored" data-anchor-id="vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</h2>
-<p>We say that a sample <span class="math inline">\mathcal{S}</span> is <strong>shattered</strong> by the hypothesis class <span class="math inline">\mathcal{H}</span> if a <span class="math inline">\mathcal{H}</span> can label <span class="math inline">\mathcal{S}</span> in every possible way. That is, <span class="math inline">\mathcal{S}</span> is shattered by <span class="math inline">\mathcal{H}</span> if</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = 2^{\lvert \mathcal{S} \rvert}.
-</span></p>
-<div class="{prf:definition}">
-<p>The <strong>Vapnik-Chervonenkis (VC) dimension</strong> of <span class="math inline">\mathcal{H}</span> is the size of the largest set that is shattered by <span class="math inline">\mathcal{H}</span></p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}) = \max_{n: \mathcal{H} (\mathcal{S}) = 2^{n}} n.
-</span></p>
-</div>
-</section>
-<section id="sauers-lemma" class="level2" data-number="42.3">
-<h2 data-number="42.3" class="anchored" data-anchor-id="sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</h2>
-<p>Sauer’s lemma shows that the growth function of any hypothesis class <span class="math inline">\mathcal{H}</span> is upper-bounded by a function of its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.1 </strong></span>For any hypothesis class <span class="math inline">\mathcal{H}</span> and any dataset size <span class="math inline">n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will prove the lemma for any set of <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span> with <span class="math inline">\mathrm{VC} (\mathcal{H}) = d</span> using induction on <span class="math inline">n</span> and <span class="math inline">d</span>.</p>
-<p>That is, we will prove</p>
 <ul>
-<li><p>the lemma is correct under the base cases where <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>,</p></li>
-<li><p>the lemma is correct under general case for <span class="math inline">(n ,d)</span> by assuming the lemma is true under the previous cases <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n</span> and <span class="math inline">c &lt; d</span>.</p></li>
+<li><p>The form of the density <span class="math inline">\mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}}(\mathbf{x} \mid \boldsymbol{\theta})</span> is assumed to be known, but the value of the parameter vector <span class="math inline">\boldsymbol{\theta}</span> is not known exactly.</p></li>
+<li><p>Our initial knowledge about <span class="math inline">\boldsymbol{\theta}</span> is assumed to be contained in a known a priori density <span class="math inline">\mathbb{P}_{\boldsymbol{\Theta}}(\boldsymbol{\theta})</span>.</p></li>
+<li><p>The rest of our knowledge about <span class="math inline">\boldsymbol{\theta}</span> is contained in a set <span class="math inline">\mathcal{D}</span> of n samples <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> drawn independently according to the unknown probability density <span class="math inline">\mathbb{P}_{\mathbf{X}}(\mathbf{x})</span>.</p></li>
 </ul>
-<p>First the base case <span class="math inline">(n, d) = (0, d)</span> implies that</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (0) = 1 = {0 \choose 0} = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {0 \choose i}
-</span></p>
-<p>because any hypothesis class can have at most 1 distinct label on an empty set (<span class="math inline">n = 0</span>).</p>
-<p>Then the base case <span class="math inline">(n, d) = (n, 0)</span> means that <span class="math inline">\mathcal{H}</span> can only shatter the empty set <span class="math inline">\emptyset</span> and therefore according to the definition of shattering</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \mathcal{H} (\emptyset) = 2^{0} = 1 = {n \choose 0} = \sum_{i = 0}^{0} {n \choose i}.
-</span></p>
-<p>Therefore we have proven the lemma is true in the base case, that is,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}
-</span></p>
-<p>is true when <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>.</p>
-<p>To prove the general case of the lemma, take any set <span class="math inline">\mathcal{S} = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n} \}</span> with <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span>, we can classify each unique way of the label assignment <span class="math inline">\pi \in \mathcal{H} (\mathcal{S})</span> into 2 groups <span class="math inline">\mathcal{G}_{1}</span> and <span class="math inline">\mathcal{G}_{2}</span> based on whether <span class="math inline">\pi</span> can form a pair in <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
+<section id="preliminary" class="level2" data-number="29.1">
+<h2 data-number="29.1" class="anchored" data-anchor-id="preliminary"><span class="header-section-number">29.1</span> Preliminary</h2>
+<section id="statistical-learning" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-learning">Statistical Learning</h3>
 <ul>
-<li><p><span class="math inline">(\pi, \pi')</span> form a pair if <span class="math inline">\pi (x_{i}) = \pi' (x_{i}), \forall i \in [1, n - 1]</span> and <span class="math inline">\pi (x_{n}) = \pi' (x_{n})</span> (<span class="math inline">\pi</span> agree with <span class="math inline">\pi'</span> for all <span class="math inline">x_{1}, \dots, x_{n - 1}</span> but not for <span class="math inline">x_{n}</span>). We add the both <span class="math inline">\pi</span> and <span class="math inline">\pi'</span> to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-<li><p><span class="math inline">\pi</span> belongs to <span class="math inline">\mathcal{G}_{2}</span> if doesn’t belong to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
+<li><a href="#sec-bayesian-estimation"><span>Chapter&nbsp;29</span></a></li>
 </ul>
-<p>Since the pairs <span class="math inline">(\pi, \pi') \in \mathcal{G}_{1}</span> have the same labels for <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1}</span> if we create <span class="math inline">\mathcal{G}'_{1}</span> by removing the labels for <span class="math inline">\mathbf{x}_{n}</span> in each <span class="math inline">\pi \in \mathcal{G}_{1}</span></p>
-<p><span class="math display">
-\mathcal{G}'_{1} = \{ (\pi (\mathbf{x}_{1}), \dots, \pi (\mathbf{x}_{n - 1})), \forall \pi \in \mathcal{G}_{1} \} \\
-</span></p>
-<p>then all of the pairs in <span class="math inline">\mathcal{G}_{1}</span> become the same label assignment, but if we create <span class="math inline">\mathcal{G}_{2}'</span> using the same procedure above, the resulting label assignments in <span class="math inline">\mathcal{G}_{2}'</span> are still unique.</p>
-<p>Also, by the definition of <span class="math inline">\mathcal{G}_{1}</span>, <span class="math inline">\mathcal{G}_{2}</span>, <span class="math inline">\mathcal{G}_{1}'</span>, and <span class="math inline">\mathcal{G}_{2}'</span>, the label assignments in <span class="math inline">\mathcal{G}_{1}'</span> and <span class="math inline">\mathcal{G}_{2}'</span> do not overlap, and therefore</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \lvert \mathcal{G}_{1} \rvert + \lvert \mathcal{G}_{2} \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert.
-</span></p>
-<p>Then we will define 2 new hypotheses classes <span class="math inline">\mathcal{H}_{1}</span>, <span class="math inline">\mathcal{H}_{2}</span> whose domain is a set <span class="math inline">\mathcal{S}'</span> that is constructed by removing <span class="math inline">x_{n}</span> from <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{S}' = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n - 1} \}.
-</span></p>
-<p>and whose projections on <span class="math inline">\mathcal{S}'</span> are defined as</p>
-<p><span class="math display">
-\mathcal{H}_{1} (\mathcal{S}') = \mathcal{G}_{1}' \cup \mathcal{G}_{2}' \\
-\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}',
-</span></p>
-<p>and therefore,</p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert = (\lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert) + \lvert \mathcal{G}_{1}' \rvert = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert.
-</span></p>
-<p>Although we never exactly defined what <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span> are, we have completely specified their projections on the entire domain <span class="math inline">\mathcal{S}'</span>, using which we can derive</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{1}) \leq \mathrm{VC} (\mathcal{H}),
-</span></p>
-<p>since the <span class="math inline">\mathcal{H}</span> has all the same label assignments for <span class="math inline">\mathcal{S}' = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1} \}</span> that <span class="math inline">\mathcal{H}_{1}</span> has and any subset of <span class="math inline">\mathcal{S}'</span> that is shattered by <span class="math inline">\mathcal{H}_{1}</span> is shattered by <span class="math inline">\mathcal{H}</span>.</p>
-<p>Furthermore, since <span class="math inline">\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}</span>, if a subset <span class="math inline">\mathcal{T} \subseteq \mathcal{S}'</span> is shattered by <span class="math inline">\mathcal{H}_{2}</span>, then the set <span class="math inline">\mathcal{T} \cup \{ x_{n} \}</span> must be shattered by <span class="math inline">\mathcal{H}</span>, which means</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{2}) + 1 \leq \mathrm{VC} (\mathcal{H}).
-</span></p>
-<p>Now we are ready to prove the general case of the lemma using the all results we proved above with <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span>.</p>
-<p>According to the definition of growth function, for any hypothesis class <span class="math inline">\mathcal{H}</span> and any set <span class="math inline">\mathcal{S}</span> of size <span class="math inline">n</span></p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert \leq \Pi_{\mathcal{H}} (n)
-</span></p>
-<p>and since we have assumed that the lemma is correct for the case <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n, c &lt; d</span>,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (m) \leq \sum_{i = 0}^{c} {m \choose i},
-</span></p>
-<p>we have</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert
-\\
-&amp; \leq \Pi_{\mathcal{H}_{1}} (n - 1) + \Pi_{\mathcal{H}_{2}} (n - 1).
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-\end{aligned}
-</span></p>
-<p>Since we have proved that the relations between <span class="math inline">\mathrm{VC} (\mathcal{H}_{1})</span>, <span class="math inline">\mathrm{VC} (\mathcal{H}_{2})</span> and <span class="math inline">\mathrm{VC} (\mathcal{H})</span>,</p>
-<p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}) - 1} {n - 1 \choose i}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 1}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1} + {n - 1 \choose -1}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1}
-&amp; [{n - 1 \choose - 1} = 0]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} \left[
-    {n - 1 \choose i} + {n - 1 \choose i - 1}
-\right]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-\end{aligned}
-</span></p>
-<p>Since all of the above proof is for any <span class="math inline">\mathcal{S}</span>, it also works for the largest <span class="math inline">\lvert \mathcal{H} (\mathcal{S}) \rvert</span>,</p>
-<p><span class="math display">
-\sup_{\mathcal{S}} \lvert \mathcal{H} (\mathcal{S}) \rvert = \Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i},
-</span></p>
-<p>which proves the lemma under the general case.</p>
-</div>
-</div>
-</div>
-<p>The following theorem uses Sauer’s lemma to provide a closed form upper-bound of the growth function of any hypothesis class with its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.2 </strong></span>For any <span class="math inline">1 &lt; d = \mathrm{VC} (\mathcal{H}) &lt; n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{d} {n \choose i} \leq \left(
-    \frac{ e }{ d } n
-\right)^{d} = O (n^d).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First note that <span class="math inline">(\frac{ d }{ n })^{d} &lt; (\frac{ d }{ n })^{i}, i &lt; d</span> since <span class="math inline">d &lt; n</span>, and therefore</p>
-<p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i}
-\right]
-\\
-&amp; = \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\end{aligned}
-</span></p>
-<p>By applying Binomial theorem <span class="math inline">(x + y)^{n} = \sum_{i = 0}^{n} {n \choose i} x^{i} y^{n - i}</span></p>
-<p><span class="math display">
-\begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; = \left(
-    \frac{ d }{ n } + 1
-\right)^{n}
-\\
-&amp; \leq e^{d}.
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<p>The theorem above shows that the VC dimension marks the threshold between the exponential growth and polynomial growth of the growth function.</p>
+</section>
+</section>
+<section id="views-on-parameter-estimation" class="level2" data-number="29.2">
+<h2 data-number="29.2" class="anchored" data-anchor-id="views-on-parameter-estimation"><span class="header-section-number">29.2</span> Views on parameter estimation</h2>
+<p>There are two different frameworks on statistical inferences: frequentist view and Bayesian view. Both views have the same definition of the probability, but they have different views on how probability of an event should be calculated or accessed. Thus, the way to do parameter estimation is different under the two frameworks.</p>
+<section id="frequentist-view" class="level3">
+<h3 class="anchored" data-anchor-id="frequentist-view">Frequentist view</h3>
+<p>Frequentists believe that the probability of an event is a measure of relative frequency and should be calculated by observing how many times the event happens in a large number of trials.</p>
 <ul>
-<li><p>When <span class="math inline">n &lt; d</span>, by the definition of the VC dimension, we can always find a set of instances of size <span class="math inline">n</span> <span class="math inline">\mathcal{H}</span> can shatter, so the growth function <span class="math inline">\Pi_{\mathcal{H}} (n) = 2^{n}</span>, which means it grows exponentially with a factor of 2 as <span class="math inline">n</span> increases,</p></li>
-<li><p>When <span class="math inline">n &gt; d</span>, by the theorem above, the growth function is upper bounded by <span class="math inline">n^{d}</span>, so it only grows in polynomials as <span class="math inline">n</span> increases.</p></li>
+<li><p>Probability: the probability of any event is objective and doesn’t change with different beliefs to the event.</p></li>
+<li><p>Parameters: if the parameters of the distribution are unknown, the parameters must be fixed constants. That is, they must be certain determined values.</p></li>
+<li><p>Estimation: the single best estimation of the parameter can be derived using single dataset and its goodness (bias and variance) can be measured by sampling different datasets.</p></li>
+</ul>
+</section>
+<section id="bayesian-view" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-view">Bayesian view</h3>
+<p>Bayesian approach believes that a probability of an event includes not only the relative frequency, but also the subjective beliefs. That is, the degree of belief on the outcomes of the experiment.</p>
+<ul>
+<li><p>Probability: the subjective beliefs can be very different from person to person, and thus the probability of any event is very subjective.</p></li>
+<li><p>Parameters: the unknown parameters of the distribution are viewed as random variables, and thus include subjective beliefs.</p></li>
+<li><p>Estimation: the subjective beliefs of the parameters are specified using a prior distribution, which is then updated using the single dataset observed. The result of the estimation is a posterior probabilities of a range of parameter values, which include both prior beliefs and relative frequency.</p></li>
+</ul>
+</section>
+</section>
+<section id="bayesian-estimation" class="level2" data-number="29.3">
+<h2 data-number="29.3" class="anchored" data-anchor-id="bayesian-estimation"><span class="header-section-number">29.3</span> Bayesian estimation</h2>
+<p>In Bayesian estimation, the unknown parameters are treated as random variables.</p>
+<ul>
+<li><p>The subjective beliefs about the parameters that we want to estimate before observing any dataset are encoded using a distribution</p>
+<p><span class="math display">
+  \mathbb{P}_{\boldsymbol{\Theta}} (\boldsymbol{\theta}),
+  </span></p>
+<p>which specifies the prior probabilities of all possible values of the parameters.</p></li>
+<li><p>The likelihood of a dataset <span class="math inline">\mathcal{X} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span> given parameters <span class="math inline">\boldsymbol{\theta}</span> is a conditional probability</p>
+<p><span class="math display">
+  \mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}} \left(
+      \mathcal{X} \mid \boldsymbol{\theta}
+  \right).
+  </span></p></li>
+</ul>
+<p>Unlike maximum likelihood estimation, which is under frequentist view and gives only the single best parameter, the result of Bayesian estimation is a posterior distribution that informs us how the observed data update the prior. According to Bayes Theorem, the posterior distribution can be calculated by:</p>
+<p><span class="math display">
+\mathbb{P}_{\boldsymbol{\Theta} \mid \mathbf{X}} \left(
+    \boldsymbol{\theta} \mid \mathcal{X}
+\right) = \frac{
+    \mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}} \left (
+        \mathcal{X} \mid \boldsymbol{\theta}
+    \right) \mathbb{P}_{\boldsymbol{\Theta}} \left(
+        \boldsymbol{\theta}
+    \right)
+}{
+    \mathbb{P}_{\mathbf{X}} \left(
+        \mathcal{X}
+    \right)
+}.
+</span></p>
+<section id="maximum-a-posteriori-map-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-a-posteriori-map-estimation">Maximum a posteriori (MAP) estimation</h3>
+<p>In the case where we want a single estimate for the parameter using Bayesian estimation, MAP estimation chooses the value of the parameter that has the largest probability in the posterior distribution</p>
+<p><span class="math display">
+\boldsymbol{\theta}_{MAP} = \arg\max_{\boldsymbol{\theta}} \mathbb{P}_{\boldsymbol{\Theta} \mid \mathbf{X}} \left(
+    \boldsymbol{\theta} \mid \mathcal{X}
+\right).
+</span></p>
+</section>
+</section>
+<section id="bayesian-bdr" class="level2" data-number="29.4">
+<h2 data-number="29.4" class="anchored" data-anchor-id="bayesian-bdr"><span class="header-section-number">29.4</span> Bayesian BDR</h2>
+<blockquote class="blockquote">
+<p>TODO</p>
+</blockquote>
+</section>
+<section id="example-mean-of-the-univariate-gaussian" class="level2" data-number="29.5">
+<h2 data-number="29.5" class="anchored" data-anchor-id="example-mean-of-the-univariate-gaussian"><span class="header-section-number">29.5</span> Example: mean of the univariate Gaussian</h2>
+<p>Here we shows an example of estimating the posterior probability of the mean parameter of a univariate normal distribution using Bayesian estimation.</p>
+<p>Consider the univariate case where the probability of the instance <span class="math inline">x</span> follows a normal distribution with unknown mean <span class="math inline">\mu</span> and known variance <span class="math inline">\sigma^{2}</span>:</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid \mu} (x \mid \mu) \sim \mathcal{N} (\mu, \sigma^{2}) = \mathcal{G} (x, \mu, \sigma^{2}),
+</span></p>
+<p>and we assume whatever prior knowledge we have about <span class="math inline">\mu</span> can be expressed by another normal distribution with known mean <span class="math inline">\mu_{0}</span> and known variance <span class="math inline">\sigma_{0}^{2}</span>:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu} (\mu) \sim \mathcal{N} (\mu_{0}, \sigma_{0}^{2}) = \mathcal{G} (\mu, \mu_{0}, \sigma_{0}^{2}).
+</span></p>
+<section id="posterior-distribution-of-mean-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</h3>
+<p>Suppose now that <span class="math inline">n</span> samples <span class="math inline">\mathcal{X} = \{x_{1}, \dots, x_{n}\}</span> are independently sampled. We can use Bayes formula to obtain the posterior probability:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu \mid \mathcal{X}} (\mu \mid \mathcal{X}) = \frac{
+    \mathbb{P}_{X \mid \mu} (\mathcal{X} \mid \mu) \mathbb{P}_{\mu} (\mu)
+}{
+    \mathbb{P}_{X} (\mathcal{X})
+}.
+</span></p>
+<p>Since <span class="math inline">\mathbb{P}_{X}(\mathcal{X})</span> is a normalization factor that doesn’t depend on <span class="math inline">\mu</span>, we now omit it for simplicity:</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})
+&amp; \propto \mathbb{P}_{X \mid \mu} (\mathcal{X} \mid \mu) \mathbb{P}_{\mu} (\mu)
+\\
+&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu)
+&amp; [\text{independent assumption}].
+\\
+\end{aligned}
+</span></p>
+<p>After expanding the normal distribution definition and some simplifications, we can see that <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> also follows a normal distribution:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X}) \sim \mathcal{N} (\mu_{n}, \sigma_{n}^{2})
+</span></p>
+<p>where</p>
+<p><span class="math display">
+\mu_{n} = \frac{
+    \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+},
+</span></p>
+<p><span class="math display">
+\sigma_{n}^{2} = \frac{
+    \sigma_{0}^{2} \sigma^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+}.
+</span></p>
+<p>:::{admonition} Proof: <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X}) \sim \mathcal{N} (\mu_{n}, \sigma_{n}^{2})</span> :class: dropdown</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D})
+&amp; \propto \mathbb{P}_{\mathcal{D} \mid \mu}(\mathcal{D} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
+&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu}(x_{i} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
+&amp; = \prod_{i=1}^{n} \frac{ 1 }{\sqrt{2 \pi \sigma^{2}}} \exp{ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } } \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{ - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } } \\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{ \left[ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2}} - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{merging constants and exponentials}] \\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ x_{i}^{2} - 2 x_{i} \mu + \mu^{2}}{2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{expanding squares}] \\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} \left[ x_{i}^{2} - 2 x_{i} \mu + \mu^{2} \right] }{ 2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2}} \right] } \\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2} }{2 \sigma^{2}} - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{reordering sums}] \\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } + \frac{ \sum_{i=1}^{n} 2 x_{i} \mu }{ 2 \sigma^{2} } - \frac{ n \mu^{2} }{ 2 \sigma^{2} } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{ 2 \mu \mu_{0} }{ 2 \sigma_{0}^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{grouping } \mu] \\
+&amp; = \frac{ \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } &amp; [\text{extracting out terms without } \mu] \\
+&amp; \propto \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } &amp; [\text{removing terms without } \mu] \\
+\end{aligned}
+</span></p>
+<p>Using the <em>completing the squares</em> trick</p>
+<p><span class="math display">
+\begin{aligned}
+ax^{2} + 2bx + c  
+&amp; = a \left( x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a } \right) \\
+&amp; = a \left( x^{2} + 2 \frac{ b }{ a } x + \left( \frac{ b }{ a } \right)^{2} - \left( \frac{ b }{ a } \right)^{2} + \frac{ c }{ a } \right) \\
+&amp; = a \left( x + \frac{ b }{ a } \right)^{2} + c - \frac{ b^{2} }{ a }, \\
+\end{aligned}
+</span></p>
+<p>and treating</p>
+<p><span class="math display"> a = - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right), </span></p>
+<p><span class="math display"> b = \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right), </span></p>
+<p>we can have</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D})
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2}
+    + 2 \left(
+        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }
+\\
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right)
+    \left(
+        \mu - \frac{
+            \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+        }{
+            \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+        }
+    \right)^{2}
+\right] }
+&amp; [\text{remove } \frac{ b^{2} }{ a } \text{ as it doesn't depend on } \mu]
+\\
+&amp; = \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right)
+    \left(
+        \mu - \frac{
+            \frac{
+                \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+            }{
+                2 \sigma^{2} \sigma_{0}^{2}
+            }
+        }{
+            \frac{
+                \sigma^{2} + n \sigma_{0}^{2}
+            }{
+                2 \sigma^{2} \sigma_{0}^{2}
+            }
+        }
+    \right)^{2}
+\right] }
+\\
+&amp; = \exp{ \left[
+    - \left(
+        \frac{ 2 \sigma^{2} \sigma_{0}^{2} }{ \sigma^{2} + n \sigma_{0}^{2} }
+    \right)^{-1}
+    \left(
+        \mu - \frac{
+            \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+        }{
+            \sigma^{2} + n \sigma_{0}^{2}
+        }
+    \right)^{2}
+\right] }
+.
+\\
+\end{aligned}
+</span></p>
+<p>:::</p>
+<p>This means that the unknown parameter <span class="math inline">\mu</span> estimated by a set of instances <span class="math inline">\mathcal{X}</span> using Bayesian estimation has a probability <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> that follows a normal distribution that has mean <span class="math inline">\mu_{n}</span> and variance <span class="math inline">\sigma_{n}^{2}</span>.</p>
+<ul>
+<li><p>Since <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> is a normal distribution, <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu_{n} \mid \mathcal{X})</span> is largest and thus we can view <span class="math inline">\mu_{n}</span> as our best guess for <span class="math inline">\mu</span> after observing <span class="math inline">\mathcal{X}</span>.</p></li>
+<li><p>Then we can view the variance <span class="math inline">\sigma_{n}^{2}</span> as the uncertainty about this best guess.</p></li>
+<li><p>Since <span class="math inline">\sigma_{n}^{2}</span> decreases monotonically with <span class="math inline">n</span>, each additional observation decreases our uncertainty of the best guess.</p></li>
+</ul>
+<p>%%markdown</p>
+<p>Since <span class="math inline">\mu_{n}</span> can be further rewritten as</p>
+<p><span class="math display">
+\begin{aligned}
+\mu_{n}
+&amp; = \frac{
+    \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+}
+\\
+&amp; = \frac{
+    \sigma_{0}^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+} \sum_{i=1}^{n} x_{i} + \frac{
+    \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+} \mu_{0}
+\\
+&amp; = \frac{
+    n \sigma_{0}^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+} \bar{x}_{n} + \left(
+    1 - \frac{
+        n \sigma_{0}^{2}
+    }{
+        n \sigma_{0}^{2} + \sigma^{2}
+    }
+\right) \mu_{0}
+&amp; [\bar{x}_{n} = \frac{1}{n} \sum_{i=1}^{n} x_{i}]
+\\
+&amp; = \alpha_{n} \bar{x}_{n} + (1 - \alpha_{n}) \mu_{0}
+&amp; [\alpha_{n} = \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}}]
+,
+\\
+\end{aligned}
+</span></p>
+<p>the final equation shows that <span class="math inline">\mu_{n}</span> is a combination of the maximum likelihood estimate <span class="math inline">\bar{x}_{n}</span> and the prior information <span class="math inline">\mu_{0}</span>.</p>
+<p>Since</p>
+<p><span class="math display">  
+\begin{aligned}
+\lim_{n \to \infty} \mu_{n}
+&amp; = \bar{x}_{n}
+&amp; [\lim_{n \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+\\
+\lim_{n \to 0} \mu_{n}
+&amp; = \mu_{0}
+&amp; [\lim_{n \to 0} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+\end{aligned}
+</span></p>
+<ul>
+<li><p>If there is large amount of data, <span class="math inline">\mu_{n}</span> converges to maximum likelihood estimate.</p></li>
+<li><p>If there is no observed data, <span class="math inline">\mu_{n}</span> converges to the mean of the prior knowledge.</p></li>
+</ul>
+<p>If the number of sampled data <span class="math inline">n</span> is fixed,</p>
+<p><span class="math display">  
+\begin{aligned}
+\lim_{\sigma_{0} \to \infty} \mu_{n}
+&amp; = \bar{x}_{n}
+&amp; [\lim_{\sigma_{0} \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+\\
+\lim_{\sigma_{0} \to 0} \mu_{n}
+&amp; = \mu_{0}
+&amp; [\lim_{\sigma \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+\end{aligned}
+</span></p>
+<p>which means</p>
+<ul>
+<li><p><span class="math inline">\mu_{n}</span> will converge to the maximum likelihood estimate <span class="math inline">\bar{x}_{n}</span> if our prior knowledge of the <span class="math inline">\mu</span> indicates that we have no certainty about <span class="math inline">\mu_{n}</span> (infinite variance).</p></li>
+<li><p><span class="math inline">\mu_{n}</span> will converge to the mean of our prior knowledge <span class="math inline">\mu_{0}</span> if our prior knowledge of the <span class="math inline">\mu</span> indicates that we are very certain about <span class="math inline">\mu_{0}</span> (zero variance).</p></li>
+</ul>
+</section>
+<section id="predictive-distribution-function" class="level3">
+<h3 class="anchored" data-anchor-id="predictive-distribution-function">Predictive distribution function</h3>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X})
+&amp; = \int \mathbb{P}_{X \mid \mu}(x \mid \mu) \mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X}) \mathop{d \mu}
+\\
+&amp; \sim \mathcal{N}(\mu_{n}, \sigma^{2} + \sigma_{n}^{2})
+\end{aligned}
+</span></p>
+</section>
+<section id="selecting-parameter-priors" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-parameter-priors">Selecting parameter priors</h3>
+<p>When the number of samples <span class="math inline">n</span> is large, the predictive distribution will not change much if we select different mean parameter priors. Consider the 2 extreme cases of the mean parameter priors.</p>
+<ol type="1">
+<li><p>Uniform prior (normal distribution with infinite variance).</p>
+<p>Since</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{\sigma_{0}^{2} \to \infty} \mu_{n}
+&amp; = \bar{x}_{n},
+\\
+\lim_{\sigma_{0}^{2} \to \infty} \sigma_{n}
+&amp; = \frac{\sigma^{2}}{n},
+\end{aligned}
+</span></p>
+<p>the predictive distribution is</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left(
+     \bar{x}_{n}, \sigma^{2} + \frac{\sigma^{2}}{n}
+\right).
+</span></p></li>
+<li><p>Dirac delta prior (normal distribution with zero variance).</p>
+<p>Since</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{\sigma_{0} \to 0} \mu_{n}
+&amp; = \mu_{0},
+\\
+\lim_{\sigma_{0} \to 0} \sigma_{n}
+&amp; = 0,
+\end{aligned}
+</span></p>
+<p>the predictive distribution is</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left(
+     \mu_{0}, \sigma^{2} \right
+).
+</span></p>
+<p>Since <span class="math inline">\mu_{0}</span> is <span class="math inline">\bar{x}_{n}</span> with extra points, <span class="math inline">\mu_{0} = \bar{x}_{n}</span> when <span class="math inline">n</span> is large.</p></li>
+</ol>
+</section>
+</section>
+<section id="references" class="level2" data-number="29.6">
+<h2 data-number="29.6" class="anchored" data-anchor-id="references"><span class="header-section-number">29.6</span> References</h2>
+<ul>
+<li>https://www.bu.edu/sph/files/2014/05/Bayesian-Statistics_final_20140416.pdf</li>
 </ul>
 
 
@@ -971,13 +1087,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Learning Theory/2_Bayesian_Classifier.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span>
+      <a href="../Probability and Statistics/2_Maximum_Likelihood_Estimation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation (MLE)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/4_Expectation_Maximization.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 42&nbsp; Effective Class Size</title>
+<title>Joeyonng’s Notebook - 33&nbsp; Concentration Inequalities I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Learning Theory/4_Empirical_Risk_Minimization.html" rel="next">
-<link href="../Learning Theory/2_Bayesian_Classifier.html" rel="prev">
+<link href="../Probability and Statistics/7_Convergence.html" rel="next">
+<link href="../Probability and Statistics/5_Moment_Generating_Functions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Learning Theory/1_Statistical_Learning.html">Learning Theory</a></li><li class="breadcrumb-item"><a href="../Learning Theory/3_Effective_Class_Size.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/1_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/6_Concentration_Inequalities_I.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -332,136 +332,112 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/1_Probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/2_Random_Variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/3_Expectation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/4_Common_Distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/5_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/6_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/7_Convergence.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+  <a href="../Probability and Statistics/8_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+  <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -476,9 +452,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#growth-function-shattering-coefficient" id="toc-growth-function-shattering-coefficient" class="nav-link active" data-scroll-target="#growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</a></li>
-  <li><a href="#vapnik-chervonenkis-vc-dimension" id="toc-vapnik-chervonenkis-vc-dimension" class="nav-link" data-scroll-target="#vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</a></li>
-  <li><a href="#sauers-lemma" id="toc-sauers-lemma" class="nav-link" data-scroll-target="#sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</a></li>
+  <li><a href="#markovs-inequality" id="toc-markovs-inequality" class="nav-link active" data-scroll-target="#markovs-inequality"><span class="header-section-number">33.1</span> Markov’s inequality</a></li>
+  <li><a href="#chebyshevs-inequality" id="toc-chebyshevs-inequality" class="nav-link" data-scroll-target="#chebyshevs-inequality"><span class="header-section-number">33.2</span> Chebyshev’s inequality</a>
+  <ul class="collapse">
+  <li><a href="#average-of-random-variables-converge-to-mean" id="toc-average-of-random-variables-converge-to-mean" class="nav-link" data-scroll-target="#average-of-random-variables-converge-to-mean">Average of random variables converge to mean</a></li>
+  </ul></li>
+  <li><a href="#chernoff-bound" id="toc-chernoff-bound" class="nav-link" data-scroll-target="#chernoff-bound"><span class="header-section-number">33.3</span> Chernoff bound</a>
+  <ul class="collapse">
+  <li><a href="#chernoffs-bounding-method" id="toc-chernoffs-bounding-method" class="nav-link" data-scroll-target="#chernoffs-bounding-method">Chernoff’s bounding method</a></li>
+  <li><a href="#chernoff-bound-for-bernoulli-random-variables" id="toc-chernoff-bound-for-bernoulli-random-variables" class="nav-link" data-scroll-target="#chernoff-bound-for-bernoulli-random-variables">Chernoff bound for Bernoulli random variables</a></li>
+  <li><a href="#general-chernoff-bound" id="toc-general-chernoff-bound" class="nav-link" data-scroll-target="#general-chernoff-bound">General Chernoff bound</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -487,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></h1>
+<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></h1>
 </div>
 
 
@@ -502,43 +486,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>If there is an infinite number of possible hypotheses in a hypothesis class, all the bounds that are positively related to the size of the hypothesis class will be infinite as well, which provides no information and therefore become useless.</p>
-<p>However, even if a hypothesis class <span class="math inline">\mathcal{H}</span> can contain an infinite number of hypotheses, the number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any finite set of instances is finite, which is at most <span class="math inline">2^{n}</span> if the set has <span class="math inline">n</span> instances.</p>
-<section id="growth-function-shattering-coefficient" class="level2" data-number="42.1">
-<h2 data-number="42.1" class="anchored" data-anchor-id="growth-function-shattering-coefficient"><span class="header-section-number">42.1</span> Growth function (shattering coefficient)</h2>
-<p>Given a set of instances <span class="math inline">\mathcal{S} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the <strong>projection</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> onto <span class="math inline">\mathcal{S}</span> is the set of all distinct labels that <span class="math inline">\mathcal{H}</span> can produce onto <span class="math inline">\mathcal{S}</span></p>
+<p>Concentration inequalities provide mathematical bounds on the probability of a random variable deviating from some value. They can answer the questions such as “what is the largest probability that <span class="math inline">X</span> can deviates from its mean by more than <span class="math inline">t</span>”?</p>
+<section id="markovs-inequality" class="level2" data-number="33.1">
+<h2 data-number="33.1" class="anchored" data-anchor-id="markovs-inequality"><span class="header-section-number">33.1</span> Markov’s inequality</h2>
+<p><strong>Markov’s inequality</strong> states that the probability of a random variable larger than <span class="math inline">t</span> is less than <span class="math inline">\frac{\mu}{t}</span>.</p>
+<div id="thm-markovs-inequality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 33.1 (Markov’s inequality) </strong></span>Let <span class="math inline">X \geq 0</span> be a non-negative random variable with finite mean <span class="math inline">\mu</span>. Then for any <span class="math inline">t &gt; 0</span>,</p>
 <p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \{ \{ h (x_{1}), \dots, h (x_{n}) \}, \forall h \in \mathcal{H} \}.
-</span></p>
-<p>The concept of the growth function (shattering coefficient) is to measure the richness of the decisions that a hypothesis class can make with respect to a dataset of size <span class="math inline">n</span>.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 42.1 </strong></span>The <strong>growth function</strong> of a hypothesis class <span class="math inline">\mathcal{H}</span> is defined as the maximum number of unique ways that the hypotheses in <span class="math inline">\mathcal{H}</span> can label any set of <span class="math inline">n</span> instances</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sup_{\mathcal{S}: \lvert \mathcal{S} \rvert = n} \lvert \mathcal{H} (\mathcal{S}) \rvert.
-</span></p>
-</div>
-<p>Note that <span class="math inline">\Pi_{\mathcal{H}} (n) \leq 2^{n}</span> for any <span class="math inline">\mathcal{H}</span> with binary labels.</p>
-</section>
-<section id="vapnik-chervonenkis-vc-dimension" class="level2" data-number="42.2">
-<h2 data-number="42.2" class="anchored" data-anchor-id="vapnik-chervonenkis-vc-dimension"><span class="header-section-number">42.2</span> Vapnik-Chervonenkis (VC) dimension</h2>
-<p>We say that a sample <span class="math inline">\mathcal{S}</span> is <strong>shattered</strong> by the hypothesis class <span class="math inline">\mathcal{H}</span> if a <span class="math inline">\mathcal{H}</span> can label <span class="math inline">\mathcal{S}</span> in every possible way. That is, <span class="math inline">\mathcal{S}</span> is shattered by <span class="math inline">\mathcal{H}</span> if</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = 2^{\lvert \mathcal{S} \rvert}.
-</span></p>
-<div class="{prf:definition}">
-<p>The <strong>Vapnik-Chervonenkis (VC) dimension</strong> of <span class="math inline">\mathcal{H}</span> is the size of the largest set that is shattered by <span class="math inline">\mathcal{H}</span></p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}) = \max_{n: \mathcal{H} (\mathcal{S}) = 2^{n}} n.
-</span></p>
-</div>
-</section>
-<section id="sauers-lemma" class="level2" data-number="42.3">
-<h2 data-number="42.3" class="anchored" data-anchor-id="sauers-lemma"><span class="header-section-number">42.3</span> Sauer’s lemma</h2>
-<p>Sauer’s lemma shows that the growth function of any hypothesis class <span class="math inline">\mathcal{H}</span> is upper-bounded by a function of its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.1 </strong></span>For any hypothesis class <span class="math inline">\mathcal{H}</span> and any dataset size <span class="math inline">n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
+\mathbb{P} \left(
+    X \geq t
+\right) \leq \frac{ \mu }{ t }.
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -553,118 +510,40 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will prove the lemma for any set of <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span> with <span class="math inline">\mathrm{VC} (\mathcal{H}) = d</span> using induction on <span class="math inline">n</span> and <span class="math inline">d</span>.</p>
-<p>That is, we will prove</p>
-<ul>
-<li><p>the lemma is correct under the base cases where <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>,</p></li>
-<li><p>the lemma is correct under general case for <span class="math inline">(n ,d)</span> by assuming the lemma is true under the previous cases <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n</span> and <span class="math inline">c &lt; d</span>.</p></li>
-</ul>
-<p>First the base case <span class="math inline">(n, d) = (0, d)</span> implies that</p>
+<p>Assuming <span class="math inline">X</span> is a discrete random variable,</p>
 <p><span class="math display">
-\Pi_{\mathcal{H}} (0) = 1 = {0 \choose 0} = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {0 \choose i}
+\mu = \sum_{x} \mathbb{P}_{X} (x) x = \sum_{x \geq t} \mathbb{P}_{X} (x) x + \sum_{x &lt; t} \mathbb{P}_{X} (x) x.
 </span></p>
-<p>because any hypothesis class can have at most 1 distinct label on an empty set (<span class="math inline">n = 0</span>).</p>
-<p>Then the base case <span class="math inline">(n, d) = (n, 0)</span> means that <span class="math inline">\mathcal{H}</span> can only shatter the empty set <span class="math inline">\emptyset</span> and therefore according to the definition of shattering</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \mathcal{H} (\emptyset) = 2^{0} = 1 = {n \choose 0} = \sum_{i = 0}^{0} {n \choose i}.
-</span></p>
-<p>Therefore we have proven the lemma is true in the base case, that is,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}
-</span></p>
-<p>is true when <span class="math inline">(n, d) = (0, d)</span> and <span class="math inline">(n, d) = (n, 0)</span>.</p>
-<p>To prove the general case of the lemma, take any set <span class="math inline">\mathcal{S} = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n} \}</span> with <span class="math inline">n</span> instances and any hypothesis class <span class="math inline">\mathcal{H}</span>, we can classify each unique way of the label assignment <span class="math inline">\pi \in \mathcal{H} (\mathcal{S})</span> into 2 groups <span class="math inline">\mathcal{G}_{1}</span> and <span class="math inline">\mathcal{G}_{2}</span> based on whether <span class="math inline">\pi</span> can form a pair in <span class="math inline">\mathcal{H} (\mathcal{S})</span>.</p>
-<ul>
-<li><p><span class="math inline">(\pi, \pi')</span> form a pair if <span class="math inline">\pi (x_{i}) = \pi' (x_{i}), \forall i \in [1, n - 1]</span> and <span class="math inline">\pi (x_{n}) = \pi' (x_{n})</span> (<span class="math inline">\pi</span> agree with <span class="math inline">\pi'</span> for all <span class="math inline">x_{1}, \dots, x_{n - 1}</span> but not for <span class="math inline">x_{n}</span>). We add the both <span class="math inline">\pi</span> and <span class="math inline">\pi'</span> to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-<li><p><span class="math inline">\pi</span> belongs to <span class="math inline">\mathcal{G}_{2}</span> if doesn’t belong to <span class="math inline">\mathcal{G}_{1}</span>.</p></li>
-</ul>
-<p>Since the pairs <span class="math inline">(\pi, \pi') \in \mathcal{G}_{1}</span> have the same labels for <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1}</span> if we create <span class="math inline">\mathcal{G}'_{1}</span> by removing the labels for <span class="math inline">\mathbf{x}_{n}</span> in each <span class="math inline">\pi \in \mathcal{G}_{1}</span></p>
-<p><span class="math display">
-\mathcal{G}'_{1} = \{ (\pi (\mathbf{x}_{1}), \dots, \pi (\mathbf{x}_{n - 1})), \forall \pi \in \mathcal{G}_{1} \} \\
-</span></p>
-<p>then all of the pairs in <span class="math inline">\mathcal{G}_{1}</span> become the same label assignment, but if we create <span class="math inline">\mathcal{G}_{2}'</span> using the same procedure above, the resulting label assignments in <span class="math inline">\mathcal{G}_{2}'</span> are still unique.</p>
-<p>Also, by the definition of <span class="math inline">\mathcal{G}_{1}</span>, <span class="math inline">\mathcal{G}_{2}</span>, <span class="math inline">\mathcal{G}_{1}'</span>, and <span class="math inline">\mathcal{G}_{2}'</span>, the label assignments in <span class="math inline">\mathcal{G}_{1}'</span> and <span class="math inline">\mathcal{G}_{2}'</span> do not overlap, and therefore</p>
-<p><span class="math display">
-\mathcal{H} (\mathcal{S}) = \lvert \mathcal{G}_{1} \rvert + \lvert \mathcal{G}_{2} \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert.
-</span></p>
-<p>Then we will define 2 new hypotheses classes <span class="math inline">\mathcal{H}_{1}</span>, <span class="math inline">\mathcal{H}_{2}</span> whose domain is a set <span class="math inline">\mathcal{S}'</span> that is constructed by removing <span class="math inline">x_{n}</span> from <span class="math inline">\mathcal{S}</span></p>
-<p><span class="math display">
-\mathcal{S}' = \{\mathbf{x}_{1} \dots, \mathbf{x}_{n - 1} \}.
-</span></p>
-<p>and whose projections on <span class="math inline">\mathcal{S}'</span> are defined as</p>
-<p><span class="math display">
-\mathcal{H}_{1} (\mathcal{S}') = \mathcal{G}_{1}' \cup \mathcal{G}_{2}' \\
-\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}',
-</span></p>
-<p>and therefore,</p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert = 2 \lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert = (\lvert \mathcal{G}_{1}' \rvert + \lvert \mathcal{G}_{2}' \rvert) + \lvert \mathcal{G}_{1}' \rvert = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert.
-</span></p>
-<p>Although we never exactly defined what <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span> are, we have completely specified their projections on the entire domain <span class="math inline">\mathcal{S}'</span>, using which we can derive</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{1}) \leq \mathrm{VC} (\mathcal{H}),
-</span></p>
-<p>since the <span class="math inline">\mathcal{H}</span> has all the same label assignments for <span class="math inline">\mathcal{S}' = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n - 1} \}</span> that <span class="math inline">\mathcal{H}_{1}</span> has and any subset of <span class="math inline">\mathcal{S}'</span> that is shattered by <span class="math inline">\mathcal{H}_{1}</span> is shattered by <span class="math inline">\mathcal{H}</span>.</p>
-<p>Furthermore, since <span class="math inline">\mathcal{H}_{2} (\mathcal{S}') = \mathcal{G}_{1}</span>, if a subset <span class="math inline">\mathcal{T} \subseteq \mathcal{S}'</span> is shattered by <span class="math inline">\mathcal{H}_{2}</span>, then the set <span class="math inline">\mathcal{T} \cup \{ x_{n} \}</span> must be shattered by <span class="math inline">\mathcal{H}</span>, which means</p>
-<p><span class="math display">
-\mathrm{VC} (\mathcal{H}_{2}) + 1 \leq \mathrm{VC} (\mathcal{H}).
-</span></p>
-<p>Now we are ready to prove the general case of the lemma using the all results we proved above with <span class="math inline">\mathcal{H}_{1}</span> and <span class="math inline">\mathcal{H}_{2}</span>.</p>
-<p>According to the definition of growth function, for any hypothesis class <span class="math inline">\mathcal{H}</span> and any set <span class="math inline">\mathcal{S}</span> of size <span class="math inline">n</span></p>
-<p><span class="math display">
-\lvert \mathcal{H} (\mathcal{S}) \rvert \leq \Pi_{\mathcal{H}} (n)
-</span></p>
-<p>and since we have assumed that the lemma is correct for the case <span class="math inline">(m, c)</span> where <span class="math inline">m &lt; n, c &lt; d</span>,</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (m) \leq \sum_{i = 0}^{c} {m \choose i},
-</span></p>
-<p>we have</p>
+<p>Since <span class="math inline">X \geq 0</span>, <span class="math inline">\sum_{x &lt; t} \mathbb{P}_{X} (x) x</span> is non-negative, and therefore</p>
 <p><span class="math display">
 \begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; = \lvert \mathcal{H}_{1} (\mathcal{S}') \rvert + \lvert \mathcal{H}_{2} (\mathcal{S}') \rvert
+\mu
+&amp; = \sum_{x \geq t} \mathbb{P}_{X} (x) x + \sum_{x &lt; t} \mathbb{P}_{X} (x) x.
 \\
-&amp; \leq \Pi_{\mathcal{H}_{1}} (n - 1) + \Pi_{\mathcal{H}_{2}} (n - 1).
+&amp; \geq \sum_{x \geq t} \mathbb{P}_{X} (x)
 \\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
+&amp; = t \sum_{x \geq t} \mathbb{P}_{X} (x)
 \\
+&amp; = t \mathbb{P}_{X} (x \geq t)
 \end{aligned}
 </span></p>
-<p>Since we have proved that the relations between <span class="math inline">\mathrm{VC} (\mathcal{H}_{1})</span>, <span class="math inline">\mathrm{VC} (\mathcal{H}_{2})</span> and <span class="math inline">\mathrm{VC} (\mathcal{H})</span>,</p>
+<p>We have Markov’s inequality by rearranging the term</p>
 <p><span class="math display">
-\begin{aligned}
-\lvert \mathcal{H} (\mathcal{S}) \rvert
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{1})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}_{2})} {n - 1 \choose i}
-\\
-&amp; \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H}) - 1} {n - 1 \choose i}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 1}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1} + {n - 1 \choose -1}
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i} + \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n - 1 \choose i - 1}
-&amp; [{n - 1 \choose - 1} = 0]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} \left[
-    {n - 1 \choose i} + {n - 1 \choose i - 1}
-\right]
-\\
-&amp; = \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i}.
-\end{aligned}
+\mathbb{P}_{X} (x \geq t) \leq \frac{\mu}{t}.
 </span></p>
-<p>Since all of the above proof is for any <span class="math inline">\mathcal{S}</span>, it also works for the largest <span class="math inline">\lvert \mathcal{H} (\mathcal{S}) \rvert</span>,</p>
+</div>
+</div>
+</div>
+</section>
+<section id="chebyshevs-inequality" class="level2" data-number="33.2">
+<h2 data-number="33.2" class="anchored" data-anchor-id="chebyshevs-inequality"><span class="header-section-number">33.2</span> Chebyshev’s inequality</h2>
+<p><strong>Chebyshev’s inequality</strong> states that the probability of the difference between a random variable and its mean larger than <span class="math inline">a</span> is less than <span class="math inline">\frac{\sigma^{2}}{t^{2}}</span>.</p>
+<div id="thm-chebyshevs-inequality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 33.2 (Chebyshev’s inequality) </strong></span>Let <span class="math inline">X</span> be a random variable with finite mean <span class="math inline">\mu</span> and finite variance <span class="math inline">\sigma^{2}</span>. Then for any <span class="math inline">t &gt; 0</span>,</p>
 <p><span class="math display">
-\sup_{\mathcal{S}} \lvert \mathcal{H} (\mathcal{S}) \rvert = \Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{\mathrm{VC} (\mathcal{H})} {n \choose i},
-</span></p>
-<p>which proves the lemma under the general case.</p>
-</div>
-</div>
-</div>
-<p>The following theorem uses Sauer’s lemma to provide a closed form upper-bound of the growth function of any hypothesis class with its VC dimension.</p>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 42.2 </strong></span>For any <span class="math inline">1 &lt; d = \mathrm{VC} (\mathcal{H}) &lt; n</span>, we have</p>
-<p><span class="math display">
-\Pi_{\mathcal{H}} (n) \leq \sum_{i = 0}^{d} {n \choose i} \leq \left(
-    \frac{ e }{ d } n
-\right)^{d} = O (n^d).
+\mathbb{P} \left(
+    \lvert X - \mu \rvert \geq t
+\right) \leq \frac{ \sigma^{2} }{ t^{2} }.
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -679,60 +558,344 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>First note that <span class="math inline">(\frac{ d }{ n })^{d} &lt; (\frac{ d }{ n })^{i}, i &lt; d</span> since <span class="math inline">d &lt; n</span>, and therefore</p>
+<p>Let <span class="math inline">Y = (X - \mathbb{E}_{X} [X])^{2}</span> and apply Markov’s inequality on <span class="math inline">Y</span> to get</p>
 <p><span class="math display">
 \begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i}
+\mathbb{P} (Y \geq t^{2})
+&amp; \leq \frac{ \mathbb{E}_{Y} [y] }{ t^{2} }
+\\
+&amp; = \frac{ \mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{2}] }{ a^{2} }
+\\
+&amp; = \frac{ \mathrm{Var}_{X} [X] }{ t^{2} }.
+\end{aligned}
+</span></p>
+<p>Note that</p>
+<p><span class="math display">
+\mathbb{P} (Y \geq t^{2}) = \mathbb{P} \left(
+    (X - \mathbb{E}_{X} [X])^{2} \geq t^{2}
+\right) = \mathbb{P} \left(
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
+\right).
+</span></p>
+<p>Therefore,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P} \left(
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
+\right)
+&amp; \leq \frac{ \mathrm{Var} [X] }{ t^{2} }.
+\\
+\mathbb{P} \left(
+    \lvert X - \mu \rvert \geq t
+\right)
+&amp; \leq \frac{ \sigma^{2} }{ t^{2} }.
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+<section id="average-of-random-variables-converge-to-mean" class="level3">
+<h3 class="anchored" data-anchor-id="average-of-random-variables-converge-to-mean">Average of random variables converge to mean</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be independent random variables with finite means <span class="math inline">\mu_{1}, \dots, \mu_{n}</span> and finite variances <span class="math inline">\sigma_{1}^{2}, \dots, \sigma_{n}^{2}</span>. Then, for any <span class="math inline">t &gt; 0</span></p>
+<p><span class="math display">
+\mathbb{P} \left(
+    \left\lvert
+        \sum_{i = 1}^{n} X_{i} - \sum_{i = 1}^{n} \mu_{i}
+    \right\rvert \geq t
+\right) \leq \frac{
+    \sum_{i = 1}^{n} \sigma_{i}^{2}
+}{
+    t^{2}
+}
+</span></p>
+</section>
+</section>
+<section id="chernoff-bound" class="level2" data-number="33.3">
+<h2 data-number="33.3" class="anchored" data-anchor-id="chernoff-bound"><span class="header-section-number">33.3</span> Chernoff bound</h2>
+<section id="chernoffs-bounding-method" class="level3">
+<h3 class="anchored" data-anchor-id="chernoffs-bounding-method">Chernoff’s bounding method</h3>
+<div id="thm-chernoffs-bounding-method" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 33.3 </strong></span>Let <span class="math inline">X</span> be a random variable on <span class="math inline">\mathbb{R}</span>. Then for all the <span class="math inline">t &gt; 0</span></p>
+<p><span class="math display">
+\mathbb{P} (X \geq t) \leq \inf_{s &gt; 0} \frac{
+    M_{X} (s)
+}{
+    e^{s t}
+} = \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s t}
+}
+</span></p>
+<p>where <span class="math inline">M_{X} (s)</span> is the MGF of <span class="math inline">X</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For any <span class="math inline">t &gt; 0</span>, we can apply Markov’s inequality</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P} (X \geq t)
+&amp; = \mathbb{P} (e^{s X} \geq e^{s t})
+\\
+&amp; \leq \frac{ \mathbb{E}_{X} [e^{s X}] }{ e^{s t} }
+\\
+&amp; \leq \frac{M_{X} (s) }{ e^{s t} }.
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbb{P} (X \geq t) \leq \frac{ M_{X} (s) }{ e^{s t} }</span> for any <span class="math inline">s &gt; 0</span>, <span class="math inline">\mathbb{P} (X \geq t)</span> is less than the <span class="math inline">s</span> that minimizes <span class="math inline">\frac{ M_{X} (s) }{ e^{s t} }</span>, which is written as</p>
+<p><span class="math display">
+\mathbb{P} (X \geq t) \leq \inf_{s &gt; 0} \frac{M_{X} (s)}{e^{s t}}.
+</span></p>
+</div>
+</div>
+</div>
+<div class="remark proof">
+<p><span class="proof-title"><em>Remark</em>. </span>The closed-form solution of the optimization problem</p>
+<p><span class="math display">
+\inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s t}
+} = \inf_{s &gt; 0} f (s)
+</span></p>
+<p>can be obtained by solving <span class="math inline">f' (s) = 0</span> if <span class="math inline">f (s)</span> is a convex function.</p>
+</div>
+</section>
+<section id="chernoff-bound-for-bernoulli-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="chernoff-bound-for-bernoulli-random-variables">Chernoff bound for Bernoulli random variables</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent Bernoulli random variables such that <span class="math inline">X_{i} \sim \mathrm{Ber} (p_{i}), \forall i</span>. Let <span class="math inline">X = \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{X} (X)</span>.</p>
+<ul>
+<li><p>Upper tail: for all <span class="math inline">\delta &gt; 0</span></p>
+<p><span class="math display">
+  \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu }{ 2 + \delta }
+  \right]
+  </span></p></li>
+<li><p>Lower tail: for all <span class="math inline">0 &lt; \delta &lt; 1</span></p>
+<p><span class="math display">
+  \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu }{ 2 }
+  \right]
+  </span></p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">X_{i} \sim \mathrm{Ber} (p)</span> be a Bernoulli variable. Then the MGF of <span class="math inline">X_{i}</span> can be written as</p>
+<p><span class="math display">
+\begin{aligned}
+M_{X_{i}} (s)
+&amp; = \mathbb{E}_{X_{i}} (e^{s X_{i}})
+\\
+&amp; = p e^{1 \times s} + (1 - p) e^{0 \times s}
+\\
+&amp; = 1 + p (e^{s} - 1).
+\\
+\end{aligned}
+</span></p>
+<p>We can obtain the following inequality for MGF of <span class="math inline">X_{i}</span></p>
+<p><span class="math display">
+M_{X_{i}} (s) = 1 + p (e^{s} - 1) \leq \exp[p (e^{s} - 1)],
+</span></p>
+<p>which follows from the fact that <span class="math inline">1 + a \leq e^{a}</span> for any <span class="math inline">a</span>.</p>
+<p>According to the property of the MGF, the same inequality can be obtained for the MGF of <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span></p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{X} [e^{s X}]
+&amp; = M_{X} (s)
+\\
+&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
+\\
+&amp; \leq \prod_{i = 1}^{n} \exp[p (e^{s} - 1)]
+\\
+&amp; = \exp \left[
+    (e^{s} - 1) \sum_{i = 1}^{n} p_{i}
 \right]
 \\
-&amp; = \sum_{i = 0}^{d} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
-\right]
-\\
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
+&amp; = \exp \left[
+    (e^{s} - 1) \mu
 \right]
 \end{aligned}
 </span></p>
-<p>By applying Binomial theorem <span class="math inline">(x + y)^{n} = \sum_{i = 0}^{n} {n \choose i} x^{i} y^{n - i}</span></p>
+<p>where <span class="math inline">\mu = \mathbb{E}_{X} [X] = \sum_{i = 1}^{n} p_{i}</span>.</p>
+<p>By applying the Chernoff bounding method with <span class="math inline">t = (1 + \delta) \mu</span>, we can derive a upper bound</p>
 <p><span class="math display">
 \begin{aligned}
-\sum_{i = 0}^{d} {n \choose i} \left(
-    \frac{ d }{ n }
-\right)^{d}
-&amp; \leq \sum_{i = 0}^{n} \left[
-    {n \choose i} \left(
-        \frac{ d }{ n }
-    \right)^{i} 1^{n - i}
+\mathbb{P} (X \geq (1 + \delta) \mu)
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s (1 + \delta) \mu}
+}
+\\
+&amp; = \inf_{s &gt; 0} \frac{
+    \exp[(e^{s} - 1) \mu]
+}{
+    e^{s (1 + \delta) \mu}
+}
+\\
+&amp; = \inf_{s &gt; 0} \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
+\right].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\exp [(e^{s} - 1) \mu - (1 + \delta) \mu s]</span> is a convex function</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{ d }{ d s } \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
 \right]
+&amp; = 0
+\\
+(\mu e^{s} - (1 + \delta) \mu) \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
+\right]
+&amp; = 0
+\\
+\mu e^{s} - (1 + \delta) \mu
+&amp; = 0
+\\
+s
+&amp; = \log [1 + \delta].
+\end{aligned}
+</span></p>
+<p>Now let’s select <span class="math inline">s = \log [1 + \delta]</span> to get the tight upper bound</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{
+    \exp[(e^{s} - 1) \mu]
+}{
+    e^{s (1 + \delta) \mu}
+}
+&amp; = \frac{
+    \exp[(e^{\log[1 + \delta]} - 1) \mu]
+}{
+    e^{\log[1 + \delta] (1 + \delta) \mu}
+}
+\\
+&amp; = \frac{
+    e^{\delta \mu}
+}{
+    (1 + \delta)^{(1 + \delta) \mu}
+}
 \\
 &amp; = \left(
-    \frac{ d }{ n } + 1
-\right)^{n}
-\\
-&amp; \leq e^{d}.
+    \frac{e^{\delta}}{(1 + \delta)^{1 + \delta}}
+\right)^{\mu}.
 \end{aligned}
 </span></p>
-</div>
-</div>
-</div>
-<p>The theorem above shows that the VC dimension marks the threshold between the exponential growth and polynomial growth of the growth function.</p>
+<p>Taking <span class="math inline">\exp \log</span> on the upper bound to derive</p>
+<p><span class="math display">
+\begin{aligned}
+\left(
+    \frac{ e^{\delta} }{ (1 + \delta)^{1 + \delta} }
+\right)^{\mu}
+&amp; = \exp \left[
+    \log \left[
+        \left(
+            \frac{ e^{\delta} }{ (1 + \delta)^{1 + \delta} }
+        \right)^{\mu}
+    \right]
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \log e^{\delta} - \log \left[
+            (1 + \delta)^{1 + \delta}
+        \right]
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \delta - (1 + \delta) \log [(1 + \delta)]
+    \right)
+\right].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\log [1 + x] \geq \frac{ x }{ 1 + \frac{x}{2} }</span> for all <span class="math inline">x &gt; 0</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+\exp \left[
+    \mu \left(
+        \delta - (1 + \delta) \log [(1 + \delta)]
+    \right)
+\right]
+&amp; \leq \exp \left[
+    \mu \left(
+        \delta - \frac{ (1 - \delta) \delta }{ 1 + \frac{\delta}{2} }
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \frac{ (1 + \frac{\delta}{2}) \delta }{ 1 + \frac{ \delta }{ 2 } } - \frac{ (1 - \delta) \delta }{ 1 + \frac{ \delta }{ 2 } }
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    - \left(
+        \frac{ \delta^{2} }{ 2 + \delta }
+    \right) \mu
+\right].
+\end{aligned}
+</span></p>
+<p>Putting all together to derive the upper tail of Chernoff bound</p>
+<p><span class="math display">
+\mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+    - \left(
+        \frac{ \delta^{2} }{ 2 + \delta }
+    \right) \mu
+\right].
+</span></p>
+<p>The proof for the lower tail is similar except that</p>
 <ul>
-<li><p>When <span class="math inline">n &lt; d</span>, by the definition of the VC dimension, we can always find a set of instances of size <span class="math inline">n</span> <span class="math inline">\mathcal{H}</span> can shatter, so the growth function <span class="math inline">\Pi_{\mathcal{H}} (n) = 2^{n}</span>, which means it grows exponentially with a factor of 2 as <span class="math inline">n</span> increases,</p></li>
-<li><p>When <span class="math inline">n &gt; d</span>, by the theorem above, the growth function is upper bounded by <span class="math inline">n^{d}</span>, so it only grows in polynomials as <span class="math inline">n</span> increases.</p></li>
+<li><p>taking <span class="math inline">s = \log [1 - \delta]</span> to maximize the lower bound, and</p></li>
+<li><p>applies the inequality <span class="math inline">\log [1 - x] \geq -x + \frac{ x^{2} }{ 2 }</span> in the last step for <span class="math inline">0 &lt; x &lt; 1</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="general-chernoff-bound" class="level3">
+<h3 class="anchored" data-anchor-id="general-chernoff-bound">General Chernoff bound</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent random variables such that <span class="math inline">X_{i} \in [a, b], \forall i</span>. Let <span class="math inline">X = \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{X} [X]</span>. Then for <span class="math inline">\delta &gt; 0</span></p>
+<ul>
+<li><p>Upper tail:</p>
+<p><span class="math display">
+  \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+      -\frac{ 2 \delta^{2} \mu^{2} }{ n (b - a)^{2} }
+  \right]
+  </span></p></li>
+<li><p>Lower tail:</p>
+<p><span class="math display">
+  \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu^{2} }{ n (b - a)^{2} }
+  \right]
+  </span></p></li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -971,13 +1134,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Learning Theory/2_Bayesian_Classifier.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span>
+      <a href="../Probability and Statistics/5_Moment_Generating_Functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/7_Convergence.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
