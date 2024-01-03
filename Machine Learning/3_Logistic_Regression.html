@@ -440,12 +440,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Machine Learning/K-means.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">K-means</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -805,9 +799,7 @@ L_{\mathrm{BCE}} (y, \hat{y}) =  - y \log \hat{y} - (1 - y) \log (1 - \hat{y})
 <h3 class="anchored" data-anchor-id="minimizing-loss-with-gradient-descent">Minimizing loss with gradient descent</h3>
 <p>Unlike linear regression, the optimization problem of logistic regression</p>
 <p><span class="math display">
-\arg\min_{\mathbf{w}, b} \sum_{i} - y_{i} \log \sigma (f (\mathbf{x}_{i})) - (1 - y_{i}) \log \left(
-    1 - \sigma (f (\mathbf{x}_{i}))
-\right)
+\arg\min_{\mathbf{w}, b} R (\mathbf{w}, b) = \sum_{i} L_{\mathrm{BCE}} (y_{i}, \sigma (f (\mathbf{x}_{i})))
 </span></p>
 <p>can not be analytically solved to obtain a closed-form solution because of the non-linear sigmoid function. Instead, gradient descent is used to solve the optimization problem numerically.</p>
 <p>To simplify the derivation process, we will use a trick to make the bias term <span class="math inline">b</span> as part of the weight vector</p>
@@ -834,15 +826,15 @@ x_{d} \\
 1 \\
 \end{bmatrix}.
 </span></p>
-<p>First note that the function <span class="math inline">J (\hat{\mathbf{w}})</span> that we want to minimize</p>
+<p>First note that the function <span class="math inline">R (\hat{\mathbf{w}})</span> that we want to minimize</p>
 <p><span class="math display">
-J (\hat{\mathbf{w}})
+R (\hat{\mathbf{w}})
 = \sum_{i} L_{\mathrm{BCE}} (y_{i}, \sigma (f (\hat{\mathbf{x}}_{i}))
 = \sum_{i} - y_{i} \log \sigma (f (\hat{\mathbf{x}}_{i})) - (1 - y_{i}) \log \left(
     1 - \sigma (f (\hat{\mathbf{x}}_{i}))
 \right)
 </span></p>
-<p>is a convex function with respect to <span class="math inline">\hat{\mathbf{w}}</span> and thus the gradient descent can find the global minimum of <span class="math inline">J (\hat{\mathbf{w}})</span>.</p>
+<p>is a convex function with respect to <span class="math inline">\hat{\mathbf{w}}</span> and thus the gradient descent can find the global minimum of <span class="math inline">R (\hat{\mathbf{w}})</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -863,11 +855,11 @@ Proof
 <p><span class="math display">
 \mathbf{x} = \mathbf{x} - \eta \nabla f (\mathbf{x}).
 </span></p>
-<p>To apply it to minimize the optimization function <span class="math inline">J (\hat{\mathbf{w}})</span>, we will first select a learning rate <span class="math inline">\eta</span> and then learn <span class="math inline">\hat{\mathbf{w}}</span> by doing</p>
+<p>To apply it to minimize the optimization function <span class="math inline">R (\hat{\mathbf{w}})</span>, we will first select a learning rate <span class="math inline">\eta</span> and then learn <span class="math inline">\hat{\mathbf{w}}</span> by doing</p>
 <p><span class="math display">
 \begin{aligned}
 \hat{\mathbf{w}}
-&amp; = \hat{\mathbf{w}} - \eta \nabla J (\hat{\mathbf{w}})
+&amp; = \hat{\mathbf{w}} - \eta \nabla R (\hat{\mathbf{w}})
 \\
 &amp; = \hat{\mathbf{w}} - \eta \sum_{i} (\sigma (\hat{\mathbf{w}}^{T} \hat{\mathbf{x}}_{i}) - y_{i}) \hat{\mathbf{x}}_{i}
 \end{aligned}
@@ -885,13 +877,13 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Given <span class="math inline">\hat{\mathbf{x}}_{i}, y_{i}, \forall i \in [1, n]</span>, the function <span class="math inline">J (\hat{\mathbf{w}})</span> can be expressed as a composite function of <span class="math inline">L_{\mathrm{BCE}} (\hat{y}), \sigma (z), f (\hat{\mathbf{w}})</span></p>
+<p>Given <span class="math inline">\hat{\mathbf{x}}_{i}, y_{i}, \forall i \in [1, n]</span>, the function <span class="math inline">R (\hat{\mathbf{w}})</span> can be expressed as a composite function of <span class="math inline">L_{\mathrm{BCE}} (\hat{y}), \sigma (z), f (\hat{\mathbf{w}})</span></p>
 <p><span class="math display">
-J (\hat{\mathbf{w}}) = \sum_{i} L_{\mathrm{BCE}} (\sigma (f (\hat{\mathbf{w}}))),
+R (\hat{\mathbf{w}}) = \sum_{i} L_{\mathrm{BCE}} (\sigma (f (\hat{\mathbf{w}}))),
 </span></p>
-<p>so <span class="math inline">\nabla J (\hat{\mathbf{w}})</span> can be computed using the chain rule</p>
+<p>so <span class="math inline">\nabla R (\hat{\mathbf{w}})</span> can be computed using the chain rule</p>
 <p><span class="math display">
-\nabla J (\hat{\mathbf{w}}) = \sum_{i} \frac{
+\nabla R (\hat{\mathbf{w}}) = \sum_{i} \frac{
     \mathop{d} L_{\mathrm{BCE}} (\hat{y})
 }{
     \mathop{d} \hat{y}
@@ -943,7 +935,7 @@ J (\hat{\mathbf{w}}) = \sum_{i} L_{\mathrm{BCE}} (\sigma (f (\hat{\mathbf{w}})))
 <p>and put them together</p>
 <p><span class="math display">
 \begin{aligned}
-\nabla J (\hat{\mathbf{w}})
+\nabla R (\hat{\mathbf{w}})
 &amp; = \sum_{i} \frac{
     \mathop{d} L_{\mathrm{BCE}} (\hat{y})
 }{
@@ -1002,11 +994,11 @@ y_{n} \\
 <div class="callout-body-container">
 <ol type="1">
 <li><p>Initialize the weight parameter <span class="math inline">\mathbf{w}</span> randomly</p></li>
-<li><p>While <span class="math inline">J (\hat{\mathbf{w}})</span> is decreasing</p>
+<li><p>While <span class="math inline">R (\hat{\mathbf{w}})</span> is decreasing</p>
 <ol type="1">
-<li><p>Calculate the gradient <span class="math inline">\nabla J (\hat{\mathbf{w}})</span></p>
+<li><p>Calculate the gradient <span class="math inline">\nabla R (\hat{\mathbf{w}})</span></p>
 <p><span class="math display">
-\nabla J (\hat{\mathbf{w}}) =
+\nabla R (\hat{\mathbf{w}}) =
 </span></p></li>
 </ol></li>
 </ol>
