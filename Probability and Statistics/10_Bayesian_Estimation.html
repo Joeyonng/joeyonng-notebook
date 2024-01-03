@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 37&nbsp; Bayesian Estimation</title>
+<title>Joeyonng’s Notebook - 24&nbsp; Bayesian Estimation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -102,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Drafts</span></a>
+ <span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
@@ -125,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Bayesian_Estimation.html"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Bayesian_Estimation.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,164 +169,86 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/02_Spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spaces</span></span></a>
+  <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/03_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
+  <a href="../Linear Algebra/03_Span_and_Linear_Independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/04_Span.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span</span></span></a>
+  <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/05_Linear_Independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear independence</span></span></a>
+  <a href="../Linear Algebra/05_Linear_Map_and_Rank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/06_Basis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basis</span></span></a>
+  <a href="../Linear Algebra/06_Inner_Product_and_Norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Dimension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dimension</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/08_Linear_Map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Map</span></span></a>
+  <a href="../Linear Algebra/08_Complementary_Subspaces_and_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/09_Rank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Rank</span></span></a>
+  <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/10_Inner_Product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inner Product</span></span></a>
+  <a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/11_Norm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Norm</span></span></a>
+  <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/12_Orthogonality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonality</span></span></a>
+  <a href="../Linear Algebra/12_Determinants_and_Eigensystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Unitary matrix</span></span></a>
+  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Complementary_Subspaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Complementary Subspaces</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/15_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/16_Orthogonal_Complement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonal Complement</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/17_Orthogonal_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Orthogonal Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/18_Singular_Value_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Singular Value Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/19_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/21_Affine_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Affine projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/22_Determinants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Determinants</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/23_Eigensystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Eigensystems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/24_Similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Similarity</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/25_Diagonalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Diagonalization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,73 +265,73 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,43 +348,102 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/K-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">K-means</span></span></a>
   </div>
 </li>
       </ul>
@@ -471,37 +453,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#views-on-parameter-estimation" id="toc-views-on-parameter-estimation" class="nav-link active" data-scroll-target="#views-on-parameter-estimation"><span class="header-section-number">37.1</span> Views on parameter estimation</a>
-  <ul class="collapse">
-  <li><a href="#frequentist-view" id="toc-frequentist-view" class="nav-link" data-scroll-target="#frequentist-view">Frequentist view</a></li>
-  <li><a href="#bayesian-view" id="toc-bayesian-view" class="nav-link" data-scroll-target="#bayesian-view">Bayesian view</a></li>
-  </ul></li>
-  <li><a href="#bayesian-estimation" id="toc-bayesian-estimation" class="nav-link" data-scroll-target="#bayesian-estimation"><span class="header-section-number">37.2</span> Bayesian estimation</a>
-  <ul class="collapse">
-  <li><a href="#maximum-a-posteriori-map-estimation" id="toc-maximum-a-posteriori-map-estimation" class="nav-link" data-scroll-target="#maximum-a-posteriori-map-estimation">Maximum a posteriori (MAP) estimation</a></li>
-  </ul></li>
-  <li><a href="#bayesian-bdr" id="toc-bayesian-bdr" class="nav-link" data-scroll-target="#bayesian-bdr"><span class="header-section-number">37.3</span> Bayesian BDR</a></li>
-  <li><a href="#example-mean-of-the-univariate-gaussian" id="toc-example-mean-of-the-univariate-gaussian" class="nav-link" data-scroll-target="#example-mean-of-the-univariate-gaussian"><span class="header-section-number">37.4</span> Example: mean of the univariate Gaussian</a>
-  <ul class="collapse">
-  <li><a href="#posterior-distribution-of-mean-parameter" id="toc-posterior-distribution-of-mean-parameter" class="nav-link" data-scroll-target="#posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</a></li>
-  <li><a href="#predictive-distribution-function" id="toc-predictive-distribution-function" class="nav-link" data-scroll-target="#predictive-distribution-function">Predictive distribution function</a></li>
-  <li><a href="#selecting-parameter-priors" id="toc-selecting-parameter-priors" class="nav-link" data-scroll-target="#selecting-parameter-priors">Selecting parameter priors</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">37.5</span> References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
+<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
 </div>
 
 
@@ -521,8 +479,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Our initial knowledge about <span class="math inline">\boldsymbol{\theta}</span> is assumed to be contained in a known a priori density <span class="math inline">\mathbb{P}_{\boldsymbol{\Theta}}(\boldsymbol{\theta})</span>.</p></li>
 <li><p>The rest of our knowledge about <span class="math inline">\boldsymbol{\theta}</span> is contained in a set <span class="math inline">\mathcal{D}</span> of n samples <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> drawn independently according to the unknown probability density <span class="math inline">\mathbb{P}_{\mathbf{X}}(\mathbf{x})</span>.</p></li>
 </ul>
-<section id="views-on-parameter-estimation" class="level2" data-number="37.1">
-<h2 data-number="37.1" class="anchored" data-anchor-id="views-on-parameter-estimation"><span class="header-section-number">37.1</span> Views on parameter estimation</h2>
+<section id="views-on-parameter-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="views-on-parameter-estimation">Views on parameter estimation</h2>
 <p>There are two different frameworks on statistical inferences: frequentist view and Bayesian view. Both views have the same definition of the probability, but they have different views on how probability of an event should be calculated or accessed. Thus, the way to do parameter estimation is different under the two frameworks.</p>
 <section id="frequentist-view" class="level3">
 <h3 class="anchored" data-anchor-id="frequentist-view">Frequentist view</h3>
@@ -543,8 +501,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="bayesian-estimation" class="level2" data-number="37.2">
-<h2 data-number="37.2" class="anchored" data-anchor-id="bayesian-estimation"><span class="header-section-number">37.2</span> Bayesian estimation</h2>
+<section id="bayesian-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-estimation">Bayesian estimation</h2>
 <p>In Bayesian estimation, the unknown parameters are treated as random variables.</p>
 <ul>
 <li><p>The subjective beliefs about the parameters that we want to estimate before observing any dataset are encoded using a distribution</p>
@@ -585,14 +543,8 @@ ul.task-list li input[type="checkbox"] {
 </span></p>
 </section>
 </section>
-<section id="bayesian-bdr" class="level2" data-number="37.3">
-<h2 data-number="37.3" class="anchored" data-anchor-id="bayesian-bdr"><span class="header-section-number">37.3</span> Bayesian BDR</h2>
-<blockquote class="blockquote">
-<p>TODO</p>
-</blockquote>
-</section>
-<section id="example-mean-of-the-univariate-gaussian" class="level2" data-number="37.4">
-<h2 data-number="37.4" class="anchored" data-anchor-id="example-mean-of-the-univariate-gaussian"><span class="header-section-number">37.4</span> Example: mean of the univariate Gaussian</h2>
+<section id="example-mean-of-the-univariate-gaussian" class="level2">
+<h2 class="anchored" data-anchor-id="example-mean-of-the-univariate-gaussian">Example: mean of the univariate Gaussian</h2>
 <p>Here we shows an example of estimating the posterior probability of the mean parameter of a univariate normal distribution using Bayesian estimation.</p>
 <p>Consider the univariate case where the probability of the instance <span class="math inline">x</span> follows a normal distribution with unknown mean <span class="math inline">\mu</span> and known variance <span class="math inline">\sigma^{2}</span>:</p>
 <p><span class="math display">
@@ -656,37 +608,165 @@ Proof
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 \begin{aligned}
-\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D})
-&amp; \propto \mathbb{P}_{\mathcal{D} \mid \mu}(\mathcal{D} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
-&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu}(x_{i} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
-&amp; = \prod_{i=1}^{n} \frac{ 1 }{\sqrt{2 \pi \sigma^{2}}} \exp{ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } } \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{ - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } } \\
-&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{ \left[ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2}} - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{merging constants and exponentials}] \\
-&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
-&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ x_{i}^{2} - 2 x_{i} \mu + \mu^{2}}{2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{expanding squares}] \\
-&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} \left[ x_{i}^{2} - 2 x_{i} \mu + \mu^{2} \right] }{ 2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2}} \right] } \\
-&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2} }{2 \sigma^{2}} - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{reordering sums}] \\
-&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } + \frac{ \sum_{i=1}^{n} 2 x_{i} \mu }{ 2 \sigma^{2} } - \frac{ n \mu^{2} }{ 2 \sigma^{2} } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{ 2 \mu \mu_{0} }{ 2 \sigma_{0}^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
-&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } &amp; [\text{grouping } \mu] \\
-&amp; = \frac{ \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } &amp; [\text{extracting out terms without } \mu] \\
-&amp; \propto \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } &amp; [\text{removing terms without } \mu] \\
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
+&amp; \propto \mathbb{P}_{\mathcal{D} \mid \mu} (\mathcal{D} \mid \mu) \mathbb{P}_{\mu} (\mu)
+\\
+&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu)
+\\
+&amp; = \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{
+    (x_{i} - \mu)^{2}
+}{
+    2 \sigma^{2}
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{
+    (\mu - \mu_{0})^{2}
+}{
+    2 \sigma_{0}^{2}
+}}
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{\left[
+    - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} }
+\right] }
+&amp; [\text{merging constants and exponential}]
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    \sum_{i=1}^{n} - \frac{
+        (x_{i} - \mu)^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        (\mu - \mu_{0})^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    \sum_{i=1}^{n} - \frac{
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+&amp; [\text{expanding squares}]
+\\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \frac{ \sum_{i=1}^{n} \left[
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2}
+    \right] }{ 2 \sigma^{2} } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+\\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right] }
+&amp; [\text{reordering sums}]
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+        - \frac{ \sum_{i=1}^{n} x_{i}^{2}
+    }{
+        2 \sigma^{2}
+    } + \frac{
+        \sum_{i=1}^{n} 2 x_{i} \mu
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{
+        2 \mu \mu_{0}
+    }{
+        2 \sigma_{0}^{2}
+    } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
+\right]}
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left(
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu - \frac{
+        \sum_{i=1}^{n} x_{i}^{2}
+    }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
+\right] }
+&amp; [\text{grouping } \mu]
+\\
+&amp; = \frac{ \exp{ \left[
+    - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
+\right] } }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
+        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }
+&amp; [\text{extracting out terms without } \mu]
+\\
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
+        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }
+&amp; [\text{removing terms without } \mu]
+\\
 \end{aligned}
 </span></p>
 <p>Using the <em>completing the squares</em> trick</p>
 <p><span class="math display">
 \begin{aligned}
 ax^{2} + 2bx + c  
-&amp; = a \left( x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a } \right) \\
-&amp; = a \left( x^{2} + 2 \frac{ b }{ a } x + \left( \frac{ b }{ a } \right)^{2} - \left( \frac{ b }{ a } \right)^{2} + \frac{ c }{ a } \right) \\
-&amp; = a \left( x + \frac{ b }{ a } \right)^{2} + c - \frac{ b^{2} }{ a }, \\
+&amp; = a \left(
+    x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a }
+\right)
+\\
+&amp; = a \left(
+    x^{2} + 2 \frac{ b }{ a } x + \left(
+        \frac{ b }{ a }
+    \right)^{2} - \left(
+        \frac{ b }{ a }
+    \right)^{2} + \frac{ c }{ a }
+\right)
+\\
+&amp; = a \left(
+    x + \frac{ b }{ a }
+\right)^{2} + c - \frac{ b^{2} }{ a },
+\\
 \end{aligned}
 </span></p>
 <p>and treating</p>
-<p><span class="math display"> a = - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right), </span></p>
-<p><span class="math display"> b = \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right), </span></p>
+<p><span class="math display">
+a = - \left(
+    \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+\right),
+</span></p>
+<p><span class="math display">
+b = \left(
+    \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+\right),
+</span></p>
 <p>we can have</p>
 <p><span class="math display">
 \begin{aligned}
-\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D})
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
 &amp; \propto \exp{ \left[
     - \left(
         \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
@@ -788,11 +868,14 @@ ax^{2} + 2bx + c
         n \sigma_{0}^{2} + \sigma^{2}
     }
 \right) \mu_{0}
-&amp; [\bar{x}_{n} = \frac{1}{n} \sum_{i=1}^{n} x_{i}]
+&amp; [\bar{x}_{n} = \frac{ 1 }{ n } \sum_{i=1}^{n} x_{i}]
 \\
 &amp; = \alpha_{n} \bar{x}_{n} + (1 - \alpha_{n}) \mu_{0}
-&amp; [\alpha_{n} = \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}}]
-,
+&amp; [\alpha_{n} = \frac{
+    n \sigma_{0}^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+}],
 \\
 \end{aligned}
 </span></p>
@@ -802,11 +885,11 @@ ax^{2} + 2bx + c
 \begin{aligned}
 \lim_{n \to \infty} \mu_{n}
 &amp; = \bar{x}_{n}
-&amp; [\lim_{n \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+&amp; [\lim_{n \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
 \\
 \lim_{n \to 0} \mu_{n}
 &amp; = \mu_{0}
-&amp; [\lim_{n \to 0} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+&amp; [\lim_{n \to 0} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
 \end{aligned}
 </span></p>
 <ul>
@@ -818,11 +901,11 @@ ax^{2} + 2bx + c
 \begin{aligned}
 \lim_{\sigma_{0} \to \infty} \mu_{n}
 &amp; = \bar{x}_{n}
-&amp; [\lim_{\sigma_{0} \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+&amp; [\lim_{\sigma_{0} \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
 \\
 \lim_{\sigma_{0} \to 0} \mu_{n}
 &amp; = \mu_{0}
-&amp; [\lim_{\sigma \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+&amp; [\lim_{\sigma \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
 \end{aligned}
 </span></p>
 <p>which means</p>
@@ -854,13 +937,13 @@ ax^{2} + 2bx + c
 &amp; = \bar{x}_{n},
 \\
 \lim_{\sigma_{0}^{2} \to \infty} \sigma_{n}
-&amp; = \frac{\sigma^{2}}{n},
+&amp; = \frac{ \sigma^{2} }{ n },
 \end{aligned}
 </span></p>
 <p>the predictive distribution is</p>
 <p><span class="math display">
 \mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left(
-     \bar{x}_{n}, \sigma^{2} + \frac{\sigma^{2}}{n}
+     \bar{x}_{n}, \sigma^{2} + \frac{ \sigma^{2} }{ n }
 \right).
 </span></p></li>
 <li><p>Dirac delta prior (normal distribution with zero variance).</p>
@@ -884,8 +967,8 @@ ax^{2} + 2bx + c
 </ol>
 </section>
 </section>
-<section id="references" class="level2" data-number="37.5">
-<h2 data-number="37.5" class="anchored" data-anchor-id="references"><span class="header-section-number">37.5</span> References</h2>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
 <li>https://www.bu.edu/sph/files/2014/05/Bayesian-Statistics_final_20140416.pdf</li>
 </ul>
@@ -1127,19 +1210,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
       <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

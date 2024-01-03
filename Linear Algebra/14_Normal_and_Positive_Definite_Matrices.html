@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 1&nbsp; Fields and Spaces</title>
+<title>Joeyonng’s Notebook - 14&nbsp; Normal and Positive Definite Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Linear Algebra/02_Vectors_and_Matrices.html" rel="next">
-<link href="../notations.html" rel="prev">
+<link href="../Probability and Statistics/01_Probability.html" rel="next">
+<link href="../Linear Algebra/13_Similarity_and_Diagonalization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
@@ -247,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
   </div>
 </li>
@@ -459,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></h1>
 </div>
 
 
@@ -474,60 +474,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fields" class="level2">
-<h2 class="anchored" data-anchor-id="fields">Fields</h2>
-<p>A field is a <strong>set</strong> <span class="math inline">\mathbb{F}</span>, equipped with two operations addition <span class="math inline">+</span> and multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-fields">Axioms of fields</h3>
-<p>For all <span class="math inline">x</span>, <span class="math inline">y</span>, and <span class="math inline">z</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall x, y, z \in \mathbb{F}</span>), we have:</p>
+<section id="normal-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="normal-matrices">Normal Matrices</h2>
+<p>The square real (complex) matrix <span class="math inline">\mathbf{A}</span> is a <strong>normal matrix</strong> if and only if</p>
+<p><span class="math display">
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
+</span></p>
+<section id="properties-of-normal-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-normal-matrices">Properties of normal matrices</h3>
 <ul>
-<li><p><strong>Closure</strong> under addition and multiplication:</p>
-<p><span class="math display">
-  x + y \in \mathbb{F},
-  </span></p>
-<p><span class="math display">
-  x \cdot y \in \mathbb{F}.
-  </span></p></li>
-<li><p><strong>Commutativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  x + y = y + x,
-  </span></p>
-<p><span class="math display">
-  x \cdot y = y \cdot x.
-  </span></p></li>
-<li><p><strong>Associativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  (x + y) + z = x + (y + z),
-  </span></p>
-<p><span class="math display">
-  (x \cdot y) \cdot z = x \cdot (y \cdot z).
-  </span></p></li>
-<li><p><strong>Distributive property</strong> of multiplication:</p>
-<p><span class="math display">
-  (x + y) \cdot z = x \cdot z + y \cdot z.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathbb{F}</span> called <strong>“zero”</strong> <span class="math inline">0 \in \mathbb{F}</span> such that</p>
-<p><span class="math display">
-  x + 0 = x,
-  </span></p>
-<p>and there is another element in <span class="math inline">\mathbb{F}</span> called <strong>“one”</strong> <span class="math inline">1 \in \mathbb{F}</span>, <span class="math inline">1 \neq 0</span>, such that</p>
-<p><span class="math display">
-  x \cdot 1 = x.
-  </span></p></li>
-<li><p>For each <span class="math inline">x \in \mathbb{F}</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>addictive inverse</strong> <span class="math inline">x_{I}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x + x_{I} = 0,
-  </span></p>
-<p>and if <span class="math inline">x \neq 0</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>multiplicative inverse</strong> <span class="math inline">x^{-1}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x \cdot x^{-1} = 1.
-  </span></p></li>
-</ul>
-</section>
-<section id="properties-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-fields">Properties of fields</h3>
-<ul>
-<li><p><strong>Zero and one are unique</strong>: there is only one “zero” and one “one” in any field <span class="math inline">\mathbb{F}</span>.</p>
+<li><p>Orthogonal (unitary) matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -540,38 +496,15 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We prove “zero” is unique by contradiction.</p>
-<p>Suppose there are two different “zero”s <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span>.</p>
-<p>Due to the definition of “zero”,</p>
+<p>According to the <a href="unitary-matrix-property-2">property of unitary matrices</a>, a matrix <span class="math inline">\mathbf{U}</span> is unitary if and only if</p>
 <p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{1}
-  &amp; [0_{0} \text{ is "zero"}]
-  \\
-  0_{0} + 0_{1}
-  &amp; = 0_{0}
-  &amp; [0_{1} \text{ is "zero"}]
-  \\
-  \end{aligned}
+  \mathbf{U}^{-1} \mathbf{U} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}.
   </span></p>
-<p>Due to the Commutativity axiom,</p>
-<p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{0} + 0_{1}
-  \\
-  0_{1}
-  &amp; = 0_{0}
-  \\
-  \end{aligned}
-  </span></p>
-<p>which contradicts to the fact that <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span> (<span class="math inline">1_{0}</span> and <span class="math inline">1_{1}</span>) are different. Thus, there is only a unique “zero” in <span class="math inline">\mathbb{F}</span>.</p>
-<p>The proof that the “one” in any <span class="math inline">\mathbb{F}</span> is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span> and <span class="math inline">0_{0}</span>, <span class="math inline">0_{1}</span> with <span class="math inline">1_{0}</span>, <span class="math inline">1_{1}</span>.</p>
+<p>Thus, unitary matrices are normal.</p>
 </div>
 </div>
 </div></li>
-<li><p><strong>Addictive and multiplicative inverse of every element are unique</strong>: there is only one addictive inverse and multiplicative inverse of every element (other than “zero” for multiplicative inverse) in any field <span class="math inline">\mathbb{F}</span>.</p>
+<li><p>Diagonal matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -584,40 +517,22 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We prove the addictive inverse is unique by contradiction.</p>
-<p>Suppose there are two different addictive inverses of <span class="math inline">x</span>: <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span>.</p>
-<p>By following the definition of addictive inverse,</p>
+<p>Consider <span class="math inline">\mathbf{D} \in \mathbb{C}^{n \times n}</span> as a diagonal matrix with <span class="math inline">d_{1}, \dots, d_{n}</span> in its diagonal.</p>
 <p><span class="math display">
-  (x + x_{1}) + x_{2} = 0 + x_{2} = x_{2}.
+  \mathbf{D}^{H} \mathbf{D} = \sum_{i=1}^{n} d_{i}^{2} = \mathbf{D} \mathbf{D}^{H}.
   </span></p>
-<p>Also,</p>
-<p><span class="math display">
-  \begin{aligned}
-  (x + x_{1}) + x_{2}
-  &amp; = x_{2}
-  \\
-  x + (x_{1} + x_{2})
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
-  \\
-  x + (x_{2} + x_{1})
-  &amp; = x_{2}
-  &amp; [\text{commutativity}]
-  \\
-  (x + x_{2}) + x_{1}
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
-  \\
-  x_{1}
-  &amp; = x_{2}
-  \end{aligned}
-  </span></p>
-<p>which contradicts to the fact that <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span> are different. Thus, the addictive inverse of every element in any field is unique.</p>
-<p>The proof that the multiplicative inverse of every element in any field is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span>.</p>
 </div>
 </div>
 </div></li>
-<li><p><strong>For every <span class="math inline">x</span> in <span class="math inline">\mathbb{F}</span>, <span class="math inline">x \cdot 0 = 0</span></strong></p>
+<li><p>Unitary similarity preserves normality. That is, if <span class="math inline">\mathbf{A}</span> is a normal matrix and is unitarily similar to <span class="math inline">\mathbf{B}</span></p>
+<p><span class="math display">
+  \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B}
+  </span></p>
+<p>or</p>
+<p><span class="math display">
+  \mathbf{U}^{H} \mathbf{A} \mathbf{U} = \mathbf{B},
+  </span></p>
+<p>then <span class="math inline">\mathbf{B}</span> is also a normal matrix.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -630,43 +545,64 @@ Proof
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Consider</p>
+<p>The goal is to prove</p>
+<p><span class="math display">
+  \mathbf{B}^{H} \mathbf{B} = \mathbf{B} \mathbf{B}^{H}.
+  </span></p>
+<p>First we expand <span class="math inline">\mathbf{B}^{H} \mathbf{B}</span> to have</p>
 <p><span class="math display">
   \begin{aligned}
-  x \cdot 0 + x \cdot 0
-  &amp; = x \cdot (0 + 0)
-  &amp; [\text{distributive property}]
+  \mathbf{B}^{H} \mathbf{B}
+  &amp; = (\mathbf{U}^{H} \mathbf{A} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
   \\
-  &amp; = x \cdot 0
-  &amp; [\text{definition of } 0]
+  &amp; = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  &amp; [TODO]
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
+  &amp; [\mathbf{U} \mathbf{U}^{H} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}]
+  \\
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}.
   \end{aligned}
   </span></p>
-<p>By the definition of addictive inverse, there must exist an addictive inverse <span class="math inline">y</span> of <span class="math inline">x \cdot 0</span> in <span class="math inline">\mathbb{F}</span> such that</p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a normal matrix,</p>
+<p><span class="math display">
+  \mathbf{A} \mathbf{A}^{H} = \mathbf{A}^{H} \mathbf{A}.
+  </span></p>
+<p>Continue from the derivation above,</p>
 <p><span class="math display">
   \begin{aligned}
-  x \cdot 0 + y
-  &amp; = 0
+  \mathbf{B}^{H} \mathbf{B}
+  &amp; = \mathbf{U}^{H} \mathbf{A} \mathbf{A}^{H} \mathbf{U}
   \\
-  (x \cdot 0 + x \cdot 0) + y
-  &amp; = 0
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}
   \\
-  x \cdot 0 + (x \cdot 0 + y)
-  &amp; = 0
-  &amp; [\text{associativity}]
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
   \\
-  x \cdot 0 + 0
-  &amp; = 0
-  &amp; [\text{addictive inverse}]
+  &amp; = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
   \\
-  x \cdot 0
-  &amp; = 0
-  &amp; [\text{definition of 0}]
+  &amp; = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+  &amp; [TODO]
+  \\
+  &amp; = (\mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
+  \\
+  &amp; = \mathbf{B} \mathbf{B}^{H}.
   \end{aligned}
   </span></p>
 </div>
 </div>
 </div></li>
-<li><p><strong><span class="math inline">x_{I} = 1_{I} \cdot x</span></strong></p>
+</ul>
+</section>
+</section>
+<section id="unitary-diagonalization" class="level2">
+<h2 class="anchored" data-anchor-id="unitary-diagonalization">Unitary diagonalization</h2>
+<p>A matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is normal if and only if <span class="math inline">\mathbf{A}</span> is unitarily similar to a diagonal matrix</p>
+<p><span class="math display">
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+</span></p>
+<p>where <span class="math inline">\mathbf{U}</span> is a unitary matrix and <span class="math inline">\mathbf{\Lambda}</span> is a diagonal matrix.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -679,114 +615,31 @@ Proof
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>We first prove that</p>
 <p><span class="math display">
-  \begin{aligned}
-  (x + x_{I}) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  (x_{I} + x) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1 \cdot x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1  + 1_{I}) \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0 \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I}
-  &amp; = 1_{I} \cdot x
-  \end{aligned}
-  </span></p>
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \Rightarrow \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+</span></p>
+<p>TODO</p>
+<p>Then we prove that</p>
+<p><span class="math display">
+\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda} \Rightarrow \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
+</span></p>
+<p>According to the <a href="normal-matrices-property-3">property of unitary matrices</a>, unitary similarity preserves normality.</p>
+<p>Also according to <a href="normal-matrices-property-2">property of unitary matrices</a>, all diagonal matrices are normal.</p>
+<p>Thus, <span class="math inline">\mathbf{A}</span> is normal because <span class="math inline">\mathbf{A}</span> is unitarily similar to a diagonal matrix, which is always normal.</p>
 </div>
 </div>
-</div></li>
-</ul>
+</div>
+<p>Since the columns of <span class="math inline">\mathbf{U}</span> are eigenvectors of <span class="math inline">\mathbf{A}</span> and are orthonormal to each other the columns of <span class="math inline">\mathbf{U}</span> must be a complete orthonormal set of eigenvectors for <span class="math inline">\mathbf{A}</span>, and the diagonal entries of <span class="math inline">\mathbf{\Lambda}</span> are the associated eigenvalues.</p>
 </section>
-</section>
-<section id="vector-spaces" class="level2">
-<h2 class="anchored" data-anchor-id="vector-spaces">Vector spaces</h2>
-<p>A vector space, defined over a field <span class="math inline">\mathbb{F}</span>, is a <strong>non-empty set</strong> <span class="math inline">\mathcal{V}</span> (whose members are called vectors), equipped with two operations: vector addition <span class="math inline">+</span> and scalar multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-vector-spaces" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-vector-spaces">Axioms of vector spaces</h3>
-<p>For all <span class="math inline">u</span>, <span class="math inline">v</span>, and <span class="math inline">w</span> in the vector space <span class="math inline">\mathcal{V}</span> (<span class="math inline">\forall u, v, w \in \mathcal{V}</span>) and for all <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> in the field <span class="math inline">\mathbb{F}</span>, we have</p>
-<ul>
-<li><strong>Closure</strong> under vector addition and scalar multiplication</li>
-</ul>
+<section id="hermitian-symmetric-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="hermitian-symmetric-matrices">Hermitian (symmetric) matrices</h2>
+<p>A square complex (real) matrix <span class="math inline">\mathbf{A}</span> is hermitian (symmetric) if and only if</p>
 <p><span class="math display">
-u + v \in \mathcal{V},
+\mathbf{A}^{H} = \mathbf{A},
 </span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{V}.
-</span></p>
-<ul>
-<li><p><strong>Commutativity</strong> of vector addition:</p>
-<p><span class="math display">
-  u + v = v + u.
-  </span></p>
-<p>Note that there is no requirement of the commutativity of scalar multiplication in the definition of the vector space.</p></li>
-<li><p><strong>Associativity</strong> of vector addition and scalar multiplication:</p>
-<p><span class="math display">
-  (u + v) + \mathbf{w} = u + (v + \mathbf{w}),
-  </span></p>
-<p><span class="math display">
-  (\alpha \cdot \beta) \cdot v = \alpha \cdot (\beta \cdot v).
-  </span></p>
-<p>Note that in the left hand side of the second equation, the first dot is field multiplication while the second one is the scalar multiplication, but the in the right hand side both dots are scalar multiplication.</p></li>
-<li><p><strong>Distributive property</strong> of scalar multiplication:</p>
-<p><span class="math display">
-  \alpha \cdot (u + v) = \alpha \cdot u + \alpha \cdot v,
-  </span></p>
-<p><span class="math display">
-  (\alpha + \beta) \cdot v = \alpha \cdot v + \beta \cdot v.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathcal{V}</span> called <strong>“zero”</strong> vector <span class="math inline">0 \in \mathcal{V}</span> such that</p>
-<p><span class="math display">
-  v + 0 = v,
-  </span></p>
-<p>and the definition of <strong>“one”</strong> in the field <span class="math inline">1 \in \mathbb{F}</span> is applied in the vector space</p>
-<p><span class="math display">
-  1 \cdot v = v.
-  </span></p>
-<p>Note that there is no requirement for the existence of “one” vector in the definition of the vector space.</p></li>
-<li><p>For each <span class="math inline">v \in \mathcal{V}</span>, there is an element in <span class="math inline">\mathcal{V}</span> called <strong>addictive inverse</strong> vector <span class="math inline">v_{I}</span> of <span class="math inline">v</span> such that</p>
-<p><span class="math display">
-  v + v_{I} = 0.
-  </span></p>
-<p>Note that there is no requirement for the scalar multiplicative inverse in the definition of the vector space.</p></li>
-</ul>
-</section>
-<section id="linear-combination" class="level3">
-<h3 class="anchored" data-anchor-id="linear-combination">Linear combination</h3>
-<p>Let <span class="math inline">\mathcal{V}</span> be a vector space over the field <span class="math inline">\mathbb{F}</span>. Given a set of vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> and a set of field elements <span class="math inline">\alpha_{1}, \dots, \alpha_{n} \in \mathbb{F}</span>, the vector <span class="math inline">u</span> is a linear combination of <span class="math inline">v_{1}, \dots, v_{n}</span> with <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> as coefficients if</p>
-<p><span class="math display">
-u = \sum_{i=1}^{n} \alpha_{i} v_{i}.
-</span></p>
-</section>
-</section>
-<section id="subspaces" class="level2">
-<h2 class="anchored" data-anchor-id="subspaces">Subspaces</h2>
-<p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a subspace <span class="math inline">\mathcal{W}</span> of <span class="math inline">\mathcal{V}</span> is a non-empty subset of <span class="math inline">\mathcal{V}</span> (<span class="math inline">\mathcal{W} \subseteq \mathcal{V}</span>) that follows the <strong>closure</strong> axioms.</p>
-<p>For all <span class="math inline">u</span> and <span class="math inline">v</span> in the subspace <span class="math inline">\mathcal{W}</span> (<span class="math inline">\forall u, v \in \mathcal{W}</span>) and for all <span class="math inline">\alpha</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall \alpha \in \mathbb{F}</span>), we have</p>
-<p><span class="math display">
-u + v \in \mathcal{W},
-</span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{W}.
-</span></p>
-<section id="properties-of-subspace" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-subspace">Properties of subspace</h3>
-<p>Let <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> be the subspaces of a vector space over <span class="math inline">\mathbb{F}</span>.</p>
-<ul>
-<li><p><span class="math inline">0 \in \mathcal{W}</span>.</p>
+<p>which implies <strong>a hermitian (symmetric) matrix is a normal matrix</strong>.</p>
+<p>All eigenvalues of Hermitian matrices are real.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -799,21 +652,93 @@ Proof
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Since the subspace <span class="math inline">\mathcal{W}</span> cannot be empty, there is at least an element <span class="math inline">v \in \mathcal{W}</span>.</p>
-<p>Since <span class="math inline">1 \in \mathbb{F}</span> and <span class="math inline">1_{I} \in \mathbb{F}</span>,</p>
+<p>Suppose <span class="math inline">(\lambda, \mathbf{v})</span> is a eigenpair for the Hermitian matrix <span class="math inline">\mathbf{A}</span>.</p>
 <p><span class="math display">
-  1_{I} \cdot v = v_{I} \in \mathcal{W},
-  </span></p>
-<p>according to the axiom of the closure under scalar multiplication.</p>
-<p>According to the axiom of the closure under vector addition,</p>
+\mathbf{A} \mathbf{v} = \lambda \mathbf{v}.
+</span></p>
+<p>Multiplying both sides by <span class="math inline">\mathbf{v}^{H}</span> on the left to get,</p>
 <p><span class="math display">
-  v + v_{I} = 0 \in \mathcal{W}.
-  </span></p>
-<p>Thus, “zero” vector must be in <span class="math inline">\mathcal{W}</span>.</p>
+\begin{aligned}
+\mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}^{H} \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \lambda \lVert \mathbf{v} \rVert^{2}.
+\\
+\end{aligned}
+</span></p>
+<p>Alternatively we can take the transpose conjugate of both sides, and then multiply both sides by <span class="math inline">\mathbf{v}</span> on the right to get,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{A} \mathbf{v}
+&amp; = \lambda \mathbf{v}
+\\
+(\mathbf{A} \mathbf{v})^{H}
+&amp; = (\lambda \mathbf{v})^{H}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H}
+&amp; = \lambda^{*} \mathbf{v}^{H}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+&amp; = \lambda^{*} \mathbf{v}^{H} \mathbf{v}
+\\
+\mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+&amp; = \lambda^{*} \lVert \mathbf{v} \rVert^{2}
+\\
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a hermitian matrix</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{v}^{H} \mathbf{A} \mathbf{v}
+&amp; = \mathbf{v}^{H} \mathbf{A}^{H} \mathbf{v}
+\\
+\lambda \lVert \mathbf{v} \rVert^{2}
+&amp; = \lambda^{*} \lVert \mathbf{v} \rVert^{2}
+\\
+\lambda
+&amp; = \lambda^{*},
+\end{aligned}
+</span></p>
+<p>which means <span class="math inline">\lambda</span> is a real number.</p>
 </div>
 </div>
-</div></li>
-<li><p><span class="math inline">\mathcal{W}</span> is also a vector space.</p>
+</div>
+</section>
+<section id="rayleigh-quotient" class="level2">
+<h2 class="anchored" data-anchor-id="rayleigh-quotient">Rayleigh quotient</h2>
+<p>Given a Hermitian matrix <span class="math inline">\mathbf{M} \in \mathbb{C}^{n \times n}</span>, the Rayleigh quotient is a function <span class="math inline">R_{\mathbf{M}} (\mathbf{x}): \mathbb{C}^{n} \setminus \{ 0 \} \rightarrow \mathbb{R}</span></p>
+<p><span class="math display">
+R_{\mathbf{M}} (\mathbf{x}) = \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+</span></p>
+<p>that takes a nonzero vector <span class="math inline">\mathbf{x}</span> and returns a real number.</p>
+<p>Since the Hermitian matrix <span class="math inline">\mathbf{M}</span> has all real eigenvalues, they can be ordered. Suppose <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> is the eigenvalues in descending orders.</p>
+<p>Then, given a Hermitian matrix, its Rayleigh quotient is upper bounded and lower bounded by maximum and minimum eigenvalues of <span class="math inline">\mathbf{M}</span> respectively,</p>
+<p><span class="math display">
+\lambda_{1} \geq R_{\mathbf{M}} (\mathbf{x}) \geq \lambda_{n}.
+</span></p>
+<p>That is,</p>
+<p><span class="math display">
+\lambda_{1} = \max_{\mathbf{x} \neq 0} \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+},
+</span></p>
+<p><span class="math display">
+\lambda_{n} = \min_{\mathbf{x} \neq 0} \frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}.
+</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -826,27 +751,120 @@ Proof
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By virtue of the closure axioms, all axioms of the vector space are obeyed by <span class="math inline">\mathcal{W}</span>.</p>
-<p>Since all elements in <span class="math inline">\mathcal{W}</span> are also in the vector space <span class="math inline">\mathcal{V}</span>, the axioms of</p>
-<ul>
-<li><p>closure</p></li>
-<li><p>commutativity</p></li>
-<li><p>associativity</p></li>
-<li><p>distributive property</p></li>
-<li><p><span class="math inline">1 \cdot v = v</span></p></li>
-</ul>
-<p>in <span class="math inline">\mathcal{W}</span> follow directly from those in <span class="math inline">\mathcal{V}</span></p>
-<p>The existence of “zero” vector and addictive inverse are proved in the proof above.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
+<p>Since <span class="math inline">\mathbf{M}</span> is a Hermitian matrix, we can expand it using unitary diagonalization:</p>
 <p><span class="math display">
-  \mathcal{W} + \mathcal{U} = \left\{
-      w + u \mid w \in \mathcal{W}, u \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
+\begin{aligned}
+\frac{
+    \mathbf{x}^{H} \mathbf{M} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp; = \frac{
+    \mathbf{x}^{H} \mathbf{U}^{H} \mathbf{\Lambda} \mathbf{U} \mathbf{x}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+\\
+&amp; = \frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp;
+[\mathbf{y} = \mathbf{U} \mathbf{x}].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbf{U}</span> is a unitary matrix, according to the <a href="unitary-matrix-property-3">property of the unitary matrix</a>,</p>
+<p><span class="math display">
+\mathbf{y}^{H} \mathbf{y} = \mathbf{x}^{H} \mathbf{x}.
+</span></p>
+<p>Thus,</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{x}^{H} \mathbf{x}
+}
+&amp; =
+\frac{
+    \mathbf{y}^{H} \mathbf{\Lambda} \mathbf{y}
+}{
+    \mathbf{y}^{H} \mathbf{y}
+}
+\\
+&amp; =
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}.
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\lambda_{1} \geq \lambda_{i} \geq \lambda_{n}, \forall i = 1, \dots, n</span>,</p>
+<p><span class="math display">
+\lambda_{1}
+=
+\lambda_{1}
+\frac{
+    \sum_{i=1}^{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+=
+\frac{
+    \sum_{i=1}^{n} \lambda_{1} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+\geq
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+},
+</span></p>
+<p><span class="math display">
+\lambda_{n}
+=
+\lambda_{n}
+\frac{
+    \sum_{i=1}^{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+=
+\frac{
+    \sum_{i=1}^{n} \lambda_{n} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}
+\leq
+\frac{
+    \sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+}{
+    \sum_{i=1}^{n} y_{i}^{2}
+}.
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="positive-definite-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="positive-definite-matrices">Positive Definite Matrices</h2>
+<p>Given a <em>Hermitian matrix</em> <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, it is <strong>positive definite</strong> if and only if</p>
+<p><span class="math display">
+\mathbf{x}^{H} \mathbf{A} \mathbf{x} &gt; 0,
+</span></p>
+<p>for all nonzero vectors <span class="math inline">\mathbf{x} \in \mathbb{C}^{n}</span>, and it is <strong>positive semi-definite</strong> if and only if</p>
+<p><span class="math display">
+\mathbf{x}^{H} \mathbf{A} \mathbf{x} \geq 0,
+</span></p>
+<p>for all vectors <span class="math inline">\mathbf{x}</span>.</p>
+<section id="properties-of-definite-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-definite-matrices">Properties of definite matrices</h3>
+<ul>
+<li><p>Positive definite matrix always has full rank.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -859,42 +877,21 @@ Proof
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} + \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">a_{1} \in \mathcal{W}, a_{2} \in \mathcal{U}</span> such that <span class="math inline">a = a_{1} + a_{2}</span> and <span class="math inline">b_{1} \in \mathcal{W}, b_{2} \in \mathcal{U}</span> such that <span class="math inline">b = b_{1} + b_{2}</span>.</p>
-<p>Because of closure under addition,</p>
+<p>We prove by contradiction.</p>
+<p>Suppose a positive definite matrix <span class="math inline">\mathbf{A}</span> does NOT have full rank, which means that there exists at least one non-zero vector <span class="math inline">\mathbf{x} \in N (\mathbf{A})</span> such that</p>
 <p><span class="math display">
-  a_{1} + b_{1} \in \mathcal{W},
+  \mathbf{A} \mathbf{x} = 0.
   </span></p>
+<p>Then, multiplying both sides by <span class="math inline">\mathbf{x}^{H}</span>,</p>
 <p><span class="math display">
-  a_{2} + b_{2} \in \mathcal{U}.
+  \mathbf{x}^{H} \mathbf{A} \mathbf{x} = 0.
   </span></p>
-<p>Thus, according to the definition of the set addition</p>
-<p><span class="math display">
-  a + b = (a_{1} + b_{1}) + (a_{2} + b_{2}) \in \mathcal{W} + \mathcal{U}.
-  </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">x_{1} \in \mathcal{W}, x_{2} \in \mathcal{U}</span> such that <span class="math inline">x = x_{1} + x_{2}</span>.</p>
-<p>Because of closure under scalar multiplication,</p>
-<p><span class="math display">
-  \alpha \cdot x_{1} \in \mathcal{W} \quad \forall \alpha \in \mathbb{F},
-  </span></p>
-<p><span class="math display">
-  \alpha \cdot x_{2} \in \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, according to the definition of the set addition</p>
-<p><span class="math display">
-  \alpha \cdot x = \alpha \cdot x_{1} + \alpha \cdot x_{2} \in \mathcal{W} + \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
+<p>which contradicts to the fact that <span class="math inline">\mathbf{A}</span> is positive definite.</p>
+<p>Thus, positive definite matrix always has full rank.</p>
 </div>
 </div>
 </div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} \cap \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W}, v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
+<li><p>A matrix <span class="math inline">\mathbf{A}</span> is positive definite (semi-definite) if and only if its eigenvalues are positive (non-negative).</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -907,105 +904,86 @@ Proof
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} \cap \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces</p>
+<p>We first prove that a matrix <span class="math inline">\mathbf{A}</span> is positive definite (semi-definite) if its all eigenvalues are positive (non-negative).</p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a Hermitian matrix, it can be unitarily diagonalized:</p>
 <p><span class="math display">
-  a + b \in \mathcal{W},
-  \\
-  a + b \in \mathcal{U}.
+  \mathbf{A} = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^{H},
   </span></p>
-<p>Thus, by definition,</p>
+<p>where the columns of <span class="math inline">\mathbf{U}</span> contains the orthonormal eigenvectors of <span class="math inline">\mathbf{A}</span> and diagonal of <span class="math inline">\mathbf{\Lambda}</span> has the corresponding real eigenvalues.</p>
+<p>Since we are told all eigenvalues are positive or non-negative(TODO),</p>
 <p><span class="math display">
-  a + b \in \mathcal{W} \cap \mathcal{U}.
+  \mathbf{\Lambda} = \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{\Lambda}^{\frac{1}{2}}
+  = \mathbf{\Lambda}^{\frac{1}{2}} (\mathbf{\Lambda}^{\frac{1}{2}})^{H}
   </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces,</p>
-<p><span class="math display">
-  \alpha \cdot x \in \mathcal{W}, \forall \alpha \in \mathbb{F},
-  \\
-  \alpha \cdot x \in \mathcal{U}, \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, by definition, <span class="math inline">\alpha \cdot x \in \mathcal{W} \cap \mathcal{U}, \forall \alpha \in \mathbb{F}</span>.</p>
-<p>Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} \cup \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W} \mathop{\text{or}} v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is a subspace if and only if <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span> or <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First we prove if <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>, then <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace.</p>
-<p>Since <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>,</p>
-<p><span class="math display">
-  \mathcal{U} \cup \mathcal{W} = \mathcal{W}
-  </span></p>
-<p>and thus is a subspace.</p>
-<p>The same argument can be made for <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span>.</p>
-<p>Then we prove if <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, then one subspace is contained in the other by contradiction.</p>
-<p>Suppose <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, but <span class="math inline">\mathcal{U} \nsubseteq \mathcal{W}</span> and <span class="math inline">\mathcal{W} \nsubseteq \mathcal{U}</span>. This means there exists at least two vectors <span class="math inline">u</span> and <span class="math inline">w</span> such that</p>
-<p><span class="math display">
-  u \in \mathcal{U}, u \notin \mathcal{W}
-  </span></p>
-<p><span class="math display">
-  w \in \mathcal{W}, w \notin \mathcal{U}.
-  </span></p>
-<p>Since <span class="math inline">u, w \in \mathcal{U} \cup \mathcal{W}</span> and closure under addition property, the vector</p>
-<p><span class="math display">
-  v = u + w
-  </span></p>
-<p>is also in <span class="math inline">\mathcal{U} \cup \mathcal{W}</span>, which means it must also be in <span class="math inline">\mathcal{U}</span> or <span class="math inline">\mathcal{W}</span>.</p>
-<p>If <span class="math inline">v \in \mathcal{U}</span>, because there must exist an addictive inverse of <span class="math inline">u \in \mathcal{U}</span>, then</p>
+<p>Thus,</p>
 <p><span class="math display">
   \begin{aligned}
-  v
-  &amp; = u + w
+  \mathbf{A}
+  &amp; = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^{H}
   \\
-  v + u_{I}
-  &amp; = u + u_{I} + w
+  &amp; = \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} (\mathbf{\Lambda}^{\frac{1}{2}})^{H} \mathbf{U}^{H}
   \\
-  w
-  &amp; = v + u_{I}
+  &amp; = \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} (\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}})^{H}
   \\
   \end{aligned}
   </span></p>
-<p>which shows that <span class="math inline">w \in \mathcal{U}</span> and contradicts to our assumption.</p>
-<p>The same contradiction can also be found when <span class="math inline">v \in \mathcal{W}</span>.</p>
+<p>Multiplying <span class="math inline">\mathbf{A}</span> with <span class="math inline">\mathbf{x}</span> to get</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{x}^{H} \mathbf{A} \mathbf{x}
+  &amp; = \mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} (\mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U})^{H} \mathbf{x}
+  \\
+  &amp; = \mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} (\mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}})^{H}
+  \\
+  &amp; = \lVert \mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \rVert^{2}
+  &amp; [\mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \in \mathbb{C}^{n}].
+  \\
+  \end{aligned}
+  </span></p>
+<p>Since <span class="math inline">\lVert \mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \rVert^{2}</span> is non-negative for any vector <span class="math inline">\mathbf{x}</span>, the matrix <span class="math inline">\mathbf{A}</span> is positive semi-definite.</p>
+<p>If all eigenvalues are positive, there is no zero in <span class="math inline">\mathbf{\Lambda}</span>. Since <span class="math inline">\mathbf{\Lambda}^{\frac{1}{2}}</span> is a diagonal matrix, the matrix <span class="math inline">\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}}</span> has scaled columns of <span class="math inline">\mathbf{U}</span>. Since <span class="math inline">\mathbf{U}</span> is a unitary matrix, its columns are all linearly independent and thus <span class="math inline">\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}}</span> also have linearly independent columns. Thus, <span class="math inline">\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}}</span> has full rank and</p>
+<p><span class="math display">
+  N (\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}}) = \{ 0 \}.
+  </span></p>
+<p>Thus, <span class="math inline">\lVert \mathbf{x}^{H} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \rVert^{2} &gt; 0</span> for any non-zero vector <span class="math inline">\mathbf{x}</span>. Therefore, the matrix <span class="math inline">\mathbf{A}</span> is positive definite.</p>
+<p>Then we prove that all eigenvalues of positive definite (semi-definite) matrices are positive (non-negative).</p>
+<p>Consider any eigenpair <span class="math inline">(\lambda, \mathbf{v})</span> of <span class="math inline">\mathbf{A}</span>.</p>
+<p>Since <span class="math inline">\mathbf{v}</span> is non-zero by the definition of eigenvector, we have</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{A} \mathbf{v}
+  &amp; = \lambda \mathbf{v}
+  \\
+  \mathbf{v}^{H} \mathbf{A} \mathbf{v}
+  &amp; = \lambda \mathbf{v}^{H} \mathbf{v}
+  \\
+  \mathbf{v}^{H} \mathbf{A} \mathbf{v}
+  &amp; = \lambda \lVert \mathbf{v} \rVert^{2}
+  \\
+  \lambda
+  &amp; = \frac{
+      \mathbf{v}^{H} \mathbf{A} \mathbf{v}
+  }{
+      \lVert \mathbf{v} \rVert^{2}
+  }
+  \end{aligned}
+  </span></p>
+<p>Since <span class="math inline">\mathbf{A}</span> is positive definite (semi-definite),</p>
+<p><span class="math display">
+  \mathbf{v}^{H} \mathbf{A} \mathbf{v} &gt; 0 \quad (\mathbf{v}^{H} \mathbf{A} \mathbf{v} \geq 0),
+  </span></p>
+<p>which means</p>
+<p><span class="math display">
+  \lambda &gt; 0 \quad (\lambda \geq 0).
+  </span></p>
 </div>
 </div>
 </div></li>
+<li><p>TODO <span class="math inline">\mathbf{A} = \mathbf{B}^{H} \mathbf{B}</span></p></li>
 </ul>
-</section>
-</section>
-<section id="example-subspaces-of-2-dimensional-real-value-column-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="example-subspaces-of-2-dimensional-real-value-column-vectors">Example: subspaces of 2-dimensional real-value column vectors</h2>
-<p>The 2-dimensional real-value column vector space <span class="math inline">\mathbb{R}^{2}</span> has 3 types of subspaces</p>
-<ol type="1">
-<li><p>The subspace of the zero vector only,</p>
-<p><span class="math display">
-\mathcal{W} = \left\{ 0 \right\}.
-</span></p></li>
-<li><p>The subspace of the vector space itself,</p>
-<p><span class="math display">
-\mathcal{W} = \mathbb{R}^{2}.
-</span></p></li>
-<li><p>Any “line” that goes through zero vector</p></li>
-</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1244,13 +1222,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="../notations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notations and Facts</span>
+      <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/01_Probability.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

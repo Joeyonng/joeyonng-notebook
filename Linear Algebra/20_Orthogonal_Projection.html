@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,10 +518,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-orthogonal-projection" id="toc-properties-of-orthogonal-projection" class="nav-link active" data-scroll-target="#properties-of-orthogonal-projection"><span class="header-section-number">20.1</span> Properties of orthogonal projection</a></li>
-  <li><a href="#orthogonal-projection-matrix" id="toc-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#orthogonal-projection-matrix"><span class="header-section-number">20.2</span> Orthogonal projection matrix</a></li>
-  <li><a href="#properties-of-orthogonal-projection-matrix" id="toc-properties-of-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#properties-of-orthogonal-projection-matrix"><span class="header-section-number">20.3</span> Properties of orthogonal projection matrix</a></li>
-  <li><a href="#application-least-square-problem" id="toc-application-least-square-problem" class="nav-link" data-scroll-target="#application-least-square-problem"><span class="header-section-number">20.4</span> Application: least square problem</a></li>
+  <li><a href="#properties-of-orthogonal-projection" id="toc-properties-of-orthogonal-projection" class="nav-link active" data-scroll-target="#properties-of-orthogonal-projection">Properties of orthogonal projection</a></li>
+  <li><a href="#orthogonal-projection-matrix" id="toc-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#orthogonal-projection-matrix">Orthogonal projection matrix</a></li>
+  <li><a href="#properties-of-orthogonal-projection-matrix" id="toc-properties-of-orthogonal-projection-matrix" class="nav-link" data-scroll-target="#properties-of-orthogonal-projection-matrix">Properties of orthogonal projection matrix</a></li>
+  <li><a href="#application-least-square-problem" id="toc-application-least-square-problem" class="nav-link" data-scroll-target="#application-least-square-problem">Application: least square problem</a></li>
   </ul>
 </nav>
     </div>
@@ -513,13 +555,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">m</span> is the <strong>orthogonal projection</strong> of <span class="math inline">v</span> onto <span class="math inline">\mathcal{M}</span> along <span class="math inline">\mathcal{M}^{\perp}</span>,</p></li>
 <li><p><span class="math inline">\mathbf{P}_{\mathcal{M}}</span> is the <strong>orthogonal projection matrix</strong> of <span class="math inline">v</span> onto <span class="math inline">\mathcal{M}</span> along <span class="math inline">\mathcal{M}^{\perp}</span>.</p></li>
 </ul>
-<section id="properties-of-orthogonal-projection" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="properties-of-orthogonal-projection"><span class="header-section-number">20.1</span> Properties of orthogonal projection</h2>
+<section id="properties-of-orthogonal-projection" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-orthogonal-projection">Properties of orthogonal projection</h2>
 <p>Suppose <span class="math inline">m</span> is the orthogonal projection of <span class="math inline">v</span> on the subspace <span class="math inline">\mathcal{M}</span></p>
 <p><span class="math display">
 m = \mathbf{P}_{\mathcal{M}} v.
 </span></p>
-<p>(orthogonal-projection-property-1)=</p>
 <ul>
 <li><p><span class="math inline">m</span> always exists and is unique.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -538,9 +579,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(orthogonal-projection-property-2)=</p>
-<ul>
 <li><p>Orthogonality of the difference.</p>
 <p><span class="math display">
   \langle v - m, x \rangle = 0, \quad \forall x \in \mathcal{M}
@@ -568,9 +606,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(orthogonal-projection-property-3)=</p>
-<ul>
 <li><p>Closest point theorem: <span class="math inline">m</span> is the closest point in <span class="math inline">\mathcal{M}</span> to <span class="math inline">v</span> in terms of the ip norm:</p>
 <p><span class="math display">
   m = \min_{x \in \mathcal{M}} \lVert v - x \rVert.
@@ -627,8 +662,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="orthogonal-projection-matrix" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="orthogonal-projection-matrix"><span class="header-section-number">20.2</span> Orthogonal projection matrix</h2>
+<section id="orthogonal-projection-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="orthogonal-projection-matrix">Orthogonal projection matrix</h2>
 <p>If <span class="math inline">\mathbf{P}_{\mathcal{M}}</span> is the orthogonal projection matrix of <span class="math inline">v</span> onto the subspace <span class="math inline">\mathcal{M}</span>, and the columns of <span class="math inline">\mathbf{M} \in \mathbb{C}^{n \times r}</span> are <span class="math inline">r</span> bases for <span class="math inline">\mathcal{M}</span>, then</p>
 <p><span class="math display">
 \mathbf{P}_{\mathcal{M}} = \mathbf{M} (\mathbf{M}^{H} \mathbf{M})^{-1} \mathbf{M}^{H}.
@@ -708,9 +743,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="properties-of-orthogonal-projection-matrix" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="properties-of-orthogonal-projection-matrix"><span class="header-section-number">20.3</span> Properties of orthogonal projection matrix</h2>
-<p>(orthogonal-projection-matrix-property-1)=</p>
+<section id="properties-of-orthogonal-projection-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-orthogonal-projection-matrix">Properties of orthogonal projection matrix</h2>
 <ul>
 <li><p><span class="math inline">\mathbf{P}</span> is a orthogonal projection matrix if and only if</p>
 <p><span class="math display">
@@ -732,9 +766,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(orthogonal-projection-matrix-property-2)=</p>
-<ul>
 <li><p><span class="math inline">\mathbf{P}</span> is a orthogonal projection matrix if and only if</p>
 <p><span class="math display">
   \mathbf{P}^{H} = \mathbf{P}.
@@ -778,8 +809,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="application-least-square-problem" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="application-least-square-problem"><span class="header-section-number">20.4</span> Application: least square problem</h2>
+<section id="application-least-square-problem" class="level2">
+<h2 class="anchored" data-anchor-id="application-least-square-problem">Application: least square problem</h2>
 <p>Consider the problem of solving a system of linear equation for <span class="math inline">\mathbf{x} \in \mathbb{C}^{n}</span> given <span class="math inline">\mathbf{y} \in \mathbb{C}^{m}</span> and <span class="math inline">\mathbf{A} \in \mathbb{C}^{m \times n}</span>,</p>
 <p><span class="math display">
 \mathbf{y} = \mathbf{A} \mathbf{x}.
@@ -1127,6 +1158,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

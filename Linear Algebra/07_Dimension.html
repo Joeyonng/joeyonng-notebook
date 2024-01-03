@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,8 +518,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-dimension" id="toc-properties-of-dimension" class="nav-link active" data-scroll-target="#properties-of-dimension"><span class="header-section-number">7.1</span> Properties of dimension</a></li>
-  <li><a href="#types-of-the-subspaces" id="toc-types-of-the-subspaces" class="nav-link" data-scroll-target="#types-of-the-subspaces"><span class="header-section-number">7.2</span> Types of the subspaces</a></li>
+  <li><a href="#properties-of-dimension" id="toc-properties-of-dimension" class="nav-link active" data-scroll-target="#properties-of-dimension">Properties of dimension</a></li>
+  <li><a href="#types-of-the-subspaces" id="toc-types-of-the-subspaces" class="nav-link" data-scroll-target="#types-of-the-subspaces">Types of the subspaces</a></li>
   </ul>
 </nav>
     </div>
@@ -502,9 +544,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>The dimension of a subspace is the common cardinality of its all bases.</p>
-<section id="properties-of-dimension" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="properties-of-dimension"><span class="header-section-number">7.1</span> Properties of dimension</h2>
-<p>(dimension-property-1)=</p>
+<section id="properties-of-dimension" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-dimension">Properties of dimension</h2>
 <ul>
 <li><p>If a subspace <span class="math inline">\mathcal{U}</span> is a subset of a finite dimensional subspace <span class="math inline">\mathcal{V}</span>, then</p>
 <p><span class="math display">
@@ -539,9 +580,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(dimension-property-2)=</p>
-<ul>
 <li><p>If a subspace <span class="math inline">\mathcal{U}</span> is a subset of a finite dimensional subspace <span class="math inline">\mathcal{V}</span> and <span class="math inline">\text{dim} (\mathcal{U}) = \text{dim} (\mathcal{V})</span>, then</p>
 <p><span class="math display">
   \mathcal{U} = \mathcal{V}.
@@ -573,9 +611,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(dimension-property-3)=</p>
-<ul>
 <li><p>Given <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> are subspaces, then</p>
 <p><span class="math display">
   \text{dim} (\mathcal{U} + \mathcal{V}) = \text{dim} (\mathcal{U}) + \text{dim} (\mathcal{V}) - \text{dim} (\mathcal{U} \cap \mathcal{V}).
@@ -650,8 +685,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="types-of-the-subspaces" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="types-of-the-subspaces"><span class="header-section-number">7.2</span> Types of the subspaces</h2>
+<section id="types-of-the-subspaces" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-the-subspaces">Types of the subspaces</h2>
 <p>We can classify the types of the subspaces based on their dimensions. For example, in <span class="math inline">\mathbb{R}^{n}</span> there are <span class="math inline">n</span> types of subspaces</p>
 <ul>
 <li><p>0 dimension subspace: <span class="math inline">\{ 0 \}</span>.</p></li>
@@ -910,6 +945,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

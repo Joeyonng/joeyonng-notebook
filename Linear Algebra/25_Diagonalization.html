@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,8 +518,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#diagonalization-and-eigensystems" id="toc-diagonalization-and-eigensystems" class="nav-link active" data-scroll-target="#diagonalization-and-eigensystems"><span class="header-section-number">25.1</span> Diagonalization and eigensystems</a></li>
-  <li><a href="#diagonalizability-and-multiplicities" id="toc-diagonalizability-and-multiplicities" class="nav-link" data-scroll-target="#diagonalizability-and-multiplicities"><span class="header-section-number">25.2</span> Diagonalizability and multiplicities</a></li>
+  <li><a href="#diagonalization-and-eigensystems" id="toc-diagonalization-and-eigensystems" class="nav-link active" data-scroll-target="#diagonalization-and-eigensystems">Diagonalization and eigensystems</a></li>
+  <li><a href="#diagonalizability-and-multiplicities" id="toc-diagonalizability-and-multiplicities" class="nav-link" data-scroll-target="#diagonalizability-and-multiplicities">Diagonalizability and multiplicities</a></li>
   </ul>
 </nav>
     </div>
@@ -501,13 +543,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is diagonalizable if <span class="math inline">\mathbf{A}</span> is similar to a diagonal matrix:</p>
+<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is diagonalizable if <span class="math inline">\mathbf{A}</span> is similar to a diagonal matrix:</p>
 <p><span class="math display">
 \mathbf{A} = \mathbf{P} \Lambda \mathbf{P}^{-1}
 </span></p>
 <p>where <span class="math inline">\Lambda</span> is a diagonal matrix.</p>
-<section id="diagonalization-and-eigensystems" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="diagonalization-and-eigensystems"><span class="header-section-number">25.1</span> Diagonalization and eigensystems</h2>
+<section id="diagonalization-and-eigensystems" class="level2">
+<h2 class="anchored" data-anchor-id="diagonalization-and-eigensystems">Diagonalization and eigensystems</h2>
 <p><span class="math inline">\mathbf{A}</span> is diagonalizable if and only if <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors. That is,</p>
 <p><span class="math display">
 \mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
@@ -518,7 +560,7 @@ ul.task-list li input[type="checkbox"] {
 </span></p>
 <p>where</p>
 <ul>
-<li><p>the columns of <span class="math inline">\mathbf{P} \in \mathbb{C}^{n \times n}</span> are <span class="math inline">n</span> linearly independent eigenvectors,</p></li>
+<li><p>the columns of <span class="math inline">\mathbf{P} \in \mathbb{R}^{n \times n}</span> are <span class="math inline">n</span> linearly independent eigenvectors,</p></li>
 <li><p>the diagonal values of <span class="math inline">\mathbf{\Lambda}</span> are corresponding eigenvalues.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -575,8 +617,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="diagonalizability-and-multiplicities" class="level2" data-number="25.2">
-<h2 data-number="25.2" class="anchored" data-anchor-id="diagonalizability-and-multiplicities"><span class="header-section-number">25.2</span> Diagonalizability and multiplicities</h2>
+<section id="diagonalizability-and-multiplicities" class="level2">
+<h2 class="anchored" data-anchor-id="diagonalizability-and-multiplicities">Diagonalizability and multiplicities</h2>
 <p>TODO</p>
 
 
@@ -829,6 +871,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

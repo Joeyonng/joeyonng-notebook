@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,8 +518,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#spanning-set" id="toc-spanning-set" class="nav-link active" data-scroll-target="#spanning-set"><span class="header-section-number">4.1</span> Spanning set</a></li>
-  <li><a href="#properties-of-the-spanning-set" id="toc-properties-of-the-spanning-set" class="nav-link" data-scroll-target="#properties-of-the-spanning-set"><span class="header-section-number">4.2</span> Properties of the spanning set</a></li>
+  <li><a href="#spanning-set" id="toc-spanning-set" class="nav-link active" data-scroll-target="#spanning-set">Spanning set</a></li>
+  <li><a href="#properties-of-the-spanning-set" id="toc-properties-of-the-spanning-set" class="nav-link" data-scroll-target="#properties-of-the-spanning-set">Properties of the spanning set</a></li>
   </ul>
 </nav>
     </div>
@@ -512,18 +554,17 @@ ul.task-list li input[type="checkbox"] {
 \text{span} (v_{1}, \dots, v_{n}) = R (\mathbf{A}).
 </span></p>
 <p>Since we have proved <span class="math inline">R (\mathbf{A})</span> is a subspace of <span class="math inline">\mathcal{V}</span>, the span of a set of vectors is a subspace of <span class="math inline">\mathcal{V}</span>.</p>
-<section id="spanning-set" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="spanning-set"><span class="header-section-number">4.1</span> Spanning set</h2>
+<section id="spanning-set" class="level2">
+<h2 class="anchored" data-anchor-id="spanning-set">Spanning set</h2>
 <p>For a set of vectors <span class="math inline">\mathcal{S} = v_{1}, \dots, v_{n}</span>, if the subspace <span class="math inline">\mathcal{W}</span> is the span of <span class="math inline">\mathcal{S}</span></p>
 <p><span class="math display">
 \mathcal{W} = \text{span} (\mathcal{S}),
 </span></p>
-<p>then the set of vectors <span class="math inline">\mathcal{S}</span> is the spanning set of the subspace <span class="math inline">\mathcal{W}</span>.S.</p>
+<p>then the set of vectors <span class="math inline">\mathcal{S}</span> is the spanning set of the subspace <span class="math inline">\mathcal{W}</span>.</p>
 </section>
-<section id="properties-of-the-spanning-set" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="properties-of-the-spanning-set"><span class="header-section-number">4.2</span> Properties of the spanning set</h2>
+<section id="properties-of-the-spanning-set" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-the-spanning-set">Properties of the spanning set</h2>
 <p>Consider a set of vectors <span class="math inline">\mathcal{A} = \left\{ v_{1}, \dots, v_{n} \right\}</span> and a subspace <span class="math inline">\mathcal{W}</span>.</p>
-<p>(spanning-set-property-1)=</p>
 <ul>
 <li><p>If <span class="math inline">\mathcal{A}</span> is a spanning set of <span class="math inline">\mathcal{W}</span>, the new set</p>
 <p><span class="math display">
@@ -531,15 +572,7 @@ ul.task-list li input[type="checkbox"] {
       u_{1}, \dots, u_{n}
   \right\}
   </span></p>
-<p>is still a spanning set of <span class="math inline">\mathcal{W}</span> for arbitrary vectors <span class="math inline">u_{1}, \dots, u_{n} \in \mathcal{W}</span>.</p></li>
-</ul>
-<p>(spanning-set-property-2)=</p>
-<ul>
-<li><p><span class="math inline">\mathcal{A}</span> is a spanning set of <span class="math inline">\mathcal{W}</span> if and only if</p>
-<ul>
-<li><p>all vectors in <span class="math inline">\mathcal{W}</span> are linear combinations of <span class="math inline">v_{1}, \dots, v_{n}</span> and</p></li>
-<li><p><span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{W}</span>.</p></li>
-</ul>
+<p>is still a spanning set of <span class="math inline">\mathcal{W}</span> for arbitrary vectors <span class="math inline">u_{1}, \dots, u_{n} \in \mathcal{W}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -551,6 +584,27 @@ Proof
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\mathcal{A}</span> is a spanning set of <span class="math inline">\mathcal{W}</span> if and only if</p>
+<ul>
+<li><p>all vectors in <span class="math inline">\mathcal{W}</span> are linear combinations of <span class="math inline">v_{1}, \dots, v_{n}</span> and</p></li>
+<li><p><span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{W}</span>.</p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Since this statement has “if and only if”, we first prove in the forward direction.</p>
 <p>If <span class="math inline">v_{1}, \dots, v_{n}</span> is a spanning set of <span class="math inline">\mathcal{W}</span>, then by the definition of spanning set, the set of all linear combinations of <span class="math inline">v_{1}, \dots, v_{n}</span> is the subspace <span class="math inline">\mathcal{W}</span>.</p>
@@ -572,47 +626,9 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(spanning-set-property-3)=</p>
-<ul>
 <li><p>If vectors in set <span class="math inline">\mathcal{B}</span> are linear combinations of the vectors in <span class="math inline">\mathcal{A}</span>, then</p>
 <p><span class="math display">
   \text{span} (\mathcal{B}) \subseteq \text{span} (\mathcal{A}).
-  </span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We prove by contradiction. Suppose that the vectors in set <span class="math inline">\mathcal{B}</span> are linear combinations of the vectors in <span class="math inline">\mathcal{A}</span>, but there exists an vector <span class="math inline">v \in \text{span} (\mathcal{B})</span> but <span class="math inline">v \notin \text{span} (\mathcal{A})</span>.</p>
-<p>Suppose <span class="math inline">\mathcal{A} = \{ a_{1}, \dots, a_{n} \}</span>. Since <span class="math inline">v \in \mathcal{B}</span> is a linear combinations of vectors in <span class="math inline">\mathcal{A}</span>, there exists a set of coefficients <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> such that</p>
-<p><span class="math display">
-  v = \sum_{i = 1}^{n} \alpha_{i} a_{i}.
-  </span></p>
-<p>which by definition of span means <span class="math inline">v \in \text{span} (\mathbf{A})</span>.</p>
-<p>However, we assume that <span class="math inline">v \notin \text{span} (\mathbf{A})</span>, which raises a contradiction.</p>
-</div>
-</div>
-</div></li>
-</ul>
-<p>(spanning-set-property-4)=</p>
-<ul>
-<li><p>If <span class="math inline">\text{span} (\mathcal{A}) = \mathcal{W}</span> and <span class="math inline">\text{span} (\mathcal{B}) = \mathcal{U}</span>, then</p>
-<p><span class="math display">
-  \text{span} (\mathcal{A} \cup \mathcal{B}) = \mathcal{W} + \mathcal{U},
-  </span></p>
-<p>where</p>
-<p><span class="math display">
-  \mathcal{W} + \mathcal{U} = \left\{
-      w + u \mid w \in \mathcal{W}, u \in \mathcal{U}
-  \right\}.
   </span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -625,6 +641,38 @@ Proof
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We prove by contradiction. Suppose that the vectors in set <span class="math inline">\mathcal{B}</span> are linear combinations of the vectors in <span class="math inline">\mathcal{A}</span>, but there exists an vector <span class="math inline">v \in \text{span} (\mathcal{B})</span> but <span class="math inline">v \notin \text{span} (\mathcal{A})</span>.</p>
+<p>Suppose <span class="math inline">\mathcal{A} = \{ a_{1}, \dots, a_{n} \}</span>. Since <span class="math inline">v \in \mathcal{B}</span> is a linear combinations of vectors in <span class="math inline">\mathcal{A}</span>, there exists a set of coefficients <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> such that</p>
+<p><span class="math display">
+  v = \sum_{i = 1}^{n} \alpha_{i} a_{i}.
+  </span></p>
+<p>which by definition of span means <span class="math inline">v \in \text{span} (\mathbf{A})</span>.</p>
+<p>However, we assume that <span class="math inline">v \notin \text{span} (\mathbf{A})</span>, which raises a contradiction.</p>
+</div>
+</div>
+</div></li>
+<li><p>If <span class="math inline">\text{span} (\mathcal{A}) = \mathcal{W}</span> and <span class="math inline">\text{span} (\mathcal{B}) = \mathcal{U}</span>, then</p>
+<p><span class="math display">
+  \text{span} (\mathcal{A} \cup \mathcal{B}) = \mathcal{W} + \mathcal{U},
+  </span></p>
+<p>where</p>
+<p><span class="math display">
+  \mathcal{W} + \mathcal{U} = \left\{
+      w + u \mid w \in \mathcal{W}, u \in \mathcal{U}
+  \right\}.
+  </span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider <span class="math inline">\mathcal{A} = \{ a_{1}, \dots, a_{n} \}, \mathcal{B} = \{ b_{1}, \dots, b_{m} \}</span>, then</p>
 <p><span class="math display">
@@ -900,6 +948,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

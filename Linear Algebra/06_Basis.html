@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-basis" id="toc-properties-of-basis" class="nav-link active" data-scroll-target="#properties-of-basis"><span class="header-section-number">6.1</span> Properties of basis</a></li>
+  <li><a href="#properties-of-basis" id="toc-properties-of-basis" class="nav-link active" data-scroll-target="#properties-of-basis">Properties of basis</a></li>
   </ul>
 </nav>
     </div>
@@ -505,8 +547,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\mathcal{W} = \text{span} (v_{1}, \dots, v_{k})</span>, and</p></li>
 <li><p><span class="math inline">v_{1}, \dots, v_{k}</span> are linearly independent.</p></li>
 </ul>
-<section id="properties-of-basis" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="properties-of-basis"><span class="header-section-number">6.1</span> Properties of basis</h2>
+<section id="properties-of-basis" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-basis">Properties of basis</h2>
 <ul>
 <li><p>If <span class="math inline">\mathcal{B} = \{ b_{1}, \dots, b_{n} \}</span> is a basis of the subspace <span class="math inline">\mathcal{W}</span>, <span class="math inline">\mathcal{B}</span> is a minimal spanning set for <span class="math inline">\mathcal{W}</span>. That is, there is no vector in <span class="math inline">\mathcal{B}</span> that can be removed such that <span class="math inline">\mathcal{B}</span> is still a spanning set.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -552,12 +594,8 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(existence-of-basis)=</p>
-<ul>
 <li><p>Existence of basis</p>
-<p>A subspace may NOT have a basis e.g.&nbsp;<span class="math inline">\mathcal{W} = \{ 0 \}</span> has no linearly independent vector, but a subspace must have a basis if it has a finite spanning set.</p>
-<p>That is, every finite spanning set of a subspace contains a basis.</p>
+<p>A subspace may NOT have a basis e.g.&nbsp;<span class="math inline">\mathcal{W} = \{ 0 \}</span> has no linearly independent vector, but a subspace must have a basis if it has a finite spanning set. That is, every finite spanning set of a subspace contains a basis.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -589,9 +627,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(cardinality-of-basis)=</p>
-<ul>
 <li><p>Cardinality of basis</p>
 <p>The numbers of elements of all bases of a given subspace are the same.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -622,9 +657,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(extension-of-a-basis)=</p>
-<ul>
 <li><p>Extension of a basis</p>
 <p>If the subspace <span class="math inline">\mathcal{U}</span> is a subset of a finite dimensional subspace <span class="math inline">\mathcal{V}</span> and <span class="math inline">\{ b_{1}, \dots, b_{k} \}</span> is a basis of <span class="math inline">\mathcal{U}</span>, then there exists an extension of <span class="math inline">\{ b_{1}, \dots, b_{k} \}</span></p>
 <p><span class="math display">
@@ -643,7 +675,7 @@ Proof
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\{ b_{1}, \dots, b_{k}, b_{k + 1}, \dots, b_{n} \}</span> is a basis for <span class="math inline">\mathcal{V}</span> if <span class="math inline">\mathcal{U} \subseteq \mathcal{V}</span> and <span class="math inline">\{ b_{1}, \dots, b_{k} \}</span> is a basis of <span class="math inline">\mathcal{U}</span>.</p>
+<p>TODO</p>
 </div>
 </div>
 </div></li>
@@ -899,6 +931,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

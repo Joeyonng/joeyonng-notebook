@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,9 +518,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#affine-space" id="toc-affine-space" class="nav-link active" data-scroll-target="#affine-space"><span class="header-section-number">21.1</span> Affine space</a></li>
-  <li><a href="#affine-projection" id="toc-affine-projection" class="nav-link" data-scroll-target="#affine-projection"><span class="header-section-number">21.2</span> Affine projection</a></li>
-  <li><a href="#hyperplanes" id="toc-hyperplanes" class="nav-link" data-scroll-target="#hyperplanes"><span class="header-section-number">21.3</span> Hyperplanes</a></li>
+  <li><a href="#sec-affine-space" id="toc-sec-affine-space" class="nav-link active" data-scroll-target="#sec-affine-space">Affine space</a></li>
+  <li><a href="#affine-projection" id="toc-affine-projection" class="nav-link" data-scroll-target="#affine-projection">Affine projection</a></li>
+  <li><a href="#hyperplanes" id="toc-hyperplanes" class="nav-link" data-scroll-target="#hyperplanes">Hyperplanes</a></li>
   </ul>
 </nav>
     </div>
@@ -502,8 +544,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="affine-space" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="affine-space"><span class="header-section-number">21.1</span> Affine space</h2>
+<section id="sec-affine-space" class="level2">
+<h2 class="anchored" data-anchor-id="sec-affine-space">Affine space</h2>
 <p>A set of vectors in the vector space <span class="math inline">\mathcal{V}</span> forms an <strong>affine space</strong> <span class="math inline">\mathcal{A}</span> if they are the sums of the vectors in a subspace <span class="math inline">\mathcal{M} \subset \mathcal{V}</span> and a non-zero vector <span class="math inline">v \in \mathcal{V}</span>,</p>
 <p><span class="math display">
 \mathcal{A} = v + \mathcal{M}.
@@ -514,8 +556,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\mathcal{A}</span> can visualized as the subspace <span class="math inline">\mathcal{M}</span> translated away from origin through <span class="math inline">v</span>.</p></li>
 </ul>
 </section>
-<section id="affine-projection" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="affine-projection"><span class="header-section-number">21.2</span> Affine projection</h2>
+<section id="affine-projection" class="level2">
+<h2 class="anchored" data-anchor-id="affine-projection">Affine projection</h2>
 <p>Although affine spaces are not a subspaces, the concept of orthogonal projection can also be applied to affine spaces.</p>
 <p>Given a vector <span class="math inline">b \in \mathcal{V}</span> and an affine space <span class="math inline">\mathcal{A}</span>, the <strong>affine projection</strong> <span class="math inline">a \in \mathcal{A}</span> is the orthogonal projection of <span class="math inline">b</span> onto the affine space <span class="math inline">\mathcal{A}</span> and can be expressed as</p>
 <p><span class="math display">
@@ -549,8 +591,8 @@ a = v + \mathbf{P}_{\mathcal{M}} (b - v).
 </div>
 </div>
 </section>
-<section id="hyperplanes" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="hyperplanes"><span class="header-section-number">21.3</span> Hyperplanes</h2>
+<section id="hyperplanes" class="level2">
+<h2 class="anchored" data-anchor-id="hyperplanes">Hyperplanes</h2>
 <p>An affine space <span class="math inline">\mathcal{H} = \mathbf{v} + \mathcal{M} \subseteq \mathbb{R}^{n}</span> for which <span class="math inline">\text{dim} (\mathcal{M}) = n - 1</span> is called a <strong>hyperplane</strong>, and is usually expressed as the set</p>
 <p><span class="math display">
 \mathcal{H} = \{ \mathbf{x} | \mathbf{w}^{T} \mathbf{x} = \beta \}
@@ -980,6 +1022,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 38&nbsp; Expectation-maximization</title>
+<title>Joeyonng’s Notebook - 25&nbsp; Expectation-maximization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -102,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Drafts</span></a>
+ <span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
@@ -125,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/11_Expectation_Maximization.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/11_Expectation_Maximization.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,164 +169,86 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/02_Spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spaces</span></span></a>
+  <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/03_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
+  <a href="../Linear Algebra/03_Span_and_Linear_Independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/04_Span.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span</span></span></a>
+  <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/05_Linear_Independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear independence</span></span></a>
+  <a href="../Linear Algebra/05_Linear_Map_and_Rank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/06_Basis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basis</span></span></a>
+  <a href="../Linear Algebra/06_Inner_Product_and_Norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Dimension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dimension</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/08_Linear_Map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Map</span></span></a>
+  <a href="../Linear Algebra/08_Complementary_Subspaces_and_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/09_Rank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Rank</span></span></a>
+  <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/10_Inner_Product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inner Product</span></span></a>
+  <a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/11_Norm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Norm</span></span></a>
+  <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/12_Orthogonality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonality</span></span></a>
+  <a href="../Linear Algebra/12_Determinants_and_Eigensystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Unitary matrix</span></span></a>
+  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Complementary_Subspaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Complementary Subspaces</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/15_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/16_Orthogonal_Complement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonal Complement</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/17_Orthogonal_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Orthogonal Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/18_Singular_Value_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Singular Value Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/19_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/21_Affine_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Affine projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/22_Determinants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Determinants</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/23_Eigensystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Eigensystems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/24_Similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Similarity</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/25_Diagonalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Diagonalization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,73 +265,73 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,43 +348,102 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/K-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">K-means</span></span></a>
   </div>
 </li>
       </ul>
@@ -471,38 +453,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#the-em-algorithm" id="toc-the-em-algorithm" class="nav-link active" data-scroll-target="#the-em-algorithm"><span class="header-section-number">38.1</span> The EM algorithm</a>
-  <ul class="collapse">
-  <li><a href="#problem-statements" id="toc-problem-statements" class="nav-link" data-scroll-target="#problem-statements">Problem statements</a></li>
-  <li><a href="#em-procedures" id="toc-em-procedures" class="nav-link" data-scroll-target="#em-procedures">EM procedures</a></li>
-  </ul></li>
-  <li><a href="#derivation-of-em" id="toc-derivation-of-em" class="nav-link" data-scroll-target="#derivation-of-em"><span class="header-section-number">38.2</span> Derivation of EM</a>
-  <ul class="collapse">
-  <li><a href="#lower-bound" id="toc-lower-bound" class="nav-link" data-scroll-target="#lower-bound">Lower bound</a></li>
-  <li><a href="#em-as-coordinate-ascent-on-lower-bound" id="toc-em-as-coordinate-ascent-on-lower-bound" class="nav-link" data-scroll-target="#em-as-coordinate-ascent-on-lower-bound">EM as coordinate ascent on lower bound</a></li>
-  <li><a href="#e-step-1" id="toc-e-step-1" class="nav-link" data-scroll-target="#e-step-1">E-step</a></li>
-  <li><a href="#m-step-1" id="toc-m-step-1" class="nav-link" data-scroll-target="#m-step-1">M-step</a></li>
-  </ul></li>
-  <li><a href="#example-mixture-model" id="toc-example-mixture-model" class="nav-link" data-scroll-target="#example-mixture-model"><span class="header-section-number">38.3</span> Example: mixture model</a>
-  <ul class="collapse">
-  <li><a href="#mixture-model" id="toc-mixture-model" class="nav-link" data-scroll-target="#mixture-model">Mixture model</a></li>
-  <li><a href="#em-for-mixture-model" id="toc-em-for-mixture-model" class="nav-link" data-scroll-target="#em-for-mixture-model">EM for mixture model</a></li>
-  </ul></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">38.4</span> Reference</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-expectation-maximization" class="quarto-section-identifier"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></h1>
+<h1 class="title"><span id="sec-expectation-maximization" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></h1>
 </div>
 
 
@@ -518,8 +475,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Expectation-maximization (EM) is an iterative algorithm that solves <strong>maximum likelihood (ML)</strong> problems of estimating parameters in case there are <strong>missing or latent (unobserved) variables</strong> (features or labels). EM iterates between E-step and M-step until the convergence criterion is met. In E-step, the expected value of the complete data log-likelihood with respect to the probability of the missing variables is computed as a function of the unknown parameters. In M-step, we choose the parameters that maximize the expected value derived in the E-step. EM is proved to converge to a local minimum while the global minimum is not guaranteed.</p>
-<section id="the-em-algorithm" class="level2" data-number="38.1">
-<h2 data-number="38.1" class="anchored" data-anchor-id="the-em-algorithm"><span class="header-section-number">38.1</span> The EM algorithm</h2>
+<section id="the-em-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="the-em-algorithm">The EM algorithm</h2>
 <section id="problem-statements" class="level3">
 <h3 class="anchored" data-anchor-id="problem-statements">Problem statements</h3>
 <p>In EM problems, we have two types of variables:</p>
@@ -557,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="em-procedures" class="level3">
 <h3 class="anchored" data-anchor-id="em-procedures">EM procedures</h3>
 <section id="e-step" class="level4">
-<h4 class="anchored" data-anchor-id="e-step">1. E-Step</h4>
+<h4 class="anchored" data-anchor-id="e-step">E-Step</h4>
 <p>Given parameters <span class="math inline">\hat{\Psi}</span> estimated at the current iteration and incomplete data <span class="math inline">\mathcal{X}</span>, compute the <span class="math inline">Q</span> function, which is the expected value of the log likelihood of the complete data <span class="math inline">\mathcal{X}, \mathcal{Z}</span> over the distribution of <span class="math inline">\mathbf{Z}</span></p>
 <p><span class="math display">
 Q_{\hat{\Psi}} (\Psi) = \mathbb{E}_{\mathbf{Z} \mid \mathbf{X}; \hat{\Psi}} \left[
@@ -575,18 +532,18 @@ Q_{\hat{\Psi}} (\Psi) = \mathbb{E}_{\mathbf{Z} \mid \mathbf{X}; \hat{\Psi}} \lef
 </ul>
 </section>
 <section id="m-step" class="level4">
-<h4 class="anchored" data-anchor-id="m-step">2. M-Step</h4>
+<h4 class="anchored" data-anchor-id="m-step">M-Step</h4>
 <p>Find the parameter <span class="math inline">\hat{\Psi}</span> that maximizes the expected value derived in the E-step.</p>
 <p><span class="math display">
 \hat{\Psi} = \arg\max_{\Psi} Q_{\hat{\Psi}} (\Psi)
 </span></p>
-<p>Repeat procedure 1 and 2 until convergence.</p>
+<p>Repeat the E-step and M-step until convergence.</p>
 </section>
 </section>
 </section>
-<section id="derivation-of-em" class="level2" data-number="38.2">
-<h2 data-number="38.2" class="anchored" data-anchor-id="derivation-of-em"><span class="header-section-number">38.2</span> Derivation of EM</h2>
-<p>The log-likelihood of the incomplete data can be decomposed into 2 components</p>
+<section id="derivation-of-em" class="level2">
+<h2 class="anchored" data-anchor-id="derivation-of-em">Derivation of EM</h2>
+<p>The derivation of the EM algorithm mostly comes from the following observation: the log-likelihood of the incomplete data can be decomposed into 2 components</p>
 <p><span class="math display">
 \log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi) = G (\Psi, q) +  D (\Psi, q)
 </span></p>
@@ -765,8 +722,8 @@ Proof
 </section>
 <section id="em-as-coordinate-ascent-on-lower-bound" class="level3">
 <h3 class="anchored" data-anchor-id="em-as-coordinate-ascent-on-lower-bound">EM as coordinate ascent on lower bound</h3>
-<p>The EM is essentially doing <strong>coordinate ascent</strong> on <span class="math inline">G (\Psi, q)</span>, which is believed to be easier to optimize than directly optimizing <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span>, while guaranteeing the <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span> is non-decreasing as <span class="math inline">G (\Psi, q)</span> is optimized.</p>
-<p>Coordinate ascent is a optimization method that optimize a single variable or 1 dimension of the variable at a time, while fixing the values of the rest of the variables from the last iteration unchanged. In the case of applying to <span class="math inline">G (\Psi, q)</span> function, <span class="math inline">\Psi</span> and <span class="math inline">q</span> are separately maximized in different steps of each iteration.</p>
+<p>The EM is essentially doing the <strong>coordinate ascent</strong> on <span class="math inline">G (\Psi, q)</span>, which is believed to be easier to optimize than directly optimizing <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span>, while guaranteeing the <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span> is non-decreasing as <span class="math inline">G (\Psi, q)</span> is optimized.</p>
+<p>Coordinate ascent is an optimization method that optimize a single variable or one dimension of the variable at a time, while fixing the values of the rest of the variables from the last iteration unchanged. In the case of applying to <span class="math inline">G (\Psi, q)</span> function, <span class="math inline">\Psi</span> and <span class="math inline">q</span> are separately maximized in different steps of each iteration.</p>
 <ul>
 <li><p>E-step: given the parameter <span class="math inline">\hat{\Psi}</span> estimated in the last iteration, the choice of the <span class="math inline">q</span> function is optimized to maximize the value of <span class="math inline">G (\Psi, q)</span>.</p></li>
 <li><p>M-step: given the <span class="math inline">\hat{q}</span> function selected in E-step, <span class="math inline">\Psi</span> is optimized to maximize the value of <span class="math inline">G (\Psi, \hat{q})</span> and will be used in the E-step of the next iteration.</p></li>
@@ -775,7 +732,7 @@ Proof
 <section id="e-step-1" class="level3">
 <h3 class="anchored" data-anchor-id="e-step-1">E-step</h3>
 <p>Since the value of <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span> doesn’t depend on the choice of <span class="math inline">q</span>, the choice of <span class="math inline">q</span> only affect the balance between <span class="math inline">G (\Psi, q)</span> and <span class="math inline">D (\Psi, q)</span> when the <span class="math inline">\Psi</span> is fixed.</p>
-<p>Thus, given the parameters <span class="math inline">\hat{\Psi}</span> estimated in the last iteration, <span class="math inline">G (\hat{\Psi}, q)</span> is maximized with respect to <span class="math inline">q</span> when <span class="math inline">D (\hat{\Psi}, q)</span> is minimized. Since the minimized value of <span class="math inline">D (\Psi, q)</span> is 0, we have</p>
+<p>Thus, given the parameters <span class="math inline">\hat{\Psi}</span> estimated in the last iteration, <span class="math inline">G (\hat{\Psi}, q)</span> is maximized with respect to <span class="math inline">q</span> when <span class="math inline">D (\hat{\Psi}, q)</span> is minimized. Since the minimized value of <span class="math inline">D (\Psi, q)</span> is <span class="math inline">0</span>, we have</p>
 <p><span class="math display">
 \begin{aligned}
 D (\hat{\Psi}, q)
@@ -797,7 +754,7 @@ q (\mathcal{Z})
 <p>which shows that <span class="math inline">G (\hat{\Psi})</span> is maximized when the distribution of latent variables is chosen to be the probability of the latent variables given the observed data and the current estimate of the parameters.</p>
 <p>A nice property of optimizing <span class="math inline">q</span>, even though it doesn’t affect the value of <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span> at all, is that the value of KL-divergence <span class="math inline">D (\Psi, \hat{q})</span> will also be non-decreasing no matter what <span class="math inline">\Psi</span> is selected in the M-step by maximizing <span class="math inline">G (\Psi, \hat{q})</span>.</p>
 <ul>
-<li><p>This can be seen from the fact that <span class="math inline">D (\Psi, \hat{q}) = 0</span> when <span class="math inline">\hat{p}</span> is selected to maximize <span class="math inline">G (\hat{\Psi}, q)</span>, and thus any <span class="math inline">\Psi</span> will guarantee that the value of <span class="math inline">D (\Psi, \hat{q})</span> is larger or equal to 0.</p></li>
+<li><p>This can be seen from the fact that <span class="math inline">D (\Psi, \hat{q}) = 0</span> when <span class="math inline">\hat{p}</span> is selected to maximize <span class="math inline">G (\hat{\Psi}, q)</span>, and thus any <span class="math inline">\Psi</span> will guarantee that the value of <span class="math inline">D (\Psi, \hat{q})</span> is larger or equal to <span class="math inline">0</span>.</p></li>
 <li><p>This property implicitly prove the convergence of the EM algorithm in that both <span class="math inline">G (\Psi, q)</span> and <span class="math inline">D (\Psi, q)</span> will be non-decreasing during each iteration, and therefore, the value of <span class="math inline">\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)</span> is non-decreasing in each iteration.</p></li>
 </ul>
 </section>
@@ -810,7 +767,7 @@ G (\Psi, q) = Q (\Psi, q) + \mathrm{H} (q).
 <ul>
 <li><p>The expected value of the complete data with respect to the distribution <span class="math inline">q</span></p>
 <p><span class="math display">
-  Q (\Psi, q) = \mathbb{E}_{\mathbf{Z}} \left[
+  Q (\Psi, q) = \mathbb{E}_{\mathbf{Z} \sim q} \left[
       \log \mathbb{P}_{\mathbf{X}, \mathbf{Z}} (\mathcal{X}, \mathcal{Z}; \Psi)
   \right].
   </span></p></li>
@@ -835,17 +792,21 @@ G (\Psi, q) = Q (\Psi, q) + \mathrm{H} (q).
 </span></p>
 </section>
 </section>
-<section id="example-mixture-model" class="level2" data-number="38.3">
-<h2 data-number="38.3" class="anchored" data-anchor-id="example-mixture-model"><span class="header-section-number">38.3</span> Example: mixture model</h2>
+<section id="example-mixture-model" class="level2">
+<h2 class="anchored" data-anchor-id="example-mixture-model">Example: mixture model</h2>
 <p>One application of EM algorithm is to obtain MLE of the parameters in a mixture models.</p>
 <section id="mixture-model" class="level3">
 <h3 class="anchored" data-anchor-id="mixture-model">Mixture model</h3>
 <p>We say random variable <span class="math inline">\mathbf{X}</span> follows a mixture model if its distribution is a weighted combination of multiple components, where each component has a simple parametric distributions. Thus mixture model can represent distributions that cannot be expressed using a single parametric distribution.</p>
 <p>Each sample <span class="math inline">\mathbf{x}</span> is associated with a latent random variable <span class="math inline">z</span> that indicates which component (parametric distribution) that <span class="math inline">\mathbf{x}</span> should be drawn. Thus the sample <span class="math inline">\mathbf{x}</span> has the conditional probability in a parametric form with parameters <span class="math inline">\boldsymbol{\theta}</span></p>
-<p><span class="math display"> \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z ; \boldsymbol{\theta}) </span></p>
+<p><span class="math display">
+\mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z ; \boldsymbol{\theta}),
+</span></p>
 <p>if we know the latent variable <span class="math inline">z</span> for the sample.</p>
 <p>Assuming in total we have <span class="math inline">c</span> latent variables for all samples and each latent variable has the probability <span class="math inline">\mathbb{P}_{Z} (z)</span>, the probability of the sample is</p>
-<p><span class="math display"> \mathbb{P}_{\mathbf{X}} (\mathbf{x}) = \sum_{z=1}^{c} \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z) \mathbb{P}_{Z} (z). </span></p>
+<p><span class="math display">
+\mathbb{P}_{\mathbf{X}} (\mathbf{x}) = \sum_{z=1}^{c} \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z) \mathbb{P}_{Z} (z).
+</span></p>
 <p>The Gaussian mixture model is simply a mixture model in which all components are Gaussian distributions.</p>
 </section>
 <section id="em-for-mixture-model" class="level3">
@@ -872,11 +833,14 @@ L(\mathcal{Z}, \Psi)
 \\
 \end{aligned}
 </span></p>
-<p>where <span class="math inline">x_{i}</span> is a sample, <span class="math inline">z_{i}</span> indicates the component that <span class="math inline">x_{i}</span> belongs to, <span class="math inline">\boldsymbol{\theta}_{z_{i}}</span> is the parameters of the component <span class="math inline">z_{i}</span>, and <span class="math inline">\pi_{z_{i}}</span> is the probability of the component <span class="math inline">z_{i}</span>.</p>
+<p>where <span class="math inline">x_{i}</span> is a sample, <span class="math inline">z_{i}</span> indicates the component that <span class="math inline">x_{i}</span> belongs to, <span class="math inline">\boldsymbol{\theta}_{z_{i}}</span> is the parameters of the distribution for the component <span class="math inline">z_{i}</span>, and <span class="math inline">\pi_{z_{i}} = \mathbb{P}_{Z} (z_{i})</span> is the probability of the component <span class="math inline">z_{i}</span>.</p>
 <p>Since <span class="math inline">z</span> is discrete and range from <span class="math inline">1</span> to <span class="math inline">c</span>, any function of <span class="math inline">z</span> can be written as</p>
-<p><span class="math display"> f(z) = \prod_{i=1}^{c} f(i)^{\mathbb{1}(z = i)}, </span></p>
+<p><span class="math display">
+f(z) = \prod_{i=1}^{c} f(i)^{\mathbb{1} (z = i)},
+</span></p>
 <p>where <span class="math inline">z</span> is extracted out from the function to the power of the function.</p>
-<p>Thus, the complete data likelihood can be further simplified to <span class="math display">
+<p>Thus, the complete data likelihood can be further simplified to</p>
+<p><span class="math display">
 \begin{aligned}
 L(\mathcal{Z}, \Psi)
 &amp; = \log \prod_{i=1}^{n} \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x}_{i} \mid z_{i} ; \boldsymbol{\theta}_{z_{i}}) \pi_{z_{i}}
@@ -922,7 +886,7 @@ Q_{\hat{\Psi}} (\Psi)
 \\
 \end{aligned}
 </span></p>
-<p>where $h_{i, j} = _{Z ; } $ is a constant value that can be computed given that we have parameter <span class="math inline">\hat{\Psi}</span> estimated in the last iteration.</p>
+<p>where <span class="math inline">h_{i, j} = \mathbb{E}_{Z \mid \mathbf{X}; \hat{\Psi}} \left[ \mathbb{1}(z_{i} = j) \right]</span> is a constant value that can be computed given that we have parameter <span class="math inline">\hat{\Psi}</span> estimated in the last iteration.</p>
 <p><span class="math display">
 \begin{aligned}
 h_{i, j}
@@ -989,8 +953,8 @@ h_{i, j}
 </section>
 </section>
 </section>
-<section id="reference" class="level2" data-number="38.4">
-<h2 data-number="38.4" class="anchored" data-anchor-id="reference"><span class="header-section-number">38.4</span> Reference</h2>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
 <ul>
 <li>http://www.columbia.edu/~mh2078/MachineLearningORFE/EM_Algorithm.pdf</li>
 <li>https://gregorygundersen.com/blog/2019/11/10/em/</li>
@@ -1235,19 +1199,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
       <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

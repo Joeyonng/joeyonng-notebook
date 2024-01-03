@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,10 +518,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-normal-matrices" id="toc-properties-of-normal-matrices" class="nav-link active" data-scroll-target="#properties-of-normal-matrices"><span class="header-section-number">26.1</span> Properties of normal matrices</a></li>
-  <li><a href="#unitary-diagonalization" id="toc-unitary-diagonalization" class="nav-link" data-scroll-target="#unitary-diagonalization"><span class="header-section-number">26.2</span> Unitary diagonalization</a></li>
-  <li><a href="#hermitian-symmetric-matrices" id="toc-hermitian-symmetric-matrices" class="nav-link" data-scroll-target="#hermitian-symmetric-matrices"><span class="header-section-number">26.3</span> Hermitian (symmetric) matrices</a></li>
-  <li><a href="#rayleigh-quotient" id="toc-rayleigh-quotient" class="nav-link" data-scroll-target="#rayleigh-quotient"><span class="header-section-number">26.4</span> Rayleigh quotient</a></li>
+  <li><a href="#properties-of-normal-matrices" id="toc-properties-of-normal-matrices" class="nav-link active" data-scroll-target="#properties-of-normal-matrices">Properties of normal matrices</a></li>
+  <li><a href="#unitary-diagonalization" id="toc-unitary-diagonalization" class="nav-link" data-scroll-target="#unitary-diagonalization">Unitary diagonalization</a></li>
+  <li><a href="#hermitian-symmetric-matrices" id="toc-hermitian-symmetric-matrices" class="nav-link" data-scroll-target="#hermitian-symmetric-matrices">Hermitian (symmetric) matrices</a></li>
+  <li><a href="#rayleigh-quotient" id="toc-rayleigh-quotient" class="nav-link" data-scroll-target="#rayleigh-quotient">Rayleigh quotient</a></li>
   </ul>
 </nav>
     </div>
@@ -507,9 +549,8 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">
 \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
 </span></p>
-<section id="properties-of-normal-matrices" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="properties-of-normal-matrices"><span class="header-section-number">26.1</span> Properties of normal matrices</h2>
-<p>(normal-matrices-property-1)=</p>
+<section id="properties-of-normal-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-normal-matrices">Properties of normal matrices</h2>
 <ul>
 <li><p>Unitary matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -532,9 +573,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(normal-matrices-property-2)=</p>
-<ul>
 <li><p>Diagonal matrices are normal.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -555,9 +593,6 @@ Proof
 </div>
 </div>
 </div></li>
-</ul>
-<p>(normal-matrices-property-3)=</p>
-<ul>
 <li><p>Unitary similarity preserves normality. That is, if <span class="math inline">\mathbf{A}</span> is a normal matrix and is unitarily similar to <span class="math inline">\mathbf{B}</span></p>
 <p><span class="math display">
   \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B}
@@ -629,8 +664,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="unitary-diagonalization" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="unitary-diagonalization"><span class="header-section-number">26.2</span> Unitary diagonalization</h2>
+<section id="unitary-diagonalization" class="level2">
+<h2 class="anchored" data-anchor-id="unitary-diagonalization">Unitary diagonalization</h2>
 <p>A matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is normal if and only if <span class="math inline">\mathbf{A}</span> is unitarily similar to a diagonal matrix</p>
 <p><span class="math display">
 \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
@@ -665,8 +700,8 @@ Proof
 </div>
 <p>Since the columns of <span class="math inline">\mathbf{U}</span> are eigenvectors of <span class="math inline">\mathbf{A}</span> and are orthonormal to each other the columns of <span class="math inline">\mathbf{U}</span> must be a complete orthonormal set of eigenvectors for <span class="math inline">\mathbf{A}</span>, and the diagonal entries of <span class="math inline">\mathbf{\Lambda}</span> are the associated eigenvalues.</p>
 </section>
-<section id="hermitian-symmetric-matrices" class="level2" data-number="26.3">
-<h2 data-number="26.3" class="anchored" data-anchor-id="hermitian-symmetric-matrices"><span class="header-section-number">26.3</span> Hermitian (symmetric) matrices</h2>
+<section id="hermitian-symmetric-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="hermitian-symmetric-matrices">Hermitian (symmetric) matrices</h2>
 <p>A square complex (real) matrix <span class="math inline">\mathbf{A}</span> is hermitian (symmetric) if and only if</p>
 <p><span class="math display">
 \mathbf{A}^{H} = \mathbf{A},
@@ -741,8 +776,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="rayleigh-quotient" class="level2" data-number="26.4">
-<h2 data-number="26.4" class="anchored" data-anchor-id="rayleigh-quotient"><span class="header-section-number">26.4</span> Rayleigh quotient</h2>
+<section id="rayleigh-quotient" class="level2">
+<h2 class="anchored" data-anchor-id="rayleigh-quotient">Rayleigh quotient</h2>
 <p>Given a Hermitian matrix <span class="math inline">\mathbf{M} \in \mathbb{C}^{n \times n}</span>, the Rayleigh quotient is a function <span class="math inline">R_{\mathbf{M}} (\mathbf{x}): \mathbb{C}^{n} \setminus \{ 0 \} \rightarrow \mathbb{R}</span></p>
 <p><span class="math display">
 R_{\mathbf{M}} (\mathbf{x}) = \frac{
@@ -1133,6 +1168,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

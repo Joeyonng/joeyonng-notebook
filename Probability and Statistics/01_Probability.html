@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 28&nbsp; Probability</title>
+<title>Joeyonng’s Notebook - 15&nbsp; Probability</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../Probability and Statistics/02_Random_Variables.html" rel="next">
-<link href="../Linear Algebra/27_Positive_Definite_Matrices.html" rel="prev">
+<link href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -102,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Drafts</span></a>
+ <span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
@@ -125,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,164 +169,86 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields</span></span></a>
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/02_Spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Spaces</span></span></a>
+  <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/03_Vectors_and_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span></a>
+  <a href="../Linear Algebra/03_Span_and_Linear_Independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Span and Linear Independence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/04_Span.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Span</span></span></a>
+  <a href="../Linear Algebra/04_Basis_and_Dimension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Basis and Dimension</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/05_Linear_Independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear independence</span></span></a>
+  <a href="../Linear Algebra/05_Linear_Map_and_Rank.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Linear Map and Rank</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/06_Basis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basis</span></span></a>
+  <a href="../Linear Algebra/06_Inner_Product_and_Norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inner Product and Norm</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Dimension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dimension</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/08_Linear_Map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Linear Map</span></span></a>
+  <a href="../Linear Algebra/08_Complementary_Subspaces_and_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Complementary Subspaces and Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/09_Rank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Rank</span></span></a>
+  <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/10_Inner_Product.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inner Product</span></span></a>
+  <a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/11_Norm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Norm</span></span></a>
+  <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/12_Orthogonality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Orthogonality</span></span></a>
+  <a href="../Linear Algebra/12_Determinants_and_Eigensystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Unitary matrix</span></span></a>
+  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Complementary_Subspaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Complementary Subspaces</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/15_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/16_Orthogonal_Complement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Orthogonal Complement</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/17_Orthogonal_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Orthogonal Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/18_Singular_Value_Decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Singular Value Decomposition</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/19_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pseudoinverse</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/20_Orthogonal_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Orthogonal projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/21_Affine_Projection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Affine projection</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/22_Determinants.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Determinants</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/23_Eigensystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Eigensystems</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/24_Similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Similarity</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/25_Diagonalization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Diagonalization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/26_Normal_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Normal Matrices</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,73 +265,73 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,43 +348,102 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/K-means.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">K-means</span></span></a>
   </div>
 </li>
       </ul>
@@ -471,27 +453,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#basic-probability-properties" id="toc-basic-probability-properties" class="nav-link active" data-scroll-target="#basic-probability-properties"><span class="header-section-number">28.1</span> Basic probability properties</a></li>
-  <li><a href="#joint-probability" id="toc-joint-probability" class="nav-link" data-scroll-target="#joint-probability"><span class="header-section-number">28.2</span> Joint probability</a>
-  <ul class="collapse">
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability">Conditional probability</a></li>
-  <li><a href="#marginal-probability" id="toc-marginal-probability" class="nav-link" data-scroll-target="#marginal-probability">Marginal probability</a></li>
-  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence">Independence</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Probability</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Probability</span></h1>
 </div>
 
 
@@ -507,7 +475,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div id="def-probability-space" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.1 </strong></span>The <strong>probability space</strong> <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> of a random experiment consists of the following quantities.</p>
+<p><span class="theorem-title"><strong>Definition 15.1 </strong></span>The <strong>probability space</strong> <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> of a random experiment consists of the following quantities.</p>
 <ul>
 <li><p>The sample space <span class="math inline">\Omega</span> is the set of all possible outcomes of the random experiment.</p></li>
 <li><p>The set of events <span class="math inline">\mathcal{F}</span>, where each event <span class="math inline">A</span> is a subset of the sample space <span class="math inline">\Omega</span> and we say that <span class="math inline">A</span> occurs if the outcome <span class="math inline">\omega \in \Omega</span> of the random experiment is an element of <span class="math inline">A</span>. By definition, <span class="math inline">\mathcal{F}</span> is a <span class="math inline">\sigma</span>-algebra, which means it must satisfies the following requirements</p>
@@ -524,12 +492,12 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </div>
-<p>If the sample space <span class="math inline">\Omega</span> is finite, the probability space <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> defined in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> is said to be <strong>discrete</strong>.</p>
+<p>If the sample space <span class="math inline">\Omega</span> is finite, the probability space <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span> defined in <a href="#def-probability-space">Definition&nbsp;<span>15.1</span></a> is said to be <strong>discrete</strong>.</p>
 <p>If the sample space <span class="math inline">\Omega</span> is infinite, the probability space <span class="math inline">(\Omega, \mathcal{B}, \mathbb{P})</span> is said to be <strong>continuous</strong> if the set of events <span class="math inline">\mathcal{B}</span> is a <em>Borel</em> <span class="math inline">\sigma</span>-algebra. If the sample space <span class="math inline">\Omega</span> is the real space <span class="math inline">\mathbb{R}</span>, Borel <span class="math inline">\sigma</span>-algebra is the <em>smallest</em> <span class="math inline">\sigma</span>-algebra that contains all open sub-intervals in <span class="math inline">\Omega = \mathbb{R}</span>.</p>
-<section id="basic-probability-properties" class="level2" data-number="28.1">
-<h2 data-number="28.1" class="anchored" data-anchor-id="basic-probability-properties"><span class="header-section-number">28.1</span> Basic probability properties</h2>
+<section id="basic-probability-properties" class="level2">
+<h2 class="anchored" data-anchor-id="basic-probability-properties">Basic probability properties</h2>
 <div id="cor-probability-union" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 28.1 </strong></span>The probability of the union events is</p>
+<p><span class="theorem-title"><strong>Corollary 15.1 </strong></span>The probability of the union events is</p>
 <p><span class="math display">
 \mathbb{P} (A \cup B) = \mathbb{P} (A) + \mathbb{P} (B) - \mathbb{P} (A \cap B).
 </span></p>
@@ -546,7 +514,7 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Since <span class="math inline">A \cup B</span> can be partitioned into 3 disjoint sets: <span class="math inline">A \setminus B</span>, <span class="math inline">B \setminus A</span>, and <span class="math inline">A \cap B</span>, we can use the countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> to prove the following</p>
+<p>Since <span class="math inline">A \cup B</span> can be partitioned into 3 disjoint sets: <span class="math inline">A \setminus B</span>, <span class="math inline">B \setminus A</span>, and <span class="math inline">A \cap B</span>, we can use the countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>15.1</span></a> to prove the following</p>
 <p><span class="math display">
 \mathbb{P} (A) = \mathbb{P} (A \setminus B) + \mathbb{P} (A \cap B) \\
 \mathbb{P} (B) = \mathbb{P} (B \setminus A) + \mathbb{P} (A \cap B) \\
@@ -565,7 +533,7 @@ Proof
 </div>
 </div>
 <div id="cor-union-bound" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 28.2 (Union bound) </strong></span>The probability of an event that is a union of a finite set of events <span class="math inline">A_{1}, \dots, A_{n}</span> is no greater than the sum of the probabilities of all events.</p>
+<p><span class="theorem-title"><strong>Corollary 15.2 (Union bound) </strong></span>The probability of an event that is a union of a finite set of events <span class="math inline">A_{1}, \dots, A_{n}</span> is no greater than the sum of the probabilities of all events.</p>
 <p><span class="math display">
 \mathbb{P} \left(
     \bigcup_{i = 1}^{n} A_{i}
@@ -584,7 +552,7 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>According to <a href="#cor-probability-union">Corollary&nbsp;<span>28.1</span></a>,</p>
+<p>According to <a href="#cor-probability-union">Corollary&nbsp;<span>15.1</span></a>,</p>
 <p><span class="math display">
 \begin{aligned}
 \mathbb{P} (A \cup B)
@@ -599,8 +567,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="joint-probability" class="level2" data-number="28.2">
-<h2 data-number="28.2" class="anchored" data-anchor-id="joint-probability"><span class="header-section-number">28.2</span> Joint probability</h2>
+<section id="joint-probability" class="level2">
+<h2 class="anchored" data-anchor-id="joint-probability">Joint probability</h2>
 <p>Usually we refer the probability that the events <span class="math inline">A, B</span> occur at the same time as the <strong>joint probability</strong> of <span class="math inline">A</span> and <span class="math inline">B</span></p>
 <p><span class="math display">
 \mathbb{P} (A \cap B) = \mathbb{P} (A, B).
@@ -608,14 +576,14 @@ Proof
 <section id="conditional-probability" class="level3">
 <h3 class="anchored" data-anchor-id="conditional-probability">Conditional probability</h3>
 <div id="def-conditional-probability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.2 (Conditional probability) </strong></span>Let <span class="math inline">B</span> be an event such that <span class="math inline">\mathbb{P} (B) &gt; 0</span>. The conditional probability of the event <span class="math inline">A</span> given <span class="math inline">B</span> is defined to be</p>
+<p><span class="theorem-title"><strong>Definition 15.2 (Conditional probability) </strong></span>Let <span class="math inline">B</span> be an event such that <span class="math inline">\mathbb{P} (B) &gt; 0</span>. The conditional probability of the event <span class="math inline">A</span> given <span class="math inline">B</span> is defined to be</p>
 <p><span class="math display">
 \mathbb{P} (A \mid B) = \frac{ \mathbb{P} (A \cap B) }{ \mathbb{P} (B) }.
 </span></p>
 </div>
-<p>Note that <span class="math inline">\mathbb{P} (\cdot \mid \cdot )</span> is also a probability measure and therefore satisfies the axioms of the probability measure in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a>.</p>
+<p>Note that <span class="math inline">\mathbb{P} (\cdot \mid \cdot )</span> is also a probability measure and therefore satisfies the axioms of the probability measure in <a href="#def-probability-space">Definition&nbsp;<span>15.1</span></a>.</p>
 <div id="cor-chain-rule" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 28.3 (Chain rule) </strong></span>Given a set of events <span class="math inline">A_{1}, \dots, A_{n}</span>, the probability of their intersection can be calculated as</p>
+<p><span class="theorem-title"><strong>Corollary 15.3 (Chain rule) </strong></span>Given a set of events <span class="math inline">A_{1}, \dots, A_{n}</span>, the probability of their intersection can be calculated as</p>
 <p><span class="math display">
 \mathbb{P} \left(
     \bigcap_{i = 1}^{n} A_{i}
@@ -642,7 +610,7 @@ Proof
 <p><span class="math display">
 \mathbb{P} (A \cap B) = \mathbb{P} (A \mid B) \mathbb{P} (B)
 </span></p>
-<p>by the definition of <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a>.</p>
+<p>by the definition of <a href="#def-conditional-probability">Definition&nbsp;<span>15.2</span></a>.</p>
 <p>To apply it for the multiple events, we can treat <span class="math inline">A = A_{1}</span> and <span class="math inline">B = \bigcap_{i = 2}^{n} A_{i}</span> to get</p>
 <p><span class="math display">
 \begin{aligned}
@@ -684,7 +652,7 @@ Proof
 </div>
 </div>
 <div id="thm-bayes-theorem" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 28.1 (Bayes’s theorem) </strong></span>Let A, B be events with nonzero probability. Then,</p>
+<p><span class="theorem-title"><strong>Theorem 15.1 (Bayes’s theorem) </strong></span>Let A, B be events with nonzero probability. Then,</p>
 <p><span class="math display">
 \mathbb{P} (A \mid B) = \frac{
     \mathbb{P} (B \mid A) \mathbb{P} (A)
@@ -705,7 +673,7 @@ Proof
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This follows directly from <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a></p>
+<p>This follows directly from <a href="#def-conditional-probability">Definition&nbsp;<span>15.2</span></a></p>
 <p><span class="math display">
 \mathbb{P} (A \mid B)
 = \frac{ \mathbb{P} (A \cap B) }{ \mathbb{P} (B) }
@@ -719,7 +687,7 @@ Proof
 <section id="marginal-probability" class="level3">
 <h3 class="anchored" data-anchor-id="marginal-probability">Marginal probability</h3>
 <div id="thm-law-of-total-probability" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 28.2 (Law of total probability) </strong></span>Let <span class="math inline">A_{1}, \dots, A_{n}</span> be events that partition <span class="math inline">\Omega</span>, that is, <span class="math inline">A_{1}, \dots, A_{n}</span> are disjoint and there union is <span class="math inline">\Omega</span>, the for any event <span class="math inline">B</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 15.2 (Law of total probability) </strong></span>Let <span class="math inline">A_{1}, \dots, A_{n}</span> be events that partition <span class="math inline">\Omega</span>, that is, <span class="math inline">A_{1}, \dots, A_{n}</span> are disjoint and there union is <span class="math inline">\Omega</span>, the for any event <span class="math inline">B</span>,</p>
 <p><span class="math display">
 \mathbb{P} (B)
 = \sum_{i = 1}^{n} \mathbb{P} (B \cap A_{i})
@@ -754,7 +722,7 @@ B
 \right).
 \end{aligned}
 </span></p>
-<p>By the axiom of countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>28.1</span></a> and <a href="#def-conditional-probability">Definition&nbsp;<span>28.2</span></a>, we have</p>
+<p>By the axiom of countable additivity in <a href="#def-probability-space">Definition&nbsp;<span>15.1</span></a> and <a href="#def-conditional-probability">Definition&nbsp;<span>15.2</span></a>, we have</p>
 <p><span class="math display">
 \mathbb{P} (B)
 = \sum_{i = 1}^{n} \mathbb{P} (B \cap A_{i})
@@ -767,7 +735,7 @@ B
 <section id="independence" class="level3">
 <h3 class="anchored" data-anchor-id="independence">Independence</h3>
 <div id="def-independence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.3 (Independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be independent if any of the following holds.</p>
+<p><span class="theorem-title"><strong>Definition 15.3 (Independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be independent if any of the following holds.</p>
 <ul>
 <li><p><span class="math inline">\mathbb{P} (A \cap B) = \mathbb{P} (A) \mathbb{P} (B)</span>.</p></li>
 <li><p><span class="math inline">\mathbb{P} (A \mid B) = \mathbb{P} (A)</span>.</p></li>
@@ -775,7 +743,7 @@ B
 </ul>
 </div>
 <div id="def-conditional-independence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.4 (conditional-independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be conditional independent given an event <span class="math inline">C</span> if any of the following holds.</p>
+<p><span class="theorem-title"><strong>Definition 15.4 (conditional-independence) </strong></span>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are said to be conditional independent given an event <span class="math inline">C</span> if any of the following holds.</p>
 <ul>
 <li><p><span class="math inline">\mathbb{P} (A \cap B \mid C) = \mathbb{P} (A \mid C) \mathbb{P} (B \mid C)</span>.</p></li>
 <li><p><span class="math inline">\mathbb{P} (A \mid B \cap C) = \mathbb{P} (A \cap C)</span>.</p></li>
@@ -1022,19 +990,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="../Linear Algebra/27_Positive_Definite_Matrices.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span>
+      <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../Probability and Statistics/02_Random_Variables.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,14 +518,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#eigenspace" id="toc-eigenspace" class="nav-link active" data-scroll-target="#eigenspace"><span class="header-section-number">23.1</span> Eigenspace</a></li>
-  <li><a href="#characteristic-polynomial-and-equation" id="toc-characteristic-polynomial-and-equation" class="nav-link" data-scroll-target="#characteristic-polynomial-and-equation"><span class="header-section-number">23.2</span> Characteristic polynomial and equation</a></li>
-  <li><a href="#multiplicities" id="toc-multiplicities" class="nav-link" data-scroll-target="#multiplicities"><span class="header-section-number">23.3</span> Multiplicities</a>
+  <li><a href="#eigenspace" id="toc-eigenspace" class="nav-link active" data-scroll-target="#eigenspace">Eigenspace</a></li>
+  <li><a href="#characteristic-polynomial-and-equation" id="toc-characteristic-polynomial-and-equation" class="nav-link" data-scroll-target="#characteristic-polynomial-and-equation">Characteristic polynomial and equation</a></li>
+  <li><a href="#multiplicities" id="toc-multiplicities" class="nav-link" data-scroll-target="#multiplicities">Multiplicities</a>
   <ul class="collapse">
   <li><a href="#special-multiplicities" id="toc-special-multiplicities" class="nav-link" data-scroll-target="#special-multiplicities">Special multiplicities</a></li>
   <li><a href="#properties-of-multiplicities" id="toc-properties-of-multiplicities" class="nav-link" data-scroll-target="#properties-of-multiplicities">Properties of multiplicities</a></li>
   </ul></li>
-  <li><a href="#independent-eigenvectors" id="toc-independent-eigenvectors" class="nav-link" data-scroll-target="#independent-eigenvectors"><span class="header-section-number">23.4</span> Independent eigenvectors</a></li>
+  <li><a href="#independent-eigenvectors" id="toc-independent-eigenvectors" class="nav-link" data-scroll-target="#independent-eigenvectors">Independent eigenvectors</a></li>
   </ul>
 </nav>
     </div>
@@ -507,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>For a matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, <span class="math inline">(\lambda, \mathbf{x})</span> is an <strong>eigenpair</strong> for <span class="math inline">\mathbf{A}</span> if</p>
+<p>For a square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span>, <span class="math inline">(\lambda, \mathbf{x})</span> is an <strong>eigenpair</strong> for <span class="math inline">\mathbf{A}</span> if</p>
 <p><span class="math display">
 \mathbf{A} \mathbf{x} = \lambda \mathbf{x}
 </span></p>
@@ -516,9 +558,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>the scalar <span class="math inline">\lambda</span> is an <strong>eigenvalue</strong> for <span class="math inline">\mathbf{A}</span>,</p></li>
 <li><p>the non-zero vector <span class="math inline">\mathbf{x}</span> is an <strong>eigenvector</strong> associated with <span class="math inline">\lambda</span> for <span class="math inline">\mathbf{A}</span>.</p></li>
 </ul>
-<p>The set of all distinct eigenvalues, denoted by <span class="math inline">\sigma (A)</span>, is the <strong>spectrum</strong> of A</p>
-<section id="eigenspace" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="eigenspace"><span class="header-section-number">23.1</span> Eigenspace</h2>
+<section id="eigenspace" class="level2">
+<h2 class="anchored" data-anchor-id="eigenspace">Eigenspace</h2>
 <p>Given a eigenvalue <span class="math inline">\lambda</span>,</p>
 <p><span class="math display">
 \begin{aligned}
@@ -533,7 +574,7 @@ ul.task-list li input[type="checkbox"] {
 \\
 \end{aligned}
 </span></p>
-<p>which shows that</p>
+<p>which shows that the set</p>
 <p><span class="math display">
 \{ \mathbf{x} \neq 0 \mid \mathbf{x} \in N (\mathbf{A} - \lambda \mathbf{I}) \}
 </span></p>
@@ -548,14 +589,14 @@ N (\mathbf{A} - \lambda \mathbf{I}) \neq \{ \mathbf{0} \}
 \text{det} (\mathbf{A} - \lambda \mathbf{I}) = 0.
 </span></p>
 </section>
-<section id="characteristic-polynomial-and-equation" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="characteristic-polynomial-and-equation"><span class="header-section-number">23.2</span> Characteristic polynomial and equation</h2>
-<p>The characteristic polynomial of <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is a function</p>
+<section id="characteristic-polynomial-and-equation" class="level2">
+<h2 class="anchored" data-anchor-id="characteristic-polynomial-and-equation">Characteristic polynomial and equation</h2>
+<p>The characteristic polynomial of <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is a polynomial function of <span class="math inline">\lambda</span></p>
 <p><span class="math display">
 p (\lambda) = \text{det} (\mathbf{A} - \lambda \mathbf{I}).
 </span></p>
 <ul>
-<li><p>The degree of <span class="math inline">p (\lambda)</span> is <span class="math inline">n</span>,</p></li>
+<li><p>The degree (highest exponent in the expression) of <span class="math inline">p (\lambda)</span> is <span class="math inline">n</span>,</p></li>
 <li><p>the leading term in <span class="math inline">p (\lambda)</span> is <span class="math inline">(-1)^{n} \lambda^{n}</span>.</p></li>
 </ul>
 <p>The characteristic equation for <span class="math inline">\mathbf{A}</span> is</p>
@@ -564,12 +605,12 @@ p (\lambda) = 0.
 </span></p>
 <ul>
 <li><p>The eigenvalues of <span class="math inline">\mathbf{A}</span> are the solutions of the characteristic equation.</p></li>
-<li><p>Thus, <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> eigenvalues, but some may be complex numbers (even if the entries of A are real numbers), and some eigenvalues may be repeated.</p></li>
+<li><p>Thus, <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> eigenvalues, but some may be complex numbers (even if the entries of <span class="math inline">\mathbf{A}</span> are real numbers), and some eigenvalues may be repeated.</p></li>
 </ul>
 </section>
-<section id="multiplicities" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="multiplicities"><span class="header-section-number">23.3</span> Multiplicities</h2>
-<p>Let <span class="math inline">\lambda_{1}, \dots, \lambda_{n} \in \sigma (\mathbf{A})</span> be the unique eigenvalues for <span class="math inline">\mathbf{A}</span>. Then</p>
+<section id="multiplicities" class="level2">
+<h2 class="anchored" data-anchor-id="multiplicities">Multiplicities</h2>
+<p>The set of all distinct eigenvalues, denoted by <span class="math inline">\sigma (\mathbf{A})</span>, is the <strong>spectrum</strong> of <span class="math inline">\mathbf{A}</span>. Let <span class="math inline">\lambda_{1}, \dots, \lambda_{n} \in \sigma (\mathbf{A})</span> be the spectrum of <span class="math inline">\mathbf{A}</span>. Then</p>
 <ul>
 <li><p>the <strong>algebraic multiplicity</strong> of an eigenvalue <span class="math inline">\lambda_{i}</span> is the number of times it appears as the root of <span class="math inline">p (\lambda)</span>,</p>
 <p><span class="math display">
@@ -591,7 +632,6 @@ p (\lambda) = 0.
 </section>
 <section id="properties-of-multiplicities" class="level3">
 <h3 class="anchored" data-anchor-id="properties-of-multiplicities">Properties of multiplicities</h3>
-<p>(multiplicities-property-1)=</p>
 <ul>
 <li><p>For every <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, and for each <span class="math inline">\lambda_{i} \in \sigma(\mathbf{A})</span>,</p>
 <p><span class="math display">
@@ -616,8 +656,8 @@ Proof
 </ul>
 </section>
 </section>
-<section id="independent-eigenvectors" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="independent-eigenvectors"><span class="header-section-number">23.4</span> Independent eigenvectors</h2>
+<section id="independent-eigenvectors" class="level2">
+<h2 class="anchored" data-anchor-id="independent-eigenvectors">Independent eigenvectors</h2>
 <p>Let <span class="math inline">\{ \lambda_{1}, \dots, \lambda_{k} \}</span> be a set of distinct eigenvalues for <span class="math inline">\mathbf{A}</span>.</p>
 <ul>
 <li><p>If <span class="math inline">\{ (\lambda_{1}, \mathbf{x}_{1}), \dots, (\lambda_{k}, \mathbf{x}_{k}) \}</span> is a set of eigenpairs for <span class="math inline">\mathbf{A}</span>, then <span class="math inline">\{ \mathbf{x}_{1}, \dots, \mathbf{x}_{k} \}</span> is a linearly independent set.</p>
@@ -952,6 +992,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -466,6 +467,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -476,8 +518,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-linear-map" id="toc-properties-of-linear-map" class="nav-link active" data-scroll-target="#properties-of-linear-map"><span class="header-section-number">8.1</span> Properties of linear map</a></li>
-  <li><a href="#generalization-of-null-space-and-range-space" id="toc-generalization-of-null-space-and-range-space" class="nav-link" data-scroll-target="#generalization-of-null-space-and-range-space"><span class="header-section-number">8.2</span> Generalization of null space and range space</a></li>
+  <li><a href="#properties-of-linear-map" id="toc-properties-of-linear-map" class="nav-link active" data-scroll-target="#properties-of-linear-map">Properties of linear map</a></li>
+  <li><a href="#generalization-of-null-space-and-range-space" id="toc-generalization-of-null-space-and-range-space" class="nav-link" data-scroll-target="#generalization-of-null-space-and-range-space">Generalization of null space and range space</a></li>
   </ul>
 </nav>
     </div>
@@ -506,8 +548,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">T (u + v) = T (u) + T (v) \quad u, v \in \mathcal{U}, T (u), T (v) \in \mathcal{V}</span>, and</p></li>
 <li><p><span class="math inline">T (\alpha \cdot v) = \alpha \cdot T (v) \quad \alpha \in \mathbb{F}, v \in \mathcal{u}, T (v) \in \mathcal{V}.</span></p></li>
 </ul>
-<section id="properties-of-linear-map" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="properties-of-linear-map"><span class="header-section-number">8.1</span> Properties of linear map</h2>
+<section id="properties-of-linear-map" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-linear-map">Properties of linear map</h2>
 <p>Let <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> be two vector spaces over the same filed <span class="math inline">\mathbb{F}</span>, and suppose <span class="math inline">T</span> is a linear map <span class="math inline">T: \mathcal{U} \to \mathcal{V}</span>.</p>
 <ul>
 <li><p>A linear map must satisfy <span class="math inline">T (0) = 0</span>.</p>
@@ -646,8 +688,8 @@ Proof
 </div></li>
 </ul>
 </section>
-<section id="generalization-of-null-space-and-range-space" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="generalization-of-null-space-and-range-space"><span class="header-section-number">8.2</span> Generalization of null space and range space</h2>
+<section id="generalization-of-null-space-and-range-space" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-of-null-space-and-range-space">Generalization of null space and range space</h2>
 <p>Since every linear map has a matrix representation, the null space and range space defined using matrix can be redefined using linear map.</p>
 <p>Given a map <span class="math inline">T: \mathcal{U} \to \mathcal{V}</span>, the null space (kernel) is</p>
 <p><span class="math display">
@@ -912,6 +954,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    let pseudocodeOptions = {
+      indentSize: el.dataset.indentSize || "1.2em",
+      commentDelimiter: el.dataset.commentDelimiter || "//",
+      lineNumber: el.dataset.lineNumber === "true" ? true : false,
+      lineNumberPunc: el.dataset.lineNumberPunc || ":",
+      noEnd: el.dataset.noEnd === "true" ? true : false,
+      titlePrefix: el.dataset.algTitle || "Algorithm"
+    };
+    pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+  });
+})(document);
+(function(d) {
+  d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+    titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+    titlePrefix = el.dataset.algTitle;
+    titleIndex = el.dataset.chapterLevel ? el.dataset.chapterLevel + "." + el.dataset.pseudocodeIndex : el.dataset.pseudocodeIndex;
+    titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+  });
+})(document);
+</script>
 
 
 

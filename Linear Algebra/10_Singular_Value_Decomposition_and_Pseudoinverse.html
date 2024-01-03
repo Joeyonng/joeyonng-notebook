@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 1&nbsp; Fields and Spaces</title>
+<title>Joeyonng’s Notebook - 10&nbsp; SVD and Pseudoinverse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Linear Algebra/02_Vectors_and_Matrices.html" rel="next">
-<link href="../notations.html" rel="prev">
+<link href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" rel="next">
+<link href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html" class="sidebar-item-text sidebar-link">
+  <a href="../Linear Algebra/10_Singular_Value_Decomposition_and_Pseudoinverse.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></span></a>
   </div>
 </li>
@@ -459,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SVD and Pseudoinverse</span></h1>
 </div>
 
 
@@ -474,60 +474,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fields" class="level2">
-<h2 class="anchored" data-anchor-id="fields">Fields</h2>
-<p>A field is a <strong>set</strong> <span class="math inline">\mathbb{F}</span>, equipped with two operations addition <span class="math inline">+</span> and multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-fields">Axioms of fields</h3>
-<p>For all <span class="math inline">x</span>, <span class="math inline">y</span>, and <span class="math inline">z</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall x, y, z \in \mathbb{F}</span>), we have:</p>
+<section id="urv-factorization" class="level2">
+<h2 class="anchored" data-anchor-id="urv-factorization">URV Factorization</h2>
+<p>For each <span class="math inline">\mathbf{A} \in \mathbb{R}^{m \times n}</span> of rank <span class="math inline">r</span>, there are orthogonal matrices <span class="math inline">\mathbf{U}_{m \times m}</span> and <span class="math inline">\mathbf{V}_{n \times n}</span> and a nonsingular matrix <span class="math inline">\mathbf{C}_{r \times r}</span> such that</p>
+<p><span class="math display">
+\mathbf{A} = \mathbf{U} \mathbf{R} \mathbf{V}^{T} = \mathbf{U}
+\begin{bmatrix}
+\mathbf{C}_{r \times r} &amp; 0 \\
+0 &amp; 0 \\
+\end{bmatrix}_{m \times n}
+\mathbf{V}^{T}.
+</span></p>
 <ul>
-<li><p><strong>Closure</strong> under addition and multiplication:</p>
-<p><span class="math display">
-  x + y \in \mathbb{F},
-  </span></p>
-<p><span class="math display">
-  x \cdot y \in \mathbb{F}.
-  </span></p></li>
-<li><p><strong>Commutativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  x + y = y + x,
-  </span></p>
-<p><span class="math display">
-  x \cdot y = y \cdot x.
-  </span></p></li>
-<li><p><strong>Associativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  (x + y) + z = x + (y + z),
-  </span></p>
-<p><span class="math display">
-  (x \cdot y) \cdot z = x \cdot (y \cdot z).
-  </span></p></li>
-<li><p><strong>Distributive property</strong> of multiplication:</p>
-<p><span class="math display">
-  (x + y) \cdot z = x \cdot z + y \cdot z.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathbb{F}</span> called <strong>“zero”</strong> <span class="math inline">0 \in \mathbb{F}</span> such that</p>
-<p><span class="math display">
-  x + 0 = x,
-  </span></p>
-<p>and there is another element in <span class="math inline">\mathbb{F}</span> called <strong>“one”</strong> <span class="math inline">1 \in \mathbb{F}</span>, <span class="math inline">1 \neq 0</span>, such that</p>
-<p><span class="math display">
-  x \cdot 1 = x.
-  </span></p></li>
-<li><p>For each <span class="math inline">x \in \mathbb{F}</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>addictive inverse</strong> <span class="math inline">x_{I}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x + x_{I} = 0,
-  </span></p>
-<p>and if <span class="math inline">x \neq 0</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>multiplicative inverse</strong> <span class="math inline">x^{-1}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x \cdot x^{-1} = 1.
-  </span></p></li>
+<li><p>The first <span class="math inline">r</span> columns in <span class="math inline">\mathbf{U}</span> are an orthonormal basis for <span class="math inline">R (\mathbf{A})</span>.</p></li>
+<li><p>The last <span class="math inline">m - r</span> columns of <span class="math inline">\mathbf{U}</span> are an orthonormal basis for <span class="math inline">N (\mathbf{A}^{T})</span>.</p></li>
+<li><p>The first <span class="math inline">r</span> columns in <span class="math inline">\mathbf{V}</span> are an orthonormal basis for <span class="math inline">R (\mathbf{A}^{T})</span>.</p></li>
+<li><p>The last <span class="math inline">m - r</span> columns of <span class="math inline">\mathbf{V}</span> are an orthonormal basis for <span class="math inline">N (\mathbf{A})</span>.</p></li>
 </ul>
-</section>
-<section id="properties-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-fields">Properties of fields</h3>
-<ul>
-<li><p><strong>Zero and one are unique</strong>: there is only one “zero” and one “one” in any field <span class="math inline">\mathbb{F}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -540,38 +503,165 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We prove “zero” is unique by contradiction.</p>
-<p>Suppose there are two different “zero”s <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span>.</p>
-<p>Due to the definition of “zero”,</p>
+<p>Suppose vector spaces <span class="math inline">\mathbb{R}^{m}</span> and <span class="math inline">\mathbb{R}^{n}</span> have orthonormal bases <span class="math inline">\{ \mathbf{u}_{1}, \dots, \mathbf{u}_{m} \}</span> and <span class="math inline">\{ \mathbf{v}_{1}, \dots, \mathbf{v}_{n} \}</span>, respectively.</p>
+<p>Given any matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{m \times n}</span>, the orthogonal decomposition theorem shows that the following subspaces are complementary in <span class="math inline">\mathbb{R}^{m}</span> and <span class="math inline">\mathbb{R}^{n}</span>.</p>
 <p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{1}
-  &amp; [0_{0} \text{ is "zero"}]
-  \\
-  0_{0} + 0_{1}
-  &amp; = 0_{0}
-  &amp; [0_{1} \text{ is "zero"}]
-  \\
-  \end{aligned}
-  </span></p>
-<p>Due to the Commutativity axiom,</p>
+R (\mathbf{A}) \oplus N (\mathbf{A}^{T}) = \mathbb{R}^{m},
+</span></p>
 <p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{0} + 0_{1}
-  \\
-  0_{1}
-  &amp; = 0_{0}
-  \\
-  \end{aligned}
-  </span></p>
-<p>which contradicts to the fact that <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span> (<span class="math inline">1_{0}</span> and <span class="math inline">1_{1}</span>) are different. Thus, there is only a unique “zero” in <span class="math inline">\mathbb{F}</span>.</p>
-<p>The proof that the “one” in any <span class="math inline">\mathbb{F}</span> is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span> and <span class="math inline">0_{0}</span>, <span class="math inline">0_{1}</span> with <span class="math inline">1_{0}</span>, <span class="math inline">1_{1}</span>.</p>
+R (\mathbf{A}^{T}) \oplus N (\mathbf{A}) = \mathbb{R}^{n}.
+</span></p>
+<p>According to the property of the complementary subspaces, we can separate the basis for <span class="math inline">\mathbb{R}^{m}</span> into the basis for <span class="math inline">R (\mathbf{A})</span> and <span class="math inline">N (\mathbf{A}^{T})</span>, and the basis for <span class="math inline">\mathbb{R}^{n}</span> into the basis for <span class="math inline">N (\mathbf{A})</span> and <span class="math inline">R (\mathbf{A}^{T})</span>.</p>
+<p>Since <span class="math inline">\mathrm{rank} (\mathbf{A}) = r</span>, suppose the bases are separated in the following way:</p>
+<ul>
+<li><p><span class="math inline">\mathcal{B}_{R (\mathbf{A})} = \{ \mathbf{u}_{1}, \dots, \mathbf{u}_{r} \}</span>,</p></li>
+<li><p><span class="math inline">\mathcal{B}_{N (\mathbf{A}^{T})} = \{ \mathbf{u}_{r + 1}, \dots , \mathbf{u}_{m} \}</span>,</p></li>
+<li><p><span class="math inline">\mathcal{B}_{R (\mathbf{A}^{T})} = \{ \mathbf{v}_{1}, \dots, \mathbf{v}_{r} \}</span>,</p></li>
+<li><p><span class="math inline">\mathcal{B}_{N (\mathbf{A})} = \{ \mathbf{v}_{r + 1}, \dots , \mathbf{v}_{n} \}</span>.</p></li>
+</ul>
+<p>Now we treat the bases for <span class="math inline">\mathbb{R}^{m}</span> and <span class="math inline">\mathbb{R}^{n}</span> as the columns of the matrices <span class="math inline">\mathbf{U}</span> and <span class="math inline">\mathbf{V}</span>:</p>
+<p><span class="math display">
+\mathbf{U} =
+\begin{bmatrix}
+\mathbf{u}_{1} &amp; \dots &amp; \mathbf{u}_{m}
+\end{bmatrix},
+</span></p>
+<p><span class="math display">
+\mathbf{V} =
+\begin{bmatrix}
+\mathbf{v}_{1} &amp; \dots &amp; \mathbf{v}_{n}
+\end{bmatrix},
+</span></p>
+<p>and define</p>
+<p><span class="math display">
+\mathbf{R} = \mathbf{U}^{T} \mathbf{A} \mathbf{V}.
+</span></p>
+<p>Note that</p>
+<p><span class="math display">
+\mathbf{A} \mathbf{V} =
+\begin{bmatrix}
+\mathbf{A} \mathbf{v}_{1} &amp; \dots &amp; \mathbf{A} \mathbf{v}_{n}
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{A} \mathbf{v}_{1} &amp; \dots &amp; \mathbf{A} \mathbf{v}_{r} &amp; 0 &amp; \dots &amp; 0
+\end{bmatrix}
+</span></p>
+<p><span class="math display">
+\mathbf{U}^{T} \mathbf{A} = (\mathbf{A}^{T} \mathbf{U})^{T} =
+\begin{bmatrix}
+\mathbf{A}^{T} \mathbf{u}_{1} &amp; \dots &amp; \mathbf{A}^{T} \mathbf{u}_{n}
+\end{bmatrix}^{T} =
+\begin{bmatrix}
+\mathbf{A}^{T} \mathbf{u}_{1} &amp; \dots &amp; \mathbf{A}^{T} \mathbf{u}_{r} &amp; 0 &amp; \dots &amp; 0
+\end{bmatrix}^{T}
+</span></p>
+<p>since <span class="math inline">\mathbf{v}_{r + 1}, \dots, \mathbf{v}_{n} \in N (\mathbf{A})</span>, and <span class="math inline">\mathbf{u}_{r + 1}, \dots, \mathbf{u}_{m} \in N (\mathbf{A}^{T})</span>.</p>
+<p>Thus, <span class="math inline">\mathbf{R}</span> has mostly <span class="math inline">0</span> except the top left corner:</p>
+<p><span class="math display">
+\mathbf{R} = \mathbf{U}^{T} \mathbf{A} \mathbf{V} =
+\begin{bmatrix}
+\mathbf{u}_{1}^{T} \mathbf{A} \mathbf{v}_{1} &amp; \dots &amp; \mathbf{u}_{1}^{T} \mathbf{A} \mathbf{v}_{r} &amp; 0 &amp; \dots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+\mathbf{u}_{r}^{T} \mathbf{A} \mathbf{v}_{1} &amp; \dots &amp; \mathbf{u}_{r}^{T} \mathbf{A} \mathbf{v}_{r} &amp; 0 &amp; \dots &amp; 0 \\
+0 &amp; \dots &amp; 0 &amp; 0 &amp; \dots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+0 &amp; \dots &amp; 0 &amp; 0 &amp; \dots &amp; 0 \\
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{C} &amp; 0 \\
+0 &amp; 0 \\
+\end{bmatrix}.
+</span></p>
+<p>Then we can see <span class="math inline">\mathbf{A}</span> can always be decomposed in terms of <span class="math inline">\mathbf{U}, \mathbf{R}, \mathbf{V}</span> because of the property of orthogonal matrix</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{U} \mathbf{R} \mathbf{V}^{T}
+&amp; = \mathbf{U} \mathbf{U}^{T} \mathbf{A} \mathbf{V} \mathbf{V}^{T}
+\\
+&amp; = \mathbf{U} \mathbf{U}^{-1} \mathbf{A} \mathbf{V} \mathbf{V}^{-1}
+\\
+&amp; = \mathbf{A}.
+\end{aligned}
+</span></p>
+<p>To see why <span class="math inline">\mathbf{C}</span> is always non-singular, we first note that</p>
+<p><span class="math display">
+\text{rank} (\mathbf{A}) = \text{rank} (\mathbf{U}^{T} \mathbf{A} \mathbf{V}) = r
+</span></p>
+<p>because the <a href="rank-property-7">multiplication by a full-rank square matrix preserves rank</a>.</p>
+<p>Thus,</p>
+<p><span class="math display">
+\text{rank} (\mathbf{C}) = \text{rank} \left(
+    \begin{bmatrix}
+    \mathbf{C} &amp; 0 \\
+    0 &amp; 0 \\
+    \end{bmatrix}
+\right) = \text{rank} (\mathbf{U}^{T} \mathbf{A} \mathbf{V}) = r.
+</span></p>
 </div>
 </div>
-</div></li>
-<li><p><strong>Addictive and multiplicative inverse of every element are unique</strong>: there is only one addictive inverse and multiplicative inverse of every element (other than “zero” for multiplicative inverse) in any field <span class="math inline">\mathbb{F}</span>.</p>
+</div>
+</section>
+<section id="singular-value-decomposition-svd" class="level2">
+<h2 class="anchored" data-anchor-id="singular-value-decomposition-svd">Singular Value Decomposition (SVD)</h2>
+<p>Singular value decomposition is a special case of the URV factorization where the <span class="math inline">\mathbf{C}</span> matrix is a diagonal matrix with increasing values in the diagonal.</p>
+<p>For each <span class="math inline">\mathbf{A} \in \mathbb{C}^{m \times n}</span> of rank r, there are orthogonal matrices <span class="math inline">\mathbf{U} \in \mathbb{R}^{m \times m}</span> and <span class="math inline">\mathbf{V} \in \mathbb{R}^{n \times n}</span>, and a diagonal matrix <span class="math inline">\mathbf{D} \in \mathbb{C}^{r \times r} = \text{diag} (\sigma_{1}, \dots, \sigma_{r})</span> such that</p>
+<p><span class="math display">
+\mathbf{A} = \mathbf{U}
+\begin{bmatrix}
+\mathbf{D} &amp; 0 \\
+0 &amp; 0 \\
+\end{bmatrix}
+\mathbf{V}^{H}
+</span></p>
+<p>with</p>
+<p><span class="math display">
+\sigma_{1} \geq \sigma_{2} \geq \dots, \geq \sigma_{r},
+</span></p>
+<p>where</p>
+<ul>
+<li><p>the columns in <span class="math inline">\mathbf{U}</span> and <span class="math inline">\mathbf{V}</span> are <strong>singular vectors</strong> and</p></li>
+<li><p>the diagonal values of <span class="math inline">\mathbf{D}</span> (<span class="math inline">\sigma_{i}</span>) are <strong>singular values</strong>.</p></li>
+</ul>
+</section>
+<section id="pseudoinverse" class="level2">
+<h2 class="anchored" data-anchor-id="pseudoinverse">Pseudoinverse</h2>
+<p>A generalized inverse for any matrix can be defined using URV factorization or SVD.</p>
+<p>Given a URV factorization of matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{m \times n}</span></p>
+<p><span class="math display">
+\mathbf{A} = \mathbf{U}
+\begin{bmatrix}
+\mathbf{C} &amp; 0 \\
+0 &amp; 0 \\
+\end{bmatrix}
+\mathbf{V}^{T}
+</span></p>
+<p>the pseudoinverse of <span class="math inline">\mathbf{A}</span> is defined as</p>
+<p><span class="math display">
+\mathbf{A}^{\dagger} = \mathbf{V}
+\begin{bmatrix}
+\mathbf{C}^{-1} &amp; 0 \\
+0 &amp; 0 \\
+\end{bmatrix}
+\mathbf{U}^{T}.
+</span></p>
+<p>The pseudoinverse of matrix <span class="math inline">\mathbf{A}</span> can also be stated as a matrix <span class="math inline">\mathbf{A}^{\dagger}</span> that satisfies the following:</p>
+<p><span class="math display">
+\mathbf{A} \mathbf{A}^{\dagger} \mathbf{A} = \mathbf{A},
+</span></p>
+<p><span class="math display">
+\mathbf{A}^{\dagger} \mathbf{A} \mathbf{A}^{\dagger} = \mathbf{A}^{\dagger},
+</span></p>
+<p>where <span class="math inline">\mathbf{A} \mathbf{A}^{\dagger}</span> and <span class="math inline">\mathbf{A}^{\dagger} \mathbf{A}</span> are symmetric matrix:</p>
+<p><span class="math display">
+(\mathbf{A} \mathbf{A}^{\dagger})^{T} = \mathbf{A} \mathbf{A}^{\dagger},
+</span></p>
+<p><span class="math display">
+(\mathbf{A}^{\dagger} \mathbf{A})^{T} = \mathbf{A}^{\dagger} \mathbf{A}.
+</span></p>
+<section id="properties-of-pseudoinverse" class="level3">
+<h3 class="anchored" data-anchor-id="properties-of-pseudoinverse">Properties of pseudoinverse</h3>
+<ul>
+<li><p>The pseudoinverse <span class="math inline">\mathbf{A}^{\dagger}</span> of <span class="math inline">\mathbf{A}</span> is unique.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -584,40 +674,74 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We prove the addictive inverse is unique by contradiction.</p>
-<p>Suppose there are two different addictive inverses of <span class="math inline">x</span>: <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span>.</p>
-<p>By following the definition of addictive inverse,</p>
-<p><span class="math display">
-  (x + x_{1}) + x_{2} = 0 + x_{2} = x_{2}.
-  </span></p>
-<p>Also,</p>
+<p>We prove by contradiction. Suppose that there are 2 pseudoinverse <span class="math inline">\mathbf{B}, \mathbf{C}</span> for <span class="math inline">\mathbf{A}</span>.</p>
 <p><span class="math display">
   \begin{aligned}
-  (x + x_{1}) + x_{2}
-  &amp; = x_{2}
+  \mathbf{A} \mathbf{B}
+  &amp; = (\mathbf{A} \mathbf{C} \mathbf{A}) \mathbf{B}
+  &amp; [\mathbf{A} \mathbf{A}^{\dagger} \mathbf{A} = \mathbf{A}]
   \\
-  x + (x_{1} + x_{2})
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
+  &amp; = (\mathbf{C}^{T} \mathbf{A}^{T}) (\mathbf{B}^{T} \mathbf{A}^{T})
+  &amp; [(\mathbf{A} \mathbf{A}^{\dagger})^{T} = \mathbf{A} \mathbf{A}^{\dagger}]
   \\
-  x + (x_{2} + x_{1})
-  &amp; = x_{2}
-  &amp; [\text{commutativity}]
+  &amp; = \mathbf{C}^{T} (\mathbf{A}^{T} \mathbf{B}^{T} \mathbf{A}^{T})
   \\
-  (x + x_{2}) + x_{1}
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
+  &amp; = \mathbf{C}^{T} (\mathbf{A} \mathbf{B} \mathbf{A})^{T}
   \\
-  x_{1}
-  &amp; = x_{2}
+  &amp; = \mathbf{C}^{T} \mathbf{A}^{T}
+  \\
+  &amp; = \mathbf{A} \mathbf{C}
+  \\
   \end{aligned}
   </span></p>
-<p>which contradicts to the fact that <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span> are different. Thus, the addictive inverse of every element in any field is unique.</p>
-<p>The proof that the multiplicative inverse of every element in any field is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span>.</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{B} \mathbf{A}
+  &amp; = \mathbf{B} (\mathbf{A} \mathbf{C} \mathbf{A})
+  &amp; [\mathbf{A} \mathbf{A}^{\dagger} \mathbf{A} = \mathbf{A}]
+  \\
+  &amp; = (\mathbf{A}^{T} \mathbf{B}^{T}) (\mathbf{A}^{T} \mathbf{C}^{T})
+  &amp; [(\mathbf{A} \mathbf{A}^{\dagger})^{T} = \mathbf{A} \mathbf{A}^{\dagger}]
+  \\
+  &amp; = (\mathbf{A}^{T} \mathbf{B}^{T} \mathbf{A}^{T}) \mathbf{C}^{T}
+  \\
+  &amp; = (\mathbf{A} \mathbf{B} \mathbf{A})^{T} \mathbf{C}^{T}
+  \\
+  &amp; = \mathbf{A}^{T} \mathbf{C}^{T}
+  \\
+  &amp; = \mathbf{C} \mathbf{A}
+  \\
+  \end{aligned}
+  </span></p>
+<p>Thus,</p>
+<p><span class="math display">
+  \begin{aligned}
+  \mathbf{B}
+  &amp; = \mathbf{B} \mathbf{A} \mathbf{B}
+  &amp; [\mathbf{A}^{\dagger} \mathbf{A} \mathbf{A}^{\dagger} = \mathbf{A}^{\dagger}]
+  \\
+  &amp; = \mathbf{C} \mathbf{A} \mathbf{B}
+  &amp; [\mathbf{C} \mathbf{A} = \mathbf{B} \mathbf{A}]
+  \\
+  &amp; = \mathbf{C} \mathbf{A} \mathbf{C}
+  &amp; [\mathbf{A} \mathbf{B} = \mathbf{A} \mathbf{C}]
+  \\
+  &amp; = \mathbf{C}
+  \end{aligned}
+  </span></p>
 </div>
 </div>
 </div></li>
-<li><p><strong>For every <span class="math inline">x</span> in <span class="math inline">\mathbb{F}</span>, <span class="math inline">x \cdot 0 = 0</span></strong></p>
+<li><p>Given a full rank matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{m \times n}</span>.</p>
+<p>If <span class="math inline">m &gt; n</span>, the left inverse of <span class="math inline">\mathbf{A}</span> is the pseudoinverse of <span class="math inline">\mathbf{A}</span> and is written as</p>
+<p><span class="math display">
+  (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T}.
+  </span></p>
+<p>If <span class="math inline">m &lt; n</span>, the right inverse of <span class="math inline">\mathbf{A}</span> is the pseudoinverse of <span class="math inline">\mathbf{A}</span> and is written as</p>
+<p><span class="math display">
+  \mathbf{A}^{T} (\mathbf{A} \mathbf{A}^{T})^{-1} .
+  </span></p>
+<p>If <span class="math inline">m = n</span>, the inverse of <span class="math inline">\mathbf{A}</span> is the pseudoinverse of <span class="math inline">\mathbf{A}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -630,382 +754,58 @@ Proof
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Consider</p>
+<p>We first prove that <span class="math inline">(\mathbf{A}^{T} \mathbf{A})^{-1}</span> (when <span class="math inline">m &gt; n</span>) and <span class="math inline">(\mathbf{A} \mathbf{A}^{T})^{-1}</span> (when <span class="math inline">m &lt; n</span>) exist.</p>
+<p>Since <span class="math inline">\mathbf{A}</span> is a full rank matrix,</p>
 <p><span class="math display">
-  \begin{aligned}
-  x \cdot 0 + x \cdot 0
-  &amp; = x \cdot (0 + 0)
-  &amp; [\text{distributive property}]
-  \\
-  &amp; = x \cdot 0
-  &amp; [\text{definition of } 0]
-  \end{aligned}
+  \text{rank} (\mathbf{A}) = \min (m, n).
   </span></p>
-<p>By the definition of addictive inverse, there must exist an addictive inverse <span class="math inline">y</span> of <span class="math inline">x \cdot 0</span> in <span class="math inline">\mathbb{F}</span> such that</p>
+<p>According to the <a href="rank-property-6">property of rank</a>,</p>
 <p><span class="math display">
-  \begin{aligned}
-  x \cdot 0 + y
-  &amp; = 0
-  \\
-  (x \cdot 0 + x \cdot 0) + y
-  &amp; = 0
-  \\
-  x \cdot 0 + (x \cdot 0 + y)
-  &amp; = 0
-  &amp; [\text{associativity}]
-  \\
-  x \cdot 0 + 0
-  &amp; = 0
-  &amp; [\text{addictive inverse}]
-  \\
-  x \cdot 0
-  &amp; = 0
-  &amp; [\text{definition of 0}]
-  \end{aligned}
+  \text{rank} (\mathbf{A}^{T} \mathbf{A}) = \text{rank} (\mathbf{A} \mathbf{A}^{T}) = \text{rank} (\mathbf{A}) = \text{min} (m, n).
   </span></p>
-</div>
-</div>
-</div></li>
-<li><p><strong><span class="math inline">x_{I} = 1_{I} \cdot x</span></strong></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math display">
-  \begin{aligned}
-  (x + x_{I}) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  (x_{I} + x) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1 \cdot x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1  + 1_{I}) \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0 \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I}
-  &amp; = 1_{I} \cdot x
-  \end{aligned}
-  </span></p>
-</div>
-</div>
-</div></li>
-</ul>
-</section>
-</section>
-<section id="vector-spaces" class="level2">
-<h2 class="anchored" data-anchor-id="vector-spaces">Vector spaces</h2>
-<p>A vector space, defined over a field <span class="math inline">\mathbb{F}</span>, is a <strong>non-empty set</strong> <span class="math inline">\mathcal{V}</span> (whose members are called vectors), equipped with two operations: vector addition <span class="math inline">+</span> and scalar multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-vector-spaces" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-vector-spaces">Axioms of vector spaces</h3>
-<p>For all <span class="math inline">u</span>, <span class="math inline">v</span>, and <span class="math inline">w</span> in the vector space <span class="math inline">\mathcal{V}</span> (<span class="math inline">\forall u, v, w \in \mathcal{V}</span>) and for all <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> in the field <span class="math inline">\mathbb{F}</span>, we have</p>
+<p>Thus, <span class="math inline">\mathbf{A}^{T} \mathbf{A}</span> (<span class="math inline">m &gt; n</span>) and <span class="math inline">\mathbf{A} \mathbf{A}^{T}</span> (<span class="math inline">m &lt; n</span>) are non-singular.</p>
 <ul>
-<li><strong>Closure</strong> under vector addition and scalar multiplication</li>
+<li><p>if <span class="math inline">m &gt; n</span>, <span class="math inline">\mathbf{A}^{T} \mathbf{A} \in \mathbb{R}^{n \times n}</span> is full rank because <span class="math inline">\text{rank} (\mathbf{A}^{T} \mathbf{A}) = \min (m, n) = n</span>,</p></li>
+<li><p>if <span class="math inline">m &lt; n</span>, <span class="math inline">\mathbf{A} \mathbf{A}^{T} \in \mathbb{R}^{m \times m}</span> is full rank because <span class="math inline">\text{rank} (\mathbf{A}^{T} \mathbf{A}) = \min (m, n) = m</span>.</p></li>
 </ul>
+<p>we prove that <span class="math inline">(\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T}</span> when (<span class="math inline">m &gt; n</span>) is the pseudoinverse of <span class="math inline">\mathbf{A}</span>.</p>
 <p><span class="math display">
-u + v \in \mathcal{V},
-</span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{V}.
-</span></p>
-<ul>
-<li><p><strong>Commutativity</strong> of vector addition:</p>
-<p><span class="math display">
-  u + v = v + u.
-  </span></p>
-<p>Note that there is no requirement of the commutativity of scalar multiplication in the definition of the vector space.</p></li>
-<li><p><strong>Associativity</strong> of vector addition and scalar multiplication:</p>
-<p><span class="math display">
-  (u + v) + \mathbf{w} = u + (v + \mathbf{w}),
+  \mathbf{A} \mathbf{A}^{\dagger} \mathbf{A} = \mathbf{A} (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} \mathbf{A} = \mathbf{A} \mathbf{I}_{n \times n} = \mathbf{A}
   </span></p>
 <p><span class="math display">
-  (\alpha \cdot \beta) \cdot v = \alpha \cdot (\beta \cdot v).
-  </span></p>
-<p>Note that in the left hand side of the second equation, the first dot is field multiplication while the second one is the scalar multiplication, but the in the right hand side both dots are scalar multiplication.</p></li>
-<li><p><strong>Distributive property</strong> of scalar multiplication:</p>
-<p><span class="math display">
-  \alpha \cdot (u + v) = \alpha \cdot u + \alpha \cdot v,
+  \mathbf{A}^{\dagger} \mathbf{A} \mathbf{A}^{\dagger} = (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} \mathbf{A} (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} = \mathbf{I}_{n \times n} \mathbf{A}^{\dagger} = \mathbf{A}^{\dagger}
   </span></p>
 <p><span class="math display">
-  (\alpha + \beta) \cdot v = \alpha \cdot v + \beta \cdot v.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathcal{V}</span> called <strong>“zero”</strong> vector <span class="math inline">0 \in \mathcal{V}</span> such that</p>
-<p><span class="math display">
-  v + 0 = v,
-  </span></p>
-<p>and the definition of <strong>“one”</strong> in the field <span class="math inline">1 \in \mathbb{F}</span> is applied in the vector space</p>
-<p><span class="math display">
-  1 \cdot v = v.
-  </span></p>
-<p>Note that there is no requirement for the existence of “one” vector in the definition of the vector space.</p></li>
-<li><p>For each <span class="math inline">v \in \mathcal{V}</span>, there is an element in <span class="math inline">\mathcal{V}</span> called <strong>addictive inverse</strong> vector <span class="math inline">v_{I}</span> of <span class="math inline">v</span> such that</p>
-<p><span class="math display">
-  v + v_{I} = 0.
-  </span></p>
-<p>Note that there is no requirement for the scalar multiplicative inverse in the definition of the vector space.</p></li>
-</ul>
-</section>
-<section id="linear-combination" class="level3">
-<h3 class="anchored" data-anchor-id="linear-combination">Linear combination</h3>
-<p>Let <span class="math inline">\mathcal{V}</span> be a vector space over the field <span class="math inline">\mathbb{F}</span>. Given a set of vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> and a set of field elements <span class="math inline">\alpha_{1}, \dots, \alpha_{n} \in \mathbb{F}</span>, the vector <span class="math inline">u</span> is a linear combination of <span class="math inline">v_{1}, \dots, v_{n}</span> with <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> as coefficients if</p>
-<p><span class="math display">
-u = \sum_{i=1}^{n} \alpha_{i} v_{i}.
-</span></p>
-</section>
-</section>
-<section id="subspaces" class="level2">
-<h2 class="anchored" data-anchor-id="subspaces">Subspaces</h2>
-<p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a subspace <span class="math inline">\mathcal{W}</span> of <span class="math inline">\mathcal{V}</span> is a non-empty subset of <span class="math inline">\mathcal{V}</span> (<span class="math inline">\mathcal{W} \subseteq \mathcal{V}</span>) that follows the <strong>closure</strong> axioms.</p>
-<p>For all <span class="math inline">u</span> and <span class="math inline">v</span> in the subspace <span class="math inline">\mathcal{W}</span> (<span class="math inline">\forall u, v \in \mathcal{W}</span>) and for all <span class="math inline">\alpha</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall \alpha \in \mathbb{F}</span>), we have</p>
-<p><span class="math display">
-u + v \in \mathcal{W},
-</span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{W}.
-</span></p>
-<section id="properties-of-subspace" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-subspace">Properties of subspace</h3>
-<p>Let <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> be the subspaces of a vector space over <span class="math inline">\mathbb{F}</span>.</p>
-<ul>
-<li><p><span class="math inline">0 \in \mathcal{W}</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since the subspace <span class="math inline">\mathcal{W}</span> cannot be empty, there is at least an element <span class="math inline">v \in \mathcal{W}</span>.</p>
-<p>Since <span class="math inline">1 \in \mathbb{F}</span> and <span class="math inline">1_{I} \in \mathbb{F}</span>,</p>
-<p><span class="math display">
-  1_{I} \cdot v = v_{I} \in \mathcal{W},
-  </span></p>
-<p>according to the axiom of the closure under scalar multiplication.</p>
-<p>According to the axiom of the closure under vector addition,</p>
-<p><span class="math display">
-  v + v_{I} = 0 \in \mathcal{W}.
-  </span></p>
-<p>Thus, “zero” vector must be in <span class="math inline">\mathcal{W}</span>.</p>
-</div>
-</div>
-</div></li>
-<li><p><span class="math inline">\mathcal{W}</span> is also a vector space.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>By virtue of the closure axioms, all axioms of the vector space are obeyed by <span class="math inline">\mathcal{W}</span>.</p>
-<p>Since all elements in <span class="math inline">\mathcal{W}</span> are also in the vector space <span class="math inline">\mathcal{V}</span>, the axioms of</p>
-<ul>
-<li><p>closure</p></li>
-<li><p>commutativity</p></li>
-<li><p>associativity</p></li>
-<li><p>distributive property</p></li>
-<li><p><span class="math inline">1 \cdot v = v</span></p></li>
-</ul>
-<p>in <span class="math inline">\mathcal{W}</span> follow directly from those in <span class="math inline">\mathcal{V}</span></p>
-<p>The existence of “zero” vector and addictive inverse are proved in the proof above.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} + \mathcal{U} = \left\{
-      w + u \mid w \in \mathcal{W}, u \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} + \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">a_{1} \in \mathcal{W}, a_{2} \in \mathcal{U}</span> such that <span class="math inline">a = a_{1} + a_{2}</span> and <span class="math inline">b_{1} \in \mathcal{W}, b_{2} \in \mathcal{U}</span> such that <span class="math inline">b = b_{1} + b_{2}</span>.</p>
-<p>Because of closure under addition,</p>
-<p><span class="math display">
-  a_{1} + b_{1} \in \mathcal{W},
+  \mathbf{A}^{\dagger} \mathbf{A} = (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} \mathbf{A} = \mathbf{I}_{n \times n} = \mathbf{A}^{T} \mathbf{A} (\mathbf{A}^{T} \mathbf{A})^{-1} = \mathbf{A}^{T} (\mathbf{A}^{\dagger})^{\mathbf{T}}= (\mathbf{A}^{\dagger} \mathbf{A})^{T}
   </span></p>
 <p><span class="math display">
-  a_{2} + b_{2} \in \mathcal{U}.
+  \mathbf{A} \mathbf{A}^{\dagger} = \mathbf{A} (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} = (\mathbf{A}^{\dagger})^{T} \mathbf{A}^{T} = (\mathbf{A} \mathbf{A}^{\dagger})^{T}
   </span></p>
-<p>Thus, according to the definition of the set addition</p>
+<p>The case that <span class="math inline">\mathbf{A}^{T} (\mathbf{A} \mathbf{A}^{T})^{-1}</span> when (<span class="math inline">m &lt; n</span>) can be proved similarly.</p>
+<p>Then we prove that <span class="math inline">(\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T}</span> is the left inverse of <span class="math inline">\mathbf{A}</span> when <span class="math inline">m &gt; n</span>:</p>
 <p><span class="math display">
-  a + b = (a_{1} + b_{1}) + (a_{2} + b_{2}) \in \mathcal{W} + \mathcal{U}.
+  \mathbf{A}^{\dagger} \mathbf{A} = (\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T} \mathbf{A} = \mathbf{I}_{n \times n}.
   </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">x_{1} \in \mathcal{W}, x_{2} \in \mathcal{U}</span> such that <span class="math inline">x = x_{1} + x_{2}</span>.</p>
-<p>Because of closure under scalar multiplication,</p>
+<p>The case that <span class="math inline">\mathbf{A}^{T} (\mathbf{A} \mathbf{A}^{T})^{-1}</span> is the right inverse of <span class="math inline">\mathbf{A}</span> when <span class="math inline">m &lt; n</span> can be proved similarly.</p>
+<p>Thus we have proved that <span class="math inline">(\mathbf{A}^{T} \mathbf{A})^{-1} \mathbf{A}^{T}</span> (<span class="math inline">m &gt; n</span>) and <span class="math inline">\mathbf{A}^{T} (\mathbf{A} \mathbf{A}^{T})^{-1}</span> (<span class="math inline">m &lt; n</span>) are the left and right inverse of <span class="math inline">\mathbf{A}</span>.</p>
+<p>When <span class="math inline">m = n</span>, we have both</p>
 <p><span class="math display">
-  \alpha \cdot x_{1} \in \mathcal{W} \quad \forall \alpha \in \mathbb{F},
-  </span></p>
-<p><span class="math display">
-  \alpha \cdot x_{2} \in \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, according to the definition of the set addition</p>
-<p><span class="math display">
-  \alpha \cdot x = \alpha \cdot x_{1} + \alpha \cdot x_{2} \in \mathcal{W} + \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} \cap \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W}, v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} \cap \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces</p>
-<p><span class="math display">
-  a + b \in \mathcal{W},
-  \\
-  a + b \in \mathcal{U}.
-  </span></p>
-<p>Thus, by definition,</p>
-<p><span class="math display">
-  a + b \in \mathcal{W} \cap \mathcal{U}.
-  </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces,</p>
-<p><span class="math display">
-  \alpha \cdot x \in \mathcal{W}, \forall \alpha \in \mathbb{F},
-  \\
-  \alpha \cdot x \in \mathcal{U}, \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, by definition, <span class="math inline">\alpha \cdot x \in \mathcal{W} \cap \mathcal{U}, \forall \alpha \in \mathbb{F}</span>.</p>
-<p>Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} \cup \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W} \mathop{\text{or}} v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is a subspace if and only if <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span> or <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First we prove if <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>, then <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace.</p>
-<p>Since <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>,</p>
-<p><span class="math display">
-  \mathcal{U} \cup \mathcal{W} = \mathcal{W}
-  </span></p>
-<p>and thus is a subspace.</p>
-<p>The same argument can be made for <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span>.</p>
-<p>Then we prove if <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, then one subspace is contained in the other by contradiction.</p>
-<p>Suppose <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, but <span class="math inline">\mathcal{U} \nsubseteq \mathcal{W}</span> and <span class="math inline">\mathcal{W} \nsubseteq \mathcal{U}</span>. This means there exists at least two vectors <span class="math inline">u</span> and <span class="math inline">w</span> such that</p>
-<p><span class="math display">
-  u \in \mathcal{U}, u \notin \mathcal{W}
+  \mathbf{A} \mathbf{A}^{-1} \mathbf{A} = \mathbf{A},
   </span></p>
 <p><span class="math display">
-  w \in \mathcal{W}, w \notin \mathcal{U}.
+  \mathbf{A} \mathbf{A}^{\dagger} \mathbf{A} = \mathbf{A},
   </span></p>
-<p>Since <span class="math inline">u, w \in \mathcal{U} \cup \mathcal{W}</span> and closure under addition property, the vector</p>
+<p>but since <span class="math inline">\mathbf{A}^{-1}</span> and <span class="math inline">\mathbf{A}^{\dagger}</span> are both unique, it must be that</p>
 <p><span class="math display">
-  v = u + w
+  \mathbf{A}^{-1} = \mathbf{A}^{\dagger}.
   </span></p>
-<p>is also in <span class="math inline">\mathcal{U} \cup \mathcal{W}</span>, which means it must also be in <span class="math inline">\mathcal{U}</span> or <span class="math inline">\mathcal{W}</span>.</p>
-<p>If <span class="math inline">v \in \mathcal{U}</span>, because there must exist an addictive inverse of <span class="math inline">u \in \mathcal{U}</span>, then</p>
-<p><span class="math display">
-  \begin{aligned}
-  v
-  &amp; = u + w
-  \\
-  v + u_{I}
-  &amp; = u + u_{I} + w
-  \\
-  w
-  &amp; = v + u_{I}
-  \\
-  \end{aligned}
-  </span></p>
-<p>which shows that <span class="math inline">w \in \mathcal{U}</span> and contradicts to our assumption.</p>
-<p>The same contradiction can also be found when <span class="math inline">v \in \mathcal{W}</span>.</p>
 </div>
 </div>
 </div></li>
 </ul>
-</section>
-</section>
-<section id="example-subspaces-of-2-dimensional-real-value-column-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="example-subspaces-of-2-dimensional-real-value-column-vectors">Example: subspaces of 2-dimensional real-value column vectors</h2>
-<p>The 2-dimensional real-value column vector space <span class="math inline">\mathbb{R}^{2}</span> has 3 types of subspaces</p>
-<ol type="1">
-<li><p>The subspace of the zero vector only,</p>
-<p><span class="math display">
-\mathcal{W} = \left\{ 0 \right\}.
-</span></p></li>
-<li><p>The subspace of the vector space itself,</p>
-<p><span class="math display">
-\mathcal{W} = \mathbb{R}^{2}.
-</span></p></li>
-<li><p>Any “line” that goes through zero vector</p></li>
-</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1244,13 +1044,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="../notations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notations and Facts</span>
+      <a href="../Linear Algebra/09_Orthogonal_Complement_and_Decomposition.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Orthogonal Complement and Decomposition</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

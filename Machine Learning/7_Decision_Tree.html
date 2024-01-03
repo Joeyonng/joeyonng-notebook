@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 1&nbsp; Fields and Spaces</title>
+<title>Joeyonng’s Notebook - 40&nbsp; Decision Tree (DT)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Linear Algebra/02_Vectors_and_Matrices.html" rel="next">
-<link href="../notations.html" rel="prev">
+<link href="../Machine Learning/K-means.html" rel="next">
+<link href="../Machine Learning/6_Support_Vector_Machine.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/7_Decision_Tree.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -160,16 +160,16 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></span></a>
   </div>
 </li>
@@ -391,13 +391,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
+  <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></span></a>
   </div>
 </li>
@@ -459,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fields and Spaces</span></h1>
+<h1 class="title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Decision Tree (DT)</span></h1>
 </div>
 
 
@@ -474,535 +474,362 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fields" class="level2">
-<h2 class="anchored" data-anchor-id="fields">Fields</h2>
-<p>A field is a <strong>set</strong> <span class="math inline">\mathbb{F}</span>, equipped with two operations addition <span class="math inline">+</span> and multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-fields">Axioms of fields</h3>
-<p>For all <span class="math inline">x</span>, <span class="math inline">y</span>, and <span class="math inline">z</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall x, y, z \in \mathbb{F}</span>), we have:</p>
+<section id="preliminary" class="level2">
+<h2 class="anchored" data-anchor-id="preliminary">Preliminary</h2>
+</section>
+<section id="tree-basics" class="level2">
+<h2 class="anchored" data-anchor-id="tree-basics">Tree basics</h2>
+<p>Decision tree is composed of <strong>nodes</strong> and <strong>edges</strong>.</p>
 <ul>
-<li><p><strong>Closure</strong> under addition and multiplication:</p>
-<p><span class="math display">
-  x + y \in \mathbb{F},
-  </span></p>
-<p><span class="math display">
-  x \cdot y \in \mathbb{F}.
-  </span></p></li>
-<li><p><strong>Commutativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  x + y = y + x,
-  </span></p>
-<p><span class="math display">
-  x \cdot y = y \cdot x.
-  </span></p></li>
-<li><p><strong>Associativity</strong> of addition and multiplication:</p>
-<p><span class="math display">
-  (x + y) + z = x + (y + z),
-  </span></p>
-<p><span class="math display">
-  (x \cdot y) \cdot z = x \cdot (y \cdot z).
-  </span></p></li>
-<li><p><strong>Distributive property</strong> of multiplication:</p>
-<p><span class="math display">
-  (x + y) \cdot z = x \cdot z + y \cdot z.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathbb{F}</span> called <strong>“zero”</strong> <span class="math inline">0 \in \mathbb{F}</span> such that</p>
-<p><span class="math display">
-  x + 0 = x,
-  </span></p>
-<p>and there is another element in <span class="math inline">\mathbb{F}</span> called <strong>“one”</strong> <span class="math inline">1 \in \mathbb{F}</span>, <span class="math inline">1 \neq 0</span>, such that</p>
-<p><span class="math display">
-  x \cdot 1 = x.
-  </span></p></li>
-<li><p>For each <span class="math inline">x \in \mathbb{F}</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>addictive inverse</strong> <span class="math inline">x_{I}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x + x_{I} = 0,
-  </span></p>
-<p>and if <span class="math inline">x \neq 0</span>, there is an element in <span class="math inline">\mathbb{F}</span> called <strong>multiplicative inverse</strong> <span class="math inline">x^{-1}</span> of <span class="math inline">x</span> such that</p>
-<p><span class="math display">
-  x \cdot x^{-1} = 1.
-  </span></p></li>
+<li><p>Each node corresponds to a subset of the original dataset.</p></li>
+<li><p>The root node is the original training dataset provided to train the decision tree.</p></li>
+<li><p>The path from the root node to a node specifies how the subset of the dataset is partitioned from the original training dataset.</p></li>
+</ul>
+<p>In the following sections, we will use the following notations.</p>
+<ul>
+<li><p>A node: <span class="math inline">t</span></p></li>
+<li><p>A decision tree is a set of nodes: <span class="math inline">T</span></p></li>
+<li><p>The original training set: <span class="math inline">\mathbf{X}</span></p></li>
+<li><p>The subset of the dataset that corresponds to node <span class="math inline">t</span>: <span class="math inline">\mathbf{X}_{t}</span></p></li>
 </ul>
 </section>
-<section id="properties-of-fields" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-fields">Properties of fields</h3>
+<section id="impurity-function" class="level2">
+<h2 class="anchored" data-anchor-id="impurity-function">Impurity function</h2>
+<p>The <strong>impurity function</strong> <span class="math inline">F (\mathbf{y})</span> measures the impureness of a set of labels <span class="math inline">\mathbf{y}</span>.</p>
 <ul>
-<li><p><strong>Zero and one are unique</strong>: there is only one “zero” and one “one” in any field <span class="math inline">\mathbb{F}</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We prove “zero” is unique by contradiction.</p>
-<p>Suppose there are two different “zero”s <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span>.</p>
-<p>Due to the definition of “zero”,</p>
-<p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{1}
-  &amp; [0_{0} \text{ is "zero"}]
-  \\
-  0_{0} + 0_{1}
-  &amp; = 0_{0}
-  &amp; [0_{1} \text{ is "zero"}]
-  \\
-  \end{aligned}
-  </span></p>
-<p>Due to the Commutativity axiom,</p>
-<p><span class="math display">
-  \begin{aligned}
-  0_{1} + 0_{0}
-  &amp; = 0_{0} + 0_{1}
-  \\
-  0_{1}
-  &amp; = 0_{0}
-  \\
-  \end{aligned}
-  </span></p>
-<p>which contradicts to the fact that <span class="math inline">0_{0}</span> and <span class="math inline">0_{1}</span> (<span class="math inline">1_{0}</span> and <span class="math inline">1_{1}</span>) are different. Thus, there is only a unique “zero” in <span class="math inline">\mathbb{F}</span>.</p>
-<p>The proof that the “one” in any <span class="math inline">\mathbb{F}</span> is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span> and <span class="math inline">0_{0}</span>, <span class="math inline">0_{1}</span> with <span class="math inline">1_{0}</span>, <span class="math inline">1_{1}</span>.</p>
-</div>
-</div>
-</div></li>
-<li><p><strong>Addictive and multiplicative inverse of every element are unique</strong>: there is only one addictive inverse and multiplicative inverse of every element (other than “zero” for multiplicative inverse) in any field <span class="math inline">\mathbb{F}</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We prove the addictive inverse is unique by contradiction.</p>
-<p>Suppose there are two different addictive inverses of <span class="math inline">x</span>: <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span>.</p>
-<p>By following the definition of addictive inverse,</p>
-<p><span class="math display">
-  (x + x_{1}) + x_{2} = 0 + x_{2} = x_{2}.
-  </span></p>
-<p>Also,</p>
-<p><span class="math display">
-  \begin{aligned}
-  (x + x_{1}) + x_{2}
-  &amp; = x_{2}
-  \\
-  x + (x_{1} + x_{2})
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
-  \\
-  x + (x_{2} + x_{1})
-  &amp; = x_{2}
-  &amp; [\text{commutativity}]
-  \\
-  (x + x_{2}) + x_{1}
-  &amp; = x_{2}
-  &amp; [\text{associativity}]
-  \\
-  x_{1}
-  &amp; = x_{2}
-  \end{aligned}
-  </span></p>
-<p>which contradicts to the fact that <span class="math inline">x_{1}</span> and <span class="math inline">x_{2}</span> are different. Thus, the addictive inverse of every element in any field is unique.</p>
-<p>The proof that the multiplicative inverse of every element in any field is unique is the same as above by replacing every addition <span class="math inline">+</span> with multiplication <span class="math inline">\cdot</span>.</p>
-</div>
-</div>
-</div></li>
-<li><p><strong>For every <span class="math inline">x</span> in <span class="math inline">\mathbb{F}</span>, <span class="math inline">x \cdot 0 = 0</span></strong></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Consider</p>
-<p><span class="math display">
-  \begin{aligned}
-  x \cdot 0 + x \cdot 0
-  &amp; = x \cdot (0 + 0)
-  &amp; [\text{distributive property}]
-  \\
-  &amp; = x \cdot 0
-  &amp; [\text{definition of } 0]
-  \end{aligned}
-  </span></p>
-<p>By the definition of addictive inverse, there must exist an addictive inverse <span class="math inline">y</span> of <span class="math inline">x \cdot 0</span> in <span class="math inline">\mathbb{F}</span> such that</p>
-<p><span class="math display">
-  \begin{aligned}
-  x \cdot 0 + y
-  &amp; = 0
-  \\
-  (x \cdot 0 + x \cdot 0) + y
-  &amp; = 0
-  \\
-  x \cdot 0 + (x \cdot 0 + y)
-  &amp; = 0
-  &amp; [\text{associativity}]
-  \\
-  x \cdot 0 + 0
-  &amp; = 0
-  &amp; [\text{addictive inverse}]
-  \\
-  x \cdot 0
-  &amp; = 0
-  &amp; [\text{definition of 0}]
-  \end{aligned}
-  </span></p>
-</div>
-</div>
-</div></li>
-<li><p><strong><span class="math inline">x_{I} = 1_{I} \cdot x</span></strong></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math display">
-  \begin{aligned}
-  (x + x_{I}) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  (x_{I} + x) + 1_{I} \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1 \cdot x + 1_{I} \cdot x)
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + (1  + 1_{I}) \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0 \cdot x
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I} + 0
-  &amp; = 1_{I} \cdot x
-  \\
-  x_{I}
-  &amp; = 1_{I} \cdot x
-  \end{aligned}
-  </span></p>
-</div>
-</div>
-</div></li>
+<li><p><span class="math inline">F (\mathbf{y})</span> achieves maximum when the labels in <span class="math inline">\mathbf{y}</span> are in uniform distribution.</p></li>
+<li><p><span class="math inline">F (\mathbf{y})</span> achieves minimum when there is only one unique label in <span class="math inline">\mathbf{y}</span>.</p></li>
 </ul>
-</section>
-</section>
-<section id="vector-spaces" class="level2">
-<h2 class="anchored" data-anchor-id="vector-spaces">Vector spaces</h2>
-<p>A vector space, defined over a field <span class="math inline">\mathbb{F}</span>, is a <strong>non-empty set</strong> <span class="math inline">\mathcal{V}</span> (whose members are called vectors), equipped with two operations: vector addition <span class="math inline">+</span> and scalar multiplication <span class="math inline">\cdot</span>, obeying the rules (axioms) listed below.</p>
-<section id="axioms-of-vector-spaces" class="level3">
-<h3 class="anchored" data-anchor-id="axioms-of-vector-spaces">Axioms of vector spaces</h3>
-<p>For all <span class="math inline">u</span>, <span class="math inline">v</span>, and <span class="math inline">w</span> in the vector space <span class="math inline">\mathcal{V}</span> (<span class="math inline">\forall u, v, w \in \mathcal{V}</span>) and for all <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> in the field <span class="math inline">\mathbb{F}</span>, we have</p>
+<p>We use <span class="math inline">F (\mathbf{X})</span> in the following context to compute the impureness of the labels in the dataset <span class="math inline">\mathbf{X}</span> using the impurity function <span class="math inline">F</span>.</p>
+<section id="classification" class="level3">
+<h3 class="anchored" data-anchor-id="classification">Classification</h3>
+<p>Given a dataset <span class="math inline">\mathbf{X}</span> with <span class="math inline">C</span> unique labels, <span class="math inline">\mathbb{P} (c)</span> is the probability of label <span class="math inline">c</span> in the dataset, which is computed by dividing the number of instances with label <span class="math inline">c</span> by the total number instances in <span class="math inline">\mathbf{X}</span>.</p>
 <ul>
-<li><strong>Closure</strong> under vector addition and scalar multiplication</li>
+<li><p>When there is only one class in <span class="math inline">\mathbf{X}</span>, the dataset is pure and thus impurity functions should return 0.</p></li>
+<li><p>On the contrary, if all possible labels are in <span class="math inline">\mathbf{X}</span> and the numbers of all unique labels are the same, <span class="math inline">\mathbf{X}</span> achieves the maximum impureness.</p></li>
 </ul>
+<section id="gini-impurity-index-gini-impurity" class="level4">
+<h4 class="anchored" data-anchor-id="gini-impurity-index-gini-impurity">Gini Impurity Index (Gini Impurity)</h4>
+<p><strong>Gini impurity</strong> measures the probability of incorrectly classifying a randomly chosen element in the dataset if it were randomly labeled according to the class distribution in the dataset.</p>
 <p><span class="math display">
-u + v \in \mathcal{V},
-</span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{V}.
-</span></p>
-<ul>
-<li><p><strong>Commutativity</strong> of vector addition:</p>
-<p><span class="math display">
-  u + v = v + u.
-  </span></p>
-<p>Note that there is no requirement of the commutativity of scalar multiplication in the definition of the vector space.</p></li>
-<li><p><strong>Associativity</strong> of vector addition and scalar multiplication:</p>
-<p><span class="math display">
-  (u + v) + \mathbf{w} = u + (v + \mathbf{w}),
-  </span></p>
-<p><span class="math display">
-  (\alpha \cdot \beta) \cdot v = \alpha \cdot (\beta \cdot v).
-  </span></p>
-<p>Note that in the left hand side of the second equation, the first dot is field multiplication while the second one is the scalar multiplication, but the in the right hand side both dots are scalar multiplication.</p></li>
-<li><p><strong>Distributive property</strong> of scalar multiplication:</p>
-<p><span class="math display">
-  \alpha \cdot (u + v) = \alpha \cdot u + \alpha \cdot v,
-  </span></p>
-<p><span class="math display">
-  (\alpha + \beta) \cdot v = \alpha \cdot v + \beta \cdot v.
-  </span></p></li>
-<li><p>There is an element in <span class="math inline">\mathcal{V}</span> called <strong>“zero”</strong> vector <span class="math inline">0 \in \mathcal{V}</span> such that</p>
-<p><span class="math display">
-  v + 0 = v,
-  </span></p>
-<p>and the definition of <strong>“one”</strong> in the field <span class="math inline">1 \in \mathbb{F}</span> is applied in the vector space</p>
-<p><span class="math display">
-  1 \cdot v = v.
-  </span></p>
-<p>Note that there is no requirement for the existence of “one” vector in the definition of the vector space.</p></li>
-<li><p>For each <span class="math inline">v \in \mathcal{V}</span>, there is an element in <span class="math inline">\mathcal{V}</span> called <strong>addictive inverse</strong> vector <span class="math inline">v_{I}</span> of <span class="math inline">v</span> such that</p>
-<p><span class="math display">
-  v + v_{I} = 0.
-  </span></p>
-<p>Note that there is no requirement for the scalar multiplicative inverse in the definition of the vector space.</p></li>
-</ul>
-</section>
-<section id="linear-combination" class="level3">
-<h3 class="anchored" data-anchor-id="linear-combination">Linear combination</h3>
-<p>Let <span class="math inline">\mathcal{V}</span> be a vector space over the field <span class="math inline">\mathbb{F}</span>. Given a set of vectors <span class="math inline">v_{1}, \dots, v_{n} \in \mathcal{V}</span> and a set of field elements <span class="math inline">\alpha_{1}, \dots, \alpha_{n} \in \mathbb{F}</span>, the vector <span class="math inline">u</span> is a linear combination of <span class="math inline">v_{1}, \dots, v_{n}</span> with <span class="math inline">\alpha_{1}, \dots, \alpha_{n}</span> as coefficients if</p>
-<p><span class="math display">
-u = \sum_{i=1}^{n} \alpha_{i} v_{i}.
+\begin{aligned}
+F (\mathbf{X})
+&amp; = \sum_{c \in C} \mathbb{P} (c) (1 - \mathbb{P} (c))
+\\
+&amp; = \sum_{c \in C} \mathbb{P} (c) - \mathbb{P} (c)^{2}
+\\
+&amp; = 1 - \sum_{c \in C} \mathbb{P} (c)^2.
+\\
+\end{aligned}
 </span></p>
 </section>
+<section id="shannon-entropy-entropy" class="level4">
+<h4 class="anchored" data-anchor-id="shannon-entropy-entropy">Shannon Entropy (Entropy)</h4>
+<p><strong>Entropy</strong> is defined as the expectation of the log value</p>
+<p><span class="math display">
+F (\mathbf{X}) = \sum_{c \in C} \mathbb{P} (c) \log \mathbb{P} (c).
+</span></p>
+<p>Entropy can be thought as the difference measured by KL Divergence between the probability distribution of the unique labels represented in the current dataset <span class="math inline">\mathbf{X}</span> and the distribution of the most impure dataset. Therefore, The larger the entropy, the more far away from a uniform distribution is the distribution of the labels represented by <span class="math inline">\mathbf{X}</span>.</p>
 </section>
-<section id="subspaces" class="level2">
-<h2 class="anchored" data-anchor-id="subspaces">Subspaces</h2>
-<p>Given a vector space <span class="math inline">\mathcal{V}</span> over a field <span class="math inline">\mathbb{F}</span>, a subspace <span class="math inline">\mathcal{W}</span> of <span class="math inline">\mathcal{V}</span> is a non-empty subset of <span class="math inline">\mathcal{V}</span> (<span class="math inline">\mathcal{W} \subseteq \mathcal{V}</span>) that follows the <strong>closure</strong> axioms.</p>
-<p>For all <span class="math inline">u</span> and <span class="math inline">v</span> in the subspace <span class="math inline">\mathcal{W}</span> (<span class="math inline">\forall u, v \in \mathcal{W}</span>) and for all <span class="math inline">\alpha</span> in the field <span class="math inline">\mathbb{F}</span> (<span class="math inline">\forall \alpha \in \mathbb{F}</span>), we have</p>
-<p><span class="math display">
-u + v \in \mathcal{W},
-</span></p>
-<p><span class="math display">
-\alpha \cdot v \in \mathcal{W}.
-</span></p>
-<section id="properties-of-subspace" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-subspace">Properties of subspace</h3>
-<p>Let <span class="math inline">\mathcal{U}</span> and <span class="math inline">\mathcal{V}</span> be the subspaces of a vector space over <span class="math inline">\mathbb{F}</span>.</p>
+</section>
+<section id="regression" class="level3">
+<h3 class="anchored" data-anchor-id="regression">Regression</h3>
+<p>Given a dataset <span class="math inline">\mathbf{X}</span> with continuous labels <span class="math inline">\{y_{1}, y_{2}, \dots, y_{n}\}</span>, impurity functions can be defined a similar way.</p>
 <ul>
-<li><p><span class="math inline">0 \in \mathcal{W}</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since the subspace <span class="math inline">\mathcal{W}</span> cannot be empty, there is at least an element <span class="math inline">v \in \mathcal{W}</span>.</p>
-<p>Since <span class="math inline">1 \in \mathbb{F}</span> and <span class="math inline">1_{I} \in \mathbb{F}</span>,</p>
-<p><span class="math display">
-  1_{I} \cdot v = v_{I} \in \mathcal{W},
-  </span></p>
-<p>according to the axiom of the closure under scalar multiplication.</p>
-<p>According to the axiom of the closure under vector addition,</p>
-<p><span class="math display">
-  v + v_{I} = 0 \in \mathcal{W}.
-  </span></p>
-<p>Thus, “zero” vector must be in <span class="math inline">\mathcal{W}</span>.</p>
-</div>
-</div>
-</div></li>
-<li><p><span class="math inline">\mathcal{W}</span> is also a vector space.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>By virtue of the closure axioms, all axioms of the vector space are obeyed by <span class="math inline">\mathcal{W}</span>.</p>
-<p>Since all elements in <span class="math inline">\mathcal{W}</span> are also in the vector space <span class="math inline">\mathcal{V}</span>, the axioms of</p>
-<ul>
-<li><p>closure</p></li>
-<li><p>commutativity</p></li>
-<li><p>associativity</p></li>
-<li><p>distributive property</p></li>
-<li><p><span class="math inline">1 \cdot v = v</span></p></li>
+<li><p>If the labels in <span class="math inline">\mathbf{X}</span> are very similar (low variance), the impurity functions should return a value closed to 0.</p></li>
+<li><p>If the labels in <span class="math inline">\mathbf{X}</span> are very different from each other (high variance), impurity functions should return a very large value.</p></li>
 </ul>
-<p>in <span class="math inline">\mathcal{W}</span> follow directly from those in <span class="math inline">\mathcal{V}</span></p>
-<p>The existence of “zero” vector and addictive inverse are proved in the proof above.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
+<section id="mean-squared-error" class="level4">
+<h4 class="anchored" data-anchor-id="mean-squared-error">Mean squared error</h4>
+<p>A dataset’s impurity can be simply measured by the mean squared error.</p>
+<p><span class="math display"> F (\mathbf{X}) = \frac{ 1 }{ N } \sum_{i}^{n} (y_{i} - \bar{y})^{2} </span></p>
+<p>where <span class="math inline">\bar{y}</span> is the mean value of the labels in dataset <span class="math inline">\mathbf{X}</span>.</p>
+</section>
+</section>
+</section>
+<section id="splitting-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="splitting-criteria">Splitting criteria</h2>
+<p>A <strong>split</strong> is a way that divides a feature space into different groups and is used in the tree building process to split a node to children nodes.</p>
+<ul>
+<li><p>Binary split (2-way split): split a feature space into 2 groups. A node will have 2 sub-nodes.</p></li>
+<li><p>k-way split: split a feature space into k groups. A node will have k sub-nodes.</p></li>
+</ul>
+<p>The most important question of building a decision tree is how to choose the best split from a set of valid splits to split a node (dataset) into different child nodes (sub-datasets).</p>
+<ul>
+<li><p>A <strong>splitting criteria</strong> is a function that measures the impurity difference between the dataset before splitting and the datasets after splitting.</p></li>
+<li><p>The best split <span class="math inline">s</span> for the node <span class="math inline">t</span> should be the one that has the maximum splitting criteria <span class="math inline">\Delta F(\mathbf{X}_{t}, s)</span>.</p></li>
+</ul>
+<p>Given a set of datasets <span class="math inline">\mathbf{X}_{1}, \dots, \mathbf{X}_{k}</span> created by applying split <span class="math inline">s</span> to the dataset <span class="math inline">\mathbf{X}_{t}</span>, the splitting criteria is defined as:</p>
 <p><span class="math display">
-  \mathcal{W} + \mathcal{U} = \left\{
-      w + u \mid w \in \mathcal{W}, u \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} + \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">a_{1} \in \mathcal{W}, a_{2} \in \mathcal{U}</span> such that <span class="math inline">a = a_{1} + a_{2}</span> and <span class="math inline">b_{1} \in \mathcal{W}, b_{2} \in \mathcal{U}</span> such that <span class="math inline">b = b_{1} + b_{2}</span>.</p>
-<p>Because of closure under addition,</p>
+\Delta F (\mathbf{X}_{t}, s) = F (\mathbf{X}_{t}) - \frac{ 1 }{ \lvert \mathbf{X}_{t} \rvert } \sum_{i = 1}^{k} \lvert \mathbf{X}_{i} \rvert F (\mathbf{X}).
+</span></p>
+<p>If <span class="math inline">F</span> is the entropy function, <span class="math inline">\Delta F(\mathbf{X}, s)</span> is called <strong>Information Gain</strong>.</p>
+</section>
+<section id="stopping-condition" class="level2">
+<h2 class="anchored" data-anchor-id="stopping-condition">Stopping condition</h2>
+<p>Each split produces new nodes that recursively become the starting points for new splits.</p>
+<ul>
+<li><p>A node stops splitting when certain <strong>stopping conditions</strong> are satisfied and such nodes are <strong>leaf nodes</strong>.</p></li>
+<li><p>The leaf node doesn’t have children but has a label according to the dataset it corresponds to.</p></li>
+</ul>
+<p>The basic stopping condition is that the dataset that the leaf node corresponds to has impureness of <span class="math inline">0</span> (single training instance or all training instance have the same label), in which case the splitting stops because there is no need to reduce the impureness.</p>
+<section id="early-stopping" class="level3">
+<h3 class="anchored" data-anchor-id="early-stopping">Early stopping</h3>
+<p>However, always splitting into pureness usually induces overfitting. Thus, there are other stopping conditions that can achieve <strong>early stopping</strong> to avoid overfitting.</p>
+<ul>
+<li><p>Dataset size is below a threshold.</p></li>
+<li><p>Splitting criteria improvement is below a threshold.</p></li>
+<li><p>Tree depth is above a threshold.</p></li>
+<li><p>Number of nodes is above a threshold.</p></li>
+</ul>
+</section>
+</section>
+<section id="label-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="label-assignment">Label assignment</h2>
+<p>For each node, we can assign a label to the node according to the labels of the dataset it corresponds to.</p>
+<ul>
+<li><p>Classification: majority label.</p></li>
+<li><p>Regression: mean label.</p></li>
+</ul>
+<p>Every node can have a label assigned, but only leaf nodes actually use labels.</p>
+<section id="misclassification-cost" class="level3">
+<h3 class="anchored" data-anchor-id="misclassification-cost">Misclassification cost</h3>
+<p>Assuming the assigned label of the node <span class="math inline">t</span> is <span class="math inline">y_{t}</span>, the <strong>misclassification cost</strong> <span class="math inline">r(t)</span> of a node <span class="math inline">t</span> for classification is defined as.</p>
 <p><span class="math display">
-  a_{1} + b_{1} \in \mathcal{W},
-  </span></p>
+r (t) = 1 - \mathbb{P} (y_{t}),
+</span></p>
+<p>and for regression is</p>
 <p><span class="math display">
-  a_{2} + b_{2} \in \mathcal{U}.
-  </span></p>
-<p>Thus, according to the definition of the set addition</p>
+r(t) = \frac{1}{N(t)} \sum_{y \in t} (y - y_{t}),
+</span></p>
+<p>where <span class="math inline">y \in t</span> means all labels in the dataset that node <span class="math inline">t</span> corresponds to.</p>
+<p>Then weighted misclassification cost of the node <span class="math inline">t</span> is defined as the product of misclassification cost and the probability of picking an instance that is in the node <span class="math inline">t</span>.</p>
 <p><span class="math display">
-  a + b = (a_{1} + b_{1}) + (a_{2} + b_{2}) \in \mathcal{W} + \mathcal{U}.
-  </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} + \mathcal{U}</span>, then there exists elements <span class="math inline">x_{1} \in \mathcal{W}, x_{2} \in \mathcal{U}</span> such that <span class="math inline">x = x_{1} + x_{2}</span>.</p>
-<p>Because of closure under scalar multiplication,</p>
+R (t) = \mathbb{P} (\mathbf{x} \in \mathbf{X}_{t}) r(t) = \frac{\lvert \mathbf{X}_{t} \rvert}{\lvert \mathbf{X} \rvert} r(t).
+</span></p>
+<p>Then the misclassification cost of the a tree <span class="math inline">T</span> is</p>
 <p><span class="math display">
-  \alpha \cdot x_{1} \in \mathcal{W} \quad \forall \alpha \in \mathbb{F},
-  </span></p>
+R (T) = \sum_{t \in \hat{T}} R (t),
+</span></p>
+<p>where <span class="math inline">\hat{T}</span> is the set of the leaf nodes in tree <span class="math inline">T</span>.</p>
+<p>The weighted misclassification cost of a node <span class="math inline">t</span> is always higher than the sum of the weighted misclassification costs of the children nodes <span class="math inline">T_{c} = \{t_{1}, t_{2}, \dots, t_{k}\}</span> that <span class="math inline">t</span> splits to</p>
 <p><span class="math display">
-  \alpha \cdot x_{2} \in \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, according to the definition of the set addition</p>
+R (t) \geq \sum_{t_{i} \in T_{c}} R (t_{i}).
+</span></p>
+<p>Thus, if we split one of the leaf nodes of <span class="math inline">T</span> to get a new and larger tree <span class="math inline">T'</span>,</p>
 <p><span class="math display">
-  \alpha \cdot x = \alpha \cdot x_{1} + \alpha \cdot x_{2} \in \mathcal{W} + \mathcal{U} \quad \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, <span class="math inline">\mathcal{W} + \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
+R (T) \geq R (T'),
+</span></p>
+<p>which shows that the misclassification cost of a tree will always decrease or stay the same if we continue to split its leaf nodes.</p>
+</section>
+</section>
+<section id="pruning" class="level2">
+<h2 class="anchored" data-anchor-id="pruning">Pruning</h2>
+<p>Instead of doing early stopping while building the decision tree to avoid overfitting, another way is to do pruning after the tree has build. <strong>Pruning</strong> is the process to make some internal nodes to be leaf nodes, and remove their children from a sufficiently large tree.</p>
+<section id="minimal-cost-complexity-pruning" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-cost-complexity-pruning">Minimal cost-complexity pruning</h3>
+<p>Previously we show that <span class="math inline">R (T)</span> might not a good measure of the performance of a tree in the sense that it always favors a larger tree. Thus we introduce another metric called <strong>cost-complexity</strong> that also considers the size of the tree.</p>
+<ul>
+<li><p>If we consider each node has a complexity of <span class="math inline">\alpha</span>, the cost-complexity <span class="math inline">R_{\alpha} (t)</span> of a node <span class="math inline">t</span> is</p>
 <p><span class="math display">
-  \mathcal{W} \cap \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W}, v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is also a subspace.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since <span class="math inline">0 \in \mathcal{W}</span> and <span class="math inline">0 \in \mathcal{U}</span>, then <span class="math inline">0 \in \mathcal{W} \cap \mathcal{U}</span>. Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is non-empty.</p>
-<p>Suppose <span class="math inline">a, b \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces</p>
+  R_{\alpha} (t) = R (t) + \alpha  
+  </span></p></li>
+<li><p>Thus, the cost-complexity <span class="math inline">R_{\alpha} (T)</span> of a tree <span class="math inline">T</span> is</p>
 <p><span class="math display">
-  a + b \in \mathcal{W},
-  \\
-  a + b \in \mathcal{U}.
+  R_{\alpha} (T) = \sum_{t \in \hat{T}} R_{\alpha} (t) = \sum_{t \in \hat{T}} (R (t) + \alpha) = R (T) + \alpha \lvert \hat{T} \rvert,
   </span></p>
-<p>Thus, by definition,</p>
+<p>where <span class="math inline">\hat{T}</span> is the set of leaf nodes of <span class="math inline">T</span>.</p></li>
+</ul>
+<p>Cost-complexity can be seen as adding a regularization term that penalize the complexity of the tree to the misclassification cost.</p>
+<ul>
+<li><p><span class="math inline">\alpha</span> is the regularization parameter that balances the training accuracy and tree complexity.</p></li>
+<li><p>Given <span class="math inline">\alpha</span>, the goal of pruning of <span class="math inline">T</span> is to get a pruned tree <span class="math inline">\hat{T}</span> (a subtree of <span class="math inline">T</span> that has the same root with <span class="math inline">T</span>) that minimizes <span class="math inline">R_{\alpha} (\hat{T})</span>.</p></li>
+</ul>
+</section>
+<section id="weakest-link-cutting" class="level3">
+<h3 class="anchored" data-anchor-id="weakest-link-cutting">Weakest-link cutting</h3>
+<p><strong>Weakest-link cutting</strong> is an efficient way of doing the minimal cost-complexity pruning.</p>
+<p>If the tree <span class="math inline">T</span> is pruned by deleting subtree <span class="math inline">T_{t}</span> rooted at the node <span class="math inline">t</span> (replacing tree <span class="math inline">T</span> with node <span class="math inline">t</span>), the cost-complexity difference between pruned tree <span class="math inline">\hat{T}</span> and unpruned tree <span class="math inline">T</span> is</p>
 <p><span class="math display">
-  a + b \in \mathcal{W} \cap \mathcal{U}.
-  </span></p>
-<p>Again, suppose <span class="math inline">x \in \mathcal{W} \cap \mathcal{U}</span>, then because of the closure axiom of the subspaces,</p>
-<p><span class="math display">
-  \alpha \cdot x \in \mathcal{W}, \forall \alpha \in \mathbb{F},
-  \\
-  \alpha \cdot x \in \mathcal{U}, \forall \alpha \in \mathbb{F}.
-  </span></p>
-<p>Thus, by definition, <span class="math inline">\alpha \cdot x \in \mathcal{W} \cap \mathcal{U}, \forall \alpha \in \mathbb{F}</span>.</p>
-<p>Thus, <span class="math inline">\mathcal{W} \cap \mathcal{U}</span> is a non-empty set that is closed for both vector addition and scalar multiplication and thus is a subspace.</p>
-</div>
-</div>
-</div></li>
-<li><p>The subspace</p>
-<p><span class="math display">
-  \mathcal{W} \cup \mathcal{U} = \left\{
-      v \mid v \in \mathcal{W} \mathop{\text{or}} v \in \mathcal{U}
-  \right\}
-  </span></p>
-<p>is a subspace if and only if <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span> or <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First we prove if <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>, then <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace.</p>
-<p>Since <span class="math inline">\mathcal{U} \subseteq \mathcal{W}</span>,</p>
-<p><span class="math display">
-  \mathcal{U} \cup \mathcal{W} = \mathcal{W}
-  </span></p>
-<p>and thus is a subspace.</p>
-<p>The same argument can be made for <span class="math inline">\mathcal{W} \subseteq \mathcal{U}</span>.</p>
-<p>Then we prove if <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, then one subspace is contained in the other by contradiction.</p>
-<p>Suppose <span class="math inline">\mathcal{U} \cup \mathcal{W}</span> is a subspace, but <span class="math inline">\mathcal{U} \nsubseteq \mathcal{W}</span> and <span class="math inline">\mathcal{W} \nsubseteq \mathcal{U}</span>. This means there exists at least two vectors <span class="math inline">u</span> and <span class="math inline">w</span> such that</p>
-<p><span class="math display">
-  u \in \mathcal{U}, u \notin \mathcal{W}
-  </span></p>
-<p><span class="math display">
-  w \in \mathcal{W}, w \notin \mathcal{U}.
-  </span></p>
-<p>Since <span class="math inline">u, w \in \mathcal{U} \cup \mathcal{W}</span> and closure under addition property, the vector</p>
-<p><span class="math display">
-  v = u + w
-  </span></p>
-<p>is also in <span class="math inline">\mathcal{U} \cup \mathcal{W}</span>, which means it must also be in <span class="math inline">\mathcal{U}</span> or <span class="math inline">\mathcal{W}</span>.</p>
-<p>If <span class="math inline">v \in \mathcal{U}</span>, because there must exist an addictive inverse of <span class="math inline">u \in \mathcal{U}</span>, then</p>
+R_{\alpha} (\hat{T}) - R_{\alpha} (T) = R_{\alpha} (t) - R_{\alpha} (T_{t}).
+</span></p>
+<ul>
+<li><p>If <span class="math inline">\alpha = 0</span>, <span class="math inline">R_{\alpha} (t) - R_{\alpha} (T_{t}) = R (t) - R (T_{t}) \geq 0</span>.</p></li>
+<li><p>As <span class="math inline">\alpha</span> becomes larger, <span class="math inline">R_{\alpha} (t) - R_{\alpha} (T_{t})</span> is getting smaller and will eventually becomes <span class="math inline">&lt; 0</span>, since <span class="math inline">\alpha</span> is increasing slower than <span class="math inline">\alpha \lvert \hat{T} \rvert</span>.</p></li>
+<li><p>Given a sufficiently large <span class="math inline">\alpha</span>, <span class="math inline">R_{\alpha} (t) - R_{\alpha} (T_{t}) &lt; 0</span>, which means that the cost-complexity of the node <span class="math inline">t</span> is better than its subtree <span class="math inline">T_{t}</span>, and thus <span class="math inline">T_{t}</span> should be pruned.</p></li>
+</ul>
+<p>Given a tree <span class="math inline">T</span>, the <strong>weakest link</strong> <span class="math inline">\bar{t}</span> is the <em>internal node</em> in <span class="math inline">T</span> that achieves <span class="math inline">R_{\alpha} (\bar{t}) - R_{\alpha} (T_{\bar{t}}) = 0</span> with the smallest <span class="math inline">\alpha</span> value.</p>
+<ul>
+<li><p>The <span class="math inline">\alpha</span> value that achieves <span class="math inline">R_{\alpha} (t) - R_{\alpha} (T_{t}) = 0</span> can be directly calculated.</p>
 <p><span class="math display">
   \begin{aligned}
-  v
-  &amp; = u + w
+  R_{\alpha} (t) - R_{\alpha} (T_{t})
+  &amp; = 0
   \\
-  v + u_{I}
-  &amp; = u + u_{I} + w
+  R (t) + \alpha - (R (T) + \alpha \lvert \hat{T} \rvert)
+  &amp; = 0
   \\
-  w
-  &amp; = v + u_{I}
+  R (t) - R (T) + \alpha (1 + \lvert \hat{T} \rvert)
+  &amp; = 0
+  \\
+  \alpha
+  &amp; = \frac{ R (t) - R (T_{t}) }{ \lvert T_{t} \rvert - 1 }
   \\
   \end{aligned}
+  </span></p></li>
+<li><p>The weakest link is defined as</p>
+<p><span class="math display">
+  \bar{t} = \arg \min_{t \in T \setminus \hat{T}} \frac{ R (t) - R (T_{t}) }{ \lvert T_{t} \rvert - 1 }
   </span></p>
-<p>which shows that <span class="math inline">w \in \mathcal{U}</span> and contradicts to our assumption.</p>
-<p>The same contradiction can also be found when <span class="math inline">v \in \mathcal{W}</span>.</p>
-</div>
-</div>
-</div></li>
+<p>where <span class="math inline">T \setminus \hat{T}</span> means the set of the internal nodes of <span class="math inline">T</span>.</p></li>
+<li><p>If there are more than 1 internal node that achieves <span class="math inline">R_{\alpha} (\bar{t}) - R_{\alpha} (T_{\bar{t}}) = 0</span> with same minimum <span class="math inline">\alpha</span> value, they are all called the weakest links.</p></li>
+</ul>
+<p>Weakest-link cutting finds the optimal subtree <span class="math inline">\hat{T}</span> of <span class="math inline">T_{max}</span> that minimizes <span class="math inline">R_{\alpha} (\hat{T})</span> with a predefined threshold <span class="math inline">\alpha_{max}</span> in a iterative way.</p>
+<ul>
+<li><p>We start the pruning process by first removing from <span class="math inline">T_{max}</span> the subtrees <span class="math inline">T_{t}</span> rooted at nodes <span class="math inline">t</span> that have already achieved <span class="math inline">R_{\alpha} (t) - R_{\alpha} (T_{t}) = 0</span>. We denote the resulting tree <span class="math inline">T_{0}</span>.</p></li>
+<li><p>In each iteration <span class="math inline">i</span>, the weakest link(s) <span class="math inline">\bar{t}</span> of tree <span class="math inline">T_{i - 1}</span> is identified by calculating</p>
+<p><span class="math display">
+  \bar{t} = \arg \min_{t \in T_{i - 1} \setminus \hat{T}_{i - 1}} \frac{
+      R (t) - R (T_{t})
+  }{
+      \lvert T_{t} \rvert - 1
+  }.
+  </span></p>
+<p>In the meantime, we can also calculate the <span class="math inline">\alpha_{i}</span> that identifies the weakest links.</p>
+<p><span class="math display">
+  \alpha_{i} = \min_{t \in T_{i - 1} \setminus \hat{T}_{i - 1}} \frac{
+      R (t) - R (T_{t})
+  }{
+      \lvert T_{t} \rvert - 1
+  }.
+  </span></p></li>
+<li><p>We replace <span class="math inline">T_{\bar{t}}</span> (the subtree rooted at <span class="math inline">\bar{t}</span>) by <span class="math inline">\bar{t}</span> and denote the resulting tree <span class="math inline">T_{i}</span>.</p></li>
+<li><p>Continue the iteration until the minimum <span class="math inline">\alpha</span> required to achieve <span class="math inline">R_{\alpha} (\bar{t}) - R_{\alpha} (T_{\bar{t}}) = 0</span> is above a predefined threshold <span class="math inline">\alpha_{max}</span>.</p></li>
 </ul>
 </section>
 </section>
-<section id="example-subspaces-of-2-dimensional-real-value-column-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="example-subspaces-of-2-dimensional-real-value-column-vectors">Example: subspaces of 2-dimensional real-value column vectors</h2>
-<p>The 2-dimensional real-value column vector space <span class="math inline">\mathbb{R}^{2}</span> has 3 types of subspaces</p>
+<section id="cart-tree-building" class="level2">
+<h2 class="anchored" data-anchor-id="cart-tree-building">CART Tree building</h2>
+<section id="identify-all-possible-splits" class="level3">
+<h3 class="anchored" data-anchor-id="identify-all-possible-splits">Identify all possible splits</h3>
+<p>CART considers binary split of a single feature for each node (each node only splits a one feature and only has 2 children).</p>
+<ul>
+<li><p>For a categorical feature that has <span class="math inline">k</span> distinct values, CART considers all possible ways to split the <em>k</em> distinct values into 2 groups.</p>
+<ul>
+<li><p>The maximum ways of splitting is <span class="math inline">2^{k - 1} - 1</span>.</p></li>
+<li><p>e.g.&nbsp;If the categorical feature has 4 distinct values: <span class="math inline">\{1, 2, 3, 4\}</span>, then all possible splits are</p>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">index</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">left child</td>
+<td style="text-align: center;">{1}</td>
+<td style="text-align: center;">{2}</td>
+<td style="text-align: center;">{3}</td>
+<td style="text-align: center;">{4}</td>
+<td style="text-align: center;">{1, 2}</td>
+<td style="text-align: center;">{1, 3}</td>
+<td style="text-align: center;">{1, 4}</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">right child</td>
+<td style="text-align: center;">{2, 3, 4}</td>
+<td style="text-align: center;">{1, 3, 4}</td>
+<td style="text-align: center;">1, 2, 4}</td>
+<td style="text-align: center;">{1, 2, 3}</td>
+<td style="text-align: center;">{3, 4}</td>
+<td style="text-align: center;">{2, 4}</td>
+<td style="text-align: center;">{2, 3}</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><p>For a numerical feature that has <span class="math inline">k</span> distinct values appeared in the dataset, CART considers all the intervals between 2 consecutive values as the splits.</p>
+<ul>
+<li><p>The maximum ways of splitting is <span class="math inline">k - 1</span>.</p></li>
+<li><p>e.g.&nbsp;If the numerical feature has 6 distinct values: <span class="math inline">\{-5.0, 1.0, 3.0, 5.0, 7.0, 11.0\}</span>, then all possible splits are</p>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">index</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">left child</td>
+<td style="text-align: center;"><span class="math display"> \leq -2.0 </span></td>
+<td style="text-align: center;"><span class="math display"> \leq 2.0 </span></td>
+<td style="text-align: center;"><span class="math display"> \leq 4.0 </span></td>
+<td style="text-align: center;"><span class="math display"> \leq 6.0 </span></td>
+<td style="text-align: center;"><span class="math display"> \leq 9.0 </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">right child</td>
+<td style="text-align: center;"><span class="math display"> &gt; -2.0 </span></td>
+<td style="text-align: center;"><span class="math display"> &gt; 2.0 </span></td>
+<td style="text-align: center;"><span class="math display"> &gt; 4.0 </span></td>
+<td style="text-align: center;"><span class="math display"> &gt; 6.0 </span></td>
+<td style="text-align: center;"><span class="math display"> &gt; 9.0 </span></td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+<p>At a given node, CART considers all possible splits of all features and chooses the one that has the maximum splitting criteria.</p>
+</section>
+<section id="recursive-tree-building" class="level3">
+<h3 class="anchored" data-anchor-id="recursive-tree-building">Recursive tree building</h3>
 <ol type="1">
-<li><p>The subspace of the zero vector only,</p>
-<p><span class="math display">
-\mathcal{W} = \left\{ 0 \right\}.
-</span></p></li>
-<li><p>The subspace of the vector space itself,</p>
-<p><span class="math display">
-\mathcal{W} = \mathbb{R}^{2}.
-</span></p></li>
-<li><p>Any “line” that goes through zero vector</p></li>
+<li><p>Identify all possible splittings among all features. For each categorical feature, each discrete value is a possible splitting. For each numerical feature, we can do either treat it as categorical feature by discretizing it or sort all training value of this numerical feature in ascending order and each interval between two consecutive number is a possible split.</p></li>
+<li><p>Calculate the uncertainty difference (Gini Gain or Information Gain) for all possible splitting and select the splitting with max uncertainty difference to split.</p></li>
+<li><p>Once a node splits into two children, compute the data points that satisfy the two branches respectively. For each branch, return to procedure 1 with the new sub dataset.</p></li>
+<li><p>The splitting on a node stops when no further splitting can be made (the dataset contains only one class) or satisfies the preset early-stopping conditions.</p></li>
+</ol>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li>https://victorzhou.com/blog/intro-to-random-forests/</li>
+<li>https://www.math.snu.ac.kr/~hichoi/machinelearning/lecturenotes/CART.pdf</li>
+<li>https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html</li>
+<li>http://www.odbms.org/wp-content/uploads/2014/07/DecisionTrees.pdf</li>
+<li>https://scientistcafe.com/ids/splitting-criteria.html</li>
+<li>https://online.stat.psu.edu/stat508/book/export/html/647</li>
 </ol>
 
 
@@ -1244,13 +1071,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="../notations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notations and Facts</span>
+      <a href="../Machine Learning/6_Support_Vector_Machine.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/02_Vectors_and_Matrices.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectors and Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Machine Learning/K-means.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">K-means</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
