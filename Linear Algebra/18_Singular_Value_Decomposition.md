@@ -2,7 +2,7 @@
 
 ## URV Factorization
 
-For each $A \in \mathbb{R}^{m \times n}$ of rank $r$, there are orthogonal matrices $\mathbf{U}_{m \times m}$ and $\mathbf{V}_{n \times n}$ and a nonsingular matrix $\mathbf{C}_{r \times r}$ such that
+For each $\mathbf{A} \in \mathbb{R}^{m \times n}$ of rank $r$, there are orthogonal matrices $\mathbf{U}_{m \times m}$ and $\mathbf{V}_{n \times n}$ and a nonsingular matrix $\mathbf{C}_{r \times r}$ such that
 
 $$
 \mathbf{A} = \mathbf{U} \mathbf{R} \mathbf{V}^{T} = \mathbf{U}

@@ -1,6 +1,6 @@
 # Similarity
 
-Two matrices $\mathbf{A}, \mathbf{B} \in \mathbb{C}^{n \times n}$ are similar if there exists a non-singular matrix $\mathbf{P}$ such that 
+Two square matrices $\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}$ are similar if there exists a non-singular matrix $\mathbf{P}$ such that 
 
 $$
 \mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{B},
@@ -45,16 +45,16 @@ $$
 
 :::
 
-## Unitarily similar
+## Orthogonally (unitarily) similar
 
-Two matrices $\mathbf{A}, \mathbf{B} \in \mathbb{C}^{n \times n}$ are unitarily similar if there exists an unitary matrix $\mathbf{U}$ such that 
+Two matrices $\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}$ are unitarily similar if there exists an unitary matrix $\mathbf{U}$ such that 
 
 $$
 \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B},
 $$
 
-which, according to the [property of unitary matrix](unitary-matrix-property-1), can also be written as 
+which, according to the [property of orthogonal matrix](unitary-matrix-property-1), can also be written as 
 
 $$
-\mathbf{U}^{H} \mathbf{A} \mathbf{U} = \mathbf{B}.
+\mathbf{U}^{T} \mathbf{A} \mathbf{U} = \mathbf{B}.
 $$

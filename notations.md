@@ -76,20 +76,3 @@
 1. The transpose of the product of two matrices $\mathbf{A}$ and $\mathbf{B}$
 
     $$ (\mathbf{A}\mathbf{B})^{T} = \mathbf{B}^{T}\mathbf{A}^{T} $$
-
-### Calculus
-
-1. The derivative of the sigmoid function $\sigma$ is $\sigma (1 - \sigma)$
-
-    $$ 
-    \begin{aligned}
-    \frac{\partial \sigma}{\partial x} & = \frac{\partial}{\partial x} \frac{1}{1 + e^{-x}} \\
-    & = \frac{\partial}{\partial x} (1 + e^{-x})^{-1} \\
-    & = -(1 + e^{-x})^{-2} \times -e^{-x} \\
-    & = \frac{e^{-x}}{(1 + e^{-x})^{2}} \\
-    & = \frac{e^{-x}}{1 + e^{-x}} \frac{1}{1 + e^{-x}} \\
-    & = \frac{e^{-x}}{1 + e^{-x}} \left( \frac{1 + e^{-x}}{1 + e^{-x}} - \frac{e^{-x}}{1 + e^{-x}} \right) \\
-    & = \frac{e^{-x}}{1 + e^{-x}} \left( 1 - \frac{e^{-x}}{1 + e^{-x}} \right) \\
-    & = \sigma (1 - \sigma) \\
-    \end{aligned}
-    $$

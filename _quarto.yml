@@ -14,10 +14,10 @@ format:
     callout-icon: false
     callout-appearance: simple
     page-layout: full
-    grid:
-      sidebar-width: 300px
-      body-width: 1200px
-    number-depth: 2
+    # grid:
+      # sidebar-width: 300px
+      # body-width: 1200px
+    number-depth: 1
 
 book:
   title: "Joeyonng's Notebook"
@@ -78,6 +78,13 @@ book:
         - "Learning Theory/5_Uniform_Convergence.md"
         - "Learning Theory/6_PAC_Learning.md"
         - "Learning Theory/7_Rademacher_Complexity.md"
+    - part: "Machine Learning"
+      chapters:
+        - "Machine Learning/1_Linear_Discriminant.md"
+        - "Machine Learning/2_Perceptron.md"
+        - "Machine Learning/3_Logistic_Regression.md"
+        - "Machine Learning/4_Multi_Layer_Perceptron.md"
+        - "Machine Learning/5_Boosting.md"
 
   search: 
     location: sidebar
@@ -101,3 +108,6 @@ book:
   
   sidebar:
     collapse-level: 1
+
+filters: 
+  - pseudocode

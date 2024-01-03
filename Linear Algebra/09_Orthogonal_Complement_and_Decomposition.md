@@ -1,4 +1,6 @@
-# Orthogonal Complement
+# Orthogonal Complement and Decomposition
+
+## Orthogonal Complement
 
 For a subset $\mathcal{M}$ of an inner-product space $\mathcal{V}$, 
 the orthogonal complement $\mathcal{M}^{\perp}$ of $\mathcal{M}$ is defined to be the set of all vectors in $\mathcal{V}$ 
@@ -56,7 +58,7 @@ TODO
 
 :::
 
-## Properties of orthogonal complementary subspaces
+### Properties of orthogonal complementary subspaces
 
 Suppose $\mathcal{M}$ is a subspace of an n-dimensional inner-product space $\mathcal{V}$.
 
@@ -150,3 +152,89 @@ Suppose $\mathcal{M}$ is a subspace of an n-dimensional inner-product space $\ma
     $$
 
   :::
+
+## Orthogonal Decomposition
+
+For every $\mathbf{A} \in \mathbb{R}^{m \times n}$,
+
+$$
+R (\mathbf{A}) \perp N (\mathbf{A}^{H}),
+$$
+
+$$
+N (\mathbf{A}) \perp R (\mathbf{A}^{H}),
+$$
+
+which means that every matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ produces an orthogonal decomposition of $\mathbb{R}^{m}$ and $\mathbb{R}^{n}$ in the sense that
+
+$$
+\mathbb{R}^{m} = R (\mathbf{A}) \oplus R (\mathbf{A})^{\perp} = R (\mathbf{A}) \oplus N (\mathbf{A}^{H}),
+$$
+
+$$
+\mathbb{R}^{n} = N (\mathbf{A}) \oplus N (\mathbf{A})^{\perp} = N (\mathbf{A}) \oplus R (\mathbf{A}^{H}). 
+$$
+
+::: {.callout-note collapse="true" title="Proof"}
+
+Suppose $\mathbf{A} \in \mathbb{R}^{m \times n}$ and $\mathbf{x} \in R (\mathbf{A})^{\perp}$. 
+
+Consider every $\mathbf{y} \in \mathbb{R}^{n}$, 
+we have
+
+$$
+\begin{aligned}
+\\
+\mathbf{x} \in R (\mathbf{A})^{\perp} \iff \langle \mathbf{A} \mathbf{y}, \mathbf{x} \rangle 
+& = 0
+\\
+(\mathbf{A} \mathbf{y})^{H} \mathbf{x}
+& = 0
+\\
+\mathbf{y}^{H} \mathbf{A}^{H} \mathbf{x}
+& = 0
+\\
+\langle \mathbf{y}, \mathbf{A}^{H} \mathbf{x} \rangle 
+& = 0.
+\\
+\end{aligned}
+$$
+
+According to the [property of inner product](inner-product-property-2),
+
+$$
+\langle \mathbf{y}, \mathbf{A}^{H} \mathbf{x} \rangle = 0 \iff \mathbf{A}^{H} \mathbf{x} = 0 \iff \mathbf{x} \in N (\mathbf{A}^{H})
+$$
+
+Thus, 
+
+$$
+R (\mathbf{A})^{\perp} = N (\mathbf{A}^{H}).
+$$
+
+Replacing $\mathbf{A}$ with $\mathbf{A}^{H}$ above,
+we can get 
+
+$$
+\begin{aligned}
+R (\mathbf{A}^{H})^{\perp} 
+& = N (\mathbf{A}).
+\\
+R (\mathbf{A}^{H})
+& = N (\mathbf{A})^{\perp}.
+\\
+\end{aligned}
+$$
+
+Since $R (\mathbf{A})$ is a subspace in $\mathbb{R}^{m}$ and $N (\mathbf{A})$ is a subspace in $\mathbb{R}^{n}$, 
+
+
+$$
+R (\mathbf{A}) \oplus R (\mathbf{A})^{\perp} = R (\mathbf{A}) \oplus N (\mathbf{A}^{H}) = \mathbb{R}^{m},
+$$
+
+$$
+N (\mathbf{A}) \oplus N (\mathbf{A})^{\perp} = N (\mathbf{A}) \oplus R (\mathbf{A}^{H}) = \mathbb{R}^{n}.
+$$
+
+:::

@@ -16,8 +16,6 @@ with the following properties:
 
 ## Properties of inner product
 
-(inner-product-property-1)=
-
 - $\langle x, \alpha y + \alpha z \rangle = \overline{\alpha} \langle x, y \rangle + \overline{\alpha} \langle x, z \rangle$
 
   ::: {.callout-note collapse="true" title="Proof"}
@@ -38,8 +36,6 @@ with the following properties:
     $$
 
   :::
-
-(inner-product-property-2)=
 
 - If $\langle x, y \rangle = 0$ for all $x \in \mathcal{V}$, 
     then $y = 0$.

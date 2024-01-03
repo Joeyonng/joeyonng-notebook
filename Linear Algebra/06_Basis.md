@@ -53,12 +53,10 @@ A set of vectors $v_{1}, \dots, v_{k}$ is a basis of a subspace $\mathcal{W}$ of
 
   :::
 
-(existence-of-basis)=
-
 - Existence of basis
 
-    A subspace may NOT have a basis e.g. $\mathcal{W} = \{ 0 \}$ has no linearly independent vector, but a subspace must have a basis if it has a finite spanning set. 
-    
+    A subspace may NOT have a basis e.g. $\mathcal{W} = \{ 0 \}$ has no linearly independent vector, 
+    but a subspace must have a basis if it has a finite spanning set. 
     That is, every finite spanning set of a subspace contains a basis.
     
   ::: {.callout-note collapse="true" title="Proof"}
@@ -92,8 +90,6 @@ A set of vectors $v_{1}, \dots, v_{k}$ is a basis of a subspace $\mathcal{W}$ of
 
   :::
 
-(cardinality-of-basis)=
-
 - Cardinality of basis
 
     The numbers of elements of all bases of a given subspace are the same. 
@@ -123,8 +119,6 @@ A set of vectors $v_{1}, \dots, v_{k}$ is a basis of a subspace $\mathcal{W}$ of
     
   :::
 
-(extension-of-a-basis)=
-
 - Extension of a basis
 
     If the subspace $\mathcal{U}$ is a subset of a finite dimensional subspace $\mathcal{V}$
@@ -138,7 +132,7 @@ A set of vectors $v_{1}, \dots, v_{k}$ is a basis of a subspace $\mathcal{W}$ of
     that is a basis for $\mathcal{V}$ 
     
   ::: {.callout-note collapse="true" title="Proof"}
-    
-    $\{ b_{1}, \dots, b_{k}, b_{k + 1}, \dots, b_{n} \}$ is a basis for $\mathcal{V}$ if $\mathcal{U} \subseteq \mathcal{V}$ and $\{ b_{1}, \dots, b_{k} \}$ is a basis of $\mathcal{U}$.
 
+  TODO
+    
   :::

@@ -1,6 +1,6 @@
 # Affine projection {#sec-affine-projection}
 
-## Affine space
+## Affine space {#sec-affine-space}
 
 A set of vectors in the vector space $\mathcal{V}$ forms an **affine space** $\mathcal{A}$ if they are the sums of the vectors in a subspace $\mathcal{M} \subset \mathcal{V}$ and a non-zero vector $v \in \mathcal{V}$,
 

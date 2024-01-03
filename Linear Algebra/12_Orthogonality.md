@@ -10,8 +10,6 @@ $$
 
 If $v_{1}, \dots, v_{k}$ are orthogonal vectors, 
 
-(orthogonality-property-1)=
-
 - $v_{1}, \dots, v_{k}$ are also linearly independent.
 
   ::: {.callout-note collapse="true" title="Proof"}
@@ -19,8 +17,6 @@ If $v_{1}, \dots, v_{k}$ are orthogonal vectors,
     TODO
 
   :::
-
-(orthogonality-property-2)=
 
 - Suppose $\mathcal{S}$ is a subspace with $\text{dim} (S) = n$ 
     and $v_{1}, \dots, v_{k} \in \mathcal{S}$, 
@@ -63,10 +59,3 @@ TODO
 
 A set of vectors $v_{1}, \dots, v_{k}$ are **orthonormal** if all vectors in the set are orthogonal to each other,
 and each vector has the inner product norm of 1.
-
-If $\mathbf{a}_{1}, \dots, \mathbf{a}_{k} \in \mathbb{C}^{n}$ and are the columns of the matrix $\mathbf{A} \in \mathbb{C}^{n \times k}$, 
-then $\mathbf{A}$ has orthonormal columns and thus
-
-$$ 
-\mathbf{A}^{H} \mathbf{A} = \mathbf{I}.
-$$

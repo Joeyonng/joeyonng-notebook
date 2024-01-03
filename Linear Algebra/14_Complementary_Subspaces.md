@@ -20,8 +20,6 @@ $$
 
 ## Properties of complementary subspaces 
 
-(complementary-subspaces-property-1)=
-
 - $\mathcal{X}$ and $\mathcal{Y}$ are complementary if and only if 
     there exist unique vectors $x \in \mathcal{X}$ and $y \in \mathcal{Y}$ such that 
     
@@ -91,8 +89,6 @@ $$
     Similar argument can be made for $y_{1}$ and $y_{2}$.
     
   :::
-
-(complementary-subspaces-property-2)=
 
 - Suppose $\mathcal{X}$ has a basis $\mathcal{B}_{\mathcal{X}}$ and $\mathcal{Y}$ has a basis $\mathcal{B}_{\mathcal{Y}}$.
     Then $\mathcal{X}$ and $\mathcal{Y}$ are complementary if and only if 
