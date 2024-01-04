@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 13&nbsp; Similarity and Diagonalization</title>
+<title>Joeyonng’s Notebook - 16&nbsp; Chain rule</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" rel="next">
-<link href="../Linear Algebra/12_Determinants_and_Eigensystems.html" rel="prev">
+<link href="../Probability and Statistics/01_Probability.html" rel="next">
+<link href="../Calculus/Derivative.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/13_Similarity_and_Diagonalization.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Calculus/Derivative.html">Calculus</a></li><li class="breadcrumb-item"><a href="../Calculus/Chain_Rule.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -160,13 +160,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
@@ -241,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
@@ -255,13 +255,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link">
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Calculus/Chain_Rule.html" class="sidebar-item-text sidebar-link">
+  <a href="../Calculus/Chain_Rule.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
   </div>
 </li>
@@ -475,14 +475,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#similarity" id="toc-similarity" class="nav-link active" data-scroll-target="#similarity">Similarity</a>
+  <li><a href="#ordinary-chain-rule" id="toc-ordinary-chain-rule" class="nav-link active" data-scroll-target="#ordinary-chain-rule">Ordinary chain rule</a></li>
+  <li><a href="#multi-variable-chain-rule" id="toc-multi-variable-chain-rule" class="nav-link" data-scroll-target="#multi-variable-chain-rule">Multi-variable chain rule</a>
   <ul class="collapse">
-  <li><a href="#orthogonally-unitarily-similar" id="toc-orthogonally-unitarily-similar" class="nav-link" data-scroll-target="#orthogonally-unitarily-similar">Orthogonally (unitarily) similar</a></li>
-  </ul></li>
-  <li><a href="#diagonalization" id="toc-diagonalization" class="nav-link" data-scroll-target="#diagonalization">Diagonalization</a>
-  <ul class="collapse">
-  <li><a href="#diagonalization-and-eigensystems" id="toc-diagonalization-and-eigensystems" class="nav-link" data-scroll-target="#diagonalization-and-eigensystems">Diagonalization and eigensystems</a></li>
-  <li><a href="#diagonalizability-and-multiplicities" id="toc-diagonalizability-and-multiplicities" class="nav-link" data-scroll-target="#diagonalizability-and-multiplicities">Diagonalizability and multiplicities</a></li>
+  <li><a href="#base-case-scalar-valued-univariate-function-c-x-f-mathbfg-x" id="toc-base-case-scalar-valued-univariate-function-c-x-f-mathbfg-x" class="nav-link" data-scroll-target="#base-case-scalar-valued-univariate-function-c-x-f-mathbfg-x">Base case: scalar-valued univariate function <span class="math inline">c (x) = f (\mathbf{g} (x))</span></a></li>
+  <li><a href="#extension-1-scalar-valued-multivariate-function-c-x-f-mathbfg-mathbfx" id="toc-extension-1-scalar-valued-multivariate-function-c-x-f-mathbfg-mathbfx" class="nav-link" data-scroll-target="#extension-1-scalar-valued-multivariate-function-c-x-f-mathbfg-mathbfx">Extension 1: scalar-valued multivariate function <span class="math inline">c (x) = f (\mathbf{g} (\mathbf{x}))</span></a></li>
+  <li><a href="#extension-2-vector-valued-univariate-function-mathbfc-x-mathbff-mathbfg-x" id="toc-extension-2-vector-valued-univariate-function-mathbfc-x-mathbff-mathbfg-x" class="nav-link" data-scroll-target="#extension-2-vector-valued-univariate-function-mathbfc-x-mathbff-mathbfg-x">Extension 2: vector-valued univariate function <span class="math inline">\mathbf{c} (x) = \mathbf{f} (\mathbf{g} (x))</span></a></li>
+  <li><a href="#extension-3-vector-valued-multivariate-function-mathbfc-mathbfx-mathbff-mathbfg-mathbfx" id="toc-extension-3-vector-valued-multivariate-function-mathbfc-mathbfx-mathbff-mathbfg-mathbfx" class="nav-link" data-scroll-target="#extension-3-vector-valued-multivariate-function-mathbfc-mathbfx-mathbff-mathbfg-mathbfx">Extension 3: vector-valued multivariate function <span class="math inline">\mathbf{c} (\mathbf{x}) = \mathbf{f} (\mathbf{g} (\mathbf{x}))</span></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -492,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></h1>
 </div>
 
 
@@ -507,149 +506,148 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="similarity" class="level2">
-<h2 class="anchored" data-anchor-id="similarity">Similarity</h2>
-<p>Two square matrices <span class="math inline">\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}</span> are similar if there exists a non-singular matrix <span class="math inline">\mathbf{P}</span> such that</p>
-<p><span class="math display">
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{B},
-</span></p>
-<p><span class="math display">
-\mathbf{A} = \mathbf{P} \mathbf{B} \mathbf{P}^{-1}.
-</span></p>
-<p>Similar matrices have the same eigenvalues.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Suppose <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> are eigenvalues of <span class="math inline">\mathbf{B}</span>.</p>
-<p><span class="math display">
-\begin{aligned}
-\text{det} (\mathbf{B} - \lambda \mathbf{I})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1} \mathbf{A} \mathbf{P} - \lambda \mathbf{I})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1} \mathbf{A} \mathbf{P} - \lambda \mathbf{P}^{-1} \mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1} (\mathbf{A} - \lambda \mathbf{I}) \mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1}) \text{det} (\mathbf{A} - \lambda \mathbf{I}) \text{det} (\mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1}) \text{det} (\mathbf{P}) \text{det} (\mathbf{A} - \lambda \mathbf{I})
-&amp; = 0
-\\
-\text{det} (\mathbf{A} - \lambda \mathbf{I})
-&amp; = 0
-&amp; [\text{det} (\mathbf{P}^{-1}) = \frac{1}{\text{det} (\mathbf{P})}]
-\\
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<section id="orthogonally-unitarily-similar" class="level3">
-<h3 class="anchored" data-anchor-id="orthogonally-unitarily-similar">Orthogonally (unitarily) similar</h3>
-<p>Two matrices <span class="math inline">\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}</span> are unitarily similar if there exists an unitary matrix <span class="math inline">\mathbf{U}</span> such that</p>
-<p><span class="math display">
-\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B},
-</span></p>
-<p>which, according to the <a href="unitary-matrix-property-1">property of orthogonal matrix</a>, can also be written as</p>
-<p><span class="math display">
-\mathbf{U}^{T} \mathbf{A} \mathbf{U} = \mathbf{B}.
-</span></p>
+<section id="ordinary-chain-rule" class="level2">
+<h2 class="anchored" data-anchor-id="ordinary-chain-rule">Ordinary chain rule</h2>
+<p>TODO</p>
 </section>
-</section>
-<section id="diagonalization" class="level2">
-<h2 class="anchored" data-anchor-id="diagonalization">Diagonalization</h2>
-<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is diagonalizable if <span class="math inline">\mathbf{A}</span> is similar to a diagonal matrix:</p>
+<section id="multi-variable-chain-rule" class="level2">
+<h2 class="anchored" data-anchor-id="multi-variable-chain-rule">Multi-variable chain rule</h2>
+<p>The multi-variable chain rule is used to calculate the derivative of the output of a composite function with respect to the input where the inside function of the composite function is a vector-valued function.</p>
+<section id="base-case-scalar-valued-univariate-function-c-x-f-mathbfg-x" class="level3">
+<h3 class="anchored" data-anchor-id="base-case-scalar-valued-univariate-function-c-x-f-mathbfg-x">Base case: scalar-valued univariate function <span class="math inline">c (x) = f (\mathbf{g} (x))</span></h3>
+<p>Given a scalar-valued univariate function <span class="math inline">c (x) = f (\mathbf{g} (x))</span> that is a composite function of a scalar-valued multivariate function <span class="math inline">f: \mathbb{R}^{m} \mapsto \mathbb{R}</span> and a vector-valued univariate function <span class="math inline">\mathbf{g}: \mathbb{R} \mapsto \mathbb{R}^{m}</span> that takes a real-value input, the chain rule for calculating the derivative of <span class="math inline">c (x)</span> at point <span class="math inline">x</span> is</p>
 <p><span class="math display">
-\mathbf{A} = \mathbf{P} \Lambda \mathbf{P}^{-1}
-</span></p>
-<p>where <span class="math inline">\Lambda</span> is a diagonal matrix.</p>
-<section id="diagonalization-and-eigensystems" class="level3">
-<h3 class="anchored" data-anchor-id="diagonalization-and-eigensystems">Diagonalization and eigensystems</h3>
-<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is diagonalizable if and only if <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors. That is,</p>
-<p><span class="math display">
-\mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
-</span></p>
-<p>or</p>
-<p><span class="math display">
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{\Lambda},
+\frac{ \mathop{d} c }{ \mathop{d} x } (x) = \sum_{i=1}^{m} \frac{ \partial f }{ \partial g_{i} (x) } (\mathbf{g} (x)) \frac{ \mathop{d} g_{i} }{ \mathop{d} x } (x)
 </span></p>
 <p>where</p>
 <ul>
-<li><p>the columns of <span class="math inline">\mathbf{P} \in \mathbb{R}^{n \times n}</span> are <span class="math inline">n</span> linearly independent eigenvectors,</p></li>
-<li><p>the diagonal values of <span class="math inline">\mathbf{\Lambda}</span> are corresponding eigenvalues.</p></li>
+<li><p><span class="math inline">\frac{ \partial f }{ \partial g_{i} (x) } (\mathbf{g} (x))</span> is the partial derivative of the function <span class="math inline">f</span> with respect of the dimension <span class="math inline">i</span> at the point <span class="math inline">\mathbf{g} (x)</span>,</p></li>
+<li><p><span class="math inline">\frac{ \mathop{d} g_{i} }{ \mathop{d} x } (x)</span> is the derivative of function <span class="math inline">g_{i}</span> at the point <span class="math inline">x</span>.</p></li>
 </ul>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We first prove that If <span class="math inline">\mathbf{A}</span> is diagonalizable, then <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors.</p>
-<p>First note that</p>
+<p>Therefore, the derivative of <span class="math inline">c (x)</span> is a real number that is calculated using the chain rule as the dot product of the gradient of <span class="math inline">f (\mathbf{g} (x))</span> at point <span class="math inline">\mathbf{g} (x)</span> and the vector of the derivatives of <span class="math inline">g_{i} (x)</span> at point <span class="math inline">x</span></p>
 <p><span class="math display">
 \begin{aligned}
-\mathbf{A}
-&amp; = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
+\frac{ \mathop{d} c }{ \mathop{d} x } (x)
+&amp; = \sum_{i=1}^{n} \frac{\partial f}{\partial g_{i} (x)} (\mathbf{g} (x)) \frac{ \mathop{d} g_{i} }{ \mathop{d} x } (x)
 \\
-\mathbf{A} \mathbf{P}
-&amp; = \mathbf{P} \mathbf{\Lambda}
+&amp; =
+\begin{bmatrix}
+\frac{\partial f}{\partial g_{1} (x)} (\mathbf{g} (x)) \\
+\vdots \\
+\frac{\partial f}{\partial g_{m} (x)} (\mathbf{g} (x)) \\
+\end{bmatrix}^{T}
+\begin{bmatrix}
+\frac{ \mathop{d} g_{1} }{ \mathop{d} x } (x) \\
+\vdots \\
+\frac{ \mathop{d} g_{m} }{ \mathop{d} x } (x) \\
+\end{bmatrix}
 \\
+&amp; = \nabla^{T} f (\mathbf{g} (x)) \frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x } (x).
 \end{aligned}
 </span></p>
-<p>Since <span class="math inline">\mathbf{\Lambda}</span> is a diagonal matrix with <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> on its diagonal,</p>
-<p><span class="math display">
-\mathbf{A} \mathbf{P}_{*, i} = \mathbf{P}_{*, i} \lambda_{i} = \lambda_{i} \mathbf{P}_{*, i}.
-</span></p>
-<p>Thus, <span class="math inline">(\lambda, \mathbf{P}_{*, i})</span> is an eigenpair of <span class="math inline">\mathbf{A}</span>, and <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> such eigenpairs.</p>
-<p>Since <span class="math inline">\mathbf{P}</span> is non-singular (full-rank), <span class="math inline">\mathbf{P}</span> has independent columns. Thus, <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> independent eigenvectors.</p>
-<p>Then we prove that if <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors, then <span class="math inline">\mathbf{A}</span> is diagonalizable.</p>
-<p>Assume the columns of <span class="math inline">\mathbf{P} \in \mathbf{C}^{n \times n}</span> are the eigenvectors of <span class="math inline">\mathbf{A}</span>, and <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> are corresponding eigenvalues,</p>
-<p><span class="math display">
-\mathbf{A} \mathbf{P}_{*, i} = \lambda_{i} \mathbf{P}_{*, i} \quad \forall i = 1, \dots, n.
-</span></p>
-<p>By rewriting <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> as diagonals for the diagonal matrix <span class="math inline">\mathbf{\Lambda}</span>,</p>
-<p><span class="math display">
-\mathbf{A} \mathbf{P} = \mathbf{P} \mathbf{\Lambda}.
-</span></p>
-<p>Since the columns of the <span class="math inline">\mathbf{P}</span> are linearly independent, <span class="math inline">\mathbf{P}</span> has full rank and thus there exists the inverse of <span class="math inline">\mathbf{P}</span></p>
-<p><span class="math display">
-\begin{aligned}
-\mathbf{A} \mathbf{P}
-&amp; = \mathbf{P} \mathbf{\Lambda}
-\\
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P}
-&amp; = \mathbf{\Lambda}
-\end{aligned}
-</span></p>
-<p>which shows that <span class="math inline">\mathbf{A}</span> is similar to <span class="math inline">\mathbf{\Lambda}</span> and thus is diagonalizable.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="diagonalizability-and-multiplicities" class="level3">
-<h3 class="anchored" data-anchor-id="diagonalizability-and-multiplicities">Diagonalizability and multiplicities</h3>
-<p>TODO</p>
+<section id="extension-1-scalar-valued-multivariate-function-c-x-f-mathbfg-mathbfx" class="level3">
+<h3 class="anchored" data-anchor-id="extension-1-scalar-valued-multivariate-function-c-x-f-mathbfg-mathbfx">Extension 1: scalar-valued multivariate function <span class="math inline">c (x) = f (\mathbf{g} (\mathbf{x}))</span></h3>
+<p>When the input is a vector, the composite function <span class="math inline">c (\mathbf{x}) = f (\mathbf{g} (\mathbf{x}))</span> is a scalar-valued multivariate function, whose gradient is calculated by applying the multi-variable chain rule to every element of the input vector</p>
+<p><span class="math display">
+\begin{aligned}
+\nabla^{T} c (\mathbf{x})
+&amp; =
+\begin{bmatrix}
+\frac{ \partial c }{ \partial x_{1} } (\mathbf{x}) &amp; \dots &amp; \frac{ \partial c }{ \partial x_{n} } (\mathbf{x}) \\
+\end{bmatrix}
+\\
+&amp; =
+\begin{bmatrix}
+\frac{ \mathop{d} c |_{\mathbf{x}} }{ \mathop{d} x_{1} } (x_{1}) &amp; \dots &amp; \frac{ \mathop{d} c |_{\mathbf{x}} }{ \mathop{d} x_{n} } (x_{n}) \\
+\end{bmatrix}
+\\
+&amp; = \nabla^{T} f (\mathbf{g} (\mathbf{x}))
+\begin{bmatrix}
+| &amp; &amp; | \\
+\frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x_{1} } (x_{1}) &amp; \dots &amp; \frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x_{n} } (x_{n}) \\
+| &amp; &amp; | \\
+\end{bmatrix}
+\\
+&amp; = \nabla^{T} f (\mathbf{g} (\mathbf{x}))
+\begin{bmatrix}
+- &amp; \nabla^{T} g_{1} (\mathbf{x}) &amp; - \\
+&amp; \vdots &amp;\\
+- &amp; \nabla^{T} g_{m} (\mathbf{x}) &amp; - \\
+\end{bmatrix}
+\\
+&amp; = \nabla^{T} f (\mathbf{g} (\mathbf{x})) \mathbf{J} \mathbf{g} (\mathbf{x}).
+\\
+\end{aligned}
+</span></p>
+</section>
+<section id="extension-2-vector-valued-univariate-function-mathbfc-x-mathbff-mathbfg-x" class="level3">
+<h3 class="anchored" data-anchor-id="extension-2-vector-valued-univariate-function-mathbfc-x-mathbff-mathbfg-x">Extension 2: vector-valued univariate function <span class="math inline">\mathbf{c} (x) = \mathbf{f} (\mathbf{g} (x))</span></h3>
+<p>When the output is a vector, the composite function <span class="math inline">\mathbf{c} (x) = \mathbf{f} (\mathbf{g} (x))</span> is a vector-valued univariate function, whose derivative is a vector</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{ \mathop{d} \mathbf{c} }{ \mathop{d} x } (x)
+&amp; =
+\begin{bmatrix}
+\frac{ \mathop{d} c_{1} }{ \mathop{d} x } (x) \\
+\vdots \\
+\frac{ \mathop{d} c_{n} }{ \mathop{d} x } (x) \\
+\end{bmatrix}
+\\
+&amp; = \begin{bmatrix}
+- &amp; \nabla^{T} f_{1} (\mathbf{g} (x)) &amp; - \\
+&amp; \vdots &amp; \\
+- &amp; \nabla^{T} f_{n} (\mathbf{g} (x)) &amp; - \\
+\end{bmatrix}
+\begin{bmatrix}
+\frac{ \mathop{d} g_{1} }{ \mathop{d} x } (x) \\
+\vdots \\
+\frac{ \mathop{d} g_{m} }{ \mathop{d} x } (x) \\
+\end{bmatrix}
+\\
+&amp; = \mathbf{J} \mathbf{f} (\mathbf{g} (x)) \frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x } (x).
+\\
+\end{aligned}
+</span></p>
+</section>
+<section id="extension-3-vector-valued-multivariate-function-mathbfc-mathbfx-mathbff-mathbfg-mathbfx" class="level3">
+<h3 class="anchored" data-anchor-id="extension-3-vector-valued-multivariate-function-mathbfc-mathbfx-mathbff-mathbfg-mathbfx">Extension 3: vector-valued multivariate function <span class="math inline">\mathbf{c} (\mathbf{x}) = \mathbf{f} (\mathbf{g} (\mathbf{x}))</span></h3>
+<p>When both input and output are vectors, the composite function <span class="math inline">\mathbf{c} (\mathbf{x}) = \mathbf{f} (\mathbf{g} (\mathbf{x}))</span> is a vector-valued multivariate function, whose derivative is a Jacobian matrix</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbf{J} \mathbf{f} (\mathbf{x}) &amp; = \begin{bmatrix}
+\frac{\partial f_{1}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{1}}{x_{n}} (\mathbf{x}) \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial f_{m}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{m}}{x_{n}} (\mathbf{x}) \\
+\end{bmatrix}
+\\
+&amp; = \begin{bmatrix}
+- &amp; \nabla^{T} f_{1} (\mathbf{g} (\mathbf{x})) &amp; - \\
+&amp; \vdots &amp; \\
+- &amp; \nabla^{T} f_{n} (\mathbf{g} (\mathbf{x})) &amp; - \\
+\end{bmatrix}
+\begin{bmatrix}
+| &amp; &amp; | \\
+\frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x_{1} } (x_{1}) &amp; \dots &amp; \frac{ \mathop{d} \mathbf{g} }{ \mathop{d} x_{n} } (x_{n}) \\
+| &amp; &amp; | \\
+\end{bmatrix}
+\\
+&amp; =
+\begin{bmatrix}
+- &amp; \nabla^{T} f_{1} (\mathbf{g} (\mathbf{x})) &amp; - \\
+&amp; \vdots &amp; \\
+- &amp; \nabla^{T} f_{n} (\mathbf{g} (\mathbf{x})) &amp; - \\
+\end{bmatrix}
+\begin{bmatrix}
+- &amp; \nabla^{T} g_{1} (\mathbf{x}) &amp; - \\
+&amp; \vdots &amp; \\
+- &amp; \nabla^{T} g_{m} (\mathbf{x}) &amp; - \\
+\end{bmatrix}
+\\
+&amp; = \mathbf{J} \mathbf{f} (\mathbf{g} (\mathbf{x})) \mathbf{J} \mathbf{g} (\mathbf{x}).
+\\
+\end{aligned}
+</span></p>
 
 
 </section>
@@ -891,13 +889,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Linear Algebra/12_Determinants_and_Eigensystems.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span>
+      <a href="../Calculus/Derivative.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/01_Probability.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Probability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

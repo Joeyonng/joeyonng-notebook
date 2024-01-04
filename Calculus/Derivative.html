@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 13&nbsp; Similarity and Diagonalization</title>
+<title>Joeyonng’s Notebook - 15&nbsp; Derivatives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" rel="next">
-<link href="../Linear Algebra/12_Determinants_and_Eigensystems.html" rel="prev">
+<link href="../Calculus/Chain_Rule.html" rel="next">
+<link href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/13_Similarity_and_Diagonalization.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Calculus/Derivative.html">Calculus</a></li><li class="breadcrumb-item"><a href="../Calculus/Derivative.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -160,13 +160,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Linear Algebra/01_Fields_and_Spaces.html" class="sidebar-item-text sidebar-link">
@@ -241,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span></a>
   </div>
 </li>
@@ -255,16 +255,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link">
+  <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
   </div>
 </li>
@@ -475,14 +475,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#similarity" id="toc-similarity" class="nav-link active" data-scroll-target="#similarity">Similarity</a>
+  <li><a href="#functions" id="toc-functions" class="nav-link active" data-scroll-target="#functions">Functions</a>
   <ul class="collapse">
-  <li><a href="#orthogonally-unitarily-similar" id="toc-orthogonally-unitarily-similar" class="nav-link" data-scroll-target="#orthogonally-unitarily-similar">Orthogonally (unitarily) similar</a></li>
+  <li><a href="#scalar-valued-and-vector-valued-functions" id="toc-scalar-valued-and-vector-valued-functions" class="nav-link" data-scroll-target="#scalar-valued-and-vector-valued-functions">Scalar-valued and vector-valued functions</a></li>
+  <li><a href="#univariate-and-multivariate-functions" id="toc-univariate-and-multivariate-functions" class="nav-link" data-scroll-target="#univariate-and-multivariate-functions">Univariate and multivariate functions</a></li>
   </ul></li>
-  <li><a href="#diagonalization" id="toc-diagonalization" class="nav-link" data-scroll-target="#diagonalization">Diagonalization</a>
+  <li><a href="#scalar-valued-univariate-ordinary-derivatives" id="toc-scalar-valued-univariate-ordinary-derivatives" class="nav-link" data-scroll-target="#scalar-valued-univariate-ordinary-derivatives">Scalar-valued univariate (ordinary) derivatives</a></li>
+  <li><a href="#scalar-valued-multivariate-derivatives" id="toc-scalar-valued-multivariate-derivatives" class="nav-link" data-scroll-target="#scalar-valued-multivariate-derivatives">Scalar-valued multivariate derivatives</a>
   <ul class="collapse">
-  <li><a href="#diagonalization-and-eigensystems" id="toc-diagonalization-and-eigensystems" class="nav-link" data-scroll-target="#diagonalization-and-eigensystems">Diagonalization and eigensystems</a></li>
-  <li><a href="#diagonalizability-and-multiplicities" id="toc-diagonalizability-and-multiplicities" class="nav-link" data-scroll-target="#diagonalizability-and-multiplicities">Diagonalizability and multiplicities</a></li>
+  <li><a href="#directional-derivatives" id="toc-directional-derivatives" class="nav-link" data-scroll-target="#directional-derivatives">Directional derivatives</a></li>
+  <li><a href="#partial-derivatives" id="toc-partial-derivatives" class="nav-link" data-scroll-target="#partial-derivatives">Partial derivatives</a></li>
+  <li><a href="#gradients" id="toc-gradients" class="nav-link" data-scroll-target="#gradients">Gradients</a></li>
+  </ul></li>
+  <li><a href="#derivatives-for-vector-valued-functions" id="toc-derivatives-for-vector-valued-functions" class="nav-link" data-scroll-target="#derivatives-for-vector-valued-functions">Derivatives for vector-valued functions</a></li>
+  <li><a href="#functional-derivatives" id="toc-functional-derivatives" class="nav-link" data-scroll-target="#functional-derivatives">Functional Derivatives</a>
+  <ul class="collapse">
+  <li><a href="#function-of-functions" id="toc-function-of-functions" class="nav-link" data-scroll-target="#function-of-functions">Function of functions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -492,7 +500,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></h1>
 </div>
 
 
@@ -507,16 +515,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="similarity" class="level2">
-<h2 class="anchored" data-anchor-id="similarity">Similarity</h2>
-<p>Two square matrices <span class="math inline">\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}</span> are similar if there exists a non-singular matrix <span class="math inline">\mathbf{P}</span> such that</p>
+<p>TODO</p>
+<p>Need to mention that the following notes are always assuming the function is continuous at all points.</p>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<section id="scalar-valued-and-vector-valued-functions" class="level3">
+<h3 class="anchored" data-anchor-id="scalar-valued-and-vector-valued-functions">Scalar-valued and vector-valued functions</h3>
+<p>A scalar-valued function <span class="math inline">f</span> outputs a scalar, while a vector-valued function <span class="math inline">\mathbf{f}</span> outputs a vector.</p>
+<p>A vector-valued function can be interpreted as a vector of scalar-valued functions</p>
 <p><span class="math display">
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{B},
+\mathbf{f} =
+\begin{bmatrix}
+f_{1} \\
+\vdots \\
+f_{m} \\
+\end{bmatrix}.
 </span></p>
+</section>
+<section id="univariate-and-multivariate-functions" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-and-multivariate-functions">Univariate and multivariate functions</h3>
+<p>A univariate function takes a scalar <span class="math inline">x</span> as the input, while a multivariate function takes a vector <span class="math inline">\mathbf{x}</span> as the input</p>
+</section>
+</section>
+<section id="scalar-valued-univariate-ordinary-derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-valued-univariate-ordinary-derivatives">Scalar-valued univariate (ordinary) derivatives</h2>
+<p>The <strong>derivative function</strong> of a univariate scalar-valued function <span class="math inline">f</span>, denoted <span class="math inline">\frac{d f}{d x}</span> or <span class="math inline">f'</span>, is another univariate scalar-valued function that takes <span class="math inline">x</span> as the input and outputs the <strong>derivative</strong> of the function at point <span class="math inline">x</span>:</p>
 <p><span class="math display">
-\mathbf{A} = \mathbf{P} \mathbf{B} \mathbf{P}^{-1}.
+f' (x) = \frac{d f}{d x} (x) = \lim_{h \rightarrow 0} \frac{f (x + h) - f (x)}{h}.
 </span></p>
-<p>Similar matrices have the same eigenvalues.</p>
+<p>The derivative of <span class="math inline">f</span> at point <span class="math inline">x</span> is the slope of the tangent line to the function <span class="math inline">f</span> at the point <span class="math inline">x</span>, which also represents the rate of the change of <span class="math inline">f</span> at <span class="math inline">x</span> in the positive (increasing) direction.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -529,70 +556,57 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Suppose <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> are eigenvalues of <span class="math inline">\mathbf{B}</span>.</p>
+<p>A line has the form of</p>
+<p><span class="math display">
+y = k x + b
+</span></p>
+<p>where <span class="math inline">k</span> is the slope of the line and <span class="math inline">b</span> represents the interception of the line on the <span class="math inline">y</span> axis.</p>
+<p>We can calculate the slope of the line if we know the two points <span class="math inline">(x_{1}, y_{1})</span> and <span class="math inline">(x_{2}, y_{2})</span> that are on the line</p>
 <p><span class="math display">
 \begin{aligned}
-\text{det} (\mathbf{B} - \lambda \mathbf{I})
-&amp; = 0
+y_{2} - y_{1}
+&amp; = k x_{2} + b - k x_{1} + b
 \\
-\text{det} (\mathbf{P}^{-1} \mathbf{A} \mathbf{P} - \lambda \mathbf{I})
-&amp; = 0
+&amp; = k (x_{2} - x_{1})
 \\
-\text{det} (\mathbf{P}^{-1} \mathbf{A} \mathbf{P} - \lambda \mathbf{P}^{-1} \mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1} (\mathbf{A} - \lambda \mathbf{I}) \mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1}) \text{det} (\mathbf{A} - \lambda \mathbf{I}) \text{det} (\mathbf{P})
-&amp; = 0
-\\
-\text{det} (\mathbf{P}^{-1}) \text{det} (\mathbf{P}) \text{det} (\mathbf{A} - \lambda \mathbf{I})
-&amp; = 0
-\\
-\text{det} (\mathbf{A} - \lambda \mathbf{I})
-&amp; = 0
-&amp; [\text{det} (\mathbf{P}^{-1}) = \frac{1}{\text{det} (\mathbf{P})}]
-\\
+k
+&amp; = \frac{y_{2} - y_{1}}{x_{2} - x_{1}}.
 \end{aligned}
 </span></p>
-</div>
-</div>
-</div>
-<section id="orthogonally-unitarily-similar" class="level3">
-<h3 class="anchored" data-anchor-id="orthogonally-unitarily-similar">Orthogonally (unitarily) similar</h3>
-<p>Two matrices <span class="math inline">\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}</span> are unitarily similar if there exists an unitary matrix <span class="math inline">\mathbf{U}</span> such that</p>
+<p>Thus, if we set <span class="math inline">x' = x + h</span>, the equation</p>
 <p><span class="math display">
-\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B},
+\frac{f (x + h) - f (x)}{h} = \frac{f (x') - f(x)}{x' - x}
 </span></p>
-<p>which, according to the <a href="unitary-matrix-property-1">property of orthogonal matrix</a>, can also be written as</p>
-<p><span class="math display">
-\mathbf{U}^{T} \mathbf{A} \mathbf{U} = \mathbf{B}.
-</span></p>
+<p>represents the the slope of the line connecting the points <span class="math inline">(x', f (x'))</span> and <span class="math inline">(x, f(x))</span>.</p>
+<p>As <span class="math inline">h</span> getting smaller, the line connecting the points <span class="math inline">(x', f (x'))</span> and <span class="math inline">(x, f(x))</span> is becoming the tangent line of <span class="math inline">f(x)</span> at point <span class="math inline">x</span>.</p>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="diagonalization" class="level2">
-<h2 class="anchored" data-anchor-id="diagonalization">Diagonalization</h2>
-<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is diagonalizable if <span class="math inline">\mathbf{A}</span> is similar to a diagonal matrix:</p>
+<section id="scalar-valued-multivariate-derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-valued-multivariate-derivatives">Scalar-valued multivariate derivatives</h2>
+<section id="directional-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="directional-derivatives">Directional derivatives</h3>
+<p>Given a non-zero vector <span class="math inline">\mathbf{u} \in \mathbb{R}^{n}</span>, the <strong>directional derivative function</strong> of a scalar-valued multivariate function <span class="math inline">f</span>, denoted <span class="math inline">D_{\mathbf{u}} f</span>, is another scalar-valued multivariate function that takes <span class="math inline">\mathbf{x} \in \mathbb{R}^{n}</span> as the input and outputs the <strong>directional derivative</strong> of the function with respect to <span class="math inline">\mathbf{u}</span> at point <span class="math inline">\mathbf{x}</span>:</p>
 <p><span class="math display">
-\mathbf{A} = \mathbf{P} \Lambda \mathbf{P}^{-1}
+D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h \lVert \mathbf{u} \rVert}.
 </span></p>
-<p>where <span class="math inline">\Lambda</span> is a diagonal matrix.</p>
-<section id="diagonalization-and-eigensystems" class="level3">
-<h3 class="anchored" data-anchor-id="diagonalization-and-eigensystems">Diagonalization and eigensystems</h3>
-<p>A square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is diagonalizable if and only if <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors. That is,</p>
+<p>If the given vector <span class="math inline">\mathbf{u}</span> is a unit vector (<span class="math inline">\lVert \mathbf{u} \rVert = 1</span>), the directional derivative function is simplified to</p>
 <p><span class="math display">
-\mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
+D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h}.
 </span></p>
-<p>or</p>
+<p>The directional derivative of <span class="math inline">f</span> with respect to the vector <span class="math inline">\mathbf{u}</span> at the point <span class="math inline">\mathbf{x}</span> represents the rate of change of <span class="math inline">f</span> at <span class="math inline">\mathbf{x}</span> in the positive direction of <span class="math inline">\mathbf{u}</span>.</p>
+<section id="reparameterization-of-directional-derivatives" class="level4">
+<h4 class="anchored" data-anchor-id="reparameterization-of-directional-derivatives">Reparameterization of directional derivatives</h4>
+<p>Given the vectors <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{u}</span>, the univariate function</p>
 <p><span class="math display">
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{\Lambda},
+g (\epsilon) = f (\mathbf{x} + \epsilon \mathbf{u})
 </span></p>
-<p>where</p>
-<ul>
-<li><p>the columns of <span class="math inline">\mathbf{P} \in \mathbb{R}^{n \times n}</span> are <span class="math inline">n</span> linearly independent eigenvectors,</p></li>
-<li><p>the diagonal values of <span class="math inline">\mathbf{\Lambda}</span> are corresponding eigenvalues.</p></li>
-</ul>
+<p>describes the values of <span class="math inline">f</span> along a particular line that starts from the point <span class="math inline">\mathbf{x}</span> and goes in the direction of the vector <span class="math inline">\mathbf{u}</span>.</p>
+<p>The derivative of function <span class="math inline">g</span> at point <span class="math inline">\epsilon = 0</span> gives the rate of change of <span class="math inline">g</span> at point <span class="math inline">0</span> and also the rate of change of <span class="math inline">f</span> at <span class="math inline">\mathbf{x}</span> in the direction of <span class="math inline">\mathbf{u}</span>, which is exactly the directional derivative:</p>
+<p><span class="math display">
+D_{u} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{d}{d \epsilon} g (\epsilon) \Big|_{\epsilon = 0} = \frac{d}{d \epsilon} f (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
+</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -605,51 +619,228 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We first prove that If <span class="math inline">\mathbf{A}</span> is diagonalizable, then <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors.</p>
-<p>First note that</p>
 <p><span class="math display">
 \begin{aligned}
-\mathbf{A}
-&amp; = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
+\frac{d g}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
+&amp; = \lim_{h \rightarrow 0} \frac{c (\epsilon + h) - c (\epsilon)}{h} \Big|_{\epsilon = 0}
 \\
-\mathbf{A} \mathbf{P}
-&amp; = \mathbf{P} \mathbf{\Lambda}
+&amp; = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + (\epsilon + h) \mathbf{u}) - f (\mathbf{x} + \epsilon \mathbf{u})}{h} \Big|_{\epsilon = 0}
 \\
+&amp; = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h}
+\\
+&amp; = D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert.
 \end{aligned}
 </span></p>
-<p>Since <span class="math inline">\mathbf{\Lambda}</span> is a diagonal matrix with <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> on its diagonal,</p>
+</div>
+</div>
+</div>
+<p>This observation provides an alternative way to compute a directional derivative that only requires computing an ordinary derivative.</p>
+</section>
+</section>
+<section id="partial-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="partial-derivatives">Partial derivatives</h3>
+<p>The <strong>partial derivative function</strong> of a multivariate function <span class="math inline">f</span> with respect to a dimension <span class="math inline">i</span>, denoted as <span class="math inline">\frac{\partial f}{\partial x_{i}}</span>, is a special case of the directional derivative function, where the given vector <span class="math inline">\mathbf{u}</span> must be a standard basis vector <span class="math inline">\mathbf{e}_{i}</span> of the dimension <span class="math inline">i</span>:</p>
 <p><span class="math display">
-\mathbf{A} \mathbf{P}_{*, i} = \mathbf{P}_{*, i} \lambda_{i} = \lambda_{i} \mathbf{P}_{*, i}.
+\frac{\partial f}{\partial x_{i}} (\mathbf{x}) = D_{\mathbf{e}_{i}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{e}_{i}) - f (\mathbf{x})}{h}.
 </span></p>
-<p>Thus, <span class="math inline">(\lambda, \mathbf{P}_{*, i})</span> is an eigenpair of <span class="math inline">\mathbf{A}</span>, and <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> such eigenpairs.</p>
-<p>Since <span class="math inline">\mathbf{P}</span> is non-singular (full-rank), <span class="math inline">\mathbf{P}</span> has independent columns. Thus, <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> independent eigenvectors.</p>
-<p>Then we prove that if <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> linearly independent eigenvectors, then <span class="math inline">\mathbf{A}</span> is diagonalizable.</p>
-<p>Assume the columns of <span class="math inline">\mathbf{P} \in \mathbf{C}^{n \times n}</span> are the eigenvectors of <span class="math inline">\mathbf{A}</span>, and <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> are corresponding eigenvalues,</p>
+<p>The partial derivative of <span class="math inline">f</span> with respect to <span class="math inline">\mathbf{e}_{i}</span> at <span class="math inline">\mathbf{x}</span> gives the rate of the change of the function at <span class="math inline">\mathbf{x}</span> along the direction of the <span class="math inline">i</span>th dimension of the vector space.</p>
+<p>The partial derivative <span class="math inline">\frac{\partial f}{\partial x_{i}} (\mathbf{x})</span> can be calculated using the ordinary derivative</p>
 <p><span class="math display">
-\mathbf{A} \mathbf{P}_{*, i} = \lambda_{i} \mathbf{P}_{*, i} \quad \forall i = 1, \dots, n.
+\frac{\partial f}{\partial x_{i}} (\mathbf{x}) = \frac{d f |_{\mathbf{x}}}{d x_{i}} (x_{i})
 </span></p>
-<p>By rewriting <span class="math inline">\lambda_{1}, \dots, \lambda_{n}</span> as diagonals for the diagonal matrix <span class="math inline">\mathbf{\Lambda}</span>,</p>
+<p>where <span class="math inline">f |_{\mathbf{x}} (x_{i})</span> is a univariate function obtained by setting all variables except <span class="math inline">x_{i}</span> in <span class="math inline">f</span> as constants.</p>
+</section>
+<section id="gradients" class="level3">
+<h3 class="anchored" data-anchor-id="gradients">Gradients</h3>
+<p>The <strong>gradient function</strong> of a multivariate function <span class="math inline">f</span>, denoted as <span class="math inline">\nabla f</span>, is a vector-valued function, where each element in the output vector is the partial derivative of <span class="math inline">f</span> with respect to all standard basis vectors</p>
 <p><span class="math display">
-\mathbf{A} \mathbf{P} = \mathbf{P} \mathbf{\Lambda}.
+\nabla f (\mathbf{x}) =
+\begin{bmatrix}
+\frac{\partial f}{\partial x_{1}} (\mathbf{x}) \\
+\vdots \\
+\frac{\partial f}{\partial x_{n}} (\mathbf{x})
+\end{bmatrix}.
 </span></p>
-<p>Since the columns of the <span class="math inline">\mathbf{P}</span> are linearly independent, <span class="math inline">\mathbf{P}</span> has full rank and thus there exists the inverse of <span class="math inline">\mathbf{P}</span></p>
+<p>The directional derivative with respect to any non-zero vector <span class="math inline">\mathbf{u}</span> of function <span class="math inline">f</span> at point <span class="math inline">\mathbf{x}</span> can be readily calculated using its gradient as follows:</p>
+<p><span class="math display">
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the Reparameterization of directional derivative, we can write the directional derivative as</p>
+<p><span class="math display">
+D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{d f}{d \epsilon} (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
+</span></p>
+<p>By using the chain rule and writing <span class="math inline">\mathbf{g} (\epsilon) = \mathbf{x} + \epsilon \mathbf{u}</span>, we can also see that the derivative of the univariate function <span class="math inline">f (\mathbf{x} + \epsilon \mathbf{u})</span> at point <span class="math inline">\epsilon = 0</span> can be written as</p>
 <p><span class="math display">
 \begin{aligned}
-\mathbf{A} \mathbf{P}
-&amp; = \mathbf{P} \mathbf{\Lambda}
+\frac{d f}{d \epsilon} (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}
+&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial g_{i} (\epsilon)} (\mathbf{g} (\epsilon)) \frac{d g_{i}}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
 \\
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P}
-&amp; = \mathbf{\Lambda}
+&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial (x_{i} + \epsilon u_{i})} (\mathbf{x} + \epsilon \mathbf{u}) \frac{d (x_{i} + \epsilon u_{i})}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
+\\
+&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial (x_{i} + \epsilon u_{i})} (\mathbf{x} + \epsilon \mathbf{u}) u_{i} \Big|_{\epsilon = 0}
+\\
+&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial x_{i}} (\mathbf{x}) u_{i}
+\\
+&amp; = \nabla f (\mathbf{x}) \cdot \mathbf{u}.
 \end{aligned}
 </span></p>
-<p>which shows that <span class="math inline">\mathbf{A}</span> is similar to <span class="math inline">\mathbf{\Lambda}</span> and thus is diagonalizable.</p>
+<p>Thus,</p>
+<p><span class="math display">
+\begin{aligned}
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}.
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+<p>It turns out that the directional derivative of function <span class="math inline">f</span> at point <span class="math inline">\mathbf{x}</span> with respect to the direction of the gradient vector is the largest. That is, the gradient of <span class="math inline">f</span> at point <span class="math inline">\mathbf{x}</span> is the direction of steepest ascent along the function surface at the point <span class="math inline">\mathbf{x}</span></p>
+<p><span class="math display">
+\nabla f (\mathbf{x}) = \arg\max_{\mathbf{u}} D_{\mathbf{u}} f (\mathbf{x}).
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>According to the definition of a dot product,</p>
+<p><span class="math display">
+\begin{aligned}
+D_{\mathbf{u}} f (\mathbf{x})
+&amp; = \frac{
+\nabla f (\mathbf{x}) \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}
+\\
+&amp; = \frac{\lVert \nabla f (\mathbf{x}) \rVert \lVert \mathbf{u} \rVert \cos (\theta)}{\lVert \mathbf{u} \rVert}
+\\
+&amp; = \lVert \nabla f (\mathbf{x}) \rVert \cos (\theta)
+\end{aligned}
+</span></p>
+<p>where <span class="math inline">\theta</span> is the angle between the vector <span class="math inline">\nabla f(x)</span> and <span class="math inline">\mathbf{u}</span>.</p>
+<p>Since <span class="math inline">\lVert \nabla f (\mathbf{x}) \rVert</span> is fixed given <span class="math inline">\mathbf{x}</span>,</p>
+<p><span class="math display">
+\max_{\mathbf{u}} D_{\mathbf{u}} f (\mathbf{x}) = \max_{\theta} \cos (\theta),
+</span></p>
+<p>which is maximized when <span class="math inline">\mathbf{u}</span> has the same direction as <span class="math inline">\nabla f (\mathbf{x})</span>.</p>
+</div>
+</div>
+</div>
+<p>The directional derivative of the function <span class="math inline">f</span> with respect to the direction of the gradient vector <span class="math inline">\nabla f (\mathbf{x})</span> at point <span class="math inline">\mathbf{x}</span> is the magnitude of the gradient vector</p>
+<p><span class="math display">
+D_{\nabla f (\mathbf{x})} f (\mathbf{x}) = \lVert \nabla f (\mathbf{x}) \rVert.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Replacing the <span class="math inline">\mathbf{u}</span> with <span class="math inline">\nabla f (\mathbf{x})</span> in the equation</p>
+<p><span class="math display">
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}
+</span></p>
+<p>to get</p>
+<p><span class="math display">
+\begin{aligned}
+D_{\nabla f (\mathbf{x})} f (\mathbf{x})
+&amp; = \nabla f (\mathbf{x}) \cdot \frac{\nabla f (\mathbf{x})}{\lVert \nabla f (\mathbf{x}) \rVert}
+\\
+&amp; = \frac{\lVert \nabla f (\mathbf{x}) \rVert^{2}}{\lVert \nabla f (\mathbf{x}) \rVert}
+\\
+&amp; = \lVert \nabla f (\mathbf{x}) \rVert.
+\end{aligned}
+</span></p>
 </div>
 </div>
 </div>
 </section>
-<section id="diagonalizability-and-multiplicities" class="level3">
-<h3 class="anchored" data-anchor-id="diagonalizability-and-multiplicities">Diagonalizability and multiplicities</h3>
-<p>TODO</p>
+</section>
+<section id="derivatives-for-vector-valued-functions" class="level2">
+<h2 class="anchored" data-anchor-id="derivatives-for-vector-valued-functions">Derivatives for vector-valued functions</h2>
+<p>Since the vector-valued functions are just the vector version of their corresponding scalar-valued functions, all types of derivatives for vector-valued functions are the vectorized versions of their corresponding derivatives for the scalar-valued functions.</p>
+<ul>
+<li><p>Ordinary derivative functions</p>
+<p><span class="math display">
+  \mathbf{f}' (x) = \frac{ \mathop{d} \mathbf{f} }{ \mathop{d} x } (x) =
+  \begin{bmatrix}
+  f_{1}' (x) \\
+  \vdots \\
+  f_{m}' (x) \\
+  \end{bmatrix}.
+  </span></p></li>
+<li><p>Directional derivative functions</p>
+<p><span class="math display">
+  D_{\mathbf{u}} \mathbf{f} (\mathbf{x}) =
+  \begin{bmatrix}
+  D_{\mathbf{u}} f_{1} (\mathbf{x}) \\
+  \vdots \\
+  D_{\mathbf{u}} f_{m} (\mathbf{x}) \\
+  \end{bmatrix}.
+  </span></p></li>
+<li><p>Jacobian matrix</p>
+<p><span class="math display">
+  \mathbf{J} \mathbf{f} (\mathbf{x}) = \begin{bmatrix}
+  - &amp; \nabla^{T} f_{1} (\mathbf{x}) &amp; - \\
+  &amp; \vdots &amp; \\
+  - &amp; \nabla^{T} f_{m} (\mathbf{x}) &amp; - \\
+  \end{bmatrix} = \begin{bmatrix}
+  \frac{\partial f_{1}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{1}}{x_{n}} (\mathbf{x}) \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \frac{\partial f_{m}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{m}}{x_{n}} (\mathbf{x}) \\
+  \end{bmatrix}
+  = \begin{bmatrix}
+  | &amp; &amp; | \\
+  \nabla f_{1} (\mathbf{x}) &amp; \dots &amp; \nabla f_{m} (\mathbf{x}) \\
+  | &amp; &amp; | \\
+  \end{bmatrix}^{T}
+  </span></p></li>
+</ul>
+</section>
+<section id="functional-derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="functional-derivatives">Functional Derivatives</h2>
+<section id="function-of-functions" class="level3">
+<h3 class="anchored" data-anchor-id="function-of-functions">Function of functions</h3>
+<p>A function <span class="math inline">f</span> itself can be viewed as an infinite-dimensional vector</p>
+<p><span class="math display">
+D_{u} F [f] = \lim_{h \rightarrow 0} \frac{F [f + h u] - F [f]}{h}
+</span></p>
+<p>Using a similar trick used in equation <a href="derivative"></a>, we can see that</p>
+<p><span class="math display">
+\begin{aligned}
+D_{u} F [f]
+&amp; = D_{u} F [f + \epsilon u] \Big|_{\epsilon = 0}
+\\
+&amp; = \lim_{h \rightarrow 0} \frac{F [f + \epsilon u + h u] - F [f + \epsilon u]}{h} \Big|_{\epsilon = 0}
+\\
+&amp; = \lim_{h \rightarrow 0} \frac{F [f + (\epsilon + h) u] - F [f + \epsilon u]}{h} \Big|_{\epsilon = 0}
+\\
+&amp; = \frac{d}{d \epsilon} F [f + \epsilon u] \Big|_{\epsilon = 0}
+\\
+\end{aligned}
+</span></p>
 
 
 </section>
@@ -891,13 +1082,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Linear Algebra/12_Determinants_and_Eigensystems.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></span>
+      <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Calculus/Chain_Rule.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
