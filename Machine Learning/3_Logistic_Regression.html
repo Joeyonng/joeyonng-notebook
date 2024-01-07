@@ -713,7 +713,7 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 &amp; = \sigma (f (\mathbf{x}))
 \end{aligned}
 </span></p>
-<p>where $f () = ( <em>{0} - </em>{1} + d_{} (, ) - d_{} (, ) + 2 ) $ and <span class="math inline">\alpha_{i} = \log \left(  (2 \pi)^{d} \lvert \boldsymbol{\Sigma}_{i} \rvert \right)</span>.</p>
+<p>where <span class="math inline">f (\mathbf{x}) = \frac{1}{2} \left(  \alpha_{0} - \alpha_{1}  + d_{\boldsymbol{\Sigma_{0}}} (\mathbf{x}, \boldsymbol{\mu_{0}})  - d_{\boldsymbol{\Sigma_{1}}} (\mathbf{x}, \boldsymbol{\mu_{1}})  + 2 \log \frac{\mathbb{P}_{Y} (1)}{\mathbb{P}_{Y} (0)} \right)</span> and <span class="math inline">\alpha_{i} = \log \left(  (2 \pi)^{d} \lvert \boldsymbol{\Sigma}_{i} \rvert \right)</span>.</p>
 </section>
 <section id="linear-function" class="level3">
 <h3 class="anchored" data-anchor-id="linear-function">Linear function</h3>
@@ -1045,7 +1045,14 @@ y_{n} \\
 <ol type="1">
 <li><p>Calculate the gradient <span class="math inline">\nabla R (\hat{\mathbf{w}})</span></p>
 <p><span class="math display">
-\nabla R (\hat{\mathbf{w}}) =
+\nabla R (\hat{\mathbf{w}}) = \mathbf{X} \left(
+     \mathbf{y} - \sigma (\mathbf{X}^{T} \hat{\mathbf{w}})
+\right)
+</span></p>
+<p>where <span class="math inline">\mathbf{X}^{T} \hat{\mathbf{w}} = \mathbf{z}</span> is the output vector from the linear model for instances in <span class="math inline">\mathbf{X}</span>.</p></li>
+<li><p>Update the weights vector <span class="math inline">\hat{\mathbf{w}}</span></p>
+<p><span class="math display">
+\hat{\mathbf{w}} = \hat{\mathbf{w}} - \eta \nabla R (\hat{\mathbf{w}}).
 </span></p></li>
 </ol></li>
 </ol>
