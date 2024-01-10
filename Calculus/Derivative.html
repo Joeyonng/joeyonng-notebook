@@ -539,9 +539,9 @@ f_{m} \\
 </section>
 <section id="scalar-valued-univariate-ordinary-derivatives" class="level2">
 <h2 class="anchored" data-anchor-id="scalar-valued-univariate-ordinary-derivatives">Scalar-valued univariate (ordinary) derivatives</h2>
-<p>The <strong>derivative function</strong> of a univariate scalar-valued function <span class="math inline">f</span>, denoted <span class="math inline">\frac{d f}{d x}</span> or <span class="math inline">f'</span>, is another univariate scalar-valued function that takes <span class="math inline">x</span> as the input and outputs the <strong>derivative</strong> of the function at point <span class="math inline">x</span>:</p>
+<p>The <strong>derivative function</strong> of a univariate scalar-valued function <span class="math inline">f</span>, denoted <span class="math inline">\frac{ d f }{ d x }</span> or <span class="math inline">f'</span>, is another univariate scalar-valued function that takes <span class="math inline">x</span> as the input and outputs the <strong>derivative</strong> of the function at point <span class="math inline">x</span>:</p>
 <p><span class="math display">
-f' (x) = \frac{d f}{d x} (x) = \lim_{h \rightarrow 0} \frac{f (x + h) - f (x)}{h}.
+f' (x) = \frac{ d f }{ d x } (x) = \lim_{h \rightarrow 0} \frac{ f (x + h) - f (x) }{ h }.
 </span></p>
 <p>The derivative of <span class="math inline">f</span> at point <span class="math inline">x</span> is the slope of the tangent line to the function <span class="math inline">f</span> at the point <span class="math inline">x</span>, which also represents the rate of the change of <span class="math inline">f</span> at <span class="math inline">x</span> in the positive (increasing) direction.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -570,12 +570,12 @@ y_{2} - y_{1}
 &amp; = k (x_{2} - x_{1})
 \\
 k
-&amp; = \frac{y_{2} - y_{1}}{x_{2} - x_{1}}.
+&amp; = \frac{ y_{2} - y_{1} }{ x_{2} - x_{1} }.
 \end{aligned}
 </span></p>
 <p>Thus, if we set <span class="math inline">x' = x + h</span>, the equation</p>
 <p><span class="math display">
-\frac{f (x + h) - f (x)}{h} = \frac{f (x') - f(x)}{x' - x}
+\frac{ f (x + h) - f (x) }{ h } = \frac{ f (x') - f(x) }{ x' - x }
 </span></p>
 <p>represents the the slope of the line connecting the points <span class="math inline">(x', f (x'))</span> and <span class="math inline">(x, f(x))</span>.</p>
 <p>As <span class="math inline">h</span> getting smaller, the line connecting the points <span class="math inline">(x', f (x'))</span> and <span class="math inline">(x, f(x))</span> is becoming the tangent line of <span class="math inline">f(x)</span> at point <span class="math inline">x</span>.</p>
@@ -589,11 +589,19 @@ k
 <h3 class="anchored" data-anchor-id="directional-derivatives">Directional derivatives</h3>
 <p>Given a non-zero vector <span class="math inline">\mathbf{u} \in \mathbb{R}^{n}</span>, the <strong>directional derivative function</strong> of a scalar-valued multivariate function <span class="math inline">f</span>, denoted <span class="math inline">D_{\mathbf{u}} f</span>, is another scalar-valued multivariate function that takes <span class="math inline">\mathbf{x} \in \mathbb{R}^{n}</span> as the input and outputs the <strong>directional derivative</strong> of the function with respect to <span class="math inline">\mathbf{u}</span> at point <span class="math inline">\mathbf{x}</span>:</p>
 <p><span class="math display">
-D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h \lVert \mathbf{u} \rVert}.
+D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{
+    f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})
+}{
+    h \lVert \mathbf{u} \rVert
+}.
 </span></p>
 <p>If the given vector <span class="math inline">\mathbf{u}</span> is a unit vector (<span class="math inline">\lVert \mathbf{u} \rVert = 1</span>), the directional derivative function is simplified to</p>
 <p><span class="math display">
-D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h}.
+D_{\mathbf{u}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{
+    f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})
+}{
+    h
+}.
 </span></p>
 <p>The directional derivative of <span class="math inline">f</span> with respect to the vector <span class="math inline">\mathbf{u}</span> at the point <span class="math inline">\mathbf{x}</span> represents the rate of change of <span class="math inline">f</span> at <span class="math inline">\mathbf{x}</span> in the positive direction of <span class="math inline">\mathbf{u}</span>.</p>
 <section id="reparameterization-of-directional-derivatives" class="level4">
@@ -605,7 +613,11 @@ g (\epsilon) = f (\mathbf{x} + \epsilon \mathbf{u})
 <p>describes the values of <span class="math inline">f</span> along a particular line that starts from the point <span class="math inline">\mathbf{x}</span> and goes in the direction of the vector <span class="math inline">\mathbf{u}</span>.</p>
 <p>The derivative of function <span class="math inline">g</span> at point <span class="math inline">\epsilon = 0</span> gives the rate of change of <span class="math inline">g</span> at point <span class="math inline">0</span> and also the rate of change of <span class="math inline">f</span> at <span class="math inline">\mathbf{x}</span> in the direction of <span class="math inline">\mathbf{u}</span>, which is exactly the directional derivative:</p>
 <p><span class="math display">
-D_{u} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{d}{d \epsilon} g (\epsilon) \Big|_{\epsilon = 0} = \frac{d}{d \epsilon} f (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
+D_{u} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{ d }{
+    d \epsilon
+} g (\epsilon) \Big|_{\epsilon = 0} = \frac{ d }{
+    d \epsilon
+} f (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
 </span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -621,12 +633,24 @@ Proof
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 \begin{aligned}
-\frac{d g}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
-&amp; = \lim_{h \rightarrow 0} \frac{c (\epsilon + h) - c (\epsilon)}{h} \Big|_{\epsilon = 0}
+\frac{ d g }{ d \epsilon } (\epsilon) \Big|_{\epsilon = 0}
+&amp; = \lim_{h \rightarrow 0} \frac{
+    c (\epsilon + h) - c (\epsilon)
+}{
+    h
+} \Big|_{\epsilon = 0}
 \\
-&amp; = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + (\epsilon + h) \mathbf{u}) - f (\mathbf{x} + \epsilon \mathbf{u})}{h} \Big|_{\epsilon = 0}
+&amp; = \lim_{h \rightarrow 0} \frac{
+    f (\mathbf{x} + (\epsilon + h) \mathbf{u}) - f (\mathbf{x} + \epsilon \mathbf{u})
+}{
+    h
+} \Big|_{\epsilon = 0}
 \\
-&amp; = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})}{h}
+&amp; = \lim_{h \rightarrow 0} \frac{
+    f (\mathbf{x} + h \mathbf{u}) - f (\mathbf{x})
+}{
+    h
+}
 \\
 &amp; = D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert.
 \end{aligned}
@@ -639,14 +663,26 @@ Proof
 </section>
 <section id="partial-derivatives" class="level3">
 <h3 class="anchored" data-anchor-id="partial-derivatives">Partial derivatives</h3>
-<p>The <strong>partial derivative function</strong> of a multivariate function <span class="math inline">f</span> with respect to a dimension <span class="math inline">i</span>, denoted as <span class="math inline">\frac{\partial f}{\partial x_{i}}</span>, is a special case of the directional derivative function, where the given vector <span class="math inline">\mathbf{u}</span> must be a standard basis vector <span class="math inline">\mathbf{e}_{i}</span> of the dimension <span class="math inline">i</span>:</p>
+<p>The <strong>partial derivative function</strong> of a multivariate function <span class="math inline">f</span> with respect to a dimension <span class="math inline">i</span>, denoted as <span class="math inline">\frac{ \partial f }{ \partial x_{i} }</span>, is a special case of the directional derivative function, where the given vector <span class="math inline">\mathbf{u}</span> must be a standard basis vector <span class="math inline">\mathbf{e}_{i}</span> of the dimension <span class="math inline">i</span>:</p>
 <p><span class="math display">
-\frac{\partial f}{\partial x_{i}} (\mathbf{x}) = D_{\mathbf{e}_{i}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{f (\mathbf{x} + h \mathbf{e}_{i}) - f (\mathbf{x})}{h}.
+\frac{
+    \partial f
+}{
+    \partial x_{i}
+} (\mathbf{x}) = D_{\mathbf{e}_{i}} f (\mathbf{x}) = \lim_{h \rightarrow 0} \frac{
+    f (\mathbf{x} + h \mathbf{e}_{i}) - f (\mathbf{x})
+}{ h }.
 </span></p>
 <p>The partial derivative of <span class="math inline">f</span> with respect to <span class="math inline">\mathbf{e}_{i}</span> at <span class="math inline">\mathbf{x}</span> gives the rate of the change of the function at <span class="math inline">\mathbf{x}</span> along the direction of the <span class="math inline">i</span>th dimension of the vector space.</p>
-<p>The partial derivative <span class="math inline">\frac{\partial f}{\partial x_{i}} (\mathbf{x})</span> can be calculated using the ordinary derivative</p>
+<p>The partial derivative <span class="math inline">\frac{ \partial f }{ \partial x_{i} } (\mathbf{x})</span> can be calculated using the ordinary derivative</p>
 <p><span class="math display">
-\frac{\partial f}{\partial x_{i}} (\mathbf{x}) = \frac{d f |_{\mathbf{x}}}{d x_{i}} (x_{i})
+\frac{
+    \partial f
+}{
+    \partial x_{i}
+} (\mathbf{x}) = \frac{
+    d f |_{\mathbf{x}}
+}{ d x_{i} } (x_{i})
 </span></p>
 <p>where <span class="math inline">f |_{\mathbf{x}} (x_{i})</span> is a univariate function obtained by setting all variables except <span class="math inline">x_{i}</span> in <span class="math inline">f</span> as constants.</p>
 </section>
@@ -656,14 +692,18 @@ Proof
 <p><span class="math display">
 \nabla f (\mathbf{x}) =
 \begin{bmatrix}
-\frac{\partial f}{\partial x_{1}} (\mathbf{x}) \\
+\frac{ \partial f }{ \partial x_{1} } (\mathbf{x}) \\
 \vdots \\
-\frac{\partial f}{\partial x_{n}} (\mathbf{x})
+\frac{ \partial f }{ \partial x_{n} } (\mathbf{x})
 \end{bmatrix}.
 </span></p>
 <p>The directional derivative with respect to any non-zero vector <span class="math inline">\mathbf{u}</span> of function <span class="math inline">f</span> at point <span class="math inline">\mathbf{x}</span> can be readily calculated using its gradient as follows:</p>
 <p><span class="math display">
-D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}.
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{
+    \mathbf{u}
+}{
+    \lVert \mathbf{u} \rVert
+}.
 </span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -679,19 +719,43 @@ Proof
 <div class="callout-body-container callout-body">
 <p>Using the Reparameterization of directional derivative, we can write the directional derivative as</p>
 <p><span class="math display">
-D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{d f}{d \epsilon} (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
+D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{
+    d f
+}{
+    d \epsilon
+} (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}.
 </span></p>
 <p>By using the chain rule and writing <span class="math inline">\mathbf{g} (\epsilon) = \mathbf{x} + \epsilon \mathbf{u}</span>, we can also see that the derivative of the univariate function <span class="math inline">f (\mathbf{x} + \epsilon \mathbf{u})</span> at point <span class="math inline">\epsilon = 0</span> can be written as</p>
 <p><span class="math display">
 \begin{aligned}
-\frac{d f}{d \epsilon} (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}
-&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial g_{i} (\epsilon)} (\mathbf{g} (\epsilon)) \frac{d g_{i}}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
+\frac{ d f }{ d \epsilon } (\mathbf{x} + \epsilon \mathbf{u}) \Big|_{\epsilon = 0}
+&amp; = \sum_{i=1}^{m} \frac{
+    \partial f
+}{
+    \partial g_{i} (\epsilon)
+} (\mathbf{g} (\epsilon)) \frac{
+    d g_{i}
+}{
+    d \epsilon
+} (\epsilon) \Big|_{\epsilon = 0}
 \\
-&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial (x_{i} + \epsilon u_{i})} (\mathbf{x} + \epsilon \mathbf{u}) \frac{d (x_{i} + \epsilon u_{i})}{d \epsilon} (\epsilon) \Big|_{\epsilon = 0}
+&amp; = \sum_{i=1}^{m} \frac{
+    \partial f
+}{
+    \partial (x_{i} + \epsilon u_{i})
+} (\mathbf{x} + \epsilon \mathbf{u}) \frac{
+    d (x_{i} + \epsilon u_{i})
+}{
+    d \epsilon
+} (\epsilon) \Big|_{\epsilon = 0}
 \\
-&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial (x_{i} + \epsilon u_{i})} (\mathbf{x} + \epsilon \mathbf{u}) u_{i} \Big|_{\epsilon = 0}
+&amp; = \sum_{i=1}^{m} \frac{
+    \partial f
+}{
+    \partial (x_{i} + \epsilon u_{i})
+} (\mathbf{x} + \epsilon \mathbf{u}) u_{i} \Big|_{\epsilon = 0}
 \\
-&amp; = \sum_{i=1}^{m} \frac{\partial f}{\partial x_{i}} (\mathbf{x}) u_{i}
+&amp; = \sum_{i=1}^{m} \frac{ \partial f }{ \partial x_{i} } (\mathbf{x}) u_{i}
 \\
 &amp; = \nabla f (\mathbf{x}) \cdot \mathbf{u}.
 \end{aligned}
@@ -699,7 +763,11 @@ D_{\mathbf{u}} f (\mathbf{x}) \lVert \mathbf{u} \rVert = \frac{d f}{d \epsilon} 
 <p>Thus,</p>
 <p><span class="math display">
 \begin{aligned}
-D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}.
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{
+    \mathbf{u}
+}{
+    \lVert \mathbf{u} \rVert
+}.
 \end{aligned}
 </span></p>
 </div>
@@ -726,9 +794,16 @@ Proof
 \begin{aligned}
 D_{\mathbf{u}} f (\mathbf{x})
 &amp; = \frac{
-\nabla f (\mathbf{x}) \cdot \mathbf{u}}{\lVert \mathbf{u} \rVert}
+    \nabla f (\mathbf{x}) \cdot \mathbf{u}
+}{
+    \lVert \mathbf{u} \rVert
+}
 \\
-&amp; = \frac{\lVert \nabla f (\mathbf{x}) \rVert \lVert \mathbf{u} \rVert \cos (\theta)}{\lVert \mathbf{u} \rVert}
+&amp; = \frac{
+    \lVert \nabla f (\mathbf{x}) \rVert \lVert \mathbf{u} \rVert \cos (\theta)
+}{
+    \lVert \mathbf{u} \rVert
+}
 \\
 &amp; = \lVert \nabla f (\mathbf{x}) \rVert \cos (\theta)
 \end{aligned}
@@ -760,15 +835,27 @@ Proof
 <div class="callout-body-container callout-body">
 <p>Replacing the <span class="math inline">\mathbf{u}</span> with <span class="math inline">\nabla f (\mathbf{x})</span> in the equation</p>
 <p><span class="math display">
-D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{\mathbf{u}}{\lVert \mathbf{u} \rVert}
+D_{\mathbf{u}} f (\mathbf{x}) = \nabla f (\mathbf{x}) \cdot \frac{
+    \mathbf{u}
+}{
+    \lVert \mathbf{u} \rVert
+}
 </span></p>
 <p>to get</p>
 <p><span class="math display">
 \begin{aligned}
 D_{\nabla f (\mathbf{x})} f (\mathbf{x})
-&amp; = \nabla f (\mathbf{x}) \cdot \frac{\nabla f (\mathbf{x})}{\lVert \nabla f (\mathbf{x}) \rVert}
+&amp; = \nabla f (\mathbf{x}) \cdot \frac{
+    \nabla f (\mathbf{x})
+}{
+    \lVert \nabla f (\mathbf{x}) \rVert
+}
 \\
-&amp; = \frac{\lVert \nabla f (\mathbf{x}) \rVert^{2}}{\lVert \nabla f (\mathbf{x}) \rVert}
+&amp; = \frac{
+    \lVert \nabla f (\mathbf{x}) \rVert^{2}
+}{
+    \lVert \nabla f (\mathbf{x}) \rVert
+}
 \\
 &amp; = \lVert \nabla f (\mathbf{x}) \rVert.
 \end{aligned}
@@ -800,22 +887,22 @@ D_{\nabla f (\mathbf{x})} f (\mathbf{x})
   D_{\mathbf{u}} f_{m} (\mathbf{x}) \\
   \end{bmatrix}.
   </span></p></li>
-<li><p>Jacobian matrix, which is the matrix whose row <span class="math inline">i</span> is the transposed gradient of the scalar-valued function <span class="math inline">i</span></p>
+<li><p>Jacobian matrix, whose row <span class="math inline">i</span> is the transposed gradient of the scalar-valued function <span class="math inline">f_{i}</span> w.r.t <span class="math inline">\mathbf{x}</span></p>
 <p><span class="math display">
   \mathbf{J} \mathbf{f} (\mathbf{x}) = \begin{bmatrix}
   - &amp; \nabla^{T} f_{1} (\mathbf{x}) &amp; - \\
   &amp; \vdots &amp; \\
   - &amp; \nabla^{T} f_{m} (\mathbf{x}) &amp; - \\
   \end{bmatrix} = \begin{bmatrix}
-  \frac{\partial f_{1}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{1}}{x_{n}} (\mathbf{x}) \\
+  \frac{ \partial f_{1} }{ \partial x_{1} } (\mathbf{x}) &amp; \dots &amp; \frac{ \partial f_{1} }{ \partial x_{n} } (\mathbf{x}) \\
   \vdots &amp; \ddots &amp; \vdots \\
-  \frac{\partial f_{m}}{x_{1}} (\mathbf{x}) &amp; \dots &amp; \frac{\partial f_{m}}{x_{n}} (\mathbf{x}) \\
+  \frac{ \partial f_{m} }{ \partial x_{1} } (\mathbf{x}) &amp; \dots &amp; \frac{ \partial f_{m} }{ \partial x_{n} } (\mathbf{x}) \\
   \end{bmatrix}
   = \begin{bmatrix}
   | &amp; &amp; | \\
   \nabla f_{1} (\mathbf{x}) &amp; \dots &amp; \nabla f_{m} (\mathbf{x}) \\
   | &amp; &amp; | \\
-  \end{bmatrix}^{T}
+  \end{bmatrix}^{T}.
   </span></p></li>
 </ul>
 </section>
@@ -825,7 +912,7 @@ D_{\nabla f (\mathbf{x})} f (\mathbf{x})
 <h3 class="anchored" data-anchor-id="function-of-functions">Function of functions</h3>
 <p>A function <span class="math inline">f</span> itself can be viewed as an infinite-dimensional vector</p>
 <p><span class="math display">
-D_{u} F [f] = \lim_{h \rightarrow 0} \frac{F [f + h u] - F [f]}{h}
+D_{u} F [f] = \lim_{h \rightarrow 0} \frac{ F [f + h u] - F [f] }{ h }
 </span></p>
 <p>Using a similar trick used in equation <a href="derivative"></a>, we can see that</p>
 <p><span class="math display">
@@ -833,11 +920,15 @@ D_{u} F [f] = \lim_{h \rightarrow 0} \frac{F [f + h u] - F [f]}{h}
 D_{u} F [f]
 &amp; = D_{u} F [f + \epsilon u] \Big|_{\epsilon = 0}
 \\
-&amp; = \lim_{h \rightarrow 0} \frac{F [f + \epsilon u + h u] - F [f + \epsilon u]}{h} \Big|_{\epsilon = 0}
+&amp; = \lim_{h \rightarrow 0} \frac{
+    F [f + \epsilon u + h u] - F [f + \epsilon u]
+}{ h } \Big|_{\epsilon = 0}
 \\
-&amp; = \lim_{h \rightarrow 0} \frac{F [f + (\epsilon + h) u] - F [f + \epsilon u]}{h} \Big|_{\epsilon = 0}
+&amp; = \lim_{h \rightarrow 0} \frac{
+    F [f + (\epsilon + h) u] - F [f + \epsilon u]
+}{ h } \Big|_{\epsilon = 0}
 \\
-&amp; = \frac{d}{d \epsilon} F [f + \epsilon u] \Big|_{\epsilon = 0}
+&amp; = \frac{ d }{ d \epsilon } F [f + \epsilon u] \Big|_{\epsilon = 0}
 \\
 \end{aligned}
 </span></p>

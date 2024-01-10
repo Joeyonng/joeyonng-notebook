@@ -477,7 +477,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#preliminary" id="toc-preliminary" class="nav-link active" data-scroll-target="#preliminary">Preliminary</a>
   <ul class="collapse">
-  <li><a href="#statistical-learning" id="toc-statistical-learning" class="nav-link" data-scroll-target="#statistical-learning">Statistical Learning</a></li>
+  <li><a href="#probability-and-statistics" id="toc-probability-and-statistics" class="nav-link" data-scroll-target="#probability-and-statistics">Probability and Statistics</a></li>
+  <li><a href="#learning-theory" id="toc-learning-theory" class="nav-link" data-scroll-target="#learning-theory">Learning Theory</a></li>
   <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a></li>
   </ul></li>
   <li><a href="#logistic-regression-as-a-gaussian-classifier" id="toc-logistic-regression-as-a-gaussian-classifier" class="nav-link" data-scroll-target="#logistic-regression-as-a-gaussian-classifier">Logistic regression as a Gaussian classifier</a>
@@ -500,7 +501,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></h1>
+<h1 class="title"><span id="sec-logistic-regression" class="quarto-section-identifier"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
 </div>
 
 
@@ -517,17 +518,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="preliminary" class="level2">
 <h2 class="anchored" data-anchor-id="preliminary">Preliminary</h2>
-<section id="statistical-learning" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-learning">Statistical Learning</h3>
+<section id="probability-and-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="probability-and-statistics">Probability and Statistics</h3>
 <ul>
-<li><p><a href="bayesian-decision-theory">Bayesian Decision Theory (BDT)</a></p></li>
-<li><p><a href="maximum-likelihood-estimation">Maximum Likelihood Estimation (MLE)</a></p></li>
+<li>Maximum Likelihood Estimation <span class="citation" data-cites="maximum-likelihood-estimation">@maximum-likelihood-estimation</span></li>
+</ul>
+</section>
+<section id="learning-theory" class="level3">
+<h3 class="anchored" data-anchor-id="learning-theory">Learning Theory</h3>
+<ul>
+<li>Bayesian Classifier <span class="citation" data-cites="bayesian-classifier">@bayesian-classifier</span></li>
 </ul>
 </section>
 <section id="supervised-learning" class="level3">
 <h3 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h3>
 <ul>
-<li><a href="linear-discriminant">Linear Discriminant</a></li>
+<li>Linear Discriminant <a href="1_Linear_Discriminant.html"><span>Chapter&nbsp;36</span></a></li>
 </ul>
 </section>
 </section>
@@ -1033,7 +1039,7 @@ y_{n} \\
 \end{bmatrix},
 </span></p>
 <p>then the gradient descent algorithm to learn logistic regression can be stated using the matrix form</p>
-<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -1045,7 +1051,9 @@ y_{n} \\
 <ol type="1">
 <li><p>Calculate the gradient <span class="math inline">\nabla R (\hat{\mathbf{w}})</span></p>
 <p><span class="math display">
-\nabla R (\hat{\mathbf{w}}) = \mathbf{X} \left(
+\nabla R (\hat{\mathbf{w}}) =
+\sum_{i} (\sigma (\hat{\mathbf{w}}^{T} \hat{\mathbf{x}}_{i}) - y_{i}) \hat{\mathbf{x}}_{i} =
+\mathbf{X} \left(
      \mathbf{y} - \sigma (\mathbf{X}^{T} \hat{\mathbf{w}})
 \right)
 </span></p>

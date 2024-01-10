@@ -480,8 +480,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
   </ul></li>
+  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
   <li><a href="#multiplications" id="toc-multiplications" class="nav-link" data-scroll-target="#multiplications">Multiplications</a>
   <ul class="collapse">
+  <li><a href="#inner-product" id="toc-inner-product" class="nav-link" data-scroll-target="#inner-product">Inner product</a></li>
   <li><a href="#sec-matrix-vector-multiplication" id="toc-sec-matrix-vector-multiplication" class="nav-link" data-scroll-target="#sec-matrix-vector-multiplication">Matrix-vector multiplication</a></li>
   <li><a href="#sec-matrix-multiplication" id="toc-sec-matrix-multiplication" class="nav-link" data-scroll-target="#sec-matrix-multiplication">Matrix multiplication</a></li>
   </ul></li>
@@ -588,8 +590,20 @@ x_{i, j} \in \mathbb{F}
 <p>The definition of vector addition, scalar multiplication, zero, and addictive inverse are the same as <span class="math inline">n</span> dimensional column vectors.</p>
 </section>
 </section>
+<section id="transpose" class="level2">
+<h2 class="anchored" data-anchor-id="transpose">Transpose</h2>
+<p>TODO</p>
+</section>
 <section id="multiplications" class="level2">
 <h2 class="anchored" data-anchor-id="multiplications">Multiplications</h2>
+<section id="inner-product" class="level3">
+<h3 class="anchored" data-anchor-id="inner-product">Inner product</h3>
+<p>Given two vectors <span class="math inline">\mathbf{a} \in \mathbb{F}^{n}, \mathbf{b} \in \mathbb{F}^{n}</span> of the same size, the inner product is a function that maps <span class="math inline">\mathbf{a}</span> and <span class="math inline">\mathbf{b}</span> to a field</p>
+<p><span class="math display">
+\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^{T} \mathbf{b} = \sum_{i = 1}^{n} a_{i} b_{i}.
+</span></p>
+<p>Note that this is a special case of the inner product introduced in <a href="06_Inner_Product_and_Norm.html#sec-inner-product"><span>Section&nbsp;6.1</span></a> for the vector vector space.</p>
+</section>
 <section id="sec-matrix-vector-multiplication" class="level3">
 <h3 class="anchored" data-anchor-id="sec-matrix-vector-multiplication">Matrix-vector multiplication</h3>
 <p>Given a matrix <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span>, the matrix-vector multiplication is a function that maps from vector space <span class="math inline">\mathbf{x} \in \mathbb{F}^{n}</span> to <span class="math inline">\mathbf{y} \in \mathbb{F}^{m}</span></p>
@@ -601,11 +615,20 @@ x_{i, j} \in \mathbb{F}
     y_{m} = a_{m, 1} \cdot x_{1} + \dots a_{m, n} \cdot x_{n} \\
 \end{bmatrix}.
 </span></p>
-<p>If we view <span class="math inline">\mathbf{A}</span> as <span class="math inline">n</span> columns of <span class="math inline">\mathbb{F}^{m}</span> vectors,</p>
+<p>If we view <span class="math inline">\mathbf{A}</span> as <span class="math inline">n</span> columns of <span class="math inline">\mathbb{F}^{m}</span> vectors and <span class="math inline">\mathbf{x}</span> as <span class="math inline">n</span> coefficients</p>
 <p><span class="math display">
 \mathbf{A} =
 \begin{bmatrix}
+| &amp; &amp; | \\
 \mathbf{a}_{1} &amp; \dots &amp; \mathbf{a}_{n} \\
+| &amp; &amp; | \\
+\end{bmatrix},
+\quad
+\mathbf{x} =
+\begin{bmatrix}
+x_{1} \\
+\vdots \\
+x_{n} \\
 \end{bmatrix}
 </span></p>
 <p>the vector <span class="math inline">\mathbf{y}</span> can be interpreted as the linear combinations of columns of <span class="math inline">\mathbf{A}</span> with elements of <span class="math inline">\mathbf{x}</span> as coefficients</p>
@@ -615,18 +638,55 @@ x_{i, j} \in \mathbb{F}
 </section>
 <section id="sec-matrix-multiplication" class="level3">
 <h3 class="anchored" data-anchor-id="sec-matrix-multiplication">Matrix multiplication</h3>
-<p>Given two matrices <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span> and <span class="math inline">\mathbf{B} \in \mathbb{F}^{n \times r}</span>, the matrix multiplication is a function that applies vector matrix multiplication on the matrix <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span> and the vector <span class="math inline">\mathbf{b}_{i} \in \mathbb{F}^{n}</span> (<span class="math inline">i</span>th column of <span class="math inline">\mathbf{B}</span>)</p>
+<p>Given two matrices <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span> and <span class="math inline">\mathbf{B} \in \mathbb{F}^{n \times r}</span>, the matrix multiplication is a function that returns a matrix by applying vector matrix multiplication on the matrix <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span> and the vector <span class="math inline">\mathbf{b}_{i} \in \mathbb{F}^{n}</span> (<span class="math inline">i</span>th column of <span class="math inline">\mathbf{B}</span>)</p>
 <p><span class="math display">
 \mathbf{C} = \mathbf{A} \mathbf{B} =
 \begin{bmatrix}
-\mathbf{c}_{1} = \mathbf{A} \mathbf{b}_{1} &amp; \dots &amp; \mathbf{c}_{r} = \mathbf{A} \mathbf{b}_{r} \\
-\end{bmatrix},
+| &amp; &amp; | \\
+\mathbf{c}_{1} &amp; \dots &amp; \mathbf{c}_{r} \\
+| &amp; &amp; | \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+| &amp; &amp; | \\
+\mathbf{A} \mathbf{b}_{1} &amp; \dots &amp; \mathbf{A} \mathbf{b}_{r} \\
+| &amp; &amp; | \\
+\end{bmatrix}
 </span></p>
-<p>which results in a vector <span class="math inline">\mathbf{c}_{i} \in \mathbb{F}^{m}</span> as the <span class="math inline">i</span>th column of the <span class="math inline">\mathbf{C}</span>.</p>
+<p>which results in a vector <span class="math inline">\mathbf{c}_{i} = \mathbf{A} \mathbf{b}_{i} \in \mathbb{F}^{m}</span> as the <span class="math inline">i</span>th column of the <span class="math inline">\mathbf{C}</span>.</p>
 <ul>
 <li><p>The column <span class="math inline">i</span> of <span class="math inline">\mathbf{C}</span> is a linear combination of columns of <span class="math inline">\mathbf{A}</span> using the elements of the column <span class="math inline">i</span> of <span class="math inline">\mathbf{B}</span> as coefficients.</p></li>
 <li><p>The row <span class="math inline">i</span> of <span class="math inline">\mathbf{C}</span> is a linear combination of rows of <span class="math inline">\mathbf{B}</span> using the elements of row <span class="math inline">i</span> of <span class="math inline">\mathbf{A}</span> as coefficients.</p></li>
 </ul>
+<section id="vector-matrix-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="vector-matrix-multiplication">Vector-matrix multiplication</h4>
+<p>Given a vector <span class="math inline">\mathbf{x} \in \mathbb{F}^{m}</span> and a matrix <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times n}</span>, the vector-matrix multiplication is a special case of matrix multiplication between <span class="math inline">\mathbf{x}^{T}</span> and <span class="math inline">\mathbf{A}</span></p>
+<p><span class="math display">
+\mathbf{y}^{T} = \mathbf{x}^{T} \mathbf{A} =
+\begin{bmatrix}
+\mathbf{x}^{T} \mathbf{a}_{1} &amp; \dots &amp; \mathbf{x}^{T} \mathbf{a}_{n} \\
+\end{bmatrix},
+</span></p>
+<p>where <span class="math inline">\mathbf{a}_{i}</span> is the <span class="math inline">i</span>th column of <span class="math inline">\mathbf{A}</span>.</p>
+<p>The result <span class="math inline">\mathbf{y}</span> can also be thought as the linear combination of rows of <span class="math inline">\mathbf{A}</span> using the coefficients in <span class="math inline">\mathbf{x}</span></p>
+<p><span class="math display">
+\mathbf{y}^{T} = \sum_{i = 1}^{m} x_{i} \mathbf{A}_{i, *},
+</span></p>
+<p>where <span class="math inline">\mathbf{A}_{i, *}</span> is the <span class="math inline">i</span>th row of the matrix <span class="math inline">\mathbf{A}</span>.</p>
+</section>
+<section id="outer-product" class="level4">
+<h4 class="anchored" data-anchor-id="outer-product">Outer product</h4>
+<p>The outer product of two vectors <span class="math inline">\mathbf{a} \in \mathbb{F}^{m}, \mathbf{b} \in \mathbb{F}^{n}</span> is defined as</p>
+<p><span class="math display">
+\mathbf{a} \otimes \mathbf{b} = \mathbf{a} \mathbf{b}^{T} =
+\begin{bmatrix}
+| &amp; &amp; | \\
+b_{1} \mathbf{a} &amp; \dots &amp; b_{n} \mathbf{a} \\
+| &amp; &amp; | \\
+\end{bmatrix}
+</span></p>
+<p>which is the same as the matrix multiplication by viewing the vector <span class="math inline">\mathbf{a}</span> as the matrix <span class="math inline">\mathbf{A} \in \mathbb{F}^{m \times 1}</span> and the row vector <span class="math inline">\mathbf{b}^{T}</span> as the matrix <span class="math inline">\mathbb{B} \in \mathbb{F}^{1 \times n}</span>.</p>
+</section>
 </section>
 </section>
 <section id="well-known-subspaces-for-matrix" class="level2">
