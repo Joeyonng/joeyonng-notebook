@@ -52,7 +52,7 @@ $$
 
 ### EM procedures
 
-#### 1. E-Step
+#### E-Step
 
 Given parameters $\hat{\Psi}$ estimated at the current iteration and incomplete data $\mathcal{X}$, compute the $Q$ function, which is the expected value of the log likelihood of the complete data $\mathcal{X}, \mathcal{Z}$ over the distribution of $\mathbf{Z}$
 
@@ -74,7 +74,7 @@ $$
 
 - Depending the problem setups, the expressions for both $\mathbb{P}_{\mathbf{X}, \mathbf{Z}} (\mathcal{X}, \mathcal{Z}; \Psi)$ and $\mathbb{P}_{\mathbf{Z} \mid \mathbf{X}} (\mathcal{Z} \mid \mathcal{X}; \hat{\Psi})$ (used in $\mathbb{E}_{\mathbf{Z} \mid \mathbf{X}; \hat{\Psi}} [\cdot]$) should be already known or can be derived from the known probabilistic models between $\mathbf{X}$ and $\mathbf{Z}$.
 
-#### 2. M-Step
+#### M-Step
 
 Find the parameter $\hat{\Psi}$ that maximizes the expected value derived in the E-step. 
 
@@ -82,11 +82,12 @@ $$
 \hat{\Psi} = \arg\max_{\Psi} Q_{\hat{\Psi}} (\Psi) 
 $$
     
-Repeat procedure 1 and 2 until convergence.
+Repeat the E-step and M-step until convergence.
 
 ## Derivation of EM
 
-The log-likelihood of the incomplete data can be decomposed into 2 components
+The derivation of the EM algorithm mostly comes from the following observation:
+the log-likelihood of the incomplete data can be decomposed into 2 components
 
 $$ 
 \log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi) = G (\Psi, q) +  D (\Psi, q)
@@ -106,7 +107,8 @@ where $q$ is an arbitrary distribution of the latent variables.
     \right]
     $$
     
-- The KL-divergence of between two distributions of $\mathbf{Z}$, i.e. $q(\mathcal{Z})$ and $\mathbb{P}_{\mathbf{Z} \mid \mathbf{X}} (\mathcal{Z} \mid \mathcal{X}; \Psi)$
+- The KL-divergence of between two distributions of $\mathbf{Z}$, 
+    i.e. $q(\mathcal{Z})$ and $\mathbb{P}_{\mathbf{Z} \mid \mathbf{X}} (\mathcal{Z} \mid \mathcal{X}; \Psi)$
 
     $$
     D (\Psi, q) = \mathrm{KL} \left[ 
@@ -122,7 +124,9 @@ where $q$ is an arbitrary distribution of the latent variables.
 
 :::{.callout-note collapse="true" title="Proof"}
 
-Since $\log \mathbb{P}_\mathbf{X} (\mathbf{x})$ is not dependent on $\mathbf{Z}$, taking its expectation over any distribution of $\mathbf{Z}$ is equal to itself. Thus, 
+Since $\log \mathbb{P}_\mathbf{X} (\mathbf{x})$ is not dependent on $\mathbf{Z}$, 
+taking its expectation over any distribution of $\mathbf{Z}$ is equal to itself. 
+Thus, 
 
 $$
 \begin{aligned}
@@ -199,7 +203,8 @@ $$
 
 ### Lower bound
 
-Since KL-divergence $D (\Psi, q)$ is proved to be non-negative, $G(\Psi, q)$ can be seen as a lower bound of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$
+Since KL-divergence $D (\Psi, q)$ is proved to be non-negative, 
+$G(\Psi, q)$ can be seen as a lower bound of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$
 
 $$
 \log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi) \geq G(\Psi, q),
@@ -253,21 +258,29 @@ $$
 
 ### EM as coordinate ascent on lower bound
 
-The EM is essentially doing **coordinate ascent** on $G (\Psi, q)$, which is believed to be easier to optimize than directly optimizing $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$, while guaranteeing the $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ is non-decreasing as $G (\Psi, q)$ is optimized.
+The EM is essentially doing the **coordinate ascent** on $G (\Psi, q)$, 
+which is believed to be easier to optimize than directly optimizing $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$, 
+while guaranteeing the $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ is non-decreasing as $G (\Psi, q)$ is optimized.
 
-Coordinate ascent is a optimization method that optimize a single variable or 1 dimension of the variable at a time, while fixing the values of the rest of the variables from the last iteration unchanged. 
-In the case of applying to $G (\Psi, q)$ function, $\Psi$ and $q$ are separately maximized in different steps of each iteration. 
+Coordinate ascent is an optimization method that optimize a single variable or one dimension of the variable at a time, 
+while fixing the values of the rest of the variables from the last iteration unchanged. 
+In the case of applying to $G (\Psi, q)$ function, 
+$\Psi$ and $q$ are separately maximized in different steps of each iteration. 
 
-- E-step: given the parameter $\hat{\Psi}$ estimated in the last iteration, the choice of the $q$ function is optimized to maximize the value of $G (\Psi, q)$.
+- E-step: given the parameter $\hat{\Psi}$ estimated in the last iteration, 
+    the choice of the $q$ function is optimized to maximize the value of $G (\Psi, q)$.
 
-- M-step: given the $\hat{q}$ function selected in E-step, $\Psi$ is optimized to maximize the value of $G (\Psi, \hat{q})$ and will be used in the E-step of the next iteration.
+- M-step: given the $\hat{q}$ function selected in E-step, 
+    $\Psi$ is optimized to maximize the value of $G (\Psi, \hat{q})$ and will be used in the E-step of the next iteration.
 
 ### E-step
 
-Since the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ doesn't depend on the choice of $q$, the choice of $q$ only affect the balance between $G (\Psi, q)$ and $D (\Psi, q)$ when the $\Psi$ is fixed. 
+Since the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ doesn't depend on the choice of $q$, 
+the choice of $q$ only affect the balance between $G (\Psi, q)$ and $D (\Psi, q)$ when the $\Psi$ is fixed. 
 
-Thus, given the parameters $\hat{\Psi}$ estimated in the last iteration, $G (\hat{\Psi}, q)$ is maximized with respect to $q$ when $D (\hat{\Psi}, q)$ is minimized. 
-Since the minimized value of $D (\Psi, q)$ is 0, we have 
+Thus, given the parameters $\hat{\Psi}$ estimated in the last iteration, 
+$G (\hat{\Psi}, q)$ is maximized with respect to $q$ when $D (\hat{\Psi}, q)$ is minimized. 
+Since the minimized value of $D (\Psi, q)$ is $0$, we have 
 
 $$
 \begin{aligned}
@@ -290,11 +303,16 @@ $$
 
 which shows that $G (\hat{\Psi})$ is maximized when the distribution of latent variables is chosen to be the probability of the latent variables given the observed data and the current estimate of the parameters.
 
-A nice property of optimizing $q$, even though it doesn't affect the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ at all, is that the value of KL-divergence $D (\Psi, \hat{q})$ will also be non-decreasing no matter what $\Psi$ is selected in the M-step by maximizing $G (\Psi, \hat{q})$. 
+A nice property of optimizing $q$, 
+even though it doesn't affect the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ at all, 
+is that the value of KL-divergence $D (\Psi, \hat{q})$ will also be non-decreasing no matter what $\Psi$ is selected in the M-step by maximizing $G (\Psi, \hat{q})$. 
 
-- This can be seen from the fact that $D (\Psi, \hat{q}) = 0$ when $\hat{p}$ is selected to maximize $G (\hat{\Psi}, q)$, and thus any $\Psi$ will guarantee that the value of $D (\Psi, \hat{q})$ is larger or equal to 0.
+- This can be seen from the fact that $D (\Psi, \hat{q}) = 0$ when $\hat{p}$ is selected to maximize $G (\hat{\Psi}, q)$, 
+    and thus any $\Psi$ will guarantee that the value of $D (\Psi, \hat{q})$ is larger or equal to $0$.
 
-- This property implicitly prove the convergence of the EM algorithm in that both $G (\Psi, q)$ and $D (\Psi, q)$ will be non-decreasing during each iteration, and therefore, the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ is non-decreasing in each iteration.
+- This property implicitly prove the convergence of the EM algorithm in that both $G (\Psi, q)$ and $D (\Psi, q)$ will be non-decreasing during each iteration, 
+    and therefore, 
+    the value of $\log \mathbb{P}_{\mathbf{X}} (\mathcal{X}; \Psi)$ is non-decreasing in each iteration.
 
 ### M-step
 
@@ -307,7 +325,7 @@ $$
 - The expected value of the complete data with respect to the distribution $q$
 
     $$ 
-    Q (\Psi, q) = \mathbb{E}_{\mathbf{Z}} \left[ 
+    Q (\Psi, q) = \mathbb{E}_{\mathbf{Z} \sim q} \left[ 
         \log \mathbb{P}_{\mathbf{X}, \mathbf{Z}} (\mathcal{X}, \mathcal{Z}; \Psi) 
     \right].
     $$
@@ -323,7 +341,8 @@ $$
 
 Since $\mathrm{H} (q)$ doesn't depend on $\Psi$, it will stay as a constant in the process of maximizing $G (\Psi, q)$ with respect to $\Psi$.
 
-Given $\hat{q} = \mathbb{P}_{\mathbf{Z} \mid \mathbf{X}} (\mathcal{Z} \mid \mathcal{X}; \hat{\Psi})$, maximizing $G (\Psi, \hat{q})$ is the same as maximizing $Q$ function we defined above:
+Given $\hat{q} = \mathbb{P}_{\mathbf{Z} \mid \mathbf{X}} (\mathcal{Z} \mid \mathcal{X}; \hat{\Psi})$, 
+maximizing $G (\Psi, \hat{q})$ is the same as maximizing $Q$ function we defined above:
 
 $$
 \begin{aligned}
@@ -342,25 +361,34 @@ One application of EM algorithm is to obtain MLE of the parameters in a mixture 
 
 ### Mixture model
 
-We say random variable $\mathbf{X}$ follows a mixture model if its distribution is a weighted combination of multiple components, where each component has a simple parametric distributions. Thus mixture model can represent distributions that cannot be expressed using a single parametric distribution.
+We say random variable $\mathbf{X}$ follows a mixture model if its distribution is a weighted combination of multiple components, 
+where each component has a simple parametric distributions. 
+Thus mixture model can represent distributions that cannot be expressed using a single parametric distribution.
 
 Each sample $\mathbf{x}$ is associated with a latent random variable $z$ that indicates which component (parametric distribution) that $\mathbf{x}$ should be drawn. Thus the sample $\mathbf{x}$ has the conditional probability in a parametric form with parameters $\boldsymbol{\theta}$
 
-$$ \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z ; \boldsymbol{\theta}) $$
+$$ 
+\mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z ; \boldsymbol{\theta}),
+$$
 
 if we know the latent variable $z$ for the sample. 
 
 Assuming in total we have $c$ latent variables for all samples and each latent variable has the probability $\mathbb{P}_{Z} (z)$, the probability of the sample is 
 
-$$ \mathbb{P}_{\mathbf{X}} (\mathbf{x}) = \sum_{z=1}^{c} \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z) \mathbb{P}_{Z} (z). $$
+$$ 
+\mathbb{P}_{\mathbf{X}} (\mathbf{x}) = \sum_{z=1}^{c} \mathbb{P}_{\mathbf{X} \mid Z} (\mathbf{x} \mid z) \mathbb{P}_{Z} (z). 
+$$
 
 The Gaussian mixture model is simply a mixture model in which all components are Gaussian distributions.
 
 ### EM for mixture model
 
-If we knew what $z$ is for each $\mathbf{x}$, the estimate of parameters for each component can be easily derived by sampling a dataset $\mathcal{X}_{z}$ from the conditional distribution and applying MLE. 
+If we knew what $z$ is for each $\mathbf{x}$, 
+the estimate of parameters for each component can be easily derived by sampling a dataset $\mathcal{X}_{z}$ from the conditional distribution and applying MLE. 
 
-However, in practice, we never know which component each sample belongs to, and thus we apply EM by treating $\mathbf{X}$ as observed variables and $Z$ as the hidden variable. 
+However, in practice, 
+we never know which component each sample belongs to, 
+and thus we apply EM by treating $\mathbf{X}$ as observed variables and $Z$ as the hidden variable. 
 
 The goal of applying EM is to find the parameters $\Psi$ in the mixture model including: 
 
@@ -370,7 +398,8 @@ The goal of applying EM is to find the parameters $\Psi$ in the mixture model in
 
 #### E-step: complete data likelihood
 
-To derive the EM procedure, we first need to write out the log-likelihood of the complete data in terms of the known parametric distributions
+To derive the EM procedure, 
+we first need to write out the log-likelihood of the complete data in terms of the known parametric distributions
 
 $$ 
 \begin{aligned}
@@ -385,15 +414,21 @@ L(\mathcal{Z}, \Psi)
 \end{aligned}
 $$
 
-where $x_{i}$ is a sample, $z_{i}$ indicates the component that $x_{i}$ belongs to, $\boldsymbol{\theta}_{z_{i}}$ is the parameters of the component $z_{i}$, and $\pi_{z_{i}}$ is the probability of the component $z_{i}$.
+where $x_{i}$ is a sample, 
+$z_{i}$ indicates the component that $x_{i}$ belongs to, 
+$\boldsymbol{\theta}_{z_{i}}$ is the parameters of the distribution for the component $z_{i}$, 
+and $\pi_{z_{i}} = \mathbb{P}_{Z} (z_{i})$ is the probability of the component $z_{i}$.
 
 Since $z$ is discrete and range from $1$ to $c$, any function of $z$ can be written as
 
-$$ f(z) = \prod_{i=1}^{c} f(i)^{\mathbb{1}(z = i)}, $$
+$$ 
+f(z) = \prod_{i=1}^{c} f(i)^{\mathbb{1} (z = i)}, 
+$$
 
 where $z$ is extracted out from the function to the power of the function. 
 
 Thus, the complete data likelihood can be further simplified to
+
 $$
 \begin{aligned}
 L(\mathcal{Z}, \Psi) 
@@ -442,7 +477,7 @@ Q_{\hat{\Psi}} (\Psi)
 \end{aligned}
 $$
 
-where $h_{i, j} = \mathbb{E}_{Z \mid \mathbf{X}; \hat{\Psi}} \left[ \mathbb{1}(z_{i} = j) \right] $ is a constant value that can be computed given that we have parameter $\hat{\Psi}$ estimated in the last iteration.
+where $h_{i, j} = \mathbb{E}_{Z \mid \mathbf{X}; \hat{\Psi}} \left[ \mathbb{1}(z_{i} = j) \right]$ is a constant value that can be computed given that we have parameter $\hat{\Psi}$ estimated in the last iteration.
 
 $$
 \begin{aligned}

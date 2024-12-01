@@ -1,4 +1,4 @@
-# Span and LinearIndependence
+# Span and Linear Independence
 
 ## Span
 

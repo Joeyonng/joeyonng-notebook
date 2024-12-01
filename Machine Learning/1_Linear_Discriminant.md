@@ -1,4 +1,4 @@
-# Linear Discriminant
+# Linear Discriminant {#sec-linear-discriminant}
 
 ## Preliminary
 
@@ -23,6 +23,7 @@ $$
 where 
 
 - $\mathbf{w}^{\perp}$ is the subspace that is perpendicular to the vector $\mathbf{w}$,
+
 - $\mathbf{v} = - \frac{b}{\mathbf{w}^{T} \mathbf{w}} \mathbf{w}$.
 
 Also recall that given a vector $\mathbf{x} \in \mathbb{R}^{d}$, its orthogonal projection onto $\mathcal{H}$ is 
@@ -84,7 +85,7 @@ divides the points in $\mathbb{R}^{d}$ into 3 spaces
 - $f (\mathbf{x}) = 0$: the points on the hyperplane $\mathcal{H}$.
 
 - $f (\mathbf{x}) > 0$: the points on the positive side of $f (\mathbf{x})$,
-which is the side that $\mathbf{w}$ points to.
+    which is the side that $\mathbf{w}$ points to.
 
 - $f (\mathbf{x}) < 0$: the points on the negative side of $f (\mathbf{x})$.
 
@@ -95,6 +96,38 @@ g (\mathbf{x}) = \text{sign} (f (\mathbf{x})) = \begin{cases}
 1 & f (\mathbf{x}) > 0 \\
 0 & f (\mathbf{x}) < 0 \\
 \end{cases}
+$$
+
+## Augmented vector {#sec-linear-discriminant-augmented-vector}
+
+A trick that is often used in the analysis of various linear discriminant algorithms is to make the bias term $b$ as part of the weight vector
+
+$$ 
+f (\mathbf{x}) = \mathbf{w}^{T} \mathbf{x} + b = \hat{\mathbf{w}}^{T} \hat{\mathbf{x}},
+$$
+
+where $\hat{\mathbf{w}}$ is defined by appending $b$ to $\mathbf{w}$ as the last element
+
+$$ 
+\hat{\mathbf{w}} = 
+\begin{bmatrix}
+w_{1} \\
+\vdots \\ 
+w_{d} \\
+b \\
+\end{bmatrix},
+$$
+
+and $\hat{\mathbf{x}}$ is formed by appending an $1$ to $\mathbf{x}$ as the last element
+
+$$ 
+\mathbf{\hat{x}} = 
+\begin{bmatrix}
+x_{1} \\ 
+\vdots \\ 
+x_{d} \\
+1 \\
+\end{bmatrix}.
 $$
 
 ## Margin

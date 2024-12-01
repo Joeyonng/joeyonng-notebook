@@ -1,16 +1,18 @@
-# Logistic Regression 
+# Logistic Regression {#sec-logistic-regression}
 
 ## Preliminary
 
-### Statistical Learning
+### Probability and Statistics
 
-- [Bayesian Decision Theory (BDT)](bayesian-decision-theory)
+- Maximum Likelihood Estimation @sec-maximum-likelihood-estimation
 
-- [Maximum Likelihood Estimation (MLE)](maximum-likelihood-estimation)
+### Learning Theory
+
+- Bayesian Classifier @sec-bayesian-classifier
 
 ### Supervised Learning
 
-- [Linear Discriminant](linear-discriminant)
+- Linear Discriminant @sec-linear-discriminant
 
 ## Logistic regression as a Gaussian classifier
 
@@ -28,7 +30,7 @@ where $\sigma$ is the sigmoid function and $f (\mathbf{x})$ is a linear function
 
 ### MAP rule and posterior probability
 
-Recall that the BDR with 0-1 loss is the MAP rule
+Recall in @sec-bayesian-classifier-map-rule that the BDR with 0-1 loss is the MAP rule
 
 $$
 f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
@@ -83,7 +85,7 @@ $$
 \right)^{-1}
 \\
 \end{aligned}
-$$
+$$ {#eq-logistic-regression-map-rule-simplify}
 
 ### Sigmoid function
 
@@ -94,12 +96,12 @@ $$
 }.
 $$
 
-The posterior probability is the result of the sigmoid function if we assume the class conditional probabilities are Gaussian distributions. 
+Here we show that the posterior probability $\mathbb{P}_{Y \mid \mathbf{x}} (1 \mid \mathbf{x})$ is the result of the sigmoid function if we assume the class conditional probabilities $\mathbb{P}_{\mathbf{X} \mid Y}$ are Gaussian distributions. 
 
 Recall that the multivariate Gaussian with the mean $\boldsymbol{\mu}$ and covariance matrix $\boldsymbol{\Sigma}$ is
 
 $$
-\mathcal{G} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{
+\mathcal{N} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{
     1
 }{
     \sqrt{(2 \pi)^{2} \lvert \boldsymbol{\Sigma}_{1} \rvert}
@@ -112,7 +114,7 @@ which can be compactly written as follows
 
 $$
 \begin{aligned}
-\mathcal{G} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) 
+\mathcal{N} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) 
 & = \frac{
     1
 }{
@@ -149,7 +151,7 @@ $$
     \right)
 \right),
 \end{aligned}
-$$
+$$ {#eq-logistic-regression-gaussian-compact}
 
 where $d_{\boldsymbol{\Sigma}} (\mathbf{x}, \mathbf{y}) = \frac{1}{2} \left(
     \mathbf{x} - \mathbf{y} 
@@ -159,9 +161,9 @@ where $d_{\boldsymbol{\Sigma}} (\mathbf{x}, \mathbf{y}) = \frac{1}{2} \left(
 
 If we assume the class conditional probabilities for both classes are Gaussian distributions:
 
-- $\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 0) = \mathcal{G} (\mathbf{x}; \boldsymbol{\mu}_{0}, \boldsymbol{\Sigma}_{0})$
+- $\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 0) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{0}, \boldsymbol{\Sigma}_{0})$
 
-- $\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 1) = \mathcal{G} (\mathbf{x}; \boldsymbol{\mu}_{1}, \boldsymbol{\Sigma}_{1})$,
+- $\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 1) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{1}, \boldsymbol{\Sigma}_{1})$,
 
 then the posterior possibility is 
 
@@ -223,8 +225,7 @@ where $f (\mathbf{x}) = \frac{1}{2} \left(
     + d_{\boldsymbol{\Sigma_{0}}} (\mathbf{x}, \boldsymbol{\mu_{0}}) 
     - d_{\boldsymbol{\Sigma_{1}}} (\mathbf{x}, \boldsymbol{\mu_{1}})
     + 2 \log \frac{\mathbb{P}_{Y} (1)}{\mathbb{P}_{Y} (0)}
-\right)
-$ and $\alpha_{i} = \log \left(
+\right)$ and $\alpha_{i} = \log \left(
     (2 \pi)^{d} \lvert \boldsymbol{\Sigma}_{i} \rvert
 \right)$.
 
@@ -268,7 +269,7 @@ where the weights $\mathbf{w}$ are
 $$
 \mathbf{w}^{T} = \left( 
     \boldsymbol{\mu}_{0} - \boldsymbol{\mu}_{1}
-\right)^{T} \boldsymbol{\Sigma}^{-1} \mathbf{x},
+\right)^{T} \boldsymbol{\Sigma}^{-1},
 $$
 
 and the bias term is 
@@ -288,7 +289,7 @@ In particular, the parameters for the conditional probability of class $j$ are l
 $$
 \arg\max_{\boldsymbol{\mu}_{i}, \boldsymbol{\Sigma}_{i}} \prod_{y_{j} = j} \mathbb{P}_{\mathbf{X} \mid Y} \left(
     \mathbf{x}_{i} \mid j
-\right) = \arg\max_{\boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}} \prod_{y_{j} = j} \mathcal{G} \left( 
+\right) = \arg\max_{\boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}} \prod_{y_{j} = j} \mathcal{N} \left( 
     \mathbf{x}_{i}; \boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}
 \right).
 $$
@@ -297,12 +298,12 @@ However, logistic regression is usually learned using a discriminative approach,
 
 ### Learning as a MLE problem
 
-Recall that the learning of the linear regression can be formulated as an MLE problem
+Recall in @sec-maximum-likelihood-estimation-example-linear-regression that the learning of the linear regression can be formulated as an MLE problem
 
 $$
 \arg\max_{\mathbf{w}, b} \prod_{i} \mathbb{P}_{Y \mid \mathbf{X}} \left(
     y_{i} \mid \mathbf{x}_{i}
-\right) = \arg\max_{\mathbf{w}, b} \prod_{i} \mathcal{G} \left( 
+\right) = \arg\max_{\mathbf{w}, b} \prod_{i} \mathcal{N} \left( 
     y_{i}; \mathbf{w}^{T} \mathbf{x}_{i} + b, \sigma^{2} 
 \right),
 $$
@@ -332,9 +333,10 @@ and therefore the MLE problem is defined as
 
 $$
 \begin{aligned}
-\arg\max_{\mathbf{w}, b} \prod_{i} \mathrm{Ber} \left( 
+& \arg\max_{\mathbf{w}, b} \prod_{i} \mathrm{Ber} \left( 
     y; \mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}_{i})
 \right)
+\\
 & = \arg\max_{\mathbf{w}, b} \sum_{i} \log \mathrm{Ber} \left( 
     y; \mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}_{i})
 \right)
@@ -382,56 +384,30 @@ Therefore, logistic regression can be learned by minimizing the BCE loss between
 Unlike linear regression, the optimization problem of logistic regression 
 
 $$
-\arg\min_{\mathbf{w}, b} \sum_{i} - y_{i} \log \sigma (f (\mathbf{x}_{i})) - (1 - y_{i}) \log \left(
-    1 - \sigma (f (\mathbf{x}_{i}))
-\right)
+\arg\min_{\mathbf{w}, b} R (\mathbf{w}, b) = \sum_{i} L_{\mathrm{BCE}} (y_{i}, \sigma (f (\mathbf{x}_{i})))
 $$
 
 can not be analytically solved to obtain a closed-form solution because of the non-linear sigmoid function. 
 Instead, gradient descent is used to solve the optimization problem numerically. 
 
 To simplify the derivation process, 
-we will use a trick to make the bias term $b$ as part of the weight vector
+we will use the trick @sec-linear-discriminant-augmented-vector to make the bias term $b$ as part of the weight vector
 
 $$ 
 f (\mathbf{x}) = \mathbf{w}^{T} \mathbf{x} + b = \hat{\mathbf{w}}^{T} \hat{\mathbf{x}}.
 $$
 
-where $\hat{\mathbf{w}}$ is defined by appending $b$ to $\mathbf{w}$ as the last element
-
-$$ 
-\hat{\mathbf{w}} = 
-\begin{bmatrix}
-w_{1} \\
-\vdots \\ 
-w_{d} \\
-b \\
-\end{bmatrix},
-$$
-
-and $\hat{\mathbf{x}}$ is formed by appending an $1$ to $\mathbf{x}$ as the last element
-
-$$ 
-\mathbf{\hat{x}} = 
-\begin{bmatrix}
-x_{1} \\ 
-\vdots \\ 
-x_{d} \\
-1 \\
-\end{bmatrix}.
-$$
-
-First note that the function $J (\hat{\mathbf{w}})$ that we want to minimize 
+First note that the function $R (\hat{\mathbf{w}})$ that we want to minimize 
 
 $$
-J (\hat{\mathbf{w}}) 
+R (\hat{\mathbf{w}}) 
 = \sum_{i} L_{\mathrm{BCE}} (y_{i}, \sigma (f (\hat{\mathbf{x}}_{i}))
 = \sum_{i} - y_{i} \log \sigma (f (\hat{\mathbf{x}}_{i})) - (1 - y_{i}) \log \left(
     1 - \sigma (f (\hat{\mathbf{x}}_{i}))
 \right)
 $$
 
-is a convex function with respect to $\hat{\mathbf{w}}$ and thus the gradient descent can find the global minimum of $J (\hat{\mathbf{w}})$. 
+is a convex function with respect to $\hat{\mathbf{w}}$ and thus the gradient descent can find the global minimum of $R (\hat{\mathbf{w}})$. 
 
 :::{.callout-note collapse="true" title="Proof"}
 
@@ -445,13 +421,13 @@ $$
 \mathbf{x} = \mathbf{x} - \eta \nabla f (\mathbf{x}).
 $$
 
-To apply it to minimize the optimization function $J (\hat{\mathbf{w}})$,
+To apply it to minimize the optimization function $R (\hat{\mathbf{w}})$,
 we will first select a learning rate $\eta$ and then learn $\hat{\mathbf{w}}$ by doing
 
 $$
 \begin{aligned}
 \hat{\mathbf{w}} 
-& = \hat{\mathbf{w}} - \eta \nabla J (\hat{\mathbf{w}})
+& = \hat{\mathbf{w}} - \eta \nabla R (\hat{\mathbf{w}})
 \\
 & = \hat{\mathbf{w}} - \eta \sum_{i} (\sigma (\hat{\mathbf{w}}^{T} \hat{\mathbf{x}}_{i}) - y_{i}) \hat{\mathbf{x}}_{i}
 \end{aligned}
@@ -462,16 +438,16 @@ in each iteration until convergence.
 :::{.callout-note collapse="true" title="Proof"}
 
 Given $\hat{\mathbf{x}}_{i}, y_{i}, \forall i \in [1, n]$, 
-the function $J (\hat{\mathbf{w}})$ can be expressed as a composite function of $L_{\mathrm{BCE}} (\hat{y}), \sigma (z), f (\hat{\mathbf{w}})$
+the function $R (\hat{\mathbf{w}})$ can be expressed as a composite function of $L_{\mathrm{BCE}} (\hat{y}), \sigma (z), f (\hat{\mathbf{w}})$
 
 $$
-J (\hat{\mathbf{w}}) = \sum_{i} L_{\mathrm{BCE}} (\sigma (f (\hat{\mathbf{w}}))),
+R (\hat{\mathbf{w}}) = \sum_{i} L_{\mathrm{BCE}} (\sigma (f (\hat{\mathbf{w}}))),
 $$
 
-so $\nabla J (\hat{\mathbf{w}})$ can be computed using the chain rule 
+so $\nabla R (\hat{\mathbf{w}})$ can be computed using the chain rule 
 
 $$
-\nabla J (\hat{\mathbf{w}}) = \sum_{i} \frac{ 
+\nabla R (\hat{\mathbf{w}}) = \sum_{i} \frac{ 
     \mathop{d} L_{\mathrm{BCE}} (\hat{y}) 
 }{ 
     \mathop{d} \hat{y}
@@ -529,7 +505,7 @@ and put them together
 
 $$
 \begin{aligned}
-\nabla J (\hat{\mathbf{w}}) 
+\nabla R (\hat{\mathbf{w}}) 
 & = \sum_{i} \frac{ 
     \mathop{d} L_{\mathrm{BCE}} (\hat{y}) 
 }{ 
@@ -586,16 +562,256 @@ $$
 
 then the gradient descent algorithm to learn logistic regression can be stated using the matrix form 
 
-:::{.callout-note}
+:::{.callout-tip}
 
 1. Initialize the weight parameter $\mathbf{w}$ randomly 
 
-1. While $J (\hat{\mathbf{w}})$ is decreasing
+1. While $R (\hat{\mathbf{w}})$ is decreasing
 
-    1. Calculate the gradient $\nabla J (\hat{\mathbf{w}})$
+    1. Calculate the gradient $\nabla R (\hat{\mathbf{w}})$
 
         $$
-        \nabla J (\hat{\mathbf{w}}) = 
+        \nabla R (\hat{\mathbf{w}}) = 
+        \sum_{i} (\sigma (\hat{\mathbf{w}}^{T} \hat{\mathbf{x}}_{i}) - y_{i}) \hat{\mathbf{x}}_{i} = 
+        \mathbf{X} \left(
+            \mathbf{y} - \sigma (\mathbf{X}^{T} \hat{\mathbf{w}})
+        \right)
+        $$
+
+        where $\mathbf{X}^{T} \hat{\mathbf{w}} = \mathbf{z}$ is the output vector from the linear model for instances in $\mathbf{X}$. 
+
+    1. Update the weights vector $\hat{\mathbf{w}}$ 
+
+        $$
+        \hat{\mathbf{w}} = \hat{\mathbf{w}} - \eta \nabla R (\hat{\mathbf{w}}).
         $$
 
 :::
+
+## Multi-class classification
+
+The deviation process of logistic regression shows that it naturally supports multi-class classification. 
+For a multi-class classification problem, the MAP rule is still to get the label that maximizes the posterior probability,
+
+$$
+f (\mathbf{x}) = \arg\max_{j} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}).
+$$
+
+Similar to the simplification process in @eq-logistic-regression-map-rule-simplify, we can rewrite the posterior probability of class $i$ for the multi-class problems of $m$ classes,
+
+$$
+\begin{aligned}
+\mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}) 
+& = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \mathbb{P}_{\mathbf{X}} (\mathbf{x})
+} 
+& [\text{Bayes' theroem}]
+\\
+& = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid k) \mathbb{P}_{Y} (k) 
+} 
+& [\text{Law of total probability, chain rule}].
+\end{aligned}
+$$
+
+Again if we assume that all class conditional probabilities have gaussian distributions with the equal covariance (see @eq-logistic-regression-gaussian-compact)
+
+$$
+\mathbb{P}_{\mathbf{X} \mid Y} (x \mid j) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{i}, \Sigma) = \exp \left[
+    -\frac{1}{2} \left(
+        \log \left[
+            (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+        \right] + d_{\boldsymbol{\Sigma}} \left(
+            \mathbf{x}, \boldsymbol{\mu}_{j}
+        \right) 
+    \right)
+\right],
+$$
+
+the posterior probability of class $i$ can be further written as 
+
+$$
+\begin{aligned}
+\mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}) 
+& = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid k) \mathbb{P}_{Y} (k) 
+} 
+\\
+& = \frac{
+    \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{j}
+            \right) 
+        \right)
+    \right] \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{k}
+            \right) 
+        \right)
+    \right] \mathbb{P}_{Y} (k)
+} 
+\\
+& = \frac{
+    \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{j}
+            \right) - 2 \log \left[
+                \mathbb{P}_{Y} (j)
+            \right]
+        \right)
+    \right] 
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{k}
+            \right) - 2 \log \left[
+                \mathbb{P}_{Y} (k)
+            \right]
+        \right)
+    \right] 
+} 
+\\
+& = \frac{
+    \exp \left[
+        f_{j} (\mathbf{x})
+    \right] 
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        f_{k} (\mathbf{x})
+    \right] 
+} 
+\\
+& = \sigma_{j} (\mathbf{f} (\mathbf{x})),
+\end{aligned}
+$$
+
+where $\mathbf{f} (\mathbf{x}) = 
+\begin{bmatrix} 
+f_{1} (\mathbf{x}) & \dots & f_{m} (\mathbf{x})
+\end{bmatrix}^{T}$ and $\sigma_{j} (\cdot)$ is the $j$th output component of the softmax function.
+
+:::{.callout-note collapse="true" title="Proof"}
+
+TODO 
+
+:::
+
+Each $f_{i} (\mathbf{x})$ is again a linear hyperplane 
+
+$$
+f_{i} (\mathbf{x}) = \mathbf{w}^{T}_{i} \mathbf{x} + b_{i}
+$$
+
+as a binary classifier that should be learned to separate the class $i$ (positive class) again all other classes (negative class). 
+Since we have $m$ classes and thus $m$ binary hyperplanes,
+the parameters for multi-class logistic regression include $m$ weight vectors and $m$ biases.
+
+By representing the parameters as the matrix form $\mathbf{W} \in \mathbb{R}^{d \times m}$ and the vector form $\mathbf{b} \in \mathbb{R}^{m}$, 
+we can write the linear part of the multi-class logistic regression model as a vector-valued multivariate function (see @derivatives-functions)
+
+$$
+\mathbf{f} (\mathbf{x}) = \mathbf{W}^{T} \mathbf{x} + \mathbf{b}.
+$$ 
+
+
+### Softmax function
+
+The **softmax function** maps the input vector $\mathbf{z} \in \mathbb{R}^{k}$ to a probability vector $\boldsymbol{\sigma} (\mathbf{z}) \in \mathbb{R}^{k}$,
+where the probability $\sigma_{i} (\mathbf{z})$ is calculated as the exponential of $z_{i}$ divided by the sum of exponentials of all components of $\mathbf{z}$
+
+$$
+\boldsymbol{\sigma} (\mathbf{z}) = 
+\begin{bmatrix}
+\sigma_{1} (\mathbf{z}) \\
+\vdots \\
+\sigma_{k} (\mathbf{z}) \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\frac{ \exp [z_{1}] }{ \sum^{k}_{i} \exp [z_{i}] } \\
+\vdots \\
+\frac{ \exp [z_{k}] }{ \sum^{k}_{i} \exp [z_{i}] } \\
+\end{bmatrix}.
+$$
+
+The softmax function is also a vector-valued multivariate function that can be seen as the vectorized version of the sigmoid function. 
+Thus, the entire multi-class logistic regression model takes the input vector $\mathbf{x}$ and outputs the probabilities that $\mathbf{x}$ belongs to all classes
+
+$$
+\boldsymbol{\sigma} (\mathbf{f} (\mathbf{x})) = \boldsymbol{\sigma} (\mathbf{W}^{T} \mathbf{x} + \mathbf{b}) =
+\begin{bmatrix}
+\mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}) \\
+\vdots \\
+\mathbb{P}_{Y \mid \mathbf{X}} (m \mid \mathbf{x}) \\
+\end{bmatrix}.
+$$
+
+### Cross entropy (CE) loss 
+
+Similarly as the binary logistic regression, 
+the multi-class logistic regression can be learned using MLE,
+where the posterior probability of the label for multi-class classification is modeled using the categorical distribution (generalized Bernoulli distribution) 
+
+$$
+\mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x}) = \prod_{j = 1}^{m} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x})^{\mathbf{1} [y = j]}.
+$$
+
+Given a dataset of $n$ instances $\{ (\mathbf{x}_{1}, y_{1}), \dots, (\mathbf{x}_{n}, y_{n}) \}$, 
+the MLE problem for learning multi-class logistic regression is to optimize the function
+
+$$
+\begin{aligned}
+& \arg\max_{\mathbf{W}, \mathbf{b}} \prod^{n}_{i = 1} \prod_{j = 1}^{m} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})^{\mathbf{1} [y_{i} = j]}
+\\
+& = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \log \left[
+    \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})^{\mathbf{1} [y_{i} = j]}
+\right]
+\\
+& = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+    \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})
+\right]
+\\
+& = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+    \sigma_{j} (\mathbf{f} (\mathbf{x}))
+\right]
+\\
+& = \arg\min_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \left(
+    - \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+        \sigma_{j} (\mathbf{f} (\mathbf{x}))
+    \right]
+\right)
+\\
+& = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} L_{\mathrm{CE}} (y_{i}, \boldsymbol{\sigma} (\mathbf{f} (\mathbf{x})))
+\end{aligned}
+$$
+
+where $L_{\mathrm{CE}} (y, \hat{\mathbf{y}})$ is the **cross-entropy loss**
+
+$$
+L_{\mathrm{CE}} (y, \hat{\mathbf{y}}) = - \sum_{j = 1}^{m} \mathbf{1} [y = j] \log \left[
+    \hat{y}_{j}
+\right].
+$$
+
+The cross-entropy loss is the generalized version of the binary cross-entropy loss,
+where both loss functions take as loss the negative log value of the output probability of the class given by the true label of the instance. 

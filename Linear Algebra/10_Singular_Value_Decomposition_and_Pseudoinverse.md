@@ -1,4 +1,4 @@
-# Singular Value Decomposition_and_Pseudoinverse
+# SVD and Pseudoinverse
 
 ## URV Factorization
 

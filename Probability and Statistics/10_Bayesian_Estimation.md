@@ -1,11 +1,5 @@
 # Bayesian Estimation {#sec-bayesian-estimation}
 
-- The form of the density $\mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}}(\mathbf{x} \mid \boldsymbol{\theta})$ is assumed to be known, but the value of the parameter vector $\boldsymbol{\theta}$ is not known exactly.
-
-- Our initial knowledge about $\boldsymbol{\theta}$ is assumed to be contained in a known a priori density $\mathbb{P}_{\boldsymbol{\Theta}}(\boldsymbol{\theta})$.
-
-- The rest of our knowledge about $\boldsymbol{\theta}$ is contained in a set $\mathcal{D}$ of n samples $\mathbf{x}_{1}, \dots, \mathbf{x}_{n}$ drawn independently according to the unknown probability density $\mathbb{P}_{\mathbf{X}}(\mathbf{x})$.
-
 ## Views on parameter estimation
 
 There are two different frameworks on statistical inferences: frequentist view and Bayesian view. 
@@ -83,10 +77,6 @@ $$
 \right).
 $$
 
-## Bayesian BDR
-
-> TODO 
-
 ## Example: mean of the univariate Gaussian
 
 Here we shows an example of estimating the posterior probability of the mean parameter of a univariate normal distribution using Bayesian estimation. 
@@ -154,46 +144,235 @@ $$
 
 :::{.callout-note collapse="true" title="Proof"}
 
+First we express $\mathbb{P}_{X \mid \mu} (x_{i} \mid \mu)$ and $\mathbb{P}_{\mu} (\mu)$ using the PDF of Gaussian distribution
+
 $$ 
 \begin{aligned}
-\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D}) 
-& \propto \mathbb{P}_{\mathcal{D} \mid \mu}(\mathcal{D} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
-& = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu}(x_{i} \mid \mu) \mathbb{P}_{\mu}(\mu) \\
-& = \prod_{i=1}^{n} \frac{ 1 }{\sqrt{2 \pi \sigma^{2}}} \exp{ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } } \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{ - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } } \\
-& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{ \left[ - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2}} - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } & [\text{merging constants and exponentials}] \\
-& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
-& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ \sum_{i=1}^{n} - \frac{ x_{i}^{2} - 2 x_{i} \mu + \mu^{2}}{2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } & [\text{expanding squares}] \\
-& = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} \left[ x_{i}^{2} - 2 x_{i} \mu + \mu^{2} \right] }{ 2 \sigma^{2} } - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2}} \right] } \\
-& = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2} }{2 \sigma^{2}} - \frac{ \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } & [\text{reordering sums}] \\
-& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } + \frac{ \sum_{i=1}^{n} 2 x_{i} \mu }{ 2 \sigma^{2} } - \frac{ n \mu^{2} }{ 2 \sigma^{2} } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{ 2 \mu \mu_{0} }{ 2 \sigma_{0}^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } \\
-& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } & [\text{grouping } \mu] \\
-& = \frac{ \exp{ \left[ - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } \right] } }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } & [\text{extracting out terms without } \mu] \\
-& \propto \exp{ \left[ - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right) \mu \right] } & [\text{removing terms without } \mu] \\
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D}) 
+& = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu) 
+\\
+& = \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{ 
+    (x_{i} - \mu)^{2} 
+}{ 
+    2 \sigma^{2} 
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{ 
+    (\mu - \mu_{0})^{2} 
+}{ 
+    2 \sigma_{0}^{2} 
+}}.
+\end{aligned}
+$$
+
+Then we simplify the expression by first merging constants and exponential
+
+$$
+\begin{aligned}
+& \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{ 
+    (x_{i} - \mu)^{2} 
+}{ 
+    2 \sigma^{2} 
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{ 
+    (\mu - \mu_{0})^{2} 
+}{ 
+    2 \sigma_{0}^{2} 
+}}
+\\
+& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{\left[ 
+    - \frac{ 
+        (x_{i} - \mu)^{2} 
+    }{ 
+        2 \sigma^{2} 
+    } - \frac{ 
+        (\mu - \mu_{0})^{2} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right] } 
+\\
+& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[ 
+    \sum_{i=1}^{n} - \frac{ 
+        (x_{i} - \mu)^{2} 
+    }{ 
+        2 \sigma^{2} 
+    } - \frac{ 
+        (\mu - \mu_{0})^{2} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right]} 
+\\
+& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[ 
+    \sum_{i=1}^{n} - \frac{ 
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2}
+    }{
+        2 \sigma^{2} 
+    } - \frac{ 
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right]}
+\\
+& = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[ 
+    - \frac{ \sum_{i=1}^{n} \left[ 
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2} 
+    \right] }{ 2 \sigma^{2} } - \frac{ 
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} 
+    }{ 
+        2 \sigma_{0}^{2}
+    } 
+\right]} 
+\\
+& = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ 
+    - \frac{ 
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2} 
+    }{
+        2 \sigma^{2}
+    } - \frac{ 
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right] }.
+\end{aligned}
+$$
+
+Finally we reorder the terms and extract the terms without $\mu$,
+
+$$
+\begin{aligned}
+& \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[ 
+    - \frac{ 
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2} 
+    }{
+        2 \sigma^{2}
+    } - \frac{ 
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right] } 
+\\
+& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[ 
+        - \frac{ \sum_{i=1}^{n} x_{i}^{2} 
+    }{
+        2 \sigma^{2} 
+    } + \frac{ 
+        \sum_{i=1}^{n} 2 x_{i} \mu 
+    }{ 
+        2 \sigma^{2} 
+    } - \frac{ 
+        n \mu^{2} 
+    }{ 
+        2 \sigma^{2} 
+    } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{ 
+        2 \mu \mu_{0} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } 
+\right]} 
+\\
+& = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[ 
+    - \left( 
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } 
+    \right) \mu^{2} + 2 \left( 
+        \frac{ 
+            \sum_{i=1}^{n} x_{i} 
+        }{ 
+            2 \sigma^{2} 
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } 
+    \right) \mu - \frac{ 
+        \sum_{i=1}^{n} x_{i}^{2} 
+    }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} } 
+\right] } 
+\\
+& = \frac{ \exp{ \left[ 
+    - \frac{ 
+        \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} 
+    } - \frac{ 
+        \mu_{0}^{2} }{ 2 \sigma_{0}^{2} 
+    } 
+\right] } }{ 
+    \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} 
+} \exp{\left[ 
+    - \left( 
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } 
+    \right) \mu^{2} + 2 \left( 
+        \frac{ 
+            \sum_{i=1}^{n} x_{i} 
+        }{ 
+            2 \sigma^{2} 
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } 
+    \right) \mu 
+\right] } 
+\\
+& \propto \exp{ \left[ 
+    - \left( 
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } 
+    \right) \mu^{2} + 2 \left( 
+        \frac{ 
+            \sum_{i=1}^{n} x_{i} 
+        }{ 
+            2 \sigma^{2} 
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } 
+    \right) \mu 
+\right] }.
+\\
 \end{aligned} 
 $$
 
-Using the *completing the squares* trick
+Then we can further simplify it using the *completing the squares* trick
     
 $$ 
 \begin{aligned}
 ax^{2} + 2bx + c  
-& = a \left( x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a } \right) \\
-& = a \left( x^{2} + 2 \frac{ b }{ a } x + \left( \frac{ b }{ a } \right)^{2} - \left( \frac{ b }{ a } \right)^{2} + \frac{ c }{ a } \right) \\
-& = a \left( x + \frac{ b }{ a } \right)^{2} + c - \frac{ b^{2} }{ a }, \\
+& = a \left( 
+    x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a } 
+\right) 
+\\
+& = a \left( 
+    x^{2} + 2 \frac{ b }{ a } x + \left( 
+        \frac{ b }{ a } 
+    \right)^{2} - \left( 
+        \frac{ b }{ a } 
+    \right)^{2} + \frac{ c }{ a } 
+\right) 
+\\
+& = a \left( 
+    x + \frac{ b }{ a } 
+\right)^{2} + c - \frac{ b^{2} }{ a }.
+\\
 \end{aligned}
 $$
 
-and treating 
+By treating 
 
-$$ a = - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right), $$
+$$ 
+a = - \left( 
+    \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } 
+\right)
+\quad
+b = \left( 
+    \frac{ 
+        \sum_{i=1}^{n} x_{i} 
+    }{ 
+        2 \sigma^{2} 
+    } - \frac{ 
+        \mu_{0} 
+    }{ 
+        2 \sigma_{0}^{2} 
+    } 
+\right)
+\quad 
+c = 0,
+$$
 
-$$ b = \left( \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} } \right), $$
-
+and omitting the term $- \frac{ b^{2} }{ a }$ since it doesn't depend on $\mu$,
 we can have
 
 $$
 \begin{aligned}
-\mathbb{P}_{\mu \mid \mathcal{D}}(\mu \mid \mathcal{D}) 
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D}) 
 & \propto \exp{ \left[ 
     - \left( 
         \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } 
@@ -215,7 +394,6 @@ $$
         } 
     \right)^{2} 
 \right] } 
-& [\text{remove } \frac{ b^{2} }{ a } \text{ as it doesn't depend on } \mu] 
 \\
 & = \exp{ \left[ 
     - \left( 
@@ -249,23 +427,22 @@ $$
             \sigma^{2} + n \sigma_{0}^{2} 
         } 
     \right)^{2} 
-\right] } 
-.
+\right] }.
 \\
 \end{aligned} 
 $$
 
 :::
 
-This means that the unknown parameter $\mu$ estimated by a set of instances $\mathcal{X}$ using Bayesian estimation has a probability $\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})$ that follows a normal distribution that has mean $\mu_{n}$ and variance $\sigma_{n}^{2}$.
+### Analysis
+
+The above result shows that the unknown parameter $\mu$ estimated by a set of instances $\mathcal{X}$ using Bayesian estimation has a probability $\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})$ that follows a normal distribution that has mean $\mu_{n}$ and variance $\sigma_{n}^{2}$.
 
 - Since $\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})$ is a normal distribution, $\mathbb{P}_{\mu \mid X} (\mu_{n} \mid \mathcal{X})$ is largest and thus we can view $\mu_{n}$ as our best guess for $\mu$ after observing $\mathcal{X}$. 
 
 - Then we can view the variance $\sigma_{n}^{2}$ as the uncertainty about this best guess.
 
 - Since $\sigma_{n}^{2}$ decreases monotonically with $n$, each additional observation decreases our uncertainty of the best guess. 
-
-%%markdown
 
 Since $\mu_{n}$ can be further rewritten as 
 
@@ -299,11 +476,14 @@ $$
         n \sigma_{0}^{2} + \sigma^{2}
     } 
 \right) \mu_{0} 
-& [\bar{x}_{n} = \frac{1}{n} \sum_{i=1}^{n} x_{i}]
+& [\bar{x}_{n} = \frac{ 1 }{ n } \sum_{i=1}^{n} x_{i}]
 \\
 & = \alpha_{n} \bar{x}_{n} + (1 - \alpha_{n}) \mu_{0} 
-& [\alpha_{n} = \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}}] 
-,
+& [\alpha_{n} = \frac{ 
+    n \sigma_{0}^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+}],
 \\
 \end{aligned}
 $$
@@ -316,11 +496,11 @@ $$
 \begin{aligned}
 \lim_{n \to \infty} \mu_{n}
 & = \bar{x}_{n} 
-& [\lim_{n \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+& [\lim_{n \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
 \\
 \lim_{n \to 0} \mu_{n}
 & = \mu_{0}
-& [\lim_{n \to 0} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+& [\lim_{n \to 0} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
 \end{aligned}
 $$
 
@@ -334,11 +514,11 @@ $$
 \begin{aligned}
 \lim_{\sigma_{0} \to \infty} \mu_{n}
 & = \bar{x}_{n} 
-& [\lim_{\sigma_{0} \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 1]
+& [\lim_{\sigma_{0} \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
 \\
 \lim_{\sigma_{0} \to 0} \mu_{n}
 & = \mu_{0}
-& [\lim_{\sigma \to \infty} \frac{n \sigma_{0}^{2}}{n \sigma_{0}^{2} + \sigma^{2}} = 0],
+& [\lim_{\sigma \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
 \end{aligned}
 $$
 
@@ -373,7 +553,7 @@ When the number of samples $n$ is large, the predictive distribution will not ch
     & = \bar{x}_{n},
     \\
     \lim_{\sigma_{0}^{2} \to \infty} \sigma_{n} 
-    & = \frac{\sigma^{2}}{n},
+    & = \frac{ \sigma^{2} }{ n },
     \end{aligned}
     $$
     
@@ -381,7 +561,7 @@ When the number of samples $n$ is large, the predictive distribution will not ch
     
     $$ 
     \mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left( 
-        \bar{x}_{n}, \sigma^{2} + \frac{\sigma^{2}}{n} 
+        \bar{x}_{n}, \sigma^{2} + \frac{ \sigma^{2} }{ n } 
     \right). 
     $$
 
@@ -408,7 +588,3 @@ When the number of samples $n$ is large, the predictive distribution will not ch
     $$
     
     Since $\mu_{0}$ is $\bar{x}_{n}$ with extra points, $\mu_{0} = \bar{x}_{n}$ when $n$ is large. 
-
-## References
-
-- https://www.bu.edu/sph/files/2014/05/Bayesian-Statistics_final_20140416.pdf

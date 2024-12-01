@@ -68,6 +68,23 @@ D (p \Vert q)
 \end{aligned}
 $$
 
+:::{.callout-note collapse="true" title="Proof"}
+
+$$ 
+\begin{aligned}
+D_{KL}(P \Vert Q) & = \sum_{x \in X} \mathbb{P} (x)(\log \mathbb{P} (x) - \log Q(x)) & [\text{KL Divergence definition}] \\
+& = \sum_{c \in C} \mathbb{P} (c)(\log \mathbb{P} (c) - \log Q(c)) & [\text{substitute } x \text{ with label } c] \\ 
+& = \sum_{c \in C} \mathbb{P} (c)(\log \mathbb{P} (c) - \log \frac{1}{C}) & [Q(c) = \frac{1}{C} \text{ is uniform distribution}] \\
+& = \sum_{c \in C} \mathbb{P} (c)(\log \mathbb{P} (c) - (\log 1 - \log C)) \\
+& = \sum_{c \in C} \mathbb{P} (c)(\log \mathbb{P} (c) + \log C) \\
+& = \sum_{c \in C} \mathbb{P} (c)\log \mathbb{P} (c) + \log C \sum_{c \in C} \mathbb{P} (c) \\
+& = \sum_{c \in C} \mathbb{P} (c) \log \mathbb{P} (c) + \log C & [\sum_{c \in C} \mathbb{P} (c) = 1] \\
+& = \sum_{c \in C} \mathbb{P} (c) \log \mathbb{P} (c) & [\log C \text{ is a constant and can be dropped}] \\
+\end{aligned}
+$$
+
+:::
+
 ## Mutual Information
 
 ### Mutual information

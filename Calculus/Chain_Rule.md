@@ -84,6 +84,14 @@ $$
 \end{aligned}
 $$
 
+Therefore, the gradient is a vector 
+
+$$
+\begin{aligned}
+\nabla c (\mathbf{x}) = \mathbf{J}^{T} \mathbf{g} (\mathbf{x}) \nabla f (\mathbf{g} (\mathbf{x})).
+\end{aligned}
+$$
+
 ### Extension 2: vector-valued univariate function $\mathbf{c} (x) = \mathbf{f} (\mathbf{g} (x))$
 
 When the output is a vector, 

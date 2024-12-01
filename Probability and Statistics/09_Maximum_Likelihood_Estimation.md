@@ -57,7 +57,7 @@ $$
 
 Otherwise, other numerical methods or algorithms might need to employed to solve the optimization problem. 
 
-## Example: linear regression
+## Example: linear regression {#sec-maximum-likelihood-estimation-example-linear-regression}
 
 Given an instance $\mathbf{x} \in \mathbb{R}^{d}$, the function $f (\cdot)$ is a linear function if it has the form
 

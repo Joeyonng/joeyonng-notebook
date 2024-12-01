@@ -1,11 +1,5 @@
 # Boosting
 
-## Preliminary
-
-### Supervised Learning
-
-- [Linear Discriminant](linear-discriminant)
-
 ## Boosting for learning an ensemble learner 
 
 ### Ensemble classifier
@@ -20,13 +14,17 @@ which is also named generalized additive models (GAMs) in statistics.
 ### Gradient descent in functional space
 
 Instead of minimizing the empirical risk function over the space of possible parameters,
-boosting minimizes the risk over the space of a set of functions $\mathcal{U}$
+boosting minimizes the risk over the space of a set of functions $\mathcal{U}$.
+That is, boosting searches over all functions in $u \in \mathcal{U}$ that minimizes the risk.
+
+In particular, if the empirical risk
 
 $$
-R [f] = \frac{ 1 }{ n } \sum_{i=1}^{n} L[f].
+R [f] = \frac{ 1 }{ n } \sum_{i=1}^{n} L[f],
 $$
 
-Let $f_{t + 1}$ denote the classifier learned at the iteration $t + 1$ by minimizing a differentiable empirical risk function $R [f]$ using gradient descent.
+is differentiable in the functional space $\mathcal{U}$,
+we can expand the function $f_{t + 1}$ learned at the iteration $t + 1$ of the gradient descent process as sum of the gradients
 
 $$
 \begin{aligned}
@@ -65,7 +63,7 @@ Therefore, the boosting learning algorithm can be characterized as performing th
 
 ### Boosting framework
 
-::: {.callout-note}
+::: {.callout-tip}
 
 1. Initialize $f_{t} = 0$
 
@@ -212,7 +210,7 @@ $$
 \end{aligned}
 $$
 
-The closed-form expression of the step-size can be derived since $h_{t} (\mathbf{x}_{i}) \in \{1, -1\}$
+The closed-form expression of the step-size can be derived since $h_{t} (\mathbf{x}_{i}) \in \{1, -1\}$,
 
 $$
 \begin{aligned}
@@ -231,14 +229,9 @@ $$
 \frac{
     \sum_{i \mid y_{i} = h_{t} (\mathbf{x}_{i})}^{n} \exp(- y_{i} f_{t} (\mathbf{x}_{i})) 
 }{
-
     \sum_{i \mid y_{i} \neq h_{t} (\mathbf{x}_{i})}^{n} \exp(- y_{i} f_{t} (\mathbf{x}_{i})) 
 }
-& = \frac{
-    e^{\eta}
-}{
-    e^{-\eta}
-}
+& = \frac{ e^{\eta} }{ e^{- \eta} }
 \\
 \frac{
     \sum_{i = 1}^{n} \exp(- y_{i} f_{t} (\mathbf{x}_{i})) - 

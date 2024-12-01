@@ -1,115 +1,131 @@
-# Normal Matrices
+# Normal and Hermitian Matrices
 
-The matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is a **normal matrix** if and only if 
+## Normal Matrices
+
+:::{#def-normal-matrices}
+
+The square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is a **normal matrix** if and only if 
 
 $$
 \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
 $$
 
-## Properties of normal matrices
+:::
 
-- Unitary matrices are normal.
+:::{#thm-normal-matrices-diagonal}
 
-  ::: {.callout-note collapse="true" title="Proof"}
-    
-    According to the [property of unitary matrices](unitary-matrix-property-2),
-    a matrix $\mathbf{U}$ is unitary if and only if
-    
-    $$
-    \mathbf{U}^{-1} \mathbf{U} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}. 
-    $$
-    
-    Thus, unitary matrices are normal.
-    
-  :::
+Diagonal matrices are normal.
 
-- Diagonal matrices are normal.
+:::
 
-  ::: {.callout-note collapse="true" title="Proof"}
-    
-    Consider $\mathbf{D} \in \mathbb{C}^{n \times n}$ as a diagonal matrix with $d_{1}, \dots, d_{n}$ in its diagonal.
-    
-    $$
-    \mathbf{D}^{H} \mathbf{D} = \sum_{i=1}^{n} d_{i}^{2} = \mathbf{D} \mathbf{D}^{H}.
-    $$
+:::{.callout-note collapse="true" title="Proof"}
+  
+Consider $\mathbf{D} \in \mathbb{C}^{n \times n}$ as a diagonal matrix with $d_{1}, \dots, d_{n}$ in its diagonal.
 
-  :::
+$$
+\mathbf{D}^{H} \mathbf{D} = \sum_{i=1}^{n} d_{i}^{2} = \mathbf{D} \mathbf{D}^{H}.
+$$
 
-- Unitary similarity preserves normality. 
-    That is, if $\mathbf{A}$ is a normal matrix and is unitarily similar to $\mathbf{B}$ 
-    
-    $$
-    \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B}
-    $$ 
-    
-    or 
-    
-    $$
-    \mathbf{U}^{H} \mathbf{A} \mathbf{U} = \mathbf{B},
-    $$ 
-    
-    then $\mathbf{B}$ is also a normal matrix.
+:::
 
-  ::: {.callout-note collapse="true" title="Proof"}
-    
-    The goal is to prove 
-    
-    $$
-    \mathbf{B}^{H} \mathbf{B} = \mathbf{B} \mathbf{B}^{H}.
-    $$
-    
-    First we expand $\mathbf{B}^{H} \mathbf{B}$ to have 
-    
-    $$
-    \begin{aligned}
-    \mathbf{B}^{H} \mathbf{B}
-    & = (\mathbf{U}^{H} \mathbf{A} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
-    \\
-    & = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
-    & [TODO]
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
-    & [\mathbf{U} \mathbf{U}^{H} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}]
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}.
-    \end{aligned}
-    $$
-    
-    Since $\mathbf{A}$ is a normal matrix,
-    
-    $$
-    \mathbf{A} \mathbf{A}^{H} = \mathbf{A}^{H} \mathbf{A}.
-    $$
-    
-    Continue from the derivation above,
-    
-    $$
-    \begin{aligned}
-    \mathbf{B}^{H} \mathbf{B}
-    & = \mathbf{U}^{H} \mathbf{A} \mathbf{A}^{H} \mathbf{U}
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
-    \\
-    & = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
-    \\
-    & = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
-    & [TODO]
-    \\
-    & = (\mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
-    \\
-    & = \mathbf{B} \mathbf{B}^{H}.
-    \end{aligned}
-    $$
-    
-  :::
+:::{#thm-normal-matrices-unitary}
 
-## Unitary diagonalization
+Unitary (orthogonal) matrices are normal.
 
-A matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is normal if and only if $\mathbf{A}$ is unitarily similar to a diagonal matrix
+:::
+
+:::{.callout-note collapse="true" title="Proof"}
+  
+According to the [property of unitary matrices](unitary-matrix-property-2),
+a matrix $\mathbf{U}$ is unitary if and only if
+
+$$
+\mathbf{U}^{-1} \mathbf{U} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}. 
+$$
+
+Thus, unitary matrices are normal.
+
+:::
+  
+:::{#thm-normal-matrices-similarity}
+
+Unitary similarity preserves normality. 
+That is, if $\mathbf{A}$ is a normal matrix and is unitarily similar to $\mathbf{B}$ 
+
+$$
+\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B}
+$$ 
+
+$$
+\mathbf{U}^{H} \mathbf{A} \mathbf{U} = \mathbf{B},
+$$ 
+
+then $\mathbf{B}$ is also a normal matrix.
+
+:::
+
+::: {.callout-note collapse="true" title="Proof"}
+    
+The goal is to prove 
+
+$$
+\mathbf{B}^{H} \mathbf{B} = \mathbf{B} \mathbf{B}^{H}.
+$$
+
+First we expand $\mathbf{B}^{H} \mathbf{B}$ to have 
+
+$$
+\begin{aligned}
+\mathbf{B}^{H} \mathbf{B}
+& = (\mathbf{U}^{H} \mathbf{A} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
+\\
+& = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+& [TODO]
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
+& [\mathbf{U} \mathbf{U}^{H} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}]
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}.
+\end{aligned}
+$$
+
+Since $\mathbf{A}$ is a normal matrix,
+
+$$
+\mathbf{A} \mathbf{A}^{H} = \mathbf{A}^{H} \mathbf{A}.
+$$
+
+Continue from the derivation above,
+
+$$
+\begin{aligned}
+\mathbf{B}^{H} \mathbf{B}
+& = \mathbf{U}^{H} \mathbf{A} \mathbf{A}^{H} \mathbf{U}
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{A} \mathbf{U}
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{I} \mathbf{A} \mathbf{U}
+\\
+& = \mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+\\
+& = \mathbf{U} \mathbf{A}^{H} \mathbf{U}^{H} \mathbf{U}^{H} \mathbf{A} \mathbf{U}
+& [TODO]
+\\
+& = (\mathbf{U}^{H} \mathbf{A}^{H} \mathbf{U})^{H} (\mathbf{U}^{H} \mathbf{A} \mathbf{U})
+\\
+& = \mathbf{B} \mathbf{B}^{H}.
+\end{aligned}
+$$
+    
+:::
+
+### Unitary diagonalization
+
+:::{#thm-unitary-diagonalization}
+
+A matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is normal if and only if $\mathbf{A}$ is **unitarily similar** to a diagonal matrix
 
 $$
 \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
@@ -117,7 +133,9 @@ $$
 
 where $\mathbf{U}$ is a unitary matrix and $\mathbf{\Lambda}$ is a diagonal matrix.
 
-::: {.callout-note collapse="true" title="Proof"}
+:::
+
+:::{.callout-note collapse="true" title="Proof"}
 
 We first prove that 
 
@@ -147,19 +165,30 @@ Since the columns of $\mathbf{U}$ are eigenvectors of $\mathbf{A}$ and are ortho
 the columns of $\mathbf{U}$ must be a complete orthonormal set of eigenvectors for $\mathbf{A}$,
 and the diagonal entries of $\mathbf{\Lambda}$ are the associated eigenvalues.
 
+
 ## Hermitian (symmetric) matrices 
 
-A square complex (real) matrix $\mathbf{A}$ is hermitian (symmetric) if and only if 
+:::{#def-hermitian-matrices}
+
+A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is Hermitian and symmetric if and only if 
 
 $$
 \mathbf{A}^{H} = \mathbf{A},
 $$
 
-which implies **a hermitian (symmetric) matrix is a normal matrix**. 
+which implies a Hermitian (symmetric) matrix is a normal matrix. 
 
-All eigenvalues of Hermitian matrices are real.
+:::
+
+:::{#thm-hermitian-matrices-eigenvalues}
+
+All eigenvalues of Hermitian (symmetric) matrices are real.
+
+:::
 
 ::: {.callout-note collapse="true" title="Proof"}
+
+We will prove it for the Hermitian matrix and symmetric matrix is a special case of the hermitian matrix.
 
 Suppose $(\lambda, \mathbf{v})$ is a eigenpair for the Hermitian matrix $\mathbf{A}$.
 

@@ -84,7 +84,22 @@ where each element member is called $m \times n$ dimensional matrix.
 
 The definition of vector addition, scalar multiplication, zero, and addictive inverse are the same as $n$ dimensional column vectors.
 
+## Transpose 
+
+TODO
+
 ## Multiplications 
+
+### Inner product
+
+Given two vectors $\mathbf{a} \in \mathbb{F}^{n}, \mathbf{b} \in \mathbb{F}^{n}$ of the same size, 
+the inner product is a function that maps $\mathbf{a}$ and $\mathbf{b}$ to a field
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^{T} \mathbf{b} = \sum_{i = 1}^{n} a_{i} b_{i}.
+$$
+
+Note that this is a special case of the inner product introduced in @sec-inner-product for the vector vector space. 
 
 ### Matrix-vector multiplication {#sec-matrix-vector-multiplication}
 
@@ -101,12 +116,21 @@ $$
 $$
 
 
-If we view $\mathbf{A}$ as $n$ columns of $\mathbb{F}^{m}$ vectors,
+If we view $\mathbf{A}$ as $n$ columns of $\mathbb{F}^{m}$ vectors and $\mathbf{x}$ as $n$ coefficients
 
 $$
 \mathbf{A} = 
 \begin{bmatrix}
+| & & | \\
 \mathbf{a}_{1} & \dots & \mathbf{a}_{n} \\
+| & & | \\
+\end{bmatrix},
+\quad
+\mathbf{x} = 
+\begin{bmatrix}
+x_{1} \\
+\vdots \\
+x_{n} \\
 \end{bmatrix}
 $$
 
@@ -119,21 +143,66 @@ $$
 ### Matrix multiplication {#sec-matrix-multiplication}
 
 Given two matrices $\mathbf{A} \in \mathbb{F}^{m \times n}$ and $\mathbf{B} \in \mathbb{F}^{n \times r}$, 
-the matrix multiplication is a function that applies vector matrix multiplication on the matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$ and the vector $\mathbf{b}_{i} \in \mathbb{F}^{n}$ 
+the matrix multiplication is a function that returns a matrix by applying vector matrix multiplication on the matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$ and the vector $\mathbf{b}_{i} \in \mathbb{F}^{n}$ 
 ($i$th column of $\mathbf{B}$)
 
 $$
 \mathbf{C} = \mathbf{A} \mathbf{B} = 
 \begin{bmatrix}
-\mathbf{c}_{1} = \mathbf{A} \mathbf{b}_{1} & \dots & \mathbf{c}_{r} = \mathbf{A} \mathbf{b}_{r} \\
-\end{bmatrix},
+| & & | \\
+\mathbf{c}_{1} & \dots & \mathbf{c}_{r} \\
+| & & | \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+| & & | \\
+\mathbf{A} \mathbf{b}_{1} & \dots & \mathbf{A} \mathbf{b}_{r} \\
+| & & | \\
+\end{bmatrix}
 $$ 
 
-which results in a vector $\mathbf{c}_{i} \in \mathbb{F}^{m}$ as the $i$th column of the $\mathbf{C}$.
+which results in a vector $\mathbf{c}_{i} = \mathbf{A} \mathbf{b}_{i} \in \mathbb{F}^{m}$ as the $i$th column of the $\mathbf{C}$.
 
 - The column $i$ of $\mathbf{C}$ is a linear combination of columns of $\mathbf{A}$ using the elements of the column $i$ of $\mathbf{B}$ as coefficients.
 
 - The row $i$ of $\mathbf{C}$ is a linear combination of rows of $\mathbf{B}$ using the elements of row $i$ of $\mathbf{A}$ as coefficients.
+
+#### Vector-matrix multiplication 
+
+Given a vector $\mathbf{x} \in \mathbb{F}^{m}$ and a matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$,
+the vector-matrix multiplication is a special case of matrix multiplication between $\mathbf{x}^{T}$ and $\mathbf{A}$
+
+$$
+\mathbf{y}^{T} = \mathbf{x}^{T} \mathbf{A} = 
+\begin{bmatrix}
+\mathbf{x}^{T} \mathbf{a}_{1} & \dots & \mathbf{x}^{T} \mathbf{a}_{n} \\
+\end{bmatrix},
+$$
+
+where $\mathbf{a}_{i}$ is the $i$th column of $\mathbf{A}$.
+
+The result $\mathbf{y}$ can also be thought as the linear combination of rows of $\mathbf{A}$ using the coefficients in $\mathbf{x}$ 
+
+$$
+\mathbf{y}^{T} = \sum_{i = 1}^{m} x_{i} \mathbf{A}_{i, *},
+$$
+
+where $\mathbf{A}_{i, *}$ is the $i$th row of the matrix $\mathbf{A}$. 
+
+#### Outer product
+
+The outer product of two vectors $\mathbf{a} \in \mathbb{F}^{m}, \mathbf{b} \in \mathbb{F}^{n}$ is defined as 
+
+$$
+\mathbf{a} \otimes \mathbf{b} = \mathbf{a} \mathbf{b}^{T} = 
+\begin{bmatrix}
+| & & | \\
+b_{1} \mathbf{a} & \dots & b_{n} \mathbf{a} \\
+| & & | \\
+\end{bmatrix}
+$$
+
+which is the same as the matrix multiplication by viewing the vector $\mathbf{a}$ as the matrix $\mathbf{A} \in \mathbb{F}^{m \times 1}$ and the row vector $\mathbf{b}^{T}$ as the matrix $\mathbb{B} \in \mathbb{F}^{1 \times n}$. 
 
 ## Well-known Subspaces for Matrix
 

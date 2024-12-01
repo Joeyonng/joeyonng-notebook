@@ -2,17 +2,25 @@
 
 ## Similarity
 
-Two square matrices $\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}$ are similar if there exists a non-singular matrix $\mathbf{P}$ such that 
+:::{#def-similarity}
 
-$$
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{B},
-$$
+Two square matrices $\mathbf{A}, \mathbf{B} \in \mathbb{C}^{n \times n}$ are **similar** if there exists a non-singular matrix $\mathbf{P}$ such that 
 
 $$
  \mathbf{A} = \mathbf{P} \mathbf{B} \mathbf{P}^{-1}.
 $$
 
+$$
+\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{B},
+$$
+
+:::
+
+:::{#thm-similarity-eigenvalues}
+
 Similar matrices have the same eigenvalues. 
+
+:::
 
 ::: {.callout-note collapse="true" title="Proof"}
 
@@ -47,23 +55,29 @@ $$
 
 :::
 
-## Orthogonally (unitarily) similar
+### Unitarily (orthogonally) similar
 
-Two matrices $\mathbf{A}, \mathbf{B} \in \mathbb{R}^{n \times n}$ are unitarily similar if there exists an unitary matrix $\mathbf{U}$ such that 
+:::{#def-unitarily-similar}
+
+Two square matrices $\mathbf{A}, \mathbf{B} \in \mathbb{C}^{n \times n}$ are **unitarily (orthogonally) similar** if there exists an unitary (orthogonal) matrix $\mathbf{U}$ such that 
 
 $$
-\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{B},
+\mathbf{A} = \mathbf{U} \mathbf{B} \mathbf{U}^{-1},
 $$
 
 which, according to the [property of orthogonal matrix](unitary-matrix-property-1), can also be written as 
 
 $$
-\mathbf{U}^{T} \mathbf{A} \mathbf{U} = \mathbf{B}.
+\mathbf{A} = \mathbf{U} \mathbf{B} \mathbf{U}^{H},
 $$
+
+:::
 
 ## Diagonalization
 
-A square matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ is diagonalizable if $\mathbf{A}$ is similar to a diagonal matrix:
+:::{#def-diagonalization}
+
+A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is **diagonalizable** if $\mathbf{A}$ is similar to a diagonal matrix:
 
 $$
 \mathbf{A} = \mathbf{P} \Lambda \mathbf{P}^{-1}
@@ -71,26 +85,25 @@ $$
 
 where $\Lambda$ is a diagonal matrix.
 
-## Diagonalization and eigensystems
+:::
 
-$\mathbf{A}$ is diagonalizable if and only if $\mathbf{A}$ has $n$ linearly independent eigenvectors. 
-That is,
+### Diagonalization and eigensystems
 
-$$
-\mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
-$$ 
+:::{#thm-diagonalization-eigensystems}
 
-or 
+A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is diagonalizable if and only if $\mathbf{A}$ has $n$ linearly independent eigenvectors
 
 $$
-\mathbf{P}^{-1} \mathbf{A} \mathbf{P} = \mathbf{\Lambda},
+\mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1},
 $$ 
 
 where 
 
 - the columns of $\mathbf{P} \in \mathbb{R}^{n \times n}$ are $n$ linearly independent eigenvectors,
 
-- the diagonal values of $\mathbf{\Lambda}$ are corresponding eigenvalues. 
+- and the diagonal values of $\mathbf{\Lambda}$ are corresponding eigenvalues. 
+
+:::
 
 ::: {.callout-note collapse="true" title="Proof"}
 
@@ -156,6 +169,35 @@ which shows that $\mathbf{A}$ is similar to $\mathbf{\Lambda}$ and thus is diago
 
 :::
 
-## Diagonalizability and multiplicities
+### Diagonalization and multiplicities
+
+:::{#thm-diagonalization-multiplicities}
+
+A square matrix $\mathbf{A} \times \mathbb{C}^{n \times n}$ is diagonalizable if and only if 
+
+$$
+\mathrm{geo mult}_{\mathbf{A}} (\lambda_{i}) = \mathrm{alg mult}_{\mathbf{A}} (\lambda_{i}),
+$$
+
+for each $\lambda$ in the spectrum $\sigma (\mathbf{A})$.
+
+:::
+
+::: {.callout-note collapse="true" title="Proof"}
 
 TODO
+
+:::
+
+:::{#cor-diagonalization-multiplies}
+
+If no eigenvalue of $\mathbf{A}$ is repeated, 
+then $\mathbf{A}$ is diagonalizable.
+
+:::
+
+::: {.callout-note collapse="true" title="Proof"}
+
+TODO
+
+:::
