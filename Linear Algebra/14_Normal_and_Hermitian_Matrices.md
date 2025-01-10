@@ -121,17 +121,17 @@ $$
     
 :::
 
-### Unitary diagonalization
+### Orthogonal diagonalization
 
 :::{#thm-unitary-diagonalization}
 
-A matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is normal if and only if $\mathbf{A}$ is **unitarily similar** to a diagonal matrix
+A matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is normal if and only if $\mathbf{A}$ is **orthogonally (unitarily) similar** to a diagonal matrix
 
 $$
-\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \iff \mathbf{A} = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^{-1}.
 $$
 
-where $\mathbf{U}$ is a unitary matrix and $\mathbf{\Lambda}$ is a diagonal matrix.
+where $\mathbf{U}$ is an orthogonal (unitary) matrix and $\mathbf{\Lambda}$ is a diagonal matrix.
 
 :::
 
@@ -140,7 +140,7 @@ where $\mathbf{U}$ is a unitary matrix and $\mathbf{\Lambda}$ is a diagonal matr
 We first prove that 
 
 $$
-\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \Rightarrow \mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda}.
+\mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H} \Longrightarrow \mathbf{A} = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^{-1}
 $$
 
 TODO
@@ -148,7 +148,7 @@ TODO
 Then we prove that 
 
 $$
-\mathbf{U}^{-1} \mathbf{A} \mathbf{U} = \mathbf{\Lambda} \Rightarrow \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
+\mathbf{A} = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^{-1} \Longrightarrow \mathbf{A}^{H} \mathbf{A} = \mathbf{A} \mathbf{A}^{H}.
 $$
 
 According to the [property of unitary matrices](normal-matrices-property-3), 
@@ -166,23 +166,23 @@ the columns of $\mathbf{U}$ must be a complete orthonormal set of eigenvectors f
 and the diagonal entries of $\mathbf{\Lambda}$ are the associated eigenvalues.
 
 
-## Hermitian (symmetric) matrices 
+##  Symmetric (Hermitian) matrices 
 
 :::{#def-hermitian-matrices}
 
-A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is Hermitian and symmetric if and only if 
+A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is symmetric (Hermitian) if and only if 
 
 $$
 \mathbf{A}^{H} = \mathbf{A},
 $$
 
-which implies a Hermitian (symmetric) matrix is a normal matrix. 
+which implies a symmetric (Hermitian) matrix is a normal matrix. 
 
 :::
 
 :::{#thm-hermitian-matrices-eigenvalues}
 
-All eigenvalues of Hermitian (symmetric) matrices are real.
+All eigenvalues of symmetric (Hermitian) matrices are real.
 
 :::
 

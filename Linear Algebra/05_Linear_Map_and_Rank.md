@@ -2,12 +2,15 @@
 
 ## Linear Map
 
-Let $\mathcal{U}$ and $\mathcal{V}$ be the vector spaces over the same filed $\mathbb{F}$. 
-A map $T: \mathcal{U} \to \mathcal{V}$ is linear if 
+Let $\mathcal{U}$ and $\mathcal{V}$ be vector spaces over the same field $\mathbb{F}$. 
+A map $T: \mathcal{U} \to \mathcal{V}$ is called a **linear map** if it satisfies the following two properties for all $u, v \in \mathcal{U}$ and all $\alpha \in \mathbb{F}$:
 
-- $T (u + v) = T (u) + T (v) \quad u, v \in \mathcal{U}, T (u), T (v) \in \mathcal{V}$, and
+1. **Additivity**:  $T(u + v) = T(u) + T(v)$.
 
-- $T (\alpha \cdot v) = \alpha \cdot T (v) \quad \alpha \in \mathbb{F}, v \in \mathcal{u}, T (v) \in \mathcal{V}.$
+2. **Homogeneity (Scalar Multiplication Compatibility)**:  $T(\alpha \cdot v) = \alpha \cdot T(v)$.
+
+These properties ensure that $T$ preserves the structure of vector addition and scalar multiplication in $\mathcal{U}$ when mapped to $\mathcal{V}$.
+
 
 ### Properties of linear map
 
@@ -155,7 +158,7 @@ and suppose $T$ is a linear map $T: \mathcal{U} \to \mathcal{V}$.
     
   :::
 
-## Generalization of null space and range space
+### Generalization of null space and range space
 
 Since every linear map has a matrix representation, 
 the null space and range space defined using matrix can be redefined using linear map. 
@@ -198,7 +201,7 @@ Given a matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$,
 
   :::
 
-- rank-nullity theorem: $\text{rank} (\mathbf{A}) + \text{dim} (N (\mathbf{A})) = n$
+- **Rank-nullity theorem**: $\text{rank} (\mathbf{A}) + \text{dim} (N (\mathbf{A})) = n$
 
   ::: {.callout-note collapse="true" title="Proof"}
 

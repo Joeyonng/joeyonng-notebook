@@ -3,7 +3,7 @@
 The idea of **principle component analysis (PCA)** is to compress the data represented using $m$ dimensional vectors into vectors of $p < m$ dimensions such that the information stored in the compressed vector is maximized. 
 
 Recall from the linear algebra that the standard coordinate system is a special **orthonormal basis** $\mathbf{e}_{1}, \dots \mathbf{e}_{m}$,
-and values in any vector $\mathbf{x} \in \mathbb{R}^{m}$ are the **projection coefficients** of $\mathbf{x}$ onto the basis 
+and any vector $\mathbf{x} \in \mathbb{R}^{m}$ can be represented using the **projection coefficients** of $\mathbf{x}$ onto the basis 
 
 $$
 \mathbf{x} = \sum_{i = 1}^{m} x_{i} \mathbf{e}_{i}, \quad
@@ -15,7 +15,7 @@ x_{m} \\
 \end{bmatrix}.
 $$
 
-Thus, we can choose the projection coefficients of $\mathbf{x}$ onto any orthonormal basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{m}$ as the representation of $\mathbf{x}$ 
+Thus, given any orthonormal basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{m}$, the representation of the same vector $\mathbf{x}$ can be changed to the projection coefficients of $\mathbf{x}$ on the basis
 
 $$
 \mathbf{x} = \sum_{i = 1}^{m} \alpha_{i} \mathbf{b}_{i}, \quad
@@ -24,30 +24,43 @@ $$
 \alpha_{1} \\
 \vdots \\
 \alpha_{m} \\
-\end{bmatrix}.
+\end{bmatrix},
+$$
+
+where the projection coefficient $\alpha_{i}$ can be calculated by the dot product between $\mathbf{x}$ and $\mathbf{b}_{i}$
+
+$$
+\alpha_{i} = \mathbf{x}^{T} \mathbf{b}_{i}.
 $$
 
 Although the vector values of $\mathbf{x}$ are different using different orthonormal basis,
-the reconstructed vectors by linear combination of orthonormal basis with the corresponding projection coefficients are the same 
+the **reconstructed vectors** by linear combination of orthonormal basis with the corresponding projection coefficients are the same 
 
 $$
 \mathbf{x} = \sum_{i = 1}^{m} x_{i} \mathbf{e}_{i} = \sum_{i = 1}^{m} \alpha_{i} \mathbf{b}_{i}.
 $$
 
-If we only select $p < m$ projection coefficients $\alpha_{1}, \dots, \alpha_{p}$ on any orthonormal basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ as the representation of $\mathbf{x}$,
-we can save some spaces for saving $\mathbf{x}$ as the vector length is shorter,
-but the cost is that the reconstructed vector $\hat{\mathbf{x}}$ from the $p$ projection coefficients is not the same as $\mathbf{x}$
+## Projection error
+
+Given a orthonormal basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{m}$, we can have a shorter representation of $\mathbf{x}$ by only selecting $p < m$ projection coefficients $\alpha_{1}, \dots, \alpha_{p}$.
+The benefit is that we can have a compact representation of $\mathbf{x}$ and dimensionality of $\mathbf{x}$ is reduced from $m$ to $p$, but the cost is that the reconstructed vector $\hat{\mathbf{x}}$ from the $p$ projection coefficients is not the same as $\mathbf{x}$
 
 $$
 \mathbf{x} \neq \hat{\mathbf{x}} = \sum_{i = 1}^{p} \alpha_{i} \mathbf{b}_{i}.
 $$
 
-The goal of the PCA is to select the $p$ orthonormal basis vectors such that the projection differences are minimized.
+The **projection error** of $\mathbf{x}$ onto basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ with projection coefficients $\alpha_{1}, \dots, \alpha_{p}$ is defined to be the squared L2 norm of the difference between $\mathbf{x}$ and $\hat{\mathbf{x}}$
+
+$$
+\mathrm{err} (\mathbf{x}) = \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert^{2}.
+$$
+
+The goal of the PCA is to select the $p$ orthonormal basis vectors such that the sum of projection errors is minimized.
 
 ## PCA for minimizing projection error
 
-Given a set of instances on $\mathbb{R}^{m}$,
-the idea of the PCA is to find $p < m$ orthonormal basis vectors $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ such that the total **projection error** is minimized
+Given a set of instances $\mathbf{x}_{1}, \dots, \mathbf{x}_{n} \in \mathbb{R}^{m}$,
+the idea of the PCA is to find $p < m$ orthonormal basis vectors $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ such that the total projection error on $\mathbf{x}_{1}, \dots, \mathbf{x}_{n}$ is minimized
 
 $$
 \begin{aligned}
@@ -61,36 +74,23 @@ $$
 \end{aligned}
 $$
 
-where $\hat{\mathbf{x}}_{i}$ is the **reconstructed vector** of the original vector $\mathbf{x}_{i}$ on the $p$ orthonormal basis vectors
+where the constraints for indicate that the basis vectors $\mathbf{b}_{1}, \dots \mathbf{b}_{p}$ have to be orthonormal to each other.
 
-$$
-\hat{\mathbf{x}}_{i} = \sum_{j = 1}^{p} \left(
-    \mathbf{x}^{T}_{i} \mathbf{b}_{j}
-\right) \mathbf{b}_{j}, \quad
-\hat{\mathbf{x}} \coloneqq 
-\begin{bmatrix}
-\mathbf{x}^{T}_{i} \mathbf{b}_{1} \\
-\vdots \\
-\mathbf{x}^{T}_{i} \mathbf{b}_{p} \\
-\end{bmatrix},
-$$
-
-and the constraints are because of the $\mathbf{b}_{1}, \dots \mathbf{b}_{p}$ are orthonormal to each other.
-
-If the row $i$ of the matrix $\mathbf{X}$ is $\mathbf{x}^{T}_{i}$,
-the optimization objective can be simplied using the matrix notation as 
+After simplifying the objective function, we can derive the following optimization problem in the vector form
 
 $$
 \begin{aligned}
-\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} 
-& \quad - \frac{ 1 }{ n } \sum_{j = 1}^{p} \mathbf{b}_{j}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{b}_{j}
+\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+& - \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left( 
+    \mathbf{x}^{T}_{i} \mathbf{b}_{j} 
+\right)^{2}
 \\
 \mathrm{s.t.} 
 & \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
 \\
-& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k.
+& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k
 \end{aligned}
-$$
+$$ {#eq-min-error-vector}
 
 :::{.callout-note collapse="true" title="Proof"}
 
@@ -194,29 +194,46 @@ and then we plug the result to the optimization objective to obtain
 $$
 \begin{aligned}
 \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
-& \frac{ 1 }{ n } \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{x}}_{i} \rVert^{2}
+& \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{x}}_{i} \rVert^{2}
 \\
 = \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
-& \frac{ 1 }{ n } \sum_{i = 1}^{n} \left(
+& \sum_{i = 1}^{n} \left(
     \mathbf{x}^{T}_{i} \mathbf{x}_{i} - \sum_{j = 1}^{p} \left( 
         \mathbf{x}^{T}_{i} \mathbf{b}_{j} 
     \right)^{2}
 \right)
 \\
 = \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
-& \frac{ 1 }{ n } \sum_{i = 1}^{n} \mathbf{x}^{T}_{i} \mathbf{x}_{i} 
-- \frac{ 1 }{ n } \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left( 
+& \sum_{i = 1}^{n} \mathbf{x}^{T}_{i} \mathbf{x}_{i} 
+- \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left( 
     \mathbf{x}^{T}_{i} \mathbf{b}_{j} 
 \right)^{2}
 \\
 = \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
-& - \frac{ 1 }{ n } \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left( 
+& - \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left( 
     \mathbf{x}^{T}_{i} \mathbf{b}_{j} 
 \right)^{2}
+& [\mathbf{x}^{T} \mathbf{x} \text{ is a fixed value}]
 \end{aligned}
 $$
+:::
 
-Then note that if the row of $\mathbf{X}$ is $\mathbf{x}^{T}_{i}$,
+If the row $i$ of the matrix $\mathbf{X}$ is $\mathbf{x}^{T}_{i}$ and the column $j$ of the matrix $\mathbf{B}$ is $\mathbf{b}_{j}$, 
+then we can write the optimization problem in @eq-min-error-vector can be further rewritten in the matrix form as 
+
+$$
+\begin{aligned}
+\min_{\mathbf{B}} 
+& \quad - \mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B}
+\\
+& \mathrm{s.t.}
+\quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
+\end{aligned} 
+$$ {#eq-min-error-matrix}
+
+:::{.callout-note collapse="true" title="Proof"}
+
+First note that if the row of $\mathbf{X}$ is $\mathbf{x}^{T}_{i}$,
 the vector of projecting each row of $\mathbf{X}$ to $\mathbf{b}_{j}$ is 
 
 $$
@@ -238,210 +255,182 @@ $$
 = \mathbf{b}_{j}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{b}_{j}.
 $$
 
-There the optimization problem is 
+Similarly, if the column of matrix $\mathbf{B}$ is $\mathbf{b}_{j}$, 
+then the sum of matrix-vector multiplications can be written as a matrix-matrix multiplication
+
+$$
+\sum_{j = 1}^{p} \mathbf{X} \mathbf{b}_{j} = \mathrm{tr} (\mathbf{X} \mathbf{B}).
+$$
+
+To specify that the basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ must be orthonormal to each other, we can just specify that the matrix $\mathbf{B}$ must be an orthogonal matrix
+
+$$
+\mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
+$$
+
+Thus, the optimization problem is 
 
 $$
 \begin{aligned}
-\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} 
-& \quad - \frac{ 1 }{ n } \sum_{j = 1}^{p} \mathbf{b}_{j}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{b}_{j}
+\min_{\mathbf{B}} 
+& \quad - \mathrm{tr} (\mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B})
 \\
 \mathrm{s.t.} 
-& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
-\\
-& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k.
+& \quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
 \end{aligned}
 $$
 
 :::
 
-## Eigenvectors of covariance matrix
+## PCA for maximizing projection variance
 
----
+Minimizing the sum of projection error is the same as maximizing the projection variance. 
+To see this, first consider the case where we are projecting the data $\mathbf{x}_{1}, \dots, \mathbf{x}_n$ to a single basis vector $\mathbf{b}$.
 
-**Function**: PCA.  
-**Input**: A matrix $\mathbf{X} \in \mathbb{R}^{n \times d}$ and an integer value indicating the objective dimension $m$.  
-**Output**: a transformed matrix in low dimension $\hat{\mathbf{X}} \in \mathbb{R}^{n \times m}$.  
-
-1. Standardize the input. For $j$ in $[1, 2, \dots, d]$
-
-    $$ 
-    \mathbf{X}_{*, j} = \frac{\mathbf{X}_{*, j} - \operatorname{mean}(\mathbf{X}_{*, j})}{\operatorname{std}(\mathbf{X}_{*, j})} 
-    $$
-  
-1. Calculate the covariance matrix between columns. 
-
-    $$ 
-    \mathbf{V} = \frac{1}{n} \mathbf{X}^{T}\mathbf{X} 
-    $$
-    
-1. Use eigendecomposition to decompose $\mathbf{V}$ to get a list of eigenvalues $\lambda_{1}, \lambda_{2}, \dots, \lambda_{d}$ and corresponding eigenvectors $\mathbf{u}_{1}, \mathbf{u}_{1}, \dots \mathbf{u}_{d}$.
-
-1. Sort eigenvalues in the decreasing order and select the eigenvectors with $m$ largest eigenvalues. View the $m$ eigenvectors as $m$ columns of the matrix $\mathbf{E} \in \mathbb{R}^{d \times m}$.
-
-1. Get the transformed matrix $\hat{\mathbf{X}}$ in $m$ dimensions. 
-
-    $$ 
-    \hat{\mathbf{X}} = \mathbf{X}\mathbf{E} 
-    $$
-
-1. Return $\hat{\mathbf{X}}$.
-
-## PCA objective derivation
----
-
-#### Projection of a single instance (vector) to the subspace
-
-An instance $\mathbf{x} \in \mathbb{R}^{d}$ can be projected to any given orthonormal basis $\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{d} \in \mathbb{R}^{d}$ of dimension $d$ without any error:
-
-$$ \mathbf{x} = \hat{\mathbf{x}} = \sum_{i=1}^{d} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} $$
-
-However, there is a inevitable reconstruction error if $\mathbf{x}$ is projected to only $m$ ($m < d$) dimensions $\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}$:
-
-$$ \mathbf{x} \neq \hat{\mathbf{x}} = \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} $$
-
-We can measure the error by the squared distance:
-
-$$ 
-\begin{align}
-\operatorname{err} & = \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert^{2} \\
-& = \big\lVert \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \big\rVert^{2} \\
-& = \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \cdot \left( \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) \hat{\mathbf{w}}_{i} \right) \\
-& = \mathbf{x} \cdot \mathbf{x} - \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} - \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \mathbf{x} + \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \\ 
-& = \mathbf{x} \cdot \mathbf{x} - 2 \left( \mathbf{x} \cdot \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i} \right) + \sum_{i=1}^{m} ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) ((\mathbf{x} \cdot \hat{\mathbf{w}}_{i})\hat{\mathbf{w}}_{i}) & [\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{j} = 0 \text{ if } i \neq j] \\
-& = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})(\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\mathbf{x} \cdot \hat{\mathbf{w}}_{i}) (\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i}) \\
-& = \mathbf{x} \cdot \mathbf{x} - 2 \sum_{i=1}^{m}(\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} + \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} & [\hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1] \\
-& = \mathbf{x} \cdot \mathbf{x} - \sum_{i=1}^{m} (\mathbf{x} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\end{align}
-$$
-
-#### PCA as minimizing projection error
-
-Given a dataset of $n$ instances and $d$ variables, we can use mean squared error to measure the reconstruction error of all instances in the dataset projected to $m$ dimensions:
-
-$$ 
-\begin{align}
-\operatorname{MSE} & = \frac{1}{n} \sum_{j=1}^{n} \lVert \mathbf{x}_{j} - \hat{\mathbf{x}}_{j}\rVert^{2} \\
-& = \frac{1}{n} \sum_{j=1}^{n} \left( \mathbf{x}_{j} \cdot \mathbf{x}_{j} - \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \right) \\
-& = \frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j} - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\end{align}
-$$
-
-The goal of PCA is to get a particular orthonormal basis of only $m$ dimensions such that the mean squared error of projecting all instances on to it is minimized:
+The **projection variance** of the data $\mathbf{x}_{1}, \dots, \mathbf{x}_{n}$ onto $\mathbf{b}$ is the variance of the projection coefficients of $\mathbf{x}_{1}, \dots, \mathbf{x}_{n}$ onto $\mathbf{b}$
 
 $$
-\begin{align}
-\min \quad &  - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\text{s.t. } \quad & \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
-\end{align}
+\mathrm{var} (\mathbf{b}) = \frac{1}{n} \sum_{i = 1}^{n} (\mathbf{x}_{i}^{T} \mathbf{b} - \bar{\alpha})^{2}
 $$
 
-1. The constraint is added so that the $\hat{\mathbf{w}}_{1}, \hat{\mathbf{w}}_{2}, \dots, \hat{\mathbf{w}}_{m}$ are all unit vectors.
-1. The first term $\frac{1}{n} \sum_{j=1}^{n} \mathbf{x}_{j} \cdot \mathbf{x}_{j}$ is omitted in the objective because it is a fixed value once the dataset is provided.
-
-#### PCA as maximizing projection variance
-The objective of minimizing projection error defined above is the same as maximizing its negation. 
-
-$$ 
-\begin{align}
-\min \quad & - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\max \quad & \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\end{align}
-$$
-
-The variance of the projection of all instances to the dimension $\hat{\mathbf{w}}_{i}$ is:
-
-$$ 
-\begin{align}
-\operatorname{var}(X) & = \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2} \\
-\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) & = \mathbb{E}[(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2}] - \mathbb{E}[\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}]^{2} \\
-\operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) & = \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 \\
-\end{align}
-$$
-
-The sum of the variances of the projections to all $m$ dimensions is:
-
-$$ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 - \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 $$
-
-Since the dataset is preprocessed to be zero-centered (each variable has mean 0), the last term of the equation above becomes 0:
-
-$$ \sum_{i=1}^{m} \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} \left( \left( \frac{1}{n}\sum_{j=1}^{n}\mathbf{x}_{j} \right) \cdot \hat{\mathbf{w}}_{i} \right)^2 = \sum_{i=1}^{m} (0 \cdot \hat{\mathbf{w}}_{i})^{2} = 0 $$
-
-Thus, we can see that minimizing projection error is the same as maximizing the sum of the projection variance:
-
-$$ \sum_{i=1}^{m} \operatorname{var}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i}) = \sum_{i=1}^{m} \frac{1}{n}\sum_{j=1}^{n}(\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^2 = \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} $$
-
-## Solving PCA objective
----
-
-Given the minimization problem:
+where $\bar{\alpha}$ is the mean of the projection coefficients 
 
 $$
-\begin{align}
-\min \quad & - \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-\text{s.t. } \quad & \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
-\end{align}
-$$
-we can first rewrite the objective in the matrix form:
-
-$$
-\begin{align}
-& \frac{1}{n} \sum_{j=1}^{n} \sum_{i=1}^{m} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-= & \sum_{i=1}^{m} \frac{1}{n} \sum_{j=1}^{n} (\mathbf{x}_{j} \cdot \hat{\mathbf{w}}_{i})^{2} \\
-= & \sum_{i=1}^{m} \frac{1}{n} (\mathbf{X}\hat{\mathbf{w}}_{i})^{T} (\mathbf{X}\hat{\mathbf{w}}_{i}) \\
-= & \sum_{i=1}^{m} \frac{1}{n} \hat{\mathbf{w}}_{i}^{T}\mathbf{X}^{T} \mathbf{X}\hat{\mathbf{w}}_{i} \\
-= & \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \frac{\mathbf{X}^{T}\mathbf{X}}{n} \hat{\mathbf{w}}_{i} \\
-\end{align}
+\bar{\alpha} = \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}^{T} \mathbf{b}.
 $$
 
-Since we have already zero-centered the dataset, we can replace $\frac{\mathbf{X}^{T}\mathbf{X}}{n}$ with the covariance matrix $\mathbf{V}$. Thus, the minimization problem in the matrix form is:
+If we can assume that the data $\mathbf{x}_{1}, \dots, \mathbf{x}_{n}$ has zero mean $\frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i} = 0$,
+then the mean of the projected coefficients is also 0
 
 $$
-\begin{align}
-\min \quad & - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} \\
-\text{s.t. } \quad & \hat{\mathbf{w}}_{i} \cdot \hat{\mathbf{w}}_{i} = 1, \quad i = 1, \dots m \\
-\end{align}
+\bar{\alpha} = \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}^{T} \mathbf{b} = \left(
+    \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}
+\right)^{T} \mathbf{b} = 0.
 $$
 
-The Lagrangian of the optimization problem is:
+which means the projection variance of the data onto $\mathbf{b}$ can be written as
 
-$$ L(\mathbf{w}_{1}, \dots, \mathbf{w}_{m}, \lambda_{1} \dots, \lambda_{m}) = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} \lambda_{i}(\hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1) $$
+$$
+\begin{aligned}
+\mathrm{var} (\mathbf{b}) 
+& = \frac{1}{n} \sum_{i = 1}^{n} (\mathbf{x}_{i}^{T} \mathbf{b})^{2}
+\end{aligned}
+$$
 
-Solving $L$ by
+Then maximizing the total projection variance over basis $\mathbf{b}_{1}, \dots, \mathbf{b}_{q}$ is the sum of the projection variances $\sum_{j = 1}^{q} \mathrm{var} (\mathbf{b}_{j})$, i.e.
 
-1. Setting the derivative of $L$ w.r.t $\hat{\mathbf{w}}_{i}$ to be 0:
+$$
+\begin{aligned}
+\max_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} 
+& \quad \sum_{i = 1}^{n} \sum_{j = 1}^{p} (\mathbf{x}_{i}^{T} \mathbf{b}_{j})^{2}
+& \iff \max_{\mathbf{B}} 
+& \quad \mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B}
+\\
+\mathrm{s.t.}
+& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
+& \mathrm{s.t.}
+& \quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}
+\\
+& \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k.
+\end{aligned} 
+$$ {#eq-max-proj-var-matrix}
 
-    $$
-    \begin{align}
-    \frac{\partial L}{\partial \hat{\mathbf{w}}}_{i} & = 0 \\
-    -\sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} + \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} & = 0 \\
-    \sum_{i=1}^{m} 2\mathbf{V}\hat{\mathbf{w}}_{i} & = \sum_{i=1}^{m} 2\lambda_{i}\hat{\mathbf{w}}_{i} \\
-    \mathbf{V}\hat{\mathbf{w}}_{i} & = \lambda_{i}\hat{\mathbf{w}}_{i}, \quad i = 1, \dots m \\
-    \end{align}
-    $$
-    
-    The results show that the results we want are the eigenvectors $\hat{\mathbf{w}}_{i}$ and eigenvalues $\lambda_{i}$ of $\mathbf{V}$. 
-    
-1. Setting the derivative of $L$ w.r.t $\lambda_{i}$ to be 0:
+which is the same as the optimization problem defined in @{eq-min-error-matrix} for minimizing projection error.
 
-    $$
-    \begin{align}
-    \frac{\partial L}{\partial \lambda_{i}} & = 0 \\
-    \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} - 1 & = 0 \\ 
-    \hat{\mathbf{w}}_{i}^{T}\hat{\mathbf{w}}_{i} & = 1, \quad i = 1, \dots m \\
-    \end{align}
-    $$
-    
-    The constraints show that the eigenvectors must also be unit vectors.
-    
-1. Plug in the results back to the objective: 
 
-    $$ -\sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \mathbf{V} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \hat{\mathbf{w}}_{i}^{T} \lambda_{i} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} \hat{\mathbf{w}}_{i}^{T} \hat{\mathbf{w}}_{i} = - \sum_{i=1}^{m} \lambda_{i} $$
-    
-    The last equation shows that we need to select the $m$ largest eigenvalues to minimize the objective.
+## Eigen-decomposition and PCA
 
-## Reference 
----
+The $p$ basis vectors $\mathbf{b}_{1}, \dots, \mathbf{b}_{p}$ that maximizes the projection variance (or minimizes the projection error) are top $p$ **principle components** for dataset $\mathbf{X}$, which corresponds to the $p$ eigenvectors with largest $p$ eigenvalues of the matrix $\mathbf{X}^{T} \mathbf{X}$.
 
-1. https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c
-1. https://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch18.pdf
-1. https://towardsdatascience.com/dimensionality-reduction-with-pca-from-basic-ideas-to-full-derivation-37921e13cae7
+To see this, first note that $\mathbf{X}^{T} \mathbf{X}$ is a symmetric and positive semi-definite matrix, which means the eigen-decomposition of $\mathbf{X}^{T} \mathbf{X}$ always results in $m$ non-negative eigenvalues and $m$ orthonormal eigenvectors and each eigenvector corresponds to a unique eigenvalue,
+
+$$
+\mathbf{X}^{T} \mathbf{X} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{T}
+$$
+
+where $\mathbf{\Lambda} \in \mathbb{R}^{m \times m}$ is a diagonal matrix whose diagonal entries are eigenvalues of $\mathbf{X}^{T} \mathbf{X}$ and $\mathbf{Q} \in \mathbb{R}^{m \times m}$ is a orthogonal matrix whose columns are corresponding eigenvectors of $\mathbf{X}^{T} \mathbf{X}$.
+
+If we order the eigenvalues in diagonal entries of $\mathbf{\Lambda}$ such that $\lambda_{1} \geq \lambda_{2} \geq \dots \lambda_{m}$ and order the eigenvectors in $\mathbf{Q}$ accordingly,
+the optimization problem defined in @eq-max-proj-var-matrix is solved by setting 
+
+$$
+\mathbf{B} = \mathbf{Q}_{p}
+$$
+
+where $\mathbf{Q}_{p} \in \mathbb{R}^{m \times p}$ contains the first $p$ columns in $\mathbf{Q}$. 
+
+:::{.callout-note collapse="true" title="Proof"}
+
+Let $\mathbf{Y} = \mathbf{Q}^{T} \mathbf{B}$. 
+Since $\mathbf{Q}$ is a orthogonal matrix and columns of $\mathbf{B}$ must be orthonormal to each other, 
+
+$$
+\mathbf{Y}^{T} \mathbf{Y} = \mathbf{B}^{T} \mathbf{Q} \mathbf{Q}^{T} \mathbf{B} = \mathbf{B} \mathbf{I}_{m \times m}  \mathbf{B}^{T} = \mathbf{I}_{p \times p},
+$$
+
+which means the columns in $\mathbf{Y}$ must also be orthonormal to each other no matter what values are in $\mathbf{B}$.
+
+The objective function of the optimization problem @eq-max-proj-var-matrix is then
+
+$$
+\begin{aligned}
+\mathrm{tr} (\mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B}) 
+& = \mathrm{tr} (\mathbf{B}^{T} \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{T} \mathbf{B}) 
+\\
+&  = \mathrm{tr} (\mathbf{Y}^{T} \mathbf{\Lambda} \mathbf{Y}) 
+\\
+& = \sum_{i = 1}^{q} \lambda_{i} y_{i}^{2},
+\end{aligned}
+$$ {#eq-max-eigenvalues}
+
+where $y_{i}$ is the $i$-th diagonal value in $\mathbf{Y}$.
+
+Since columns in $\mathbf{Y}$ must be orthonormal and each $\lambda_{i}$ is a fixed value, the equation in @eq-max-eigenvalues can maximized by setting every $y_{i} = 1$. 
+That is, given the constraint $\mathbf{Y}^{T} \mathbf{Y} = \mathbf{I}_{p \times p}$, 
+$\mathrm{tr} (\mathbf{Y}^{T} \mathbf{\Lambda} \mathbf{Y})$ is maximized when 
+
+$$
+\mathbf{Y} = 
+\begin{bmatrix}
+1 & 0 & \dots & 0
+\\
+0 & 1 & \dots & 0
+\\
+\vdots & \vdots & \ddots & \vdots
+\\
+0 & 0 & \dots & 1
+\\
+0 & 0 & \dots & 0
+\\
+\vdots & \vdots & \ddots & \vdots
+\\
+0 & 0 & \dots & 0
+\end{bmatrix}.
+$$ {#eq-Y-diag}
+
+Denoted by $\mathbf{q}_{i}^{T}$ the transpose of $i$-th row of $\mathbf{Q}$ ($i$-th eigenvector) and $\mathbf{b}_{i}$ the $i$-th column of $\mathbf{B}$, 
+the above result shows that
+
+$$
+\begin{aligned}
+\mathbf{Q}^{T} \mathbf{B} 
+& = \mathbf{Y}
+\\
+\mathbf{q}_{i}^{T} \mathbf{b}_{i} 
+& = 1
+\\
+\lVert \mathbf{q}_{i} \rVert \lVert \mathbf{b}_{i} \rVert \cos(\theta)
+& = 1
+\\
+ \cos(\theta)
+& = 1
+& [\lVert \mathbf{q}_{i} \rVert = \lVert \mathbf{b}_{i} \rVert = 1] 
+\\
+\theta 
+& = 0
+\end{aligned}
+$$
+
+which means that the unit vectors $\mathbf{q}_{i}$ and $\mathbf{b}_{i}$ point to the same direction and thus they are the same vector. 
+
+:::

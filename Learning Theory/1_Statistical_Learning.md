@@ -9,7 +9,7 @@ where
 
 - The label $y$ is usually a scalar that belongs to a label space $\mathcal{Y}$. 
 
-For simplicity, we will write the labeled instances $z \coloneqq (x, y)$ and the space of labeled instances as $\mathcal{Z} \coloneqq \mathcal{X} \times \mathcal{Z}$.
+For simplicity, we will write the labeled instances $z \coloneqq (x, y)$ and the space of labeled instances as $\mathcal{Z} \coloneqq \mathcal{X} \times \mathcal{Y}$.
 
 Machine learning problems usually have two sets of data:
 

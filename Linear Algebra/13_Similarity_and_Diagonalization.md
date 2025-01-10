@@ -80,10 +80,10 @@ $$
 A square matrix $\mathbf{A} \in \mathbb{C}^{n \times n}$ is **diagonalizable** if $\mathbf{A}$ is similar to a diagonal matrix:
 
 $$
-\mathbf{A} = \mathbf{P} \Lambda \mathbf{P}^{-1}
+\mathbf{A} = \mathbf{P} \mathbf{\Lambda} \mathbf{P}^{-1}
 $$
 
-where $\Lambda$ is a diagonal matrix.
+where $\mathbf{\Lambda}$ is a diagonal matrix.
 
 :::
 
