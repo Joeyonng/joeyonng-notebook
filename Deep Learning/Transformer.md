@@ -64,3 +64,114 @@ $$
 
 ## Self-Attention
 
+## Positional Encoding
+
+Given a sequence of $n$ tokens as rows of a matrix $\mathbf{X} \in \mathbb{R}^{n \times d}$, 
+the **positional encoding** will inject positional information into $\mathbf{X}$ by generating a new matrix $\mathbf{X}'$
+
+$$
+\mathbf{X}' = \mathbf{X} + \mathbf{P}
+$$  
+
+where $\mathbf{P} \in \mathbb{R}^{n \times d}$ is a positional encoding matrix with each row being a positional encoding vector for each token for $\mathbf{X}$.
+
+Usually $\mathbf{P}$ should provide two types of positional information. 
+
+- Absolute positional information. 
+This type requires the encoding to provide the positional information that is unique across the entire sequence.
+
+- Relative positional information.
+This type requires the encoding to provide the positional information that encodes the relative order of the tokens.
+
+### Sinusoidal Positional Encoding
+
+In sinusoidal positional encoding, 
+the positional encoding matrix $\mathbf{P}$ has sine (cosine) functions with different periods at odd (even) columns.
+
+Each element $p_{i, j}$ at the $i$-th row and $j$-th column in $\mathbf{P}$ is calculated as 
+
+$$
+p_{i, j} = 
+\begin{aligned}
+\begin{cases}
+\sin (\omega_{j} i)
+&  \quad j \text{ is even}
+\\
+\cos (\omega_{j} i)
+& \quad j \text{ is odd}
+\end{cases}
+\end{aligned}
+$$
+
+where 
+
+$$
+\omega_{j} = 
+\begin{aligned}
+\begin{cases}
+1 \mathbin{/} \left(
+    10000^{j \mathbin{/} d}
+\right) 
+& \quad j \text{ is even}
+\\
+1 \mathbin{/} \left(
+    10000^{(j - 1) \mathbin{/} d} 
+\right) 
+& \quad j \text{ is odd}.
+\end{cases}
+\end{aligned}
+$$ 
+
+
+The number of unique encodings that sinusoidal positional encoding can represent depends on $d$.
+
+- If $d = 1$, the encodings for the single column is $\sin(i)$ for $i = 1, \dots, n$ and it has a period of $\lambda = 2 \pi$.
+    Since the sine function will repeat after each period, 
+    the positional encoding using a single value $\sin(i)$ for the $i$-th token can represent at most $\lfloor \lambda \rfloor = 6$ number of tokens.
+    
+- If $d = 2$, the encodings for the 1st and 2nd columns are $\sin(i)$ and $\cos(i)$ for $i = 1, \dots, n$.
+    which have the same period $\lambda = 2\pi$.
+    Since the corresponding the sine and cosine functions for the even and odd columns always have the same period, 
+    the number of unique tokens it can represent with an odd $d$ is the same as that with the corresponding even $d$. 
+
+- If $d > 2$, the number of unique positions that the sinusoidal positional encoding can achieve is the least common multiples of $d \mathbin{/} 2$ different periods, 
+    which is quite large for a reasonable $d$. 
+
+For any fixed offset $\delta$, 
+the encodings at position $i + \delta$ can be expressed as a linear transformation of the encodings at position $i$. 
+To see this, 
+we can use trigonometric sum identities to rewrite the encodings at position $i + \delta$:
+
+$$
+\sin(\omega_{j} (i + \delta))
+= \sin(\omega_{j} i) \cos(\omega_{j} \delta) + \cos(\omega_{j} i) \sin(\omega_j \delta),
+$$
+
+$$
+\cos(\omega_{j} (i + \delta))
+= \cos(\omega_{j} i) \cos(\omega_{j} \delta) - \sin(\omega_{j} i) \sin(\omega_j \delta),
+$$
+
+which can be represented using the matrix multiplication
+
+$$
+\begin{bmatrix}
+\sin(\omega_{j} (i + \delta))
+\\
+\cos(\omega_{j} (i + \delta))
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\cos(\omega_{j} \delta) & \sin(\omega_{j} \delta) 
+\\
+\cos(\omega_{j} \delta) & - \sin(\omega_{j} \delta) 
+\end{bmatrix}
+\begin{bmatrix}
+\sin(\omega_{j} i)
+\\
+\cos(\omega_{j} i)
+\end{bmatrix}.
+$$
+
+The positional encoding at $i + \delta$ can be obtained by multiplying the encoding at $i$ with a $2 \times 2$ rotation matrix whose values do not depend on the position of the token $i$, 
+which shows that the encodings at different positions are linearly dependant. 
