@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; Expectation – Joeyonng's Notebook</title>
+<title>44&nbsp; Principle Component Analysis – Joeyonng's Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="next">
-<link href="../Probability and Statistics/02_Random_Variables.html" rel="prev">
+<link href="../Deep Learning/Transformer.html" rel="next">
+<link href="../Machine Learning/7_Decision_Tree.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -159,7 +159,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/03_Expectation.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/8_Principle_Component_Analysis.html"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -317,13 +317,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
@@ -338,7 +338,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
@@ -453,13 +453,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
@@ -504,7 +504,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
@@ -537,24 +537,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#conditional-expectation" id="toc-conditional-expectation" class="nav-link active" data-scroll-target="#conditional-expectation">Conditional expectation</a></li>
-  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance">Variance</a>
-  <ul class="collapse">
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard deviation</a></li>
-  </ul></li>
-  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance">Covariance</a>
-  <ul class="collapse">
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
-  </ul></li>
+  <li><a href="#projection-error" id="toc-projection-error" class="nav-link active" data-scroll-target="#projection-error">Projection error</a></li>
+  <li><a href="#pca-for-minimizing-projection-error" id="toc-pca-for-minimizing-projection-error" class="nav-link" data-scroll-target="#pca-for-minimizing-projection-error">PCA for minimizing projection error</a></li>
+  <li><a href="#pca-for-maximizing-projection-variance" id="toc-pca-for-maximizing-projection-variance" class="nav-link" data-scroll-target="#pca-for-maximizing-projection-variance">PCA for maximizing projection variance</a></li>
+  <li><a href="#eigen-decomposition-and-pca" id="toc-eigen-decomposition-and-pca" class="nav-link" data-scroll-target="#eigen-decomposition-and-pca">Eigen-decomposition and PCA</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/03_Expectation.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/8_Principle_Component_Analysis.html"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></h1>
+<h1 class="title"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></h1>
 </div>
 
 
@@ -571,28 +566,76 @@ window.Quarto = {
 </header>
 
 
-<div id="def-expectation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.1 (Expectation)</strong></span> The <strong>expectation</strong> of a random variable <span class="math inline">X</span> is its expected value.</p>
+<p>The idea of <strong>principle component analysis (PCA)</strong> is to compress the data represented using <span class="math inline">m</span> dimensional vectors into vectors of <span class="math inline">p &lt; m</span> dimensions such that the information stored in the compressed vector is maximized.</p>
+<p>Recall from the linear algebra that the standard coordinate system is a special <strong>orthonormal basis</strong> <span class="math inline">\mathbf{e}_{1}, \dots \mathbf{e}_{m}</span>, and any vector <span class="math inline">\mathbf{x} \in \mathbb{R}^{m}</span> can be represented using the <strong>projection coefficients</strong> of <span class="math inline">\mathbf{x}</span> onto the basis</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X]
-= \sum_{x \in \mathbb{R}} x \mathbb{P}_{X} (x)
-= \sum_{\omega \in \Omega} X (\omega) \mathbb{P} (\omega).
+\mathbf{x} = \sum_{i = 1}^{m} x_{i} \mathbf{e}_{i}, \quad
+\mathbf{x} \coloneqq
+\begin{bmatrix}
+x_{1} \\
+\vdots \\
+x_{m} \\
+\end{bmatrix}.
 </span></p>
-</div>
-<p>By definition, the expectation of a scalar <span class="math inline">a</span> is itself</p>
+<p>Thus, given any orthonormal basis <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{m}</span>, the representation of the same vector <span class="math inline">\mathbf{x}</span> can be changed to the projection coefficients of <span class="math inline">\mathbf{x}</span> on the basis</p>
 <p><span class="math display">
-\mathbb{E}_{X} [a] = a.
+\mathbf{x} = \sum_{i = 1}^{m} \alpha_{i} \mathbf{b}_{i}, \quad
+\mathbf{x} \coloneqq
+\begin{bmatrix}
+\alpha_{1} \\
+\vdots \\
+\alpha_{m} \\
+\end{bmatrix},
 </span></p>
-<div id="cor-linearity-of-expectation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.1 (Linearity of expectation)</strong></span> For any random variables <span class="math inline">X, Y: \Omega \to \mathbb{R}</span> that are defined on the same probability space <span class="math inline">(\Omega, \mathcal{F}, \mathbb{P})</span>, we have</p>
+<p>where the projection coefficient <span class="math inline">\alpha_{i}</span> can be calculated by the dot product between <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{b}_{i}</span></p>
 <p><span class="math display">
-\mathbb{E}_{X, Y} [X + Y] = \mathbb{E}_{X} [X] + \mathbb{E}_{Y} [Y],
+\alpha_{i} = \mathbf{x}^{T} \mathbf{b}_{i}.
 </span></p>
-<p>and for any scalars <span class="math inline">a, b \in \mathbb{R}</span></p>
+<p>Although the vector values of <span class="math inline">\mathbf{x}</span> are different using different orthonormal basis, the <strong>reconstructed vectors</strong> by linear combination of orthonormal basis with the corresponding projection coefficients are the same</p>
 <p><span class="math display">
-\mathbb{E}_{X} [a X + b] = a \mathbb{E}_{X} [X] + b.
+\mathbf{x} = \sum_{i = 1}^{m} x_{i} \mathbf{e}_{i} = \sum_{i = 1}^{m} \alpha_{i} \mathbf{b}_{i}.
 </span></p>
-</div>
+<section id="projection-error" class="level2">
+<h2 class="anchored" data-anchor-id="projection-error">Projection error</h2>
+<p>Given a orthonormal basis <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{m}</span>, we can have a shorter representation of <span class="math inline">\mathbf{x}</span> by only selecting <span class="math inline">p &lt; m</span> projection coefficients <span class="math inline">\alpha_{1}, \dots, \alpha_{p}</span>. The benefit is that we can have a compact representation of <span class="math inline">\mathbf{x}</span> and dimensionality of <span class="math inline">\mathbf{x}</span> is reduced from <span class="math inline">m</span> to <span class="math inline">p</span>, but the cost is that the reconstructed vector <span class="math inline">\hat{\mathbf{x}}</span> from the <span class="math inline">p</span> projection coefficients is not the same as <span class="math inline">\mathbf{x}</span></p>
+<p><span class="math display">
+\mathbf{x} \neq \hat{\mathbf{x}} = \sum_{i = 1}^{p} \alpha_{i} \mathbf{b}_{i}.
+</span></p>
+<p>The <strong>projection error</strong> of <span class="math inline">\mathbf{x}</span> onto basis <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{p}</span> with projection coefficients <span class="math inline">\alpha_{1}, \dots, \alpha_{p}</span> is defined to be the squared L2 norm of the difference between <span class="math inline">\mathbf{x}</span> and <span class="math inline">\hat{\mathbf{x}}</span></p>
+<p><span class="math display">
+\mathrm{err} (\mathbf{x}) = \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert^{2}.
+</span></p>
+<p>The goal of the PCA is to select the <span class="math inline">p</span> orthonormal basis vectors such that the sum of projection errors is minimized.</p>
+</section>
+<section id="pca-for-minimizing-projection-error" class="level2">
+<h2 class="anchored" data-anchor-id="pca-for-minimizing-projection-error">PCA for minimizing projection error</h2>
+<p>Given a set of instances <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n} \in \mathbb{R}^{m}</span>, the idea of the PCA is to find <span class="math inline">p &lt; m</span> orthonormal basis vectors <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{p}</span> such that the total projection error on <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> is minimized</p>
+<p><span class="math display">
+\begin{aligned}
+\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}}
+&amp; \quad \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{x}}_{i} \rVert^{2}
+\\
+\mathrm{s.t.}
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
+\\
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k
+\end{aligned}
+</span></p>
+<p>where the constraints for indicate that the basis vectors <span class="math inline">\mathbf{b}_{1}, \dots \mathbf{b}_{p}</span> have to be orthonormal to each other.</p>
+<p>After simplifying the objective function, we can derive the following optimization problem in the vector form</p>
+<p><span id="eq-min-error-vector"><span class="math display">
+\begin{aligned}
+\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+&amp; - \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left(
+    \mathbf{x}^{T}_{i} \mathbf{b}_{j}
+\right)^{2}
+\\
+\mathrm{s.t.}
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
+\\
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k
+\end{aligned}
+\tag{44.1}</span></span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -605,49 +648,138 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For the first property, we have</p>
+<p>We first simplify the projection error for one instance <span class="math inline">\mathbf{x}</span></p>
 <p><span class="math display">
 \begin{aligned}
-\mathbb{E}_{X, Y} [X + Y] &amp; = \sum_{\omega \in \Omega} (X + Y) (\omega) \mathbb{P} (\omega)
+&amp; \lVert \mathbf{x} - \hat{\mathbf{x}} \rVert^{2}
 \\
-&amp; = \sum_{\omega \in \Omega} (X (\omega) + Y (\omega)) \mathbb{P} (\omega)
+&amp; = \left\lVert
+    \mathbf{x} - \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right\rVert^{2}
 \\
-&amp; = \sum_{\omega \in \Omega} X (\omega) \mathbb{P} (\omega) + \sum_{\omega \in \Omega} Y (\omega) \mathbb{P} (\omega)
+&amp; = \left(
+    \mathbf{x} - \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)^{T} \left(
+    \mathbf{x} - \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)
 \\
-&amp; = \mathbb{E} [X] + \mathbb{E} [Y],
+&amp; = \mathbf{x}^{T} \mathbf{x} - 2 \mathbf{x}^{T} \left(
+    \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right) + \left(
+    \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)^{T} \left(
+    \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)
+\\
+&amp; = \mathbf{x}^{T} \mathbf{x} - 2 \mathbf{x}^{T} \left(
+    \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right) + \sum_{i = 1}^{p} \sum_{j = 1}^{p} \left(
+    \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)^{T} \left(
+    \left(
+        \mathbf{x}^{T} \mathbf{b}_{j}
+    \right) \mathbf{b}_{j}
+\right)
+\\
+&amp; = \mathbf{x}^{T} \mathbf{x} - 2 \mathbf{x}^{T} \left(
+    \sum_{i = 1}^{p} \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right) + \sum_{i = 1}^{p} \left(
+    \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)^{T} \left(
+    \left(
+        \mathbf{x}^{T} \mathbf{b}_{i}
+    \right) \mathbf{b}_{i}
+\right)
+&amp; [\mathbf{b}_{i}^{T} \mathbf{b}_{j} = 0, \forall i \neq j]
+\\
+&amp; = \mathbf{x}^{T} \mathbf{x} - 2 \sum_{i = 1}^{p} \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right) \left(
+    \mathbf{x}^{T}  \mathbf{b}_{i}
+\right) + \sum_{i = 1}^{p} \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right) \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right) \left(
+    \mathbf{b}_{i}^{T} \mathbf{b}_{i}
+\right)
+\\
+&amp; = \mathbf{x}^{T} \mathbf{x} - 2 \sum_{i = 1}^{p} \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right) \left(
+    \mathbf{x}^{T}  \mathbf{b}_{i}
+\right) + \sum_{i = 1}^{p} \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right) \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right)
+&amp; [\mathbf{b}^{T}_{i} \mathbf{b}_{i} = 1]
+\\
+&amp; = \mathbf{x}^{T} \mathbf{x} - \sum_{i = 1}^{p} \left(
+    \mathbf{x}^{T} \mathbf{b}_{i}
+\right)^{2},
+\\
 \end{aligned}
 </span></p>
-<p>and for the second property</p>
+<p>and then we plug the result to the optimization objective to obtain</p>
 <p><span class="math display">
 \begin{aligned}
-\mathbb{E} [aX + b]
-&amp; = \sum_{\omega \in \Omega} (aX + b) (\omega) \mathbb{P} (\omega)
+\min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+&amp; \sum_{i = 1}^{n} \lVert \mathbf{x}_{i} - \hat{\mathbf{x}}_{i} \rVert^{2}
 \\
-&amp; = \sum_{\omega \in \Omega} (aX (\omega) + b) \mathbb{P} (\omega)
+= \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+&amp; \sum_{i = 1}^{n} \left(
+    \mathbf{x}^{T}_{i} \mathbf{x}_{i} - \sum_{j = 1}^{p} \left(
+        \mathbf{x}^{T}_{i} \mathbf{b}_{j}
+    \right)^{2}
+\right)
 \\
-&amp; = \sum_{\omega \in \Omega} aX (\omega) \mathbb{P} (\omega)
-+ \sum_{\omega \in \Omega} b \mathbb{P} (\omega)
+= \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+&amp; \sum_{i = 1}^{n} \mathbf{x}^{T}_{i} \mathbf{x}_{i}
+- \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left(
+    \mathbf{x}^{T}_{i} \mathbf{b}_{j}
+\right)^{2}
 \\
-&amp; = a \sum_{\omega \in \Omega} X (\omega) \mathbb{P} (\omega)
-+ b \sum_{\omega \in \Omega} \mathbb{P} (\omega)
-\\
-&amp; = a\mathbb{E} [X] + b
-&amp; [\sum_{\omega \in \Omega} \mathbb{P} (\omega) = 1].
+= \min_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}} \quad
+&amp; - \sum_{i = 1}^{n} \sum_{j = 1}^{p} \left(
+    \mathbf{x}^{T}_{i} \mathbf{b}_{j}
+\right)^{2}
+&amp; [\mathbf{x}^{T} \mathbf{x} \text{ is a fixed value}]
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<p>The “law of the unconscious statistician” states that the expectation of a transformed random variable can be found without finding the probabilities of the transformed random variable, simply by applying the probability weights of the original random variable to the transformed values.</p>
-<div id="cor-lotus" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.2 (Law of the unconscious statistician (LOTUS))</strong></span> The expectation of a random variable <span class="math inline">Y = g (X)</span> that is a function the</p>
-<p><span class="math display">
-\mathbb{E}_{Y} [Y]
-= \sum_{y \in \mathbb{R}} y \mathbb{P}_{Y} (y)
-= \sum_{x \in \mathbb{R}} g (x) \mathbb{P}_{X} (x)
-= \mathbb{E}_{X} [g (X)]
-</span></p>
-</div>
+<p>If the row <span class="math inline">i</span> of the matrix <span class="math inline">\mathbf{X}</span> is <span class="math inline">\mathbf{x}^{T}_{i}</span> and the column <span class="math inline">j</span> of the matrix <span class="math inline">\mathbf{B}</span> is <span class="math inline">\mathbf{b}_{j}</span>, then we can write the optimization problem in <a href="#eq-min-error-vector" class="quarto-xref">Equation&nbsp;<span>44.1</span></a> can be further rewritten in the matrix form as</p>
+<p><span id="eq-min-error-matrix"><span class="math display">
+\begin{aligned}
+\min_{\mathbf{B}}
+&amp; \quad - \mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B}
+\\
+&amp; \mathrm{s.t.}
+\quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
+\end{aligned}
+\tag{44.2}</span></span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -660,31 +792,100 @@ Proof
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>TODO</p>
-<p>Since the probability distribution <span class="math inline">\mathbb{P}_{Y} (y)</span></p>
+<p>First note that if the row of <span class="math inline">\mathbf{X}</span> is <span class="math inline">\mathbf{x}^{T}_{i}</span>, the vector of projecting each row of <span class="math inline">\mathbf{X}</span> to <span class="math inline">\mathbf{b}_{j}</span> is</p>
+<p><span class="math display">
+\begin{bmatrix}
+\mathbf{x}_{1}^{T} \mathbf{b}_{j} \\
+\vdots \\
+\mathbf{x}_{n}^{T} \mathbf{b}_{j} \\
+\end{bmatrix}
+= \mathbf{X} \mathbf{b}_{j},
+</span></p>
+<p>and the sum of the squared projection coefficients is the matrix product</p>
+<p><span class="math display">
+\sum_{i = 1}^{n} \left(
+    \mathbf{x}^{T}_{i} \mathbf{b}_{j}
+\right)^{2}
+= (\mathbf{X} \mathbf{b}_{j})^{T} (\mathbf{X} \mathbf{b}_{j})
+= \mathbf{b}_{j}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{b}_{j}.
+</span></p>
+<p>Similarly, if the column of matrix <span class="math inline">\mathbf{B}</span> is <span class="math inline">\mathbf{b}_{j}</span>, then the sum of matrix-vector multiplications can be written as a matrix-matrix multiplication</p>
+<p><span class="math display">
+\sum_{j = 1}^{p} \mathbf{X} \mathbf{b}_{j} = \mathrm{tr} (\mathbf{X} \mathbf{B}).
+</span></p>
+<p>To specify that the basis <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{p}</span> must be orthonormal to each other, we can just specify that the matrix <span class="math inline">\mathbf{B}</span> must be an orthogonal matrix</p>
+<p><span class="math display">
+\mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
+</span></p>
+<p>Thus, the optimization problem is</p>
 <p><span class="math display">
 \begin{aligned}
-\sum_{y \in \Omega_Y} y \mathbb{P}_Y (y)
-&amp; = \sum_{y \in \Omega_Y} y \sum_{x \in \Omega_X : g(x)=y} \mathbb{P}_X (x)
+\min_{\mathbf{B}}
+&amp; \quad - \mathrm{tr} (\mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B})
 \\
-&amp; = \sum_{y \in \Omega_Y} \sum_{x \in \Omega_X : g(x)=y} y \mathbb{P}_X (x)
-\\
-&amp; = \sum_{y \in \Omega_Y} \sum_{x \in \Omega_X : g(x)=y} g(x) \mathbb{P}_X (x)
-\\
-&amp; = \sum_{x \in \Omega_X} g(x) \mathbb{P}_X (x)
-\\
-&amp; = \mathbb{E} [g(X)]
+\mathrm{s.t.}
+&amp; \quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}.
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<div id="cor-expectation-of-independent-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.3</strong></span> The expectation of the product of independent random variables is the product of their own expectations</p>
+</section>
+<section id="pca-for-maximizing-projection-variance" class="level2">
+<h2 class="anchored" data-anchor-id="pca-for-maximizing-projection-variance">PCA for maximizing projection variance</h2>
+<p>Minimizing the sum of projection error is the same as maximizing the projection variance. To see this, first consider the case where we are projecting the data <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_n</span> to a single basis vector <span class="math inline">\mathbf{b}</span>.</p>
+<p>The <strong>projection variance</strong> of the data <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> onto <span class="math inline">\mathbf{b}</span> is the variance of the projection coefficients of <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> onto <span class="math inline">\mathbf{b}</span></p>
 <p><span class="math display">
-\mathbb{E}_{X, Y} [X Y] = \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y].
+\mathrm{var} (\mathbf{b}) = \frac{1}{n} \sum_{i = 1}^{n} (\mathbf{x}_{i}^{T} \mathbf{b} - \bar{\alpha})^{2}
 </span></p>
-</div>
+<p>where <span class="math inline">\bar{\alpha}</span> is the mean of the projection coefficients</p>
+<p><span class="math display">
+\bar{\alpha} = \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}^{T} \mathbf{b}.
+</span></p>
+<p>If we can assume that the data <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> has zero mean <span class="math inline">\frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i} = 0</span>, then the mean of the projected coefficients is also 0</p>
+<p><span class="math display">
+\bar{\alpha} = \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}^{T} \mathbf{b} = \left(
+    \frac{1}{n} \sum_{i = 1}^{n} \mathbf{x}_{i}
+\right)^{T} \mathbf{b} = 0.
+</span></p>
+<p>which means the projection variance of the data onto <span class="math inline">\mathbf{b}</span> can be written as</p>
+<p><span class="math display">
+\begin{aligned}
+\mathrm{var} (\mathbf{b})
+&amp; = \frac{1}{n} \sum_{i = 1}^{n} (\mathbf{x}_{i}^{T} \mathbf{b})^{2}
+\end{aligned}
+</span></p>
+<p>Then maximizing the total projection variance over basis <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{q}</span> is the sum of the projection variances <span class="math inline">\sum_{j = 1}^{q} \mathrm{var} (\mathbf{b}_{j})</span>, i.e.</p>
+<p><span id="eq-max-proj-var-matrix"><span class="math display">
+\begin{aligned}
+\max_{\mathbf{b}_{1}, \dots, \mathbf{b}_{p}}
+&amp; \quad \sum_{i = 1}^{n} \sum_{j = 1}^{p} (\mathbf{x}_{i}^{T} \mathbf{b}_{j})^{2}
+&amp; \iff \max_{\mathbf{B}}
+&amp; \quad \mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B}
+\\
+\mathrm{s.t.}
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 1, \quad \forall j = k
+&amp; \mathrm{s.t.}
+&amp; \quad \mathbf{B}^{T} \mathbf{B} = \mathbf{I}_{p \times p}
+\\
+&amp; \quad \mathbf{b}_{j}^{T} \mathbf{b}_{k} = 0, \quad \forall j \neq k.
+\end{aligned}
+\tag{44.3}</span></span></p>
+<p>which is the same as the optimization problem defined in <a href="#eq-min-error-matrix" class="quarto-xref">Equation&nbsp;<span>44.2</span></a> for minimizing projection error.</p>
+</section>
+<section id="eigen-decomposition-and-pca" class="level2">
+<h2 class="anchored" data-anchor-id="eigen-decomposition-and-pca">Eigen-decomposition and PCA</h2>
+<p>The <span class="math inline">p</span> basis vectors <span class="math inline">\mathbf{b}_{1}, \dots, \mathbf{b}_{p}</span> that maximizes the projection variance (or minimizes the projection error) are top <span class="math inline">p</span> <strong>principle components</strong> for dataset <span class="math inline">\mathbf{X}</span>, which corresponds to the <span class="math inline">p</span> eigenvectors with largest <span class="math inline">p</span> eigenvalues of the matrix <span class="math inline">\mathbf{X}^{T} \mathbf{X}</span>.</p>
+<p>To see this, first note that <span class="math inline">\mathbf{X}^{T} \mathbf{X}</span> is a symmetric and positive semi-definite matrix, which means the eigen-decomposition of <span class="math inline">\mathbf{X}^{T} \mathbf{X}</span> always results in <span class="math inline">m</span> non-negative eigenvalues and <span class="math inline">m</span> orthonormal eigenvectors and each eigenvector corresponds to a unique eigenvalue,</p>
+<p><span class="math display">
+\mathbf{X}^{T} \mathbf{X} = \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{T}
+</span></p>
+<p>where <span class="math inline">\mathbf{\Lambda} \in \mathbb{R}^{m \times m}</span> is a diagonal matrix whose diagonal entries are eigenvalues of <span class="math inline">\mathbf{X}^{T} \mathbf{X}</span> and <span class="math inline">\mathbf{Q} \in \mathbb{R}^{m \times m}</span> is a orthogonal matrix whose columns are corresponding eigenvectors of <span class="math inline">\mathbf{X}^{T} \mathbf{X}</span>.</p>
+<p>If we order the eigenvalues in diagonal entries of <span class="math inline">\mathbf{\Lambda}</span> such that <span class="math inline">\lambda_{1} \geq \lambda_{2} \geq \dots \lambda_{m}</span> and order the eigenvectors in <span class="math inline">\mathbf{Q}</span> accordingly, the optimization problem defined in <a href="#eq-max-proj-var-matrix" class="quarto-xref">Equation&nbsp;<span>44.3</span></a> is solved by setting</p>
+<p><span class="math display">
+\mathbf{B} = \mathbf{Q}_{p}
+</span></p>
+<p>where <span class="math inline">\mathbf{Q}_{p} \in \mathbb{R}^{m \times p}</span> contains the first <span class="math inline">p</span> columns in <span class="math inline">\mathbf{Q}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -697,375 +898,68 @@ Proof
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By <a href="#def-expectation" class="quarto-xref">Definition&nbsp;<span>20.1</span></a> and <a href="#cor-lotus" class="quarto-xref">Corollary&nbsp;<span>20.2</span></a>, we have</p>
+<p>Let <span class="math inline">\mathbf{Y} = \mathbf{Q}^{T} \mathbf{B}</span>. Since <span class="math inline">\mathbf{Q}</span> is a orthogonal matrix and columns of <span class="math inline">\mathbf{B}</span> must be orthonormal to each other,</p>
+<p><span class="math display">
+\mathbf{Y}^{T} \mathbf{Y} = \mathbf{B}^{T} \mathbf{Q} \mathbf{Q}^{T} \mathbf{B} = \mathbf{B} \mathbf{I}_{m \times m}  \mathbf{B}^{T} = \mathbf{I}_{p \times p},
+</span></p>
+<p>which means the columns in <span class="math inline">\mathbf{Y}</span> must also be orthonormal to each other no matter what values are in <span class="math inline">\mathbf{B}</span>.</p>
+<p>The objective function of the optimization problem <a href="#eq-max-proj-var-matrix" class="quarto-xref">Equation&nbsp;<span>44.3</span></a> is then</p>
+<p><span id="eq-max-eigenvalues"><span class="math display">
+\begin{aligned}
+\mathrm{tr} (\mathbf{B}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{B})
+&amp; = \mathrm{tr} (\mathbf{B}^{T} \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{T} \mathbf{B})
+\\
+&amp;  = \mathrm{tr} (\mathbf{Y}^{T} \mathbf{\Lambda} \mathbf{Y})
+\\
+&amp; = \sum_{i = 1}^{q} \lambda_{i} y_{i}^{2},
+\end{aligned}
+\tag{44.4}</span></span></p>
+<p>where <span class="math inline">y_{i}</span> is the <span class="math inline">i</span>-th diagonal value in <span class="math inline">\mathbf{Y}</span>.</p>
+<p>Since columns in <span class="math inline">\mathbf{Y}</span> must be orthonormal and each <span class="math inline">\lambda_{i}</span> is a fixed value, the equation in <a href="#eq-max-eigenvalues" class="quarto-xref">Equation&nbsp;<span>44.4</span></a> can maximized by setting every <span class="math inline">y_{i} = 1</span>. That is, given the constraint <span class="math inline">\mathbf{Y}^{T} \mathbf{Y} = \mathbf{I}_{p \times p}</span>, <span class="math inline">\mathrm{tr} (\mathbf{Y}^{T} \mathbf{\Lambda} \mathbf{Y})</span> is maximized when</p>
+<p><span id="eq-Y-diag"><span class="math display">
+\mathbf{Y} =
+\begin{bmatrix}
+1 &amp; 0 &amp; \dots &amp; 0
+\\
+0 &amp; 1 &amp; \dots &amp; 0
+\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots
+\\
+0 &amp; 0 &amp; \dots &amp; 1
+\\
+0 &amp; 0 &amp; \dots &amp; 0
+\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots
+\\
+0 &amp; 0 &amp; \dots &amp; 0
+\end{bmatrix}.
+\tag{44.5}</span></span></p>
+<p>Denoted by <span class="math inline">\mathbf{q}_{i}^{T}</span> the transpose of <span class="math inline">i</span>-th row of <span class="math inline">\mathbf{Q}</span> (<span class="math inline">i</span>-th eigenvector) and <span class="math inline">\mathbf{b}_{i}</span> the <span class="math inline">i</span>-th column of <span class="math inline">\mathbf{B}</span>, the above result shows that</p>
 <p><span class="math display">
 \begin{aligned}
-\mathbb{E}_{X, Y} [X Y]
-&amp; = \sum_{x \in \mathbb{R}} \sum_{y \in \mathbb{R}} x y \mathbb{P}_{X, Y} (x, y)
+\mathbf{Q}^{T} \mathbf{B}
+&amp; = \mathbf{Y}
 \\
-&amp; = \sum_{x \in \mathbb{R}} \sum_{y \in \mathbb{R}} x y \mathbb{P}_{X} (x) \mathbb{P}_{Y} (y)
-&amp; [X, Y \text{ independent}]
+\mathbf{q}_{i}^{T} \mathbf{b}_{i}
+&amp; = 1
 \\
-&amp; = \sum_{x \in \mathbb{R}}  x \mathbb{P}_{X} (x) \sum_{y \in \mathbb{R}} y \mathbb{P}_{Y} (y)
+\lVert \mathbf{q}_{i} \rVert \lVert \mathbf{b}_{i} \rVert \cos(\theta)
+&amp; = 1
 \\
-&amp; = \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y].
+\cos(\theta)
+&amp; = 1
+&amp; [\lVert \mathbf{q}_{i} \rVert = \lVert \mathbf{b}_{i} \rVert = 1]
+\\
+\theta
+&amp; = 0
 \end{aligned}
 </span></p>
+<p>which means that the unit vectors <span class="math inline">\mathbf{q}_{i}</span> and <span class="math inline">\mathbf{b}_{i}</span> point to the same direction and thus they are the same vector.</p>
 </div>
 </div>
-</div>
-<section id="conditional-expectation" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-expectation">Conditional expectation</h2>
-<div id="def-conditional-expectation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.2 (Conditional expectation)</strong></span> Let <span class="math inline">X, Y</span> be jointly distributed random variables. Then the <strong>conditional expectation</strong> of <span class="math inline">X</span> given the event that <span class="math inline">Y = y</span> is</p>
-<p><span class="math display">
-\mathbb{E}_{X \mid Y} [X \mid y] = \sum_{x \in \mathbb{R}} x \mathbb{P}_{X \mid Y} (x \mid y),
-</span></p>
-<p>which is a function of <span class="math inline">y</span>.</p>
-</div>
-<p>Using <a href="#cor-lotus" class="quarto-xref">Corollary&nbsp;<span>20.2</span></a>, the conditional expectation of a transformed random variable <span class="math inline">g (X)</span> is</p>
-<p><span class="math display">
-\mathbb{E}_{X \mid Y} [g (X) \mid y] = \sum_{x \in \mathbb{R}} g (x) \mathbb{P}_{X \mid Y} (x \mid y).
-</span></p>
-<div id="thm-lte" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 20.1 (Law of total expectation (LTE))</strong></span> Let <span class="math inline">X, Y</span> be jointly distributed random variables. The expectation of <span class="math inline">g (X)</span> can be calculated from its conditional expectation</p>
-<p><span class="math display">
-\mathbb{E}_{X} [g (X)] = \sum_{y \in \mathbb{R}} \mathbb{E}_{X \mid Y} [g (X) \mid y] \mathbb{P}_{Y} (y).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>By expanding <span class="math inline">\mathbb{E}_{X \mid Y} [g (X) \mid y]</span>, we can have</p>
-<p><span class="math display">
-\begin{aligned}
-\sum_{y \in \mathbb{R}} \mathbb{E}_{X \mid Y} [g(X) \mid y] \mathbb{P}_{Y} (y)
-&amp; = \sum_{y \in \mathbb{R}} \left(
-    \sum_{x \in \mathbb{R}} g(x) \mathbb{P}_{X \mid Y} (x \mid y)
-\right) \mathbb{P}_{Y} (y)
-\\
-&amp; = \sum_{x \in \mathbb{R}} \sum_{y \in \mathbb{R}} g (x) \mathbb{P}_{X \mid Y} (x \mid y) \mathbb{P}_{Y} (y)
-\\
-&amp; = \sum_{x \in \mathbb{R}} g (x) \sum_{y \in \mathbb{R}} \mathbb{P}_{X, Y} (x, y)
-\\
-&amp; = \sum_{x \in \mathbb{R}} g (x) \mathbb{P}_{X} (x)
-\\
-&amp; = \mathbb{E}_{X} [g (X)].
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="variance" class="level2">
-<h2 class="anchored" data-anchor-id="variance">Variance</h2>
-<p>The concept of the variance summarizes how much a random variable deviates from its mean on average.</p>
-<div id="def-variance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.3</strong></span> The <strong>variance</strong> of a random variable <span class="math inline">X</span> is defined to be</p>
-<p><span class="math display">
-\mathrm{Var} [X] = \mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{2}].
-</span></p>
-</div>
-<div id="cor-variance" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.4</strong></span> The variance can also be calculated as</p>
-<p><span class="math display">
-\mathrm{Var} [X] = \mathbb{E}_{X} [X^{2}] - \mathbb{E}_{X} [X]^{2}.
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\mu = \mathbb{E}_{X} [X]</span>. By <a href="#def-variance" class="quarto-xref">Definition&nbsp;<span>20.3</span></a>, we have</p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Var} (X)
-&amp; = \mathbb{E}_{X} [(X - \mu)^2]
-\\
-&amp; = \mathbb{E}_{X} [X^2 - 2 \mu X + \mu^2]
-\\
-&amp; = \mathbb{E}_{X} [X^2] - 2 \mu\mathbb{E} [X] + \mu^2
-&amp; [\text{linearity of expectation}]
-\\
-&amp; = \mathbb{E}_{X} [X^2] - 2 \mathbb{E} [X]^2 + \mathbb{E} [X]^2
-\\
-&amp; = \mathbb{E}_{X} [X^2] - \mathbb{E} [X]^2
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<div id="cor-variance-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.5</strong></span> The variance of the linear transformation of a random variable is</p>
-<p><span class="math display">
-\mathrm{Var} (a X + b) = a^{2} \mathrm{Var} (X).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>First we show that variance is invariant of the shift. By <a href="#def-variance" class="quarto-xref">Definition&nbsp;<span>20.3</span></a>,</p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Var} (X + b)
-&amp; = \mathbb{E} [((X + b) - \mathbb{E} [X + b])^{2}]
-\\
-&amp; = \mathbb{E} [(X + b - \mathbb{E} [X] - b)^2]
-\\
-&amp; = \mathbb{E} [(X - \mathbb{E} [X])]^2
-\\
-&amp; = \text{Var} (X).
-\end{aligned}
-</span></p>
-<p>Then we show that the variance of the scaling of a random variable is squared. By <a href="#cor-variance" class="quarto-xref">Corollary&nbsp;<span>20.4</span></a>,</p>
-<p><span class="math display">
-\begin{aligned}
-\text{Var} (aX)
-&amp; = \mathbb{E} [(aX)^2] - (\mathbb{E} [aX])^2
-\\
-&amp; = \mathbb{E} [a^2 X^2] - (a \mathbb{E} [X])^2
-\\
-&amp; = a^2 \mathbb{E} [X^2] - a^2 \mathbb{E} [X]^2
-\\
-&amp; = a^2 (\mathbb{E} [X^2] - \mathbb{E} [X]^2)
-\\
-&amp; = a^2 \text{Var} (X).
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<section id="standard-deviation" class="level3">
-<h3 class="anchored" data-anchor-id="standard-deviation">Standard deviation</h3>
-<p>Another measure of a random variable <span class="math inline">X</span>’s spread is the standard deviation.</p>
-<div id="def-standard-deviation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.4</strong></span> The <strong>standard-deviation</strong> of a random variable <span class="math inline">X</span> is</p>
-<p><span class="math display">
-\sigma_{X} = \sqrt{\mathrm{Var}(X)}.
-</span></p>
-</div>
-</section>
-</section>
-<section id="covariance" class="level2">
-<h2 class="anchored" data-anchor-id="covariance">Covariance</h2>
-<p>Given two random variables <span class="math inline">X, Y</span> with a joint distribution <span class="math inline">\mathbb{P}_{X, Y} (x, y)</span>, the covariance describes how they are related with each other. If the covariance is positive, increasing one variable generally leads to an increase in the other random variable, and leads to a decrease if it is negative.</p>
-<div id="def-covariance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.5 (Covariance)</strong></span> Let <span class="math inline">X, Y</span> be random variables. The <strong>covariance</strong> between <span class="math inline">X</span> and <span class="math inline">Y</span> is</p>
-<p><span class="math display">
-\mathrm{Cov} [X, Y] = \mathbb{E}_{X, Y} [(X - \mathbb{E}_{X} [X]) (Y - \mathbb{E}_{Y} [Y])].
-</span></p>
-</div>
-<div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>The covariance of the random variable <span class="math inline">X</span> with itself is its variance</p>
-<p><span class="math display">
-\mathrm{Cov} [X, X] = \mathrm{Var} [X].
-</span></p>
-</div>
-<div id="cor-covariance" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.6</strong></span> The covariance can also be calculated as</p>
-<p><span class="math display">
-\mathrm{Cov} [X, Y] = \mathbb{E}_{X, Y} [X Y] - \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y].
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\mu_{X} = \mathbb{E}_{X} [X]</span> and <span class="math inline">\mu_{Y} = \mathbb{E}_{Y} [Y]</span>. By <a href="#def-covariance" class="quarto-xref">Definition&nbsp;<span>20.5</span></a>, we have</p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Cov} [X, Y]
-&amp; = \mathbb{E}_{X, Y} [(X - \mu_{X}) (Y - \mu_{Y})]
-\\
-&amp; = \mathbb{E}_{X, Y} [X Y - X \mu_{Y} - \mu_{X} Y + \mu_{X} \mu_{Y}]
-\\
-&amp; = \mathbb{E}_{X, Y} [X Y] - \mu_{X} \mu_{Y} - \mu_{X} \mu_{Y} + \mu_{X} \mu_{Y}
-\\
-&amp; = \mathbb{E}_{X, Y} [X Y] - \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y].
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<div id="cor-covariance-properties" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.7</strong></span> The covariance has the following properties.</p>
-<ol type="1">
-<li><p>Invariant to shifting</p>
-<p><span class="math display">
-\mathrm{Cov} [X + a, Y] = \mathrm{Cov} [X, Y].
-</span></p></li>
-<li><p>Linear transformation</p>
-<p><span class="math display">
-\mathrm{Cov} [a X + b Y, Z] = a \mathrm{Cov} [X, Z] + b \mathrm{Cov} [Y, Z].
-</span></p></li>
-<li><p>Covariance of sum of random variables</p>
-<p><span class="math display">
-\mathrm{Cov} [X + A, Y + B] = \mathrm{Cov} [X, Y] + \mathrm{Cov} [X, B] + \mathrm{Cov} [A, Y] + \mathrm{Cov} [A, B].
-</span></p></li>
-</ol>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>All of the 3 properties can be proved from the definition of the variance using <a href="#cor-linearity-of-expectation" class="quarto-xref">Corollary&nbsp;<span>20.1</span></a>.</p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Cov} [X + a, Y]
-&amp; = \mathbb{E}_{X, Y} [(X + a - \mathbb{E} [X + a]) (Y - \mathbb{E} [Y])]
-\\
-&amp; = \mathbb{E}_{X, Y} [(X + a - \mathbb{E} [X] - a) (Y - \mathbb{E} [Y])]
-\\
-&amp; = \mathbb{E}_{X, Y} [(X - \mathbb{E} [X]) (Y - \mathbb{E} [Y])]
-\\
-&amp; = \mathrm{Cov} [X, Y].
-\end{aligned}
-</span></p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Cov} [aX + bY, Z]
-&amp; = \mathbb{E}_{X, Y, Z} [(aX + bY - \mathbb{E}_{X, Y} [aX + bY]) (Z - \mathbb{E}_{Z} [Z])]
-\\
-&amp; = \mathbb{E}_{X, Y, Z} [a(X - \mathbb{E}_{X} [X]) (Z - \mathbb{E}_{Z} [Z]) + b(Y - \mathbb{E}_{Y} [Y]) (Z - \mathbb{E}_{Z} [Z])]
-\\
-&amp; = a\mathbb{E}_{X, Z} [(X - \mathbb{E}_{X} [X]) (Z - \mathbb{E}_{Z} [Z])] + b\mathbb{E}_{Y, Z} [(Y - \mathbb{E}_{Y} [Y]) (Z - \mathbb{E}_{Z} [Z])]
-\\
-&amp; = a\mathrm{Cov} [X, Z] + b\mathrm{Cov} [Y, Z].
-\end{aligned}
-</span></p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Cov} [X + A, Y + B] &amp;
-= \mathbb{E}_{X, A, Y, B} [(X + A - \mathbb{E}_{X, A} [X + A]) (Y + B - \mathbb{E}_{Y, B} [Y + B])]
-\\
-&amp; = \mathbb{E}_{X, A, Y, B} [(X - \mathbb{E}_{X} [X] + A - \mathbb{E}_{A} [A]) (Y - \mathbb{E}_{Y} [Y] + B - \mathbb{E}_{B} [B])]
-\\
-&amp; = \mathbb{E}_{X, Y} [(X - \mathbb{E}_{X} [X]) (Y - \mathbb{E}_{Y} [Y])] + \mathbb{E}_{X, B} [(X - \mathbb{E}_{X} [X]) (B - \mathbb{E}_{B} [B])]
-\\
-&amp; \quad + \mathbb{E}_{A, Y} [(A - \mathbb{E}_{A} [A]) (Y - \mathbb{E}_{Y} [Y])] + \mathbb{E}_{A, B} [(A - \mathbb{E}_{A} [A]) (B - \mathbb{E}_{B} [B])]
-\\
-&amp; = \mathrm{Cov} [X, Y] + \mathrm{Cov} [X, B] + \mathrm{Cov} [A, Y] + \mathrm{Cov} [A, B].
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<div id="cor-covariance-of-independent-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.8</strong></span> If <span class="math inline">X</span> and <span class="math inline">Y</span> are independent, their covariance is <span class="math inline">0</span></p>
-<p><span class="math display">
-\mathrm{Cov} [X, Y] = 0.
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>According to <a href="#cor-expectation-of-independent-RVs" class="quarto-xref">Corollary&nbsp;<span>20.3</span></a>, we have that</p>
-<p><span class="math display">
-\mathbb{E}_{X, Y} [X Y] = \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y].
-</span></p>
-<p>Therefore according to <a href="#cor-covariance" class="quarto-xref">Corollary&nbsp;<span>20.6</span></a>, we have</p>
-<p><span class="math display">
-\mathrm{Cov} [X, Y] = \mathbb{E}_{X, Y} [X Y] - \mathbb{E}_{X} [X] \mathbb{E}_{Y} [Y] = 0.
-</span></p>
-</div>
-</div>
-</div>
-<div id="cor-variance-of-sum-of-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 20.9</strong></span> For any random variables <span class="math inline">X</span> and <span class="math inline">Y</span></p>
-<p><span class="math display">
-\mathrm{Var} [X + Y] = \mathrm{Var} [X] + \mathrm{Var} [Y] + 2 \mathrm{Cov} [X, Y].
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Since the variance of a random variable is its covariance with itself,</p>
-<p><span class="math display">
-\begin{aligned}
-\mathrm{Var} [X + Y]
-&amp; = \mathrm{Cov} [X + Y, X + Y]
-\\
-&amp; = \mathrm{Cov} [X, X] + \mathrm{Cov} [X, Y] + \mathrm{Cov} [Y, X] + \mathrm{Cov} [Y, Y]
-\\
-&amp; = \mathrm{Var} [X] + \mathrm{Var} [Y] + 2 \mathrm{Cov} [X, Y].
-\end{aligned}
-</span></p>
-<p>where we used the third property in <a href="#cor-covariance-properties" class="quarto-xref">Corollary&nbsp;<span>20.7</span></a> in the second equality.</p>
-</div>
-</div>
-</div>
-<section id="correlation" class="level3">
-<h3 class="anchored" data-anchor-id="correlation">Correlation</h3>
-<p>The problem with covariance in describing the relation between two random variables is that its values can be affected by the variance of each individual random variable. THe correlation coefficient calculates the normalized covariance that is invariant with the scaling of the individual random variables.</p>
-<div id="def-correlation-coefficient" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20.6</strong></span> Let <span class="math inline">X, Y</span> be random variables. The correlation coefficient between <span class="math inline">X</span> and <span class="math inline">Y</span> is</p>
-<p><span class="math display">
-\rho (X, Y) = \frac{ \mathrm{Cov} [X, Y] }{ \sqrt{\mathrm{Var} [X]} \sqrt{\mathrm{Var} [Y]} }.
-</span></p>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1488,13 +1382,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/02_Random_Variables.html" class="pagination-link" aria-label="Random Variables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Random Variables</span></span>
+      <a href="../Machine Learning/7_Decision_Tree.html" class="pagination-link" aria-label="Decision Tree">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Deep Learning/Transformer.html" class="pagination-link" aria-label="Transformer">
+        <span class="nav-page-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Transformer</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

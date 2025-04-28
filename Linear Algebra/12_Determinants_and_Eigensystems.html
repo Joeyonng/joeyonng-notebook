@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 12&nbsp; Determinants and Eigensystems</title>
+<title>12&nbsp; Determinants and Eigensystems – Joeyonng's Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,17 +36,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e79310971d42f290956e3c8e3a2a9038.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -62,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -77,7 +83,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -85,51 +118,51 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://joeyonng.github.io/joeyonng/">
     <span class="navbar-title">Joeyonng</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Notebook</span></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Pages</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/"> 
+<span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/" rel="" target="">
- <span class="menu-text">Backyard</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/"> 
+<span class="menu-text">Backyard</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/12_Determinants_and_Eigensystems.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/12_Determinants_and_Eigensystems.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -138,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -160,9 +193,9 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -205,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,17 +280,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Hermitian_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Hermitian Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/15_Positive_Definitive_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -265,22 +304,22 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Chain_Rule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -288,82 +327,82 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -371,52 +410,52 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -424,43 +463,66 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Deep Learning/Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Transformer</span></span></a>
   </div>
 </li>
       </ul>
@@ -468,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -476,13 +538,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#determinants" id="toc-determinants" class="nav-link active" data-scroll-target="#determinants">Determinants</a></li>
-  <li><a href="#eigensystems" id="toc-eigensystems" class="nav-link" data-scroll-target="#eigensystems">Eigensystems</a></li>
+  <li><a href="#eigensystems" id="toc-eigensystems" class="nav-link" data-scroll-target="#eigensystems">Eigensystems</a>
+  <ul class="collapse">
   <li><a href="#eigenspace" id="toc-eigenspace" class="nav-link" data-scroll-target="#eigenspace">Eigenspace</a></li>
   <li><a href="#characteristic-polynomial-and-equation" id="toc-characteristic-polynomial-and-equation" class="nav-link" data-scroll-target="#characteristic-polynomial-and-equation">Characteristic polynomial and equation</a></li>
+  </ul></li>
   <li><a href="#multiplicities" id="toc-multiplicities" class="nav-link" data-scroll-target="#multiplicities">Multiplicities</a>
   <ul class="collapse">
   <li><a href="#special-multiplicities" id="toc-special-multiplicities" class="nav-link" data-scroll-target="#special-multiplicities">Special multiplicities</a></li>
-  <li><a href="#properties-of-multiplicities" id="toc-properties-of-multiplicities" class="nav-link" data-scroll-target="#properties-of-multiplicities">Properties of multiplicities</a></li>
   </ul></li>
   <li><a href="#independent-eigenvectors" id="toc-independent-eigenvectors" class="nav-link" data-scroll-target="#independent-eigenvectors">Independent eigenvectors</a></li>
   </ul>
@@ -491,14 +554,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Linear Algebra/01_Fields_and_Spaces.html">Linear Algebra</a></li><li class="breadcrumb-item"><a href="../Linear Algebra/12_Determinants_and_Eigensystems.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants and Eigensystems</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -506,11 +569,13 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="determinants" class="level2">
 <h2 class="anchored" data-anchor-id="determinants">Determinants</h2>
-<p>For an matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, the determinant of A is defined to be the scalar</p>
+<p>For a square matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, the determinant of <span class="math inline">\mathbf{A}</span> is defined to be the scalar</p>
 <p><span class="math display">
 \text{det} (\mathbf{A}) = \lvert \mathbf{A} \rvert = \sum_{p \in \mathcal{P}} \sigma (p) \prod_{i=1}^{n} a_{i, p_{i}}
 </span></p>
@@ -523,19 +588,28 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="eigensystems" class="level2">
 <h2 class="anchored" data-anchor-id="eigensystems">Eigensystems</h2>
-<p>For a square matrix <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span>, <span class="math inline">(\lambda, \mathbf{x})</span> is an <strong>eigenpair</strong> for <span class="math inline">\mathbf{A}</span> if</p>
+<div id="def-eigenpair" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.1</strong></span> For a square matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, <span class="math inline">(\lambda, \mathbf{x})</span> is an <strong>eigenpair</strong> for <span class="math inline">\mathbf{A}</span> if</p>
 <p><span class="math display">
 \mathbf{A} \mathbf{x} = \lambda \mathbf{x}
 </span></p>
 <p>where</p>
 <ul>
 <li><p>the scalar <span class="math inline">\lambda</span> is an <strong>eigenvalue</strong> for <span class="math inline">\mathbf{A}</span>,</p></li>
-<li><p>the non-zero vector <span class="math inline">\mathbf{x}</span> is an <strong>eigenvector</strong> associated with <span class="math inline">\lambda</span> for <span class="math inline">\mathbf{A}</span>.</p></li>
+<li><p>and the non-zero vector <span class="math inline">\mathbf{x}</span> is an <strong>eigenvector</strong> associated with <span class="math inline">\lambda</span> for <span class="math inline">\mathbf{A}</span>.</p></li>
 </ul>
-</section>
-<section id="eigenspace" class="level2">
-<h2 class="anchored" data-anchor-id="eigenspace">Eigenspace</h2>
-<p>Given a eigenvalue <span class="math inline">\lambda</span>,</p>
+</div>
+<div id="def-spectrum" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.2</strong></span> The set of all distinct eigenvalues, denoted by <span class="math inline">\sigma (\mathbf{A})</span>, is the <strong>spectrum</strong> of <span class="math inline">\mathbf{A}</span>.</p>
+</div>
+<section id="eigenspace" class="level3">
+<h3 class="anchored" data-anchor-id="eigenspace">Eigenspace</h3>
+<div id="def-eigenspace" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.3</strong></span> Given a eigenvalue <span class="math inline">\lambda</span>, the <strong>eigenspace</strong> of <span class="math inline">\lambda</span> is defined as</p>
+<p><span class="math display">
+N (\mathbf{A} - \lambda \mathbf{I}),
+</span></p>
+<p>which contains the set of all eigenvectors associated with <span class="math inline">\lambda</span></p>
 <p><span class="math display">
 \begin{aligned}
 \mathbf{A} \mathbf{x}
@@ -545,15 +619,11 @@ ul.task-list li input[type="checkbox"] {
 &amp; = 0
 \\
 \mathbf{x}
-&amp; \in N (\mathbf{A} - \lambda \mathbf{I}),
+&amp; \in N (\mathbf{A} - \lambda \mathbf{I}).
 \\
 \end{aligned}
 </span></p>
-<p>which shows that the set</p>
-<p><span class="math display">
-\{ \mathbf{x} \neq 0 \mid \mathbf{x} \in N (\mathbf{A} - \lambda \mathbf{I}) \}
-</span></p>
-<p>is the set of all eigenvectors associated with the <span class="math inline">\lambda</span>, and <span class="math inline">N (\mathbf{A} - \lambda \mathbf{I})</span> is an <strong>eigenspace</strong> for <span class="math inline">\mathbf{A}</span>.</p>
+</div>
 <p>Because of <span class="math inline">\mathbf{x} \neq \mathbf{0}</span> and rank-nullity theorem,</p>
 <p><span class="math display">
 N (\mathbf{A} - \lambda \mathbf{I}) \neq \{ \mathbf{0} \}
@@ -564,17 +634,20 @@ N (\mathbf{A} - \lambda \mathbf{I}) \neq \{ \mathbf{0} \}
 \text{det} (\mathbf{A} - \lambda \mathbf{I}) = 0.
 </span></p>
 </section>
-<section id="characteristic-polynomial-and-equation" class="level2">
-<h2 class="anchored" data-anchor-id="characteristic-polynomial-and-equation">Characteristic polynomial and equation</h2>
-<p>The characteristic polynomial of <span class="math inline">\mathbf{A} \in \mathbb{R}^{n \times n}</span> is a polynomial function of <span class="math inline">\lambda</span></p>
+<section id="characteristic-polynomial-and-equation" class="level3">
+<h3 class="anchored" data-anchor-id="characteristic-polynomial-and-equation">Characteristic polynomial and equation</h3>
+<div id="def-characteristic-polynomial" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.4</strong></span> The <strong>characteristic polynomial</strong> of a square matrix <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span> is a polynomial function</p>
 <p><span class="math display">
 p (\lambda) = \text{det} (\mathbf{A} - \lambda \mathbf{I}).
 </span></p>
 <ul>
 <li><p>The degree (highest exponent in the expression) of <span class="math inline">p (\lambda)</span> is <span class="math inline">n</span>,</p></li>
-<li><p>the leading term in <span class="math inline">p (\lambda)</span> is <span class="math inline">(-1)^{n} \lambda^{n}</span>.</p></li>
+<li><p>and the leading term in <span class="math inline">p (\lambda)</span> is <span class="math inline">(-1)^{n} \lambda^{n}</span>.</p></li>
 </ul>
-<p>The characteristic equation for <span class="math inline">\mathbf{A}</span> is</p>
+</div>
+<div id="def-characteristic-equation" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.5</strong></span> The <strong>characteristic equation</strong> for <span class="math inline">\mathbf{A}</span> is</p>
 <p><span class="math display">
 p (\lambda) = 0.
 </span></p>
@@ -582,36 +655,32 @@ p (\lambda) = 0.
 <li><p>The eigenvalues of <span class="math inline">\mathbf{A}</span> are the solutions of the characteristic equation.</p></li>
 <li><p>Thus, <span class="math inline">\mathbf{A}</span> has <span class="math inline">n</span> eigenvalues, but some may be complex numbers (even if the entries of <span class="math inline">\mathbf{A}</span> are real numbers), and some eigenvalues may be repeated.</p></li>
 </ul>
+</div>
+</section>
 </section>
 <section id="multiplicities" class="level2">
 <h2 class="anchored" data-anchor-id="multiplicities">Multiplicities</h2>
-<p>The set of all distinct eigenvalues, denoted by <span class="math inline">\sigma (\mathbf{A})</span>, is the <strong>spectrum</strong> of <span class="math inline">\mathbf{A}</span>. Let <span class="math inline">\lambda_{1}, \dots, \lambda_{n} \in \sigma (\mathbf{A})</span> be the spectrum of <span class="math inline">\mathbf{A}</span>. Then</p>
+<div id="def-multiplicities" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.6</strong></span> Let <span class="math inline">\lambda_{1}, \dots, \lambda_{n} \in \sigma (\mathbf{A})</span> be the spectrum of <span class="math inline">\mathbf{A}</span>. Then, we define the following multiplicities of an eigenvalue.</p>
 <ul>
-<li><p>the <strong>algebraic multiplicity</strong> of an eigenvalue <span class="math inline">\lambda_{i}</span> is the number of times it appears as the root of <span class="math inline">p (\lambda)</span>,</p>
+<li><p>The <strong>algebraic multiplicity</strong> of an eigenvalue <span class="math inline">\lambda_{i}</span> is the number of times it appears as the root of <span class="math inline">p (\lambda)</span>,</p>
 <p><span class="math display">
 \text{alg mult}_{\mathbf{A}} (\lambda_{i}) = a_{i} \iff \dots + (\lambda - \lambda_{i})^{a_{i}} + \dots = 0.
 </span></p>
 <p>That is, the algebraic multiplicity of <span class="math inline">\lambda_{i}</span> is the number of times <span class="math inline">\lambda_{i}</span> has repeated in all eigenvalues.</p></li>
-<li><p>the <strong>geometric multiplicity</strong> of an eigenvalue <span class="math inline">\lambda_{i}</span> is the number of the dimension of eigenspace associated with <span class="math inline">\lambda_{i}</span>,</p>
+<li><p>The <strong>geometric multiplicity</strong> of an eigenvalue <span class="math inline">\lambda_{i}</span> is the dimension of eigenspace associated with <span class="math inline">\lambda_{i}</span>,</p>
 <p><span class="math display">
   \text{geo mult}_{\mathbf{A}} (\lambda_{i}) = \text{dim} N (\mathbf{A} - \lambda_{i} \mathbf{I}).
   </span></p>
 <p>That is, the geometric multiplicity of <span class="math inline">\lambda_{i}</span> is the number of linearly independent eigenvectors associated with <span class="math inline">\lambda_{i}</span>.</p></li>
 </ul>
-<section id="special-multiplicities" class="level3">
-<h3 class="anchored" data-anchor-id="special-multiplicities">Special multiplicities</h3>
-<ul>
-<li><p>When <span class="math inline">\text{alg mult}_{\mathbf{A}} (\lambda_{i}) = 1</span>, <span class="math inline">\lambda_{i}</span> is called a simple eigenvalue, since there can only be one unique eigenvector associated with this eigenvalue.</p></li>
-<li><p>Eigenvalues such that <span class="math inline">\text{alg mult}_{\mathbf{A}} (\lambda_{i}) = \text{geo mult}_{\mathbf{A}} (\lambda_{i})</span> are called semi-simple eigenvalues of A, as all eigenvectors associated with the eigenvalues that have the value of <span class="math inline">\lambda_{i}</span> are linearly independent.</p></li>
-</ul>
-</section>
-<section id="properties-of-multiplicities" class="level3">
-<h3 class="anchored" data-anchor-id="properties-of-multiplicities">Properties of multiplicities</h3>
-<ul>
-<li><p>For every <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, and for each <span class="math inline">\lambda_{i} \in \sigma(\mathbf{A})</span>,</p>
+</div>
+<div class="{thm-multiplicities}">
+<p>For every <span class="math inline">\mathbf{A} \in \mathbb{C}^{n \times n}</span>, and for each <span class="math inline">\lambda_{i} \in \sigma(\mathbf{A})</span>,</p>
 <p><span class="math display">
-  \text{geo mult}_{\mathbf{A}} (\lambda_{i}) \leq \text{alg mult}_{\mathbf{A}} (\lambda_{i}).
-  </span></p>
+\text{geo mult}_{\mathbf{A}} (\lambda_{i}) \leq \text{alg mult}_{\mathbf{A}} (\lambda_{i}).
+</span></p>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -627,15 +696,21 @@ Proof
 <p>TODO</p>
 </div>
 </div>
-</div></li>
+</div>
+<section id="special-multiplicities" class="level3">
+<h3 class="anchored" data-anchor-id="special-multiplicities">Special multiplicities</h3>
+<ul>
+<li><p>When <span class="math inline">\text{alg mult}_{\mathbf{A}} (\lambda_{i}) = 1</span>, <span class="math inline">\lambda_{i}</span> is called a simple eigenvalue, since there can only be one unique eigenvector associated with this eigenvalue.</p></li>
+<li><p>Eigenvalues such that <span class="math inline">\text{alg mult}_{\mathbf{A}} (\lambda_{i}) = \text{geo mult}_{\mathbf{A}} (\lambda_{i})</span> are called semi-simple eigenvalues of A, as all eigenvectors associated with the eigenvalues that have the value of <span class="math inline">\lambda_{i}</span> are linearly independent.</p></li>
 </ul>
 </section>
 </section>
 <section id="independent-eigenvectors" class="level2">
 <h2 class="anchored" data-anchor-id="independent-eigenvectors">Independent eigenvectors</h2>
 <p>Let <span class="math inline">\{ \lambda_{1}, \dots, \lambda_{k} \}</span> be a set of distinct eigenvalues for <span class="math inline">\mathbf{A}</span>.</p>
-<ul>
-<li><p>If <span class="math inline">\{ (\lambda_{1}, \mathbf{x}_{1}), \dots, (\lambda_{k}, \mathbf{x}_{k}) \}</span> is a set of eigenpairs for <span class="math inline">\mathbf{A}</span>, then <span class="math inline">\{ \mathbf{x}_{1}, \dots, \mathbf{x}_{k} \}</span> is a linearly independent set.</p>
+<div id="thm-independent-eigenvectors" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.1</strong></span> If <span class="math inline">\{ (\lambda_{1}, \mathbf{x}_{1}), \dots, (\lambda_{k}, \mathbf{x}_{k}) \}</span> is a set of eigenpairs for <span class="math inline">\mathbf{A}</span>, then <span class="math inline">\{ \mathbf{x}_{1}, \dots, \mathbf{x}_{k} \}</span> is a linearly independent set. That is, the eigenvectors associated with different eigenvalues</p>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -652,53 +727,55 @@ Proof
 <p>Suppose <span class="math inline">\{ \mathbf{x}_{1}, \dots, \mathbf{x}_{k} \}</span> is linearly dependent, but has been reordered so that the first <span class="math inline">r</span> eigenvectors <span class="math inline">\{ \mathbf{x}_{1}, \dots, \mathbf{x}_{k} \}</span> is linearly independent.</p>
 <p>Thus, the <span class="math inline">r + 1</span>th eigenvector is</p>
 <p><span class="math display">
-  \mathbf{x}_{r + 1} = \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}.
-  </span></p>
+\mathbf{x}_{r + 1} = \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}.
+</span></p>
 <p>Multiply the both sides by the <span class="math inline">\mathbf{A} - \lambda_{r + 1} \mathbf{I}</span> to get</p>
 <p><span class="math display">
-  (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{r + 1} = (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}.
-  </span></p>
+(\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{r + 1} = (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}.
+</span></p>
 <p>Since <span class="math inline">(\lambda_{r + 1}, x_{r + 1})</span> is an eigenpair,</p>
 <p><span class="math display">
-  \begin{aligned}
-  (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{r + 1}
-  &amp; = 0
-  \\
-  (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}
-  &amp; = 0
-  \\
-  \sum_{i=1}^{r} \alpha_{i} (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{i}
-  &amp; = 0
-  \\
-  \sum_{i=1}^{r} \alpha_{i} (\mathbf{A} \mathbf{x}_{i} - \lambda_{r + 1} \mathbf{x}_{i})
-  &amp; = 0
-  \\
-  \sum_{i=1}^{r} \alpha_{i} (\lambda_{i} \mathbf{x}_{i} - \lambda_{r + 1} \mathbf{x}_{i})
-  &amp; = 0
-  &amp; [\mathbf{A} \mathbf{x}_{i} = \lambda_{i} \mathbf{x}_{i}]
-  \\
-  \sum_{i=1}^{r} \alpha_{i} (\lambda_{i}  - \lambda_{r + 1}) \mathbf{x}_{i}
-  &amp; = 0
-  \\
-  \end{aligned}
-  </span></p>
+\begin{aligned}
+(\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{r + 1}
+&amp; = 0
+\\
+(\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i}
+&amp; = 0
+\\
+\sum_{i=1}^{r} \alpha_{i} (\mathbf{A} - \lambda_{r + 1} \mathbf{I}) \mathbf{x}_{i}
+&amp; = 0
+\\
+\sum_{i=1}^{r} \alpha_{i} (\mathbf{A} \mathbf{x}_{i} - \lambda_{r + 1} \mathbf{x}_{i})
+&amp; = 0
+\\
+\sum_{i=1}^{r} \alpha_{i} (\lambda_{i} \mathbf{x}_{i} - \lambda_{r + 1} \mathbf{x}_{i})
+&amp; = 0
+&amp; [\mathbf{A} \mathbf{x}_{i} = \lambda_{i} \mathbf{x}_{i}]
+\\
+\sum_{i=1}^{r} \alpha_{i} (\lambda_{i}  - \lambda_{r + 1}) \mathbf{x}_{i}
+&amp; = 0
+\\
+\end{aligned}
+</span></p>
 <p>Since <span class="math inline">\{ \mathbf{1}, \dots, \mathbf{x}_{r} \}</span> are linearly independent,</p>
 <p><span class="math display">
-  \alpha_{i} (\lambda_{i}  - \lambda_{r + 1}) = 0, \forall i = 1, \dots, r
-  </span></p>
+\alpha_{i} (\lambda_{i}  - \lambda_{r + 1}) = 0, \forall i = 1, \dots, r
+</span></p>
 <p>but since we assume <span class="math inline">\lambda_{i}, \dots, \lambda_{r + 1}, \dots, \lambda_{n}</span> are different,</p>
 <p><span class="math display">
-  \lambda_{i} \neq \lambda_{r + 1} \Rightarrow \alpha_{i} = 0, \forall i = 1, \dots, r,
-  </span></p>
+\lambda_{i} \neq \lambda_{r + 1} \Rightarrow \alpha_{i} = 0, \forall i = 1, \dots, r,
+</span></p>
 <p>which means</p>
 <p><span class="math display">
-  \mathbf{x}_{r + 1} = \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i} = 0.
-  </span></p>
+\mathbf{x}_{r + 1} = \sum_{i=1}^{r} \alpha_{i} \mathbf{x}_{i} = 0.
+</span></p>
 <p>However, eigenvectors are all non-zero vectors and thus an contradiction occurs.</p>
 </div>
 </div>
-</div></li>
-<li><p>If <span class="math inline">\mathcal{B}_{i}</span> is a basis for <span class="math inline">N (\mathbf{A} - \lambda_{i} \mathbf{I})</span>, then <span class="math inline">\mathcal{B} = \mathcal{B}_{1} \cup \dots, \cup \mathcal{B}_{k}</span> is a linearly independent set.</p>
+</div>
+<div id="thm-independent-eigenvectors-basis" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.2</strong></span> If <span class="math inline">\mathcal{B}_{i}</span> is a basis for eigenspace <span class="math inline">N (\mathbf{A} - \lambda_{i} \mathbf{I})</span> of <span class="math inline">\lambda_{i}</span>, then the union of all basis vectors <span class="math inline">\mathcal{B} = \mathcal{B}_{1} \cup \dots, \mathcal{B}_{k}</span> for all eigenspace is a linearly independent set.</p>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -714,8 +791,7 @@ Proof
 <p>TODO</p>
 </div>
 </div>
-</div></li>
-</ul>
+</div>
 
 
 </section>
@@ -756,18 +832,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -799,11 +864,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -813,8 +915,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -826,7 +937,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -870,6 +1103,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -895,6 +1129,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -956,12 +1216,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="pagination-link">
+      <a href="../Linear Algebra/11_Orthogonal_and_Affine_Projection.html" class="pagination-link" aria-label="Orthogonal and Affine Projection">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Orthogonal and Affine Projection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="pagination-link">
+      <a href="../Linear Algebra/13_Similarity_and_Diagonalization.html" class="pagination-link" aria-label="Similarity and Diagonalization">
         <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Similarity and Diagonalization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -991,6 +1251,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
 })(document);
 </script>
+
 
 
 

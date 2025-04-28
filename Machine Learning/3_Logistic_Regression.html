@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 38&nbsp; Logistic Regression</title>
+<title>39&nbsp; Logistic Regression – Joeyonng's Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,17 +36,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e79310971d42f290956e3c8e3a2a9038.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -62,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -77,7 +83,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -85,51 +118,51 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://joeyonng.github.io/joeyonng/">
     <span class="navbar-title">Joeyonng</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Notebook</span></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Pages</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/"> 
+<span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/" rel="" target="">
- <span class="menu-text">Backyard</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/"> 
+<span class="menu-text">Backyard</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/3_Logistic_Regression.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/3_Logistic_Regression.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -138,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -160,9 +193,9 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -205,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,17 +280,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Hermitian_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Hermitian Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/15_Positive_Definitive_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -265,22 +304,22 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Chain_Rule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -288,82 +327,82 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -371,52 +410,52 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -424,43 +463,66 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Deep Learning/Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Transformer</span></span></a>
   </div>
 </li>
       </ul>
@@ -468,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -493,20 +555,25 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#binary-cross-entropy-bce-loss" id="toc-binary-cross-entropy-bce-loss" class="nav-link" data-scroll-target="#binary-cross-entropy-bce-loss">Binary cross-entropy (BCE) loss</a></li>
   <li><a href="#minimizing-loss-with-gradient-descent" id="toc-minimizing-loss-with-gradient-descent" class="nav-link" data-scroll-target="#minimizing-loss-with-gradient-descent">Minimizing loss with gradient descent</a></li>
   </ul></li>
+  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-class classification</a>
+  <ul class="collapse">
+  <li><a href="#softmax-function" id="toc-softmax-function" class="nav-link" data-scroll-target="#softmax-function">Softmax function</a></li>
+  <li><a href="#cross-entropy-ce-loss" id="toc-cross-entropy-ce-loss" class="nav-link" data-scroll-target="#cross-entropy-ce-loss">Cross entropy (CE) loss</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Machine Learning/1_Linear_Discriminant.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../Machine Learning/3_Logistic_Regression.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-logistic-regression" class="quarto-section-identifier"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
+<h1 class="title"><span id="sec-logistic-regression" class="quarto-section-identifier"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -514,26 +581,28 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="preliminary" class="level2">
 <h2 class="anchored" data-anchor-id="preliminary">Preliminary</h2>
 <section id="probability-and-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="probability-and-statistics">Probability and Statistics</h3>
 <ul>
-<li>Maximum Likelihood Estimation <span class="citation" data-cites="maximum-likelihood-estimation">@maximum-likelihood-estimation</span></li>
+<li>Maximum Likelihood Estimation <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="quarto-xref"><span>Chapter 26</span></a></li>
 </ul>
 </section>
 <section id="learning-theory" class="level3">
 <h3 class="anchored" data-anchor-id="learning-theory">Learning Theory</h3>
 <ul>
-<li>Bayesian Classifier <span class="citation" data-cites="bayesian-classifier">@bayesian-classifier</span></li>
+<li>Bayesian Classifier <a href="../Learning Theory/2_Bayesian_Classifier.html" class="quarto-xref"><span>Chapter 31</span></a></li>
 </ul>
 </section>
 <section id="supervised-learning" class="level3">
 <h3 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h3>
 <ul>
-<li>Linear Discriminant <a href="1_Linear_Discriminant.html"><span>Chapter&nbsp;36</span></a></li>
+<li>Linear Discriminant <a href="1_Linear_Discriminant.html" class="quarto-xref"><span>Chapter 37</span></a></li>
 </ul>
 </section>
 </section>
@@ -550,7 +619,7 @@ y = \begin{cases}
 <p>where <span class="math inline">\sigma</span> is the sigmoid function and <span class="math inline">f (\mathbf{x})</span> is a linear function on the instance <span class="math inline">\mathbf{x}</span>.</p>
 <section id="map-rule-and-posterior-probability" class="level3">
 <h3 class="anchored" data-anchor-id="map-rule-and-posterior-probability">MAP rule and posterior probability</h3>
-<p>Recall that the BDR with 0-1 loss is the MAP rule</p>
+<p>Recall in <a href="../Learning Theory/2_Bayesian_Classifier.html#sec-bayesian-classifier-map-rule" class="quarto-xref"><span>Section 31.1</span></a> that the BDR with 0-1 loss is the MAP rule</p>
 <p><span class="math display">
 f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 </span></p>
@@ -567,7 +636,7 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 \end{aligned}
 </span></p>
 <p>Using the Bayes theorem, the posterior probability of the positive class can be represented using the class conditional probabilities <span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y}</span> and class probabilities <span class="math inline">\mathbb{P}_{Y}</span></p>
-<p><span class="math display">
+<p><span id="eq-logistic-regression-map-rule-simplify"><span class="math display">
 \begin{aligned}
 \mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x})
 &amp; = \frac{
@@ -599,7 +668,7 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 \right)^{-1}
 \\
 \end{aligned}
-</span></p>
+\tag{39.1}</span></span></p>
 </section>
 <section id="sigmoid-function" class="level3">
 <h3 class="anchored" data-anchor-id="sigmoid-function">Sigmoid function</h3>
@@ -608,10 +677,10 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 \sigma (z) = \frac{ 1 }{ 1 + e^{- z}
 }.
 </span></p>
-<p>The posterior probability is the result of the sigmoid function if we assume the class conditional probabilities are Gaussian distributions.</p>
+<p>Here we show that the posterior probability <span class="math inline">\mathbb{P}_{Y \mid \mathbf{x}} (1 \mid \mathbf{x})</span> is the result of the sigmoid function if we assume the class conditional probabilities <span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y}</span> are Gaussian distributions.</p>
 <p>Recall that the multivariate Gaussian with the mean <span class="math inline">\boldsymbol{\mu}</span> and covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span> is</p>
 <p><span class="math display">
-\mathcal{G} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{
+\mathcal{N} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{
     1
 }{
     \sqrt{(2 \pi)^{2} \lvert \boldsymbol{\Sigma}_{1} \rvert}
@@ -620,9 +689,9 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 \right),
 </span></p>
 <p>which can be compactly written as follows</p>
-<p><span class="math display">
+<p><span id="eq-logistic-regression-gaussian-compact"><span class="math display">
 \begin{aligned}
-\mathcal{G} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma})
+\mathcal{N} (\mathbf{x}; \boldsymbol{\mu}, \boldsymbol{\Sigma})
 &amp; = \frac{
     1
 }{
@@ -659,12 +728,16 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
     \right)
 \right),
 \end{aligned}
-</span></p>
-<p>where <span class="math inline">d_{\boldsymbol{\Sigma}} (\mathbf{x}, \mathbf{y}) = \frac{1}{2} \left(  \mathbf{x} - \mathbf{y} \right)^{T} \boldsymbol{\Sigma}^{-1} \left(  \mathbf{x} - \mathbf{y} \right)</span> is the Mahalanobis distance between <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{y}</span> with covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span>.</p>
+\tag{39.2}</span></span></p>
+<p>where <span class="math inline">d_{\boldsymbol{\Sigma}} (\mathbf{x}, \mathbf{y}) = \frac{1}{2} \left(
+    \mathbf{x} - \mathbf{y}
+\right)^{T} \boldsymbol{\Sigma}^{-1} \left(
+    \mathbf{x} - \mathbf{y}
+\right)</span> is the Mahalanobis distance between <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{y}</span> with covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span>.</p>
 <p>If we assume the class conditional probabilities for both classes are Gaussian distributions:</p>
 <ul>
-<li><p><span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 0) = \mathcal{G} (\mathbf{x}; \boldsymbol{\mu}_{0}, \boldsymbol{\Sigma}_{0})</span></p></li>
-<li><p><span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 1) = \mathcal{G} (\mathbf{x}; \boldsymbol{\mu}_{1}, \boldsymbol{\Sigma}_{1})</span>,</p></li>
+<li><p><span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 0) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{0}, \boldsymbol{\Sigma}_{0})</span></p></li>
+<li><p><span class="math inline">\mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid 1) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{1}, \boldsymbol{\Sigma}_{1})</span>,</p></li>
 </ul>
 <p>then the posterior possibility is</p>
 <p><span class="math display">
@@ -719,7 +792,14 @@ f (\mathbf{x}) = \arg\max_{y} \mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x})
 &amp; = \sigma (f (\mathbf{x}))
 \end{aligned}
 </span></p>
-<p>where <span class="math inline">f (\mathbf{x}) = \frac{1}{2} \left(  \alpha_{0} - \alpha_{1}  + d_{\boldsymbol{\Sigma_{0}}} (\mathbf{x}, \boldsymbol{\mu_{0}})  - d_{\boldsymbol{\Sigma_{1}}} (\mathbf{x}, \boldsymbol{\mu_{1}})  + 2 \log \frac{\mathbb{P}_{Y} (1)}{\mathbb{P}_{Y} (0)} \right)</span> and <span class="math inline">\alpha_{i} = \log \left(  (2 \pi)^{d} \lvert \boldsymbol{\Sigma}_{i} \rvert \right)</span>.</p>
+<p>where <span class="math inline">f (\mathbf{x}) = \frac{1}{2} \left(
+    \alpha_{0} - \alpha_{1}
+    + d_{\boldsymbol{\Sigma_{0}}} (\mathbf{x}, \boldsymbol{\mu_{0}})
+    - d_{\boldsymbol{\Sigma_{1}}} (\mathbf{x}, \boldsymbol{\mu_{1}})
+    + 2 \log \frac{\mathbb{P}_{Y} (1)}{\mathbb{P}_{Y} (0)}
+\right)</span> and <span class="math inline">\alpha_{i} = \log \left(
+    (2 \pi)^{d} \lvert \boldsymbol{\Sigma}_{i} \rvert
+\right)</span>.</p>
 </section>
 <section id="linear-function" class="level3">
 <h3 class="anchored" data-anchor-id="linear-function">Linear function</h3>
@@ -757,7 +837,7 @@ f (\mathbf{x})
 <p><span class="math display">
 \mathbf{w}^{T} = \left(
     \boldsymbol{\mu}_{0} - \boldsymbol{\mu}_{1}
-\right)^{T} \boldsymbol{\Sigma}^{-1} \mathbf{x},
+\right)^{T} \boldsymbol{\Sigma}^{-1},
 </span></p>
 <p>and the bias term is</p>
 <p><span class="math display">
@@ -774,22 +854,24 @@ b = \frac{1}{2} \left(
 <p><span class="math display">
 \arg\max_{\boldsymbol{\mu}_{i}, \boldsymbol{\Sigma}_{i}} \prod_{y_{j} = j} \mathbb{P}_{\mathbf{X} \mid Y} \left(
     \mathbf{x}_{i} \mid j
-\right) = \arg\max_{\boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}} \prod_{y_{j} = j} \mathcal{G} \left(
+\right) = \arg\max_{\boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}} \prod_{y_{j} = j} \mathcal{N} \left(
     \mathbf{x}_{i}; \boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}
 \right).
 </span></p>
 <p>However, logistic regression is usually learned using a discriminative approach, where the parameters <span class="math inline">\mathbf{w}, b</span> are directly learned from the data by minimizing binary cross-entropy loss.</p>
 <section id="learning-as-a-mle-problem" class="level3">
 <h3 class="anchored" data-anchor-id="learning-as-a-mle-problem">Learning as a MLE problem</h3>
-<p>Recall that the learning of the linear regression can be formulated as an MLE problem</p>
+<p>Recall in <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html#sec-maximum-likelihood-estimation-example-linear-regression" class="quarto-xref"><span>Section 26.2</span></a> that the learning of the linear regression can be formulated as an MLE problem</p>
 <p><span class="math display">
 \arg\max_{\mathbf{w}, b} \prod_{i} \mathbb{P}_{Y \mid \mathbf{X}} \left(
     y_{i} \mid \mathbf{x}_{i}
-\right) = \arg\max_{\mathbf{w}, b} \prod_{i} \mathcal{G} \left(
+\right) = \arg\max_{\mathbf{w}, b} \prod_{i} \mathcal{N} \left(
     y_{i}; \mathbf{w}^{T} \mathbf{x}_{i} + b, \sigma^{2}
 \right),
 </span></p>
-<p>where the posterior probability of the label <span class="math inline">\mathbb{P}_{Y \mid \mathbf{X}} \left(  y_{i} \mid \mathbf{x}_{i} \right)</span> follows a univariate Gaussian distribution with the mean <span class="math inline">\mathbf{w}^{T} \mathbf{x} + b</span> and a known variance <span class="math inline">\sigma^{2}</span>.</p>
+<p>where the posterior probability of the label <span class="math inline">\mathbb{P}_{Y \mid \mathbf{X}} \left(
+    y_{i} \mid \mathbf{x}_{i}
+\right)</span> follows a univariate Gaussian distribution with the mean <span class="math inline">\mathbf{w}^{T} \mathbf{x} + b</span> and a known variance <span class="math inline">\sigma^{2}</span>.</p>
 <p>For logistic regression, the posterior probability of the label should be a Bernoulli distribution</p>
 <p><span class="math display">
 \begin{aligned}
@@ -808,9 +890,10 @@ b = \frac{1}{2} \left(
 <p>and therefore the MLE problem is defined as</p>
 <p><span class="math display">
 \begin{aligned}
-\arg\max_{\mathbf{w}, b} \prod_{i} \mathrm{Ber} \left(
+&amp; \arg\max_{\mathbf{w}, b} \prod_{i} \mathrm{Ber} \left(
     y; \mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}_{i})
 \right)
+\\
 &amp; = \arg\max_{\mathbf{w}, b} \sum_{i} \log \mathrm{Ber} \left(
     y; \mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}_{i})
 \right)
@@ -855,29 +938,9 @@ L_{\mathrm{BCE}} (y, \hat{y}) =  - y \log \hat{y} - (1 - y) \log (1 - \hat{y})
 \arg\min_{\mathbf{w}, b} R (\mathbf{w}, b) = \sum_{i} L_{\mathrm{BCE}} (y_{i}, \sigma (f (\mathbf{x}_{i})))
 </span></p>
 <p>can not be analytically solved to obtain a closed-form solution because of the non-linear sigmoid function. Instead, gradient descent is used to solve the optimization problem numerically.</p>
-<p>To simplify the derivation process, we will use a trick to make the bias term <span class="math inline">b</span> as part of the weight vector</p>
+<p>To simplify the derivation process, we will use the trick <a href="1_Linear_Discriminant.html#sec-linear-discriminant-augmented-vector" class="quarto-xref"><span>Section 37.3</span></a> to make the bias term <span class="math inline">b</span> as part of the weight vector</p>
 <p><span class="math display">
 f (\mathbf{x}) = \mathbf{w}^{T} \mathbf{x} + b = \hat{\mathbf{w}}^{T} \hat{\mathbf{x}}.
-</span></p>
-<p>where <span class="math inline">\hat{\mathbf{w}}</span> is defined by appending <span class="math inline">b</span> to <span class="math inline">\mathbf{w}</span> as the last element</p>
-<p><span class="math display">
-\hat{\mathbf{w}} =
-\begin{bmatrix}
-w_{1} \\
-\vdots \\
-w_{d} \\
-b \\
-\end{bmatrix},
-</span></p>
-<p>and <span class="math inline">\hat{\mathbf{x}}</span> is formed by appending an <span class="math inline">1</span> to <span class="math inline">\mathbf{x}</span> as the last element</p>
-<p><span class="math display">
-\mathbf{\hat{x}} =
-\begin{bmatrix}
-x_{1} \\
-\vdots \\
-x_{d} \\
-1 \\
-\end{bmatrix}.
 </span></p>
 <p>First note that the function <span class="math inline">R (\hat{\mathbf{w}})</span> that we want to minimize</p>
 <p><span class="math display">
@@ -1067,6 +1130,211 @@ y_{n} \\
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="multi-class-classification" class="level2">
+<h2 class="anchored" data-anchor-id="multi-class-classification">Multi-class classification</h2>
+<p>The deviation process of logistic regression shows that it naturally supports multi-class classification. For a multi-class classification problem, the MAP rule is still to get the label that maximizes the posterior probability,</p>
+<p><span class="math display">
+f (\mathbf{x}) = \arg\max_{j} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}).
+</span></p>
+<p>Similar to the simplification process in <a href="#eq-logistic-regression-map-rule-simplify" class="quarto-xref">Equation&nbsp;<span>39.1</span></a>, we can rewrite the posterior probability of class <span class="math inline">i</span> for the multi-class problems of <span class="math inline">m</span> classes,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x})
+&amp; = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \mathbb{P}_{\mathbf{X}} (\mathbf{x})
+}
+&amp; [\text{Bayes' theroem}]
+\\
+&amp; = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid k) \mathbb{P}_{Y} (k)
+}
+&amp; [\text{Law of total probability, chain rule}].
+\end{aligned}
+</span></p>
+<p>Again if we assume that all class conditional probabilities have gaussian distributions with the equal covariance (see <a href="#eq-logistic-regression-gaussian-compact" class="quarto-xref">Equation&nbsp;<span>39.2</span></a>)</p>
+<p><span class="math display">
+\mathbb{P}_{\mathbf{X} \mid Y} (x \mid j) = \mathcal{N} (\mathbf{x}; \boldsymbol{\mu}_{i}, \Sigma) = \exp \left[
+    -\frac{1}{2} \left(
+        \log \left[
+            (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+        \right] + d_{\boldsymbol{\Sigma}} \left(
+            \mathbf{x}, \boldsymbol{\mu}_{j}
+        \right)
+    \right)
+\right],
+</span></p>
+<p>the posterior probability of class <span class="math inline">i</span> can be further written as</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x})
+&amp; = \frac{
+    \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid j) \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \mathbb{P}_{\mathbf{X} \mid Y} (\mathbf{x} \mid k) \mathbb{P}_{Y} (k)
+}
+\\
+&amp; = \frac{
+    \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{j}
+            \right)
+        \right)
+    \right] \mathbb{P}_{Y} (j)
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{k}
+            \right)
+        \right)
+    \right] \mathbb{P}_{Y} (k)
+}
+\\
+&amp; = \frac{
+    \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{j}
+            \right) - 2 \log \left[
+                \mathbb{P}_{Y} (j)
+            \right]
+        \right)
+    \right]
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        -\frac{1}{2} \left(
+            \log \left[
+                (2 \pi)^{d} \lvert \boldsymbol{\Sigma} \rvert
+            \right] + d_{\boldsymbol{\Sigma}} \left(
+                \mathbf{x}, \boldsymbol{\mu}_{k}
+            \right) - 2 \log \left[
+                \mathbb{P}_{Y} (k)
+            \right]
+        \right)
+    \right]
+}
+\\
+&amp; = \frac{
+    \exp \left[
+        f_{j} (\mathbf{x})
+    \right]
+}{
+    \sum^{m}_{k = 1} \exp \left[
+        f_{k} (\mathbf{x})
+    \right]
+}
+\\
+&amp; = \sigma_{j} (\mathbf{f} (\mathbf{x})),
+\end{aligned}
+</span></p>
+<p>where <span class="math inline">\mathbf{f} (\mathbf{x}) =
+\begin{bmatrix}
+f_{1} (\mathbf{x}) &amp; \dots &amp; f_{m} (\mathbf{x})
+\end{bmatrix}^{T}</span> and <span class="math inline">\sigma_{j} (\cdot)</span> is the <span class="math inline">j</span>th output component of the softmax function.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<p>Each <span class="math inline">f_{i} (\mathbf{x})</span> is again a linear hyperplane</p>
+<p><span class="math display">
+f_{i} (\mathbf{x}) = \mathbf{w}^{T}_{i} \mathbf{x} + b_{i}
+</span></p>
+<p>as a binary classifier that should be learned to separate the class <span class="math inline">i</span> (positive class) again all other classes (negative class). Since we have <span class="math inline">m</span> classes and thus <span class="math inline">m</span> binary hyperplanes, the parameters for multi-class logistic regression include <span class="math inline">m</span> weight vectors and <span class="math inline">m</span> biases.</p>
+<p>By representing the parameters as the matrix form <span class="math inline">\mathbf{W} \in \mathbb{R}^{d \times m}</span> and the vector form <span class="math inline">\mathbf{b} \in \mathbb{R}^{m}</span>, we can write the linear part of the multi-class logistic regression model as a vector-valued multivariate function (see <span class="citation" data-cites="derivatives-functions">@derivatives-functions</span>)</p>
+<p><span class="math display">
+\mathbf{f} (\mathbf{x}) = \mathbf{W}^{T} \mathbf{x} + \mathbf{b}.
+</span></p>
+<section id="softmax-function" class="level3">
+<h3 class="anchored" data-anchor-id="softmax-function">Softmax function</h3>
+<p>The <strong>softmax function</strong> maps the input vector <span class="math inline">\mathbf{z} \in \mathbb{R}^{k}</span> to a probability vector <span class="math inline">\boldsymbol{\sigma} (\mathbf{z}) \in \mathbb{R}^{k}</span>, where the probability <span class="math inline">\sigma_{i} (\mathbf{z})</span> is calculated as the exponential of <span class="math inline">z_{i}</span> divided by the sum of exponentials of all components of <span class="math inline">\mathbf{z}</span></p>
+<p><span class="math display">
+\boldsymbol{\sigma} (\mathbf{z}) =
+\begin{bmatrix}
+\sigma_{1} (\mathbf{z}) \\
+\vdots \\
+\sigma_{k} (\mathbf{z}) \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{ \exp [z_{1}] }{ \sum^{k}_{i} \exp [z_{i}] } \\
+\vdots \\
+\frac{ \exp [z_{k}] }{ \sum^{k}_{i} \exp [z_{i}] } \\
+\end{bmatrix}.
+</span></p>
+<p>The softmax function is also a vector-valued multivariate function that can be seen as the vectorized version of the sigmoid function. Thus, the entire multi-class logistic regression model takes the input vector <span class="math inline">\mathbf{x}</span> and outputs the probabilities that <span class="math inline">\mathbf{x}</span> belongs to all classes</p>
+<p><span class="math display">
+\boldsymbol{\sigma} (\mathbf{f} (\mathbf{x})) = \boldsymbol{\sigma} (\mathbf{W}^{T} \mathbf{x} + \mathbf{b}) =
+\begin{bmatrix}
+\mathbb{P}_{Y \mid \mathbf{X}} (1 \mid \mathbf{x}) \\
+\vdots \\
+\mathbb{P}_{Y \mid \mathbf{X}} (m \mid \mathbf{x}) \\
+\end{bmatrix}.
+</span></p>
+</section>
+<section id="cross-entropy-ce-loss" class="level3">
+<h3 class="anchored" data-anchor-id="cross-entropy-ce-loss">Cross entropy (CE) loss</h3>
+<p>Similarly as the binary logistic regression, the multi-class logistic regression can be learned using MLE, where the posterior probability of the label for multi-class classification is modeled using the categorical distribution (generalized Bernoulli distribution)</p>
+<p><span class="math display">
+\mathbb{P}_{Y \mid \mathbf{X}} (y \mid \mathbf{x}) = \prod_{j = 1}^{m} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x})^{\mathbf{1} [y = j]}.
+</span></p>
+<p>Given a dataset of <span class="math inline">n</span> instances <span class="math inline">\{ (\mathbf{x}_{1}, y_{1}), \dots, (\mathbf{x}_{n}, y_{n}) \}</span>, the MLE problem for learning multi-class logistic regression is to optimize the function</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \arg\max_{\mathbf{W}, \mathbf{b}} \prod^{n}_{i = 1} \prod_{j = 1}^{m} \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})^{\mathbf{1} [y_{i} = j]}
+\\
+&amp; = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \log \left[
+    \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})^{\mathbf{1} [y_{i} = j]}
+\right]
+\\
+&amp; = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+    \mathbb{P}_{Y \mid \mathbf{X}} (j \mid \mathbf{x}_{i})
+\right]
+\\
+&amp; = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+    \sigma_{j} (\mathbf{f} (\mathbf{x}))
+\right]
+\\
+&amp; = \arg\min_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} \left(
+    - \sum_{j = 1}^{m} \mathbf{1} [y_{i} = j] \log \left[
+        \sigma_{j} (\mathbf{f} (\mathbf{x}))
+    \right]
+\right)
+\\
+&amp; = \arg\max_{\mathbf{W}, \mathbf{b}} \sum^{n}_{i = 1} L_{\mathrm{CE}} (y_{i}, \boldsymbol{\sigma} (\mathbf{f} (\mathbf{x})))
+\end{aligned}
+</span></p>
+<p>where <span class="math inline">L_{\mathrm{CE}} (y, \hat{\mathbf{y}})</span> is the <strong>cross-entropy loss</strong></p>
+<p><span class="math display">
+L_{\mathrm{CE}} (y, \hat{\mathbf{y}}) = - \sum_{j = 1}^{m} \mathbf{1} [y = j] \log \left[
+    \hat{y}_{j}
+\right].
+</span></p>
+<p>The cross-entropy loss is the generalized version of the binary cross-entropy loss, where both loss functions take as loss the negative log value of the output probability of the class given by the true label of the instance.</p>
 
 
 </section>
@@ -1108,18 +1376,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1151,11 +1408,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1165,8 +1459,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1178,7 +1481,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1222,6 +1647,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1247,6 +1673,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1308,13 +1760,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Machine Learning/2_Perceptron.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Perceptron</span></span>
+      <a href="../Machine Learning/2_Perceptron.html" class="pagination-link" aria-label="Perceptron">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="pagination-link" aria-label="Multi-layer Perceptron">
+        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1343,6 +1795,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
 })(document);
 </script>
+
 
 
 

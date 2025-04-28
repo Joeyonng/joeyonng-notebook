@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Joeyonng’s Notebook - 26&nbsp; Bayesian Estimation</title>
+<title>27&nbsp; Bayesian Estimation – Joeyonng's Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,17 +36,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e79310971d42f290956e3c8e3a2a9038.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -62,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <link href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css" rel="stylesheet">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -77,7 +83,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -85,51 +118,51 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://joeyonng.github.io/joeyonng/">
     <span class="navbar-title">Joeyonng</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Notebook</span></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/" rel="" target="">
- <span class="menu-text">Pages</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/Notes/"> 
+<span class="menu-text">Pages</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng/"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/" rel="" target="">
- <span class="menu-text">Backyard</span></a>
+    <a class="nav-link" href="https://joeyonng.github.io/joeyonng-backyard/"> 
+<span class="menu-text">Backyard</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Bayesian_Estimation.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Bayesian_Estimation.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -138,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -160,9 +193,9 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -205,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/07_Orthogonality_and_Orthogonal_Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Orthogonal Matrix</span></span></a>
+  <a href="../Linear Algebra/07_Orthogonality_and_Unitary_Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orthogonality and Unitary Matrix</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,17 +280,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Linear Algebra/14_Normal_and_Positive_Definite_Matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Positive Definite Matrices</span></span></a>
+  <a href="../Linear Algebra/14_Normal_and_Hermitian_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Normal and Hermitian Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Linear Algebra/15_Positive_Definitive_Matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Positive Definite Matrices</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -265,22 +304,22 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Derivative.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Derivatives</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Calculus/Chain_Rule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Chain rule</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Probability and Statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -288,82 +327,82 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/01_Probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/02_Random_Variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/03_Expectation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Expectation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/04_Common_Distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Learning Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -371,52 +410,52 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -424,43 +463,66 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deep Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Deep Learning/Transformer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Transformer</span></span></a>
   </div>
 </li>
       </ul>
@@ -468,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -487,24 +549,24 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#example-mean-of-the-univariate-gaussian" id="toc-example-mean-of-the-univariate-gaussian" class="nav-link" data-scroll-target="#example-mean-of-the-univariate-gaussian">Example: mean of the univariate Gaussian</a>
   <ul class="collapse">
   <li><a href="#posterior-distribution-of-mean-parameter" id="toc-posterior-distribution-of-mean-parameter" class="nav-link" data-scroll-target="#posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#predictive-distribution-function" id="toc-predictive-distribution-function" class="nav-link" data-scroll-target="#predictive-distribution-function">Predictive distribution function</a></li>
   <li><a href="#selecting-parameter-priors" id="toc-selecting-parameter-priors" class="nav-link" data-scroll-target="#selecting-parameter-priors">Selecting parameter priors</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Bayesian_Estimation.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
+<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -512,13 +574,10 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<ul>
-<li><p>The form of the density <span class="math inline">\mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}}(\mathbf{x} \mid \boldsymbol{\theta})</span> is assumed to be known, but the value of the parameter vector <span class="math inline">\boldsymbol{\theta}</span> is not known exactly.</p></li>
-<li><p>Our initial knowledge about <span class="math inline">\boldsymbol{\theta}</span> is assumed to be contained in a known a priori density <span class="math inline">\mathbb{P}_{\boldsymbol{\Theta}}(\boldsymbol{\theta})</span>.</p></li>
-<li><p>The rest of our knowledge about <span class="math inline">\boldsymbol{\theta}</span> is contained in a set <span class="math inline">\mathcal{D}</span> of n samples <span class="math inline">\mathbf{x}_{1}, \dots, \mathbf{x}_{n}</span> drawn independently according to the unknown probability density <span class="math inline">\mathbb{P}_{\mathbf{X}}(\mathbf{x})</span>.</p></li>
-</ul>
+
 <section id="views-on-parameter-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="views-on-parameter-estimation">Views on parameter estimation</h2>
 <p>There are two different frameworks on statistical inferences: frequentist view and Bayesian view. Both views have the same definition of the probability, but they have different views on how probability of an event should be calculated or accessed. Thus, the way to do parameter estimation is different under the two frameworks.</p>
@@ -646,11 +705,10 @@ Proof
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>First we express <span class="math inline">\mathbb{P}_{X \mid \mu} (x_{i} \mid \mu)</span> and <span class="math inline">\mathbb{P}_{\mu} (\mu)</span> using the PDF of Gaussian distribution</p>
 <p><span class="math display">
 \begin{aligned}
 \mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
-&amp; \propto \mathbb{P}_{\mathcal{D} \mid \mu} (\mathcal{D} \mid \mu) \mathbb{P}_{\mu} (\mu)
-\\
 &amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu)
 \\
 &amp; = \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{
@@ -661,12 +719,33 @@ Proof
     (\mu - \mu_{0})^{2}
 }{
     2 \sigma_{0}^{2}
+}}.
+\end{aligned}
+</span></p>
+<p>Then we simplify the expression by first merging constants and exponential</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{
+    (x_{i} - \mu)^{2}
+}{
+    2 \sigma^{2}
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{
+    (\mu - \mu_{0})^{2}
+}{
+    2 \sigma_{0}^{2}
 }}
 \\
 &amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{\left[
-    - \frac{ (x_{i} - \mu)^{2} }{ 2 \sigma^{2} } - \frac{ (\mu - \mu_{0})^{2} }{ 2 \sigma_{0}^{2} }
+    - \frac{
+        (x_{i} - \mu)^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        (\mu - \mu_{0})^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
 \right] }
-&amp; [\text{merging constants and exponential}]
 \\
 &amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
     \sum_{i=1}^{n} - \frac{
@@ -691,7 +770,6 @@ Proof
         2 \sigma_{0}^{2}
     }
 \right]}
-&amp; [\text{expanding squares}]
 \\
 &amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
     - \frac{ \sum_{i=1}^{n} \left[
@@ -713,8 +791,23 @@ Proof
     }{
         2 \sigma_{0}^{2}
     }
+\right] }.
+\end{aligned}
+</span></p>
+<p>Finally we reorder the terms and extract the terms without <span class="math inline">\mu</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
 \right] }
-&amp; [\text{reordering sums}]
 \\
 &amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
         - \frac{ \sum_{i=1}^{n} x_{i}^{2}
@@ -736,7 +829,9 @@ Proof
 \right]}
 \\
 &amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
-    - \left( \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} } \right) \mu^{2} + 2 \left(
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
         \frac{
             \sum_{i=1}^{n} x_{i}
         }{
@@ -746,31 +841,42 @@ Proof
         \sum_{i=1}^{n} x_{i}^{2}
     }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
 \right] }
-&amp; [\text{grouping } \mu]
 \\
 &amp; = \frac{ \exp{ \left[
-    - \frac{ \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
-\right] } }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2}
+    } - \frac{
+        \mu_{0}^{2} }{ 2 \sigma_{0}^{2}
+    }
+\right] } }{
+    \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}}
+} \exp{\left[
     - \left(
         \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
     \right) \mu^{2} + 2 \left(
-        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
     \right) \mu
 \right] }
-&amp; [\text{extracting out terms without } \mu]
 \\
 &amp; \propto \exp{ \left[
     - \left(
         \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
     \right) \mu^{2} + 2 \left(
-        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
     \right) \mu
-\right] }
-&amp; [\text{removing terms without } \mu]
+\right] }.
 \\
 \end{aligned}
 </span></p>
-<p>Using the <em>completing the squares</em> trick</p>
+<p>Then we can further simplify it using the <em>completing the squares</em> trick</p>
 <p><span class="math display">
 \begin{aligned}
 ax^{2} + 2bx + c  
@@ -788,22 +894,31 @@ ax^{2} + 2bx + c
 \\
 &amp; = a \left(
     x + \frac{ b }{ a }
-\right)^{2} + c - \frac{ b^{2} }{ a },
+\right)^{2} + c - \frac{ b^{2} }{ a }.
 \\
 \end{aligned}
 </span></p>
-<p>and treating</p>
+<p>By treating</p>
 <p><span class="math display">
 a = - \left(
     \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
-\right),
-</span></p>
-<p><span class="math display">
+\right)
+\quad
 b = \left(
-    \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
-\right),
+    \frac{
+        \sum_{i=1}^{n} x_{i}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu_{0}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right)
+\quad
+c = 0,
 </span></p>
-<p>we can have</p>
+<p>and omitting the term <span class="math inline">- \frac{ b^{2} }{ a }</span> since it doesn’t depend on <span class="math inline">\mu</span>, we can have</p>
 <p><span class="math display">
 \begin{aligned}
 \mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
@@ -828,7 +943,6 @@ b = \left(
         }
     \right)^{2}
 \right] }
-&amp; [\text{remove } \frac{ b^{2} }{ a } \text{ as it doesn't depend on } \mu]
 \\
 &amp; = \exp{ \left[
     - \left(
@@ -862,21 +976,22 @@ b = \left(
             \sigma^{2} + n \sigma_{0}^{2}
         }
     \right)^{2}
-\right] }
-.
+\right] }.
 \\
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<p>This means that the unknown parameter <span class="math inline">\mu</span> estimated by a set of instances <span class="math inline">\mathcal{X}</span> using Bayesian estimation has a probability <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> that follows a normal distribution that has mean <span class="math inline">\mu_{n}</span> and variance <span class="math inline">\sigma_{n}^{2}</span>.</p>
+</section>
+<section id="analysis" class="level3">
+<h3 class="anchored" data-anchor-id="analysis">Analysis</h3>
+<p>The above result shows that the unknown parameter <span class="math inline">\mu</span> estimated by a set of instances <span class="math inline">\mathcal{X}</span> using Bayesian estimation has a probability <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> that follows a normal distribution that has mean <span class="math inline">\mu_{n}</span> and variance <span class="math inline">\sigma_{n}^{2}</span>.</p>
 <ul>
 <li><p>Since <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> is a normal distribution, <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu_{n} \mid \mathcal{X})</span> is largest and thus we can view <span class="math inline">\mu_{n}</span> as our best guess for <span class="math inline">\mu</span> after observing <span class="math inline">\mathcal{X}</span>.</p></li>
 <li><p>Then we can view the variance <span class="math inline">\sigma_{n}^{2}</span> as the uncertainty about this best guess.</p></li>
 <li><p>Since <span class="math inline">\sigma_{n}^{2}</span> decreases monotonically with <span class="math inline">n</span>, each additional observation decreases our uncertainty of the best guess.</p></li>
 </ul>
-<p>%%markdown</p>
 <p>Since <span class="math inline">\mu_{n}</span> can be further rewritten as</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1005,15 +1120,9 @@ b = \left(
 </span></p>
 <p>Since <span class="math inline">\mu_{0}</span> is <span class="math inline">\bar{x}_{n}</span> with extra points, <span class="math inline">\mu_{0} = \bar{x}_{n}</span> when <span class="math inline">n</span> is large.</p></li>
 </ol>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li>https://www.bu.edu/sph/files/2014/05/Bayesian-Statistics_final_20140416.pdf</li>
-</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1052,18 +1161,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1095,11 +1193,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1109,8 +1244,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1122,7 +1266,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1166,6 +1432,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1191,6 +1458,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1252,13 +1545,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span>
+      <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="pagination-link" aria-label="Maximum Likelihood Estimation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="pagination-link" aria-label="Expectation-maximization">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1287,6 +1580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
 })(document);
 </script>
+
 
 
 
