@@ -210,7 +210,7 @@ $$
 A random variable $X \in \mathbb{R}$ follows the Gaussian distribution 
 
 $$
-X \sim \mathcal{N} (\mu, \sigma) \quad \mu \in \mathbb{R}, \sigma \in \mathbb{R},
+X \sim \mathcal{N} (\mu, \sigma^{2}) \quad \mu \in \mathbb{R}, \sigma^{2} \in \mathbb{R},
 $$
 
 if $X$ follows the standard bell curve.

@@ -36,6 +36,8 @@ $$
 = \frac{ \sigma^{2} }{ n }.
 $$
 
+Since $\bar{X}_{n}$ takes a different value for each sample, it is only a guess of the true $\mu$, and it is closely related to the sample size $n$.
+
 ## Law of large numbers (LLN)
 
 There are two versions laws of large numbers, 
@@ -152,7 +154,7 @@ Therefore, SLLN is a stronger version than the WLLN.
 
 :::{#thm-central-limit-theorem}
 
-### Central limit theorem (CLT)
+#### Central limit theorem (CLT)
 
 Let $\bar{X}_{n}$ be the sample mean of $n$ i.i.d random variables $X_{1}, \dots , X_{n}$ with mean $\mu$ and variance $\sigma^{2}$. 
 If $n$ goes to infinite, 
@@ -175,3 +177,90 @@ TODO
 Although CLT is a form of convergence in distribution, 
 which is known to be a weaker version of convergence than convergence in probability and almost sure convergence,
 it doesn't mean that CLT is a weaker version of SLLN or WLLN. 
+
+## Confidence intervals
+
+Since $\bar{X}_{n}$ is a continuous random variable, $\mathbb{P} (\bar{X}_{n} = \mu) = 0$ no matter how large $n$ is, so it is not a useful question to ask whether $\bar{X}_{n}$ exactly equals $\mu$. 
+Instead, we use **confidence intervals** to ask whether $\mu$ falls within some margin of $\bar{X}_{n}$.
+
+:::{#def-confidence-interval}
+
+#### Confidence interval
+
+Let $X_{1}, \dots , X_{n}$ be a sequence of random variables with mean $\mu$. 
+A **confidence interval** for $\mu$ with confidence level $1 - \alpha, \alpha \in (0, 1)$, is an interval $[L, U]$, computed from $X_{1}, \dots, X_{n}$, that satisfies
+
+$$
+\mathbb{P} (L \leq \mu \leq U) = 1 - \alpha.
+$$
+
+:::
+
+:::{#cor-confidence-interval-mean}
+
+#### Confidence interval for the mean
+
+Let $\bar{X}_{n}$ be the sample mean of $n$ i.i.d random variables $X_{1}, \dots , X_{n}$ with mean $\mu$ and variance $\sigma^{2}$. 
+Then a confidence interval for $\mu$ with confidence level $1 - \alpha$ is $[L, U]$ with
+
+$$
+L = \bar{X}_{n} - z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} }, \qquad
+U = \bar{X}_{n} + z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} },
+$$
+
+where $z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} }$ is called the **margin of error**.
+
+:::
+
+:::{.callout-note collapse="true" title="Proof"}
+
+By @thm-central-limit-theorem, as $n \to \infty$, 
+
+$$
+\bar{X}_{n} \sim \mathcal{N} \left(
+    \mu, \frac{ \sigma^{2} }{ n }
+\right),
+$$
+
+and by @cor-standardization, 
+
+$$
+Z = \frac{ \bar{X}_{n} - \mu }{ \sigma / \sqrt{n} } \sim \mathcal{N} (0, 1).
+$$
+
+By @cor-standard-normal-two-sided-quantile, 
+
+$$
+\begin{aligned}
+1 - \alpha 
+& = \mathbb{P} \left(
+    -z_{\alpha / 2} \leq Z \leq z_{\alpha / 2}
+\right)
+\\
+& = \mathbb{P} \left(
+    -z_{\alpha / 2} \leq \frac{ \bar{X}_{n} - \mu }{ \sigma / \sqrt{n} } \leq z_{\alpha / 2}
+\right)
+\\
+& = \mathbb{P} \left(
+    -z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} } \leq \bar{X}_{n} - \mu \leq z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} }
+\right)
+& [\text{multiplying by } \frac{ \sigma }{ \sqrt{n} }]
+\\
+& = \mathbb{P} \left(
+    \bar{X}_{n} - z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} } \leq \mu \leq \bar{X}_{n} + z_{\alpha / 2} \frac{ \sigma }{ \sqrt{n} }
+\right)
+& [\text{rearranging}]
+\\
+& = \mathbb{P} (L \leq \mu \leq U),
+\end{aligned}
+$$
+
+which proves the corollary by @def-confidence-interval.
+
+:::
+
+Once the sample size and variance of the random variables are known, the confidence interval gives the range of values that the mean $\mu$ is likely to fall into with a certain probability (confidence level).
+
+- For a fixed sample size, a higher confidence level results in a wider confidence interval, which means that the estimate of $\mu$ is less precise.
+
+- Increasing the sample size $n$ improves the quality of the estimate, in which case the confidence interval can be made narrower while still maintaining the same confidence level.
