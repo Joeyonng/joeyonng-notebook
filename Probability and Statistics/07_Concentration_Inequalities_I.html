@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Moment Generating Function – Joeyonng's Notebook</title>
+<title>24&nbsp; Concentration Inequalities I – Joeyonng's Notebook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/06_Concentration_Inequalities_I.html" rel="next">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="prev">
+<link href="../Probability and Statistics/08_Convergence.html" rel="next">
+<link href="../Probability and Statistics/06_Moment_Generating_Functions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/07_Concentration_Inequalities_I.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,50 +354,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  <a href="../Probability and Statistics/05_Gaussian_Distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gaussian Distribution</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  <a href="../Probability and Statistics/08_Convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  <a href="../Probability and Statistics/09_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/13_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -414,43 +420,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,49 +473,49 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -524,16 +530,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-mgf" id="toc-properties-of-mgf" class="nav-link active" data-scroll-target="#properties-of-mgf">Properties of MGF</a></li>
+  <li><a href="#markovs-inequality" id="toc-markovs-inequality" class="nav-link active" data-scroll-target="#markovs-inequality">Markov’s inequality</a></li>
+  <li><a href="#chebyshevs-inequality" id="toc-chebyshevs-inequality" class="nav-link" data-scroll-target="#chebyshevs-inequality">Chebyshev’s inequality</a>
+  <ul class="collapse">
+  <li><a href="#average-of-random-variables-converge-to-mean" id="toc-average-of-random-variables-converge-to-mean" class="nav-link" data-scroll-target="#average-of-random-variables-converge-to-mean">Average of random variables converge to mean</a></li>
+  </ul></li>
+  <li><a href="#chernoff-bound" id="toc-chernoff-bound" class="nav-link" data-scroll-target="#chernoff-bound">Chernoff bound</a>
+  <ul class="collapse">
+  <li><a href="#chernoffs-bounding-method" id="toc-chernoffs-bounding-method" class="nav-link" data-scroll-target="#chernoffs-bounding-method">Chernoff’s bounding method</a></li>
+  <li><a href="#chernoff-bound-for-bernoulli-random-variables" id="toc-chernoff-bound-for-bernoulli-random-variables" class="nav-link" data-scroll-target="#chernoff-bound-for-bernoulli-random-variables">Chernoff bound for Bernoulli random variables</a></li>
+  <li><a href="#general-chernoff-bound" id="toc-general-chernoff-bound" class="nav-link" data-scroll-target="#general-chernoff-bound">General Chernoff bound</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/07_Concentration_Inequalities_I.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></h1>
+<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></h1>
 </div>
 
 
@@ -550,24 +566,16 @@ window.Quarto = {
 </header>
 
 
-<p>The <span class="math inline">n</span>th moment of a random variable <span class="math inline">X</span> is</p>
+<p>Concentration inequalities provide mathematical bounds on the probability of a random variable deviating from some value. They can answer the questions such as “what is the largest probability that <span class="math inline">X</span> can deviates from its mean by more than <span class="math inline">t</span>”?</p>
+<section id="markovs-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="markovs-inequality">Markov’s inequality</h2>
+<p><strong>Markov’s inequality</strong> states that the probability of a random variable larger than <span class="math inline">t</span> is less than <span class="math inline">\frac{\mu}{t}</span>.</p>
+<div id="thm-markovs-inequality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 24.1 (Markov’s inequality)</strong></span> Let <span class="math inline">X \geq 0</span> be a non-negative random variable with finite mean <span class="math inline">\mu</span>. Then for any <span class="math inline">t &gt; 0</span>,</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}]
-</span></p>
-<p>and the <span class="math inline">n</span>th central moment of <span class="math inline">X</span> is</p>
-<p><span class="math display">
-\mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{n}].
-</span></p>
-<div id="def-moment-generating-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 (Moment generating function)</strong></span> The moment generating function (MGF) of a random variable <span class="math inline">X</span> is a function <span class="math inline">M_{X} (s)</span> that is defined as</p>
-<p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P}_{X} (x).
-</span></p>
-</div>
-<div id="cor-moment-generating-function" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> The <span class="math inline">n</span>th moment of the random variable can be derived by taking the <span class="math inline">n</span>th derivative of <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span></p>
-<p><span class="math display">
-\mathbb{E}_{X} [X^{n}] = \frac{ d^{n} }{ ds^{n} } M_{X} (s) \left.\right|_{s = 0}.
+\mathbb{P} \left(
+    X \geq t
+\right) \leq \frac{ \mu }{ t }.
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -582,30 +590,40 @@ M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Recall that the Taylor series for <span class="math inline">e^{x}</span> is</p>
+<p>Assuming <span class="math inline">X</span> is a discrete random variable,</p>
 <p><span class="math display">
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
+\mu = \sum_{x} \mathbb{P}_{X} (x) x = \sum_{x \geq t} \mathbb{P}_{X} (x) x + \sum_{x &lt; t} \mathbb{P}_{X} (x) x.
 </span></p>
-<p>Therefore, the Taylor series of <span class="math inline">e^{s X}</span> is</p>
+<p>Since <span class="math inline">X \geq 0</span>, <span class="math inline">\sum_{x &lt; t} \mathbb{P}_{X} (x) x</span> is non-negative, and therefore</p>
 <p><span class="math display">
-e^{s X} = \sum_{i = 0}^{\infty} \frac{(s X)^{i}}{i!} = \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}.
+\begin{aligned}
+\mu
+&amp; = \sum_{x \geq t} \mathbb{P}_{X} (x) x + \sum_{x &lt; t} \mathbb{P}_{X} (x) x.
+\\
+&amp; \geq \sum_{x \geq t} \mathbb{P}_{X} (x)
+\\
+&amp; = t \sum_{x \geq t} \mathbb{P}_{X} (x)
+\\
+&amp; = t \mathbb{P}_{X} (x \geq t)
+\end{aligned}
 </span></p>
-<p>The moment generating function can be written as</p>
+<p>We have Markov’s inequality by rearranging the term</p>
 <p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [X^{i}] s^{i} }{i !}.
+\mathbb{P}_{X} (x \geq t) \leq \frac{\mu}{t}.
 </span></p>
-<p>The <span class="math inline">n</span>th moment is the coefficient of <span class="math inline">\frac{s^{k}}{k !}</span> in the Taylor series of<span class="math inline">M_{X} (s)</span>, which can be obtained by taking <span class="math inline">n</span>th derivative <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span>.</p>
 </div>
 </div>
 </div>
-<section id="properties-of-mgf" class="level2">
-<h2 class="anchored" data-anchor-id="properties-of-mgf">Properties of MGF</h2>
-<div id="cor-mgf-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2</strong></span> The MGF of <span class="math inline">Y = a X + b</span> can be computed as</p>
+</section>
+<section id="chebyshevs-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="chebyshevs-inequality">Chebyshev’s inequality</h2>
+<p><strong>Chebyshev’s inequality</strong> states that the probability of the difference between a random variable and its mean larger than <span class="math inline">a</span> is less than <span class="math inline">\frac{\sigma^{2}}{t^{2}}</span>.</p>
+<div id="thm-chebyshevs-inequality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 24.2 (Chebyshev’s inequality)</strong></span> Let <span class="math inline">X</span> be a random variable with finite mean <span class="math inline">\mu</span> and finite variance <span class="math inline">\sigma^{2}</span>. Then for any <span class="math inline">t &gt; 0</span>,</p>
 <p><span class="math display">
-M_{Y} (s) = e^{b s} M_{X} (a s).
+\mathbb{P} \left(
+    \lvert X - \mu \rvert \geq t
+\right) \leq \frac{ \sigma^{2} }{ t^{2} }.
 </span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
@@ -620,29 +638,76 @@ M_{Y} (s) = e^{b s} M_{X} (a s).
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Let <span class="math inline">Y = (X - \mathbb{E}_{X} [X])^{2}</span> and apply Markov’s inequality on <span class="math inline">Y</span> to get</p>
 <p><span class="math display">
 \begin{aligned}
-M_{Y} (s)
-&amp; = \mathbb{E}_{X} \left[
-    e^{s (a X + b)}
-\right]
+\mathbb{P} (Y \geq t^{2})
+&amp; \leq \frac{ \mathbb{E}_{Y} [y] }{ t^{2} }
 \\
-&amp; = e^{b s} \mathbb{E}_{X} \left[
-    e^{s a X}
-\right]
+&amp; = \frac{ \mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{2}] }{ a^{2} }
 \\
-&amp; = e^{b s} M_{X} (a s).
+&amp; = \frac{ \mathrm{Var}_{X} [X] }{ t^{2} }.
+\end{aligned}
+</span></p>
+<p>Note that</p>
+<p><span class="math display">
+\mathbb{P} (Y \geq t^{2}) = \mathbb{P} \left(
+    (X - \mathbb{E}_{X} [X])^{2} \geq t^{2}
+\right) = \mathbb{P} \left(
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
+\right).
+</span></p>
+<p>Therefore,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P} \left(
+    \lvert X - \mathbb{E}_{X} [X] \rvert \geq t
+\right)
+&amp; \leq \frac{ \mathrm{Var} [X] }{ t^{2} }.
 \\
+\mathbb{P} \left(
+    \lvert X - \mu \rvert \geq t
+\right)
+&amp; \leq \frac{ \sigma^{2} }{ t^{2} }.
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<div id="cor-mgf-product-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.3</strong></span> Suppose <span class="math inline">X_{1}, \dots, X_{n}</span> are independent random variables and <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span>. Then we have the MGF of <span class="math inline">X</span> as the sum of MGFs of <span class="math inline">X_{i}</span>s,</p>
+<section id="average-of-random-variables-converge-to-mean" class="level3">
+<h3 class="anchored" data-anchor-id="average-of-random-variables-converge-to-mean">Average of random variables converge to mean</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be independent random variables with finite means <span class="math inline">\mu_{1}, \dots, \mu_{n}</span> and finite variances <span class="math inline">\sigma_{1}^{2}, \dots, \sigma_{n}^{2}</span>. Then, for any <span class="math inline">t &gt; 0</span></p>
 <p><span class="math display">
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
+\mathbb{P} \left(
+    \left\lvert
+        \sum_{i = 1}^{n} X_{i} - \sum_{i = 1}^{n} \mu_{i}
+    \right\rvert \geq t
+\right) \leq \frac{
+    \sum_{i = 1}^{n} \sigma_{i}^{2}
+}{
+    t^{2}
+}
 </span></p>
+</section>
+</section>
+<section id="chernoff-bound" class="level2">
+<h2 class="anchored" data-anchor-id="chernoff-bound">Chernoff bound</h2>
+<section id="chernoffs-bounding-method" class="level3">
+<h3 class="anchored" data-anchor-id="chernoffs-bounding-method">Chernoff’s bounding method</h3>
+<div id="thm-chernoffs-bounding-method" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 24.3</strong></span> Let <span class="math inline">X</span> be a random variable on <span class="math inline">\mathbb{R}</span>. Then for all the <span class="math inline">t &gt; 0</span></p>
+<p><span class="math display">
+\mathbb{P} (X \geq t) \leq \inf_{s &gt; 0} \frac{
+    M_{X} (s)
+}{
+    e^{s t}
+} = \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s t}
+}
+</span></p>
+<p>where <span class="math inline">M_{X} (s)</span> is the MGF of <span class="math inline">X</span>.</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -656,27 +721,261 @@ M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>For any <span class="math inline">t &gt; 0</span>, we can apply Markov’s inequality</p>
 <p><span class="math display">
 \begin{aligned}
-M_{X} (s)
-&amp; = \mathbb{E}_{X} [e^{s X}]
+\mathbb{P} (X \geq t)
+&amp; = \mathbb{P} (e^{s X} \geq e^{s t})
 \\
-&amp; = \mathbb{E}_{X} [e^{s \sum_{i = 1} X_{i}}]
+&amp; \leq \frac{ \mathbb{E}_{X} [e^{s X}] }{ e^{s t} }
 \\
-&amp; = \mathbb{E}_{X} [\prod_{i = 1}^{n} e^{s X_{i}}]
-\\
-&amp; = \prod_{i = 1}^{n} [e^{s X_{i}}]
-&amp; [X_{i}\text{s are independent}]
-\\
-&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
-\\
+&amp; \leq \frac{M_{X} (s) }{ e^{s t} }.
 \end{aligned}
+</span></p>
+<p>Since <span class="math inline">\mathbb{P} (X \geq t) \leq \frac{ M_{X} (s) }{ e^{s t} }</span> for any <span class="math inline">s &gt; 0</span>, <span class="math inline">\mathbb{P} (X \geq t)</span> is less than the <span class="math inline">s</span> that minimizes <span class="math inline">\frac{ M_{X} (s) }{ e^{s t} }</span>, which is written as</p>
+<p><span class="math display">
+\mathbb{P} (X \geq t) \leq \inf_{s &gt; 0} \frac{M_{X} (s)}{e^{s t}}.
 </span></p>
 </div>
 </div>
 </div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remark</em>. </span>The closed-form solution of the optimization problem</p>
+<p><span class="math display">
+\inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s t}
+} = \inf_{s &gt; 0} f (s)
+</span></p>
+<p>can be obtained by solving <span class="math inline">f' (s) = 0</span> if <span class="math inline">f (s)</span> is a convex function.</p>
+</div>
+</section>
+<section id="chernoff-bound-for-bernoulli-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="chernoff-bound-for-bernoulli-random-variables">Chernoff bound for Bernoulli random variables</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent Bernoulli random variables such that <span class="math inline">X_{i} \sim \mathrm{Ber} (p_{i}), \forall i</span>. Let <span class="math inline">X = \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{X} (X)</span>.</p>
+<ul>
+<li><p>Upper tail: for all <span class="math inline">\delta &gt; 0</span></p>
+<p><span class="math display">
+  \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu }{ 2 + \delta }
+  \right]
+  </span></p></li>
+<li><p>Lower tail: for all <span class="math inline">0 &lt; \delta &lt; 1</span></p>
+<p><span class="math display">
+  \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu }{ 2 }
+  \right]
+  </span></p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">X_{i} \sim \mathrm{Ber} (p)</span> be a Bernoulli variable. Then the MGF of <span class="math inline">X_{i}</span> can be written as</p>
+<p><span class="math display">
+\begin{aligned}
+M_{X_{i}} (s)
+&amp; = \mathbb{E}_{X_{i}} (e^{s X_{i}})
+\\
+&amp; = p e^{1 \times s} + (1 - p) e^{0 \times s}
+\\
+&amp; = 1 + p (e^{s} - 1).
+\\
+\end{aligned}
+</span></p>
+<p>We can obtain the following inequality for MGF of <span class="math inline">X_{i}</span></p>
+<p><span class="math display">
+M_{X_{i}} (s) = 1 + p (e^{s} - 1) \leq \exp[p (e^{s} - 1)],
+</span></p>
+<p>which follows from the fact that <span class="math inline">1 + a \leq e^{a}</span> for any <span class="math inline">a</span>.</p>
+<p>According to the property of the MGF, the same inequality can be obtained for the MGF of <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span></p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{X} [e^{s X}]
+&amp; = M_{X} (s)
+\\
+&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
+\\
+&amp; \leq \prod_{i = 1}^{n} \exp[p (e^{s} - 1)]
+\\
+&amp; = \exp \left[
+    (e^{s} - 1) \sum_{i = 1}^{n} p_{i}
+\right]
+\\
+&amp; = \exp \left[
+    (e^{s} - 1) \mu
+\right]
+\end{aligned}
+</span></p>
+<p>where <span class="math inline">\mu = \mathbb{E}_{X} [X] = \sum_{i = 1}^{n} p_{i}</span>.</p>
+<p>By applying the Chernoff bounding method with <span class="math inline">t = (1 + \delta) \mu</span>, we can derive a upper bound</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P} (X \geq (1 + \delta) \mu)
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s X}]
+}{
+    e^{s (1 + \delta) \mu}
+}
+\\
+&amp; = \inf_{s &gt; 0} \frac{
+    \exp[(e^{s} - 1) \mu]
+}{
+    e^{s (1 + \delta) \mu}
+}
+\\
+&amp; = \inf_{s &gt; 0} \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
+\right].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\exp [(e^{s} - 1) \mu - (1 + \delta) \mu s]</span> is a convex function</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{ d }{ d s } \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
+\right]
+&amp; = 0
+\\
+(\mu e^{s} - (1 + \delta) \mu) \exp\left[
+    (e^{s} - 1) \mu - (1 + \delta) \mu s
+\right]
+&amp; = 0
+\\
+\mu e^{s} - (1 + \delta) \mu
+&amp; = 0
+\\
+s
+&amp; = \log [1 + \delta].
+\end{aligned}
+</span></p>
+<p>Now let’s select <span class="math inline">s = \log [1 + \delta]</span> to get the tight upper bound</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{
+    \exp[(e^{s} - 1) \mu]
+}{
+    e^{s (1 + \delta) \mu}
+}
+&amp; = \frac{
+    \exp[(e^{\log[1 + \delta]} - 1) \mu]
+}{
+    e^{\log[1 + \delta] (1 + \delta) \mu}
+}
+\\
+&amp; = \frac{
+    e^{\delta \mu}
+}{
+    (1 + \delta)^{(1 + \delta) \mu}
+}
+\\
+&amp; = \left(
+    \frac{e^{\delta}}{(1 + \delta)^{1 + \delta}}
+\right)^{\mu}.
+\end{aligned}
+</span></p>
+<p>Taking <span class="math inline">\exp \log</span> on the upper bound to derive</p>
+<p><span class="math display">
+\begin{aligned}
+\left(
+    \frac{ e^{\delta} }{ (1 + \delta)^{1 + \delta} }
+\right)^{\mu}
+&amp; = \exp \left[
+    \log \left[
+        \left(
+            \frac{ e^{\delta} }{ (1 + \delta)^{1 + \delta} }
+        \right)^{\mu}
+    \right]
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \log e^{\delta} - \log \left[
+            (1 + \delta)^{1 + \delta}
+        \right]
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \delta - (1 + \delta) \log [(1 + \delta)]
+    \right)
+\right].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\log [1 + x] \geq \frac{ x }{ 1 + \frac{x}{2} }</span> for all <span class="math inline">x &gt; 0</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+\exp \left[
+    \mu \left(
+        \delta - (1 + \delta) \log [(1 + \delta)]
+    \right)
+\right]
+&amp; \leq \exp \left[
+    \mu \left(
+        \delta - \frac{ (1 - \delta) \delta }{ 1 + \frac{\delta}{2} }
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    \mu \left(
+        \frac{ (1 + \frac{\delta}{2}) \delta }{ 1 + \frac{ \delta }{ 2 } } - \frac{ (1 - \delta) \delta }{ 1 + \frac{ \delta }{ 2 } }
+    \right)
+\right]
+\\
+&amp; = \exp \left[
+    - \left(
+        \frac{ \delta^{2} }{ 2 + \delta }
+    \right) \mu
+\right].
+\end{aligned}
+</span></p>
+<p>Putting all together to derive the upper tail of Chernoff bound</p>
+<p><span class="math display">
+\mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+    - \left(
+        \frac{ \delta^{2} }{ 2 + \delta }
+    \right) \mu
+\right].
+</span></p>
+<p>The proof for the lower tail is similar except that</p>
+<ul>
+<li><p>taking <span class="math inline">s = \log [1 - \delta]</span> to maximize the lower bound, and</p></li>
+<li><p>applies the inequality <span class="math inline">\log [1 - x] \geq -x + \frac{ x^{2} }{ 2 }</span> in the last step for <span class="math inline">0 &lt; x &lt; 1</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="general-chernoff-bound" class="level3">
+<h3 class="anchored" data-anchor-id="general-chernoff-bound">General Chernoff bound</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent random variables such that <span class="math inline">X_{i} \in [a, b], \forall i</span>. Let <span class="math inline">X = \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{X} [X]</span>. Then for <span class="math inline">\delta &gt; 0</span></p>
+<ul>
+<li><p>Upper tail:</p>
+<p><span class="math display">
+  \mathbb{P} (X \geq (1 + \delta) \mu) \leq \exp \left[
+      -\frac{ 2 \delta^{2} \mu^{2} }{ n (b - a)^{2} }
+  \right]
+  </span></p></li>
+<li><p>Lower tail:</p>
+<p><span class="math display">
+  \mathbb{P} (X \leq (1 - \delta) \mu) \leq \exp \left[
+      -\frac{ \delta^{2} \mu^{2} }{ n (b - a)^{2} }
+  \right]
+  </span></p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1381,13 @@ M_{X} (s)
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span>
+      <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="pagination-link" aria-label="Moment Generating Function">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/08_Convergence.html" class="pagination-link" aria-label="Convergence">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

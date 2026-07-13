@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Moment Generating Function – Joeyonng's Notebook</title>
+<title>30&nbsp; Concentration Inequalities II – Joeyonng's Notebook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/06_Concentration_Inequalities_I.html" rel="next">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="prev">
+<link href="../Learning Theory/1_Statistical_Learning.html" rel="next">
+<link href="../Probability and Statistics/12_Expectation_Maximization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/13_Concentration_Inequalities2.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,50 +354,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  <a href="../Probability and Statistics/05_Gaussian_Distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gaussian Distribution</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  <a href="../Probability and Statistics/08_Convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  <a href="../Probability and Statistics/09_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/13_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -414,43 +420,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,49 +473,49 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -524,16 +530,29 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-mgf" id="toc-properties-of-mgf" class="nav-link active" data-scroll-target="#properties-of-mgf">Properties of MGF</a></li>
+  <li><a href="#sub-gaussian-random-variables" id="toc-sub-gaussian-random-variables" class="nav-link active" data-scroll-target="#sub-gaussian-random-variables">Sub-Gaussian random variables</a></li>
+  <li><a href="#hoeffdings-inequality" id="toc-hoeffdings-inequality" class="nav-link" data-scroll-target="#hoeffdings-inequality">Hoeffding’s inequality</a>
+  <ul class="collapse">
+  <li><a href="#hoeffdings-lemma" id="toc-hoeffdings-lemma" class="nav-link" data-scroll-target="#hoeffdings-lemma">Hoeffding’s Lemma</a></li>
+  <li><a href="#hoeffdings-inequality-1" id="toc-hoeffdings-inequality-1" class="nav-link" data-scroll-target="#hoeffdings-inequality-1">Hoeffding’s inequality</a></li>
+  </ul></li>
+  <li><a href="#martingales" id="toc-martingales" class="nav-link" data-scroll-target="#martingales">Martingales</a>
+  <ul class="collapse">
+  <li><a href="#martingale-sequence" id="toc-martingale-sequence" class="nav-link" data-scroll-target="#martingale-sequence">Martingale sequence</a></li>
+  <li><a href="#martingale-difference-sequence" id="toc-martingale-difference-sequence" class="nav-link" data-scroll-target="#martingale-difference-sequence">Martingale difference sequence</a></li>
+  <li><a href="#a-common-martingale-sequence" id="toc-a-common-martingale-sequence" class="nav-link" data-scroll-target="#a-common-martingale-sequence">A common Martingale sequence</a></li>
+  </ul></li>
+  <li><a href="#azuma-inequality" id="toc-azuma-inequality" class="nav-link" data-scroll-target="#azuma-inequality">Azuma Inequality</a></li>
+  <li><a href="#mcdiarmids-inequality" id="toc-mcdiarmids-inequality" class="nav-link" data-scroll-target="#mcdiarmids-inequality">McDiarmid’s Inequality</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/13_Concentration_Inequalities2.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></h1>
+<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></h1>
 </div>
 
 
@@ -550,26 +569,24 @@ window.Quarto = {
 </header>
 
 
-<p>The <span class="math inline">n</span>th moment of a random variable <span class="math inline">X</span> is</p>
+<section id="sub-gaussian-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="sub-gaussian-random-variables">Sub-Gaussian random variables</h2>
+<p>A random variable <span class="math inline">X</span> with mean <span class="math inline">\mu</span> is called <strong>Sub-Gaussian</strong> with parameter <span class="math inline">\sigma</span> (<span class="math inline">X \sim SubGau (\sigma)</span>) if</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}]
+\mathbb{E}_{X} \left[
+    e^{s (X - \mu)}
+\right] \leq \exp \left[
+    \frac{ s^{2} \sigma^{2} }{ 2 }
+\right].
 </span></p>
-<p>and the <span class="math inline">n</span>th central moment of <span class="math inline">X</span> is</p>
+<p>The definition can equivalently be expressed in terms of bounds on the tail of <span class="math inline">X</span>. Let <span class="math inline">X \sim SubGau (\sigma)</span> and <span class="math inline">\mu = \mathbb{E}_{X} [X]</span>. Then for any <span class="math inline">t &gt; 0</span>,</p>
 <p><span class="math display">
-\mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{n}].
+\mathbb{P}_{X} \left(
+    X - \mu \geq t
+\right) \leq \exp \left[
+    \frac{ - t^{2} }{ 2 \sigma^{2} }
+\right].
 </span></p>
-<div id="def-moment-generating-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 (Moment generating function)</strong></span> The moment generating function (MGF) of a random variable <span class="math inline">X</span> is a function <span class="math inline">M_{X} (s)</span> that is defined as</p>
-<p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P}_{X} (x).
-</span></p>
-</div>
-<div id="cor-moment-generating-function" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> The <span class="math inline">n</span>th moment of the random variable can be derived by taking the <span class="math inline">n</span>th derivative of <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span></p>
-<p><span class="math display">
-\mathbb{E}_{X} [X^{n}] = \frac{ d^{n} }{ ds^{n} } M_{X} (s) \left.\right|_{s = 0}.
-</span></p>
-</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -582,32 +599,70 @@ M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Recall that the Taylor series for <span class="math inline">e^{x}</span> is</p>
+<p>First use Chernoff bound to derive</p>
 <p><span class="math display">
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
+\begin{aligned}
+\mathbb{P}_{X} (x \geq t)
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{X} [e^{s x}]
+}{
+    e^{s t}
+}
+\\
+&amp; \leq \inf_{s &gt; 0} \exp \left[
+    \frac{ s^{2} \sigma^{2} }{ 2 } - s t
+\right].
+\end{aligned}
 </span></p>
-<p>Therefore, the Taylor series of <span class="math inline">e^{s X}</span> is</p>
+<p>Since <span class="math inline">\exp \left[ \frac{ s^{2} \sigma^{2} }{ 2 } - s t \right]</span> is a convex function</p>
 <p><span class="math display">
-e^{s X} = \sum_{i = 0}^{\infty} \frac{(s X)^{i}}{i!} = \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}.
+\begin{aligned}
+\frac{ d }{ d s } \exp \left[
+    \frac{ s^{2} \sigma^{2} }{ 2 } - s t
+\right]
+&amp; = 0
+\\
+(\sigma^{2} s - t) \exp \left[
+    \frac{ \sigma^{2} s^{2} }{ 2 } - t s
+\right]
+&amp; = 0
+\\
+s
+&amp; = \frac{ t }{ \sigma^{2} }.
+\end{aligned}
 </span></p>
-<p>The moment generating function can be written as</p>
+<p>Plug <span class="math inline">s = \frac{ t }{ \sigma^{2} }</span> back and we get derive the result</p>
 <p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [X^{i}] s^{i} }{i !}.
+\begin{aligned}
+\mathbb{P}_{X} (x \geq t)
+&amp; \leq \inf_{s &gt; 0} \exp \left[
+    \frac{ s^{2} \sigma^{2} }{ 2 } - s t
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ t^{2} }{ 2 \sigma^{2} } - \frac{ t^{2} }{ \sigma^{2} }
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ - t^{2} }{ 2 \sigma^{2} }
+\right].
+\end{aligned}
 </span></p>
-<p>The <span class="math inline">n</span>th moment is the coefficient of <span class="math inline">\frac{s^{k}}{k !}</span> in the Taylor series of<span class="math inline">M_{X} (s)</span>, which can be obtained by taking <span class="math inline">n</span>th derivative <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span>.</p>
 </div>
 </div>
 </div>
-<section id="properties-of-mgf" class="level2">
-<h2 class="anchored" data-anchor-id="properties-of-mgf">Properties of MGF</h2>
-<div id="cor-mgf-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2</strong></span> The MGF of <span class="math inline">Y = a X + b</span> can be computed as</p>
+</section>
+<section id="hoeffdings-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="hoeffdings-inequality">Hoeffding’s inequality</h2>
+<p>Hoeffding’s inequality provides an upper bound on the probability that the sum of bounded independent random variables deviates from its expected value by more than a certain amount.</p>
+<section id="hoeffdings-lemma" class="level3">
+<h3 class="anchored" data-anchor-id="hoeffdings-lemma">Hoeffding’s Lemma</h3>
+<p>Let <span class="math inline">X</span> be a bounded random variable with <span class="math inline">a \leq X \leq b</span> and <span class="math inline">\mu = \mathbb{E}_{X} [x]</span>. Then for all <span class="math inline">s &gt; 0</span>,</p>
 <p><span class="math display">
-M_{Y} (s) = e^{b s} M_{X} (a s).
+\mathbb{E}_{X} [e^{s (x - \mu)}] \leq \exp \left[
+    \frac{ s^{2} (b - a)^{2} }{ 8 }
+\right].
 </span></p>
-</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -620,30 +675,127 @@ M_{Y} (s) = e^{b s} M_{X} (a s).
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Since <span class="math inline">f (x) = e^{a x}</span> is a convex function, the definition of the convex function states that</p>
+<p><span class="math display">
+e^{s x} \leq \frac{ (x - a) e^{s b} }{ b - a } + \frac{ (b - x) e^{s a} }{ b - a }.
+</span></p>
+<p>Taking the expectation on the both ends and the fact that <span class="math inline">\mathbb{E}_{X} (x) = 0</span>,</p>
 <p><span class="math display">
 \begin{aligned}
-M_{Y} (s)
-&amp; = \mathbb{E}_{X} \left[
-    e^{s (a X + b)}
+\mathbb{E}_{X} [e^{s x}]
+&amp; \leq \mathbb{E}_{X} \left[
+    \frac{ (x - a) e^{s b} }{ b - a } + \frac{ (b - x) e^{s a} }{ b - a }
 \right]
 \\
-&amp; = e^{b s} \mathbb{E}_{X} \left[
-    e^{s a X}
-\right]
+&amp; = \frac{
+    e^{s b} \mathbb{E}_{X} [x] - a e^{s b} + b e^{s a} - e^{s a} \mathbb{E}_{X} [x]
+}{
+    b - a
+}
 \\
-&amp; = e^{b s} M_{X} (a s).
-\\
+&amp; = \frac{ b e^{s a} - a e^{s b} }{ b - a }.
 \end{aligned}
 </span></p>
-</div>
-</div>
-</div>
-<div id="cor-mgf-product-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.3</strong></span> Suppose <span class="math inline">X_{1}, \dots, X_{n}</span> are independent random variables and <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span>. Then we have the MGF of <span class="math inline">X</span> as the sum of MGFs of <span class="math inline">X_{i}</span>s,</p>
+<p>Now we will prove that</p>
 <p><span class="math display">
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
+\frac{ b e^{s a} - a e^{s b} }{ b - a } \leq \exp \left[
+    \frac{ s^{2} (b - a)^{2} }{ 8 }
+\right]
+</span></p>
+<p>which is same as proving</p>
+<p><span class="math display">
+\log \left[
+    \frac{ b e^{s a} - a e^{s b} }{ b - a }
+\right] \leq \frac{ s^{2} (b - a)^{2} }{ 8 }.
+</span></p>
+<p>By taking <span class="math inline">p = \frac{ b }{ b - a }</span> and <span class="math inline">1 - p = -\frac{ a }{ b - a }</span></p>
+<p><span class="math display">
+\begin{aligned}
+\log \left[
+    \frac{ b e^{s a} - a e^{s b} }{ b - a }
+\right]
+&amp; = \log \left[
+    \frac{ b e^{s a} }{ b - a } - \frac{ a e^{s b} }{ b - a }
+\right]
+\\
+&amp; = \log \left[
+    p e^{s a} + (1 - p) e^{s b}
+\right]
+\\
+&amp; = \log \left[
+    e^{s a} e^{-s a} (p e^{s a} + (1 - p) e^{s b})
+\right]
+\\
+&amp; = s a + \log \left[
+    (p + (1 - p) e^{s b - s a})
+\right]
+\end{aligned}
+</span></p>
+<p>and taking <span class="math inline">u = (b - a) s</span>, we can get a function</p>
+<p><span class="math display">
+\begin{aligned}
+\phi (u)
+&amp; = s a + \log \left[
+    (p + (1 - p) e^{s b - s a})
+\right]
+\\
+&amp; = (p - 1) u + \log \left[
+    (p + (1 - p) e^{u})
+\right].
+\end{aligned}
+</span></p>
+<p>This function can be approximated using Taylor series until the second order term at point <span class="math inline">a = 0</span>,</p>
+<p><span class="math display">
+\phi (u) = \phi (0) + \phi' (0) x + \frac{ \phi' (0) }{ 2 } x^{2},
+</span></p>
+<p>where</p>
+<p><span class="math display">
+\phi' (u) = (p - 1) + \frac{ (1 - p) e^{u} }{ p + (1 - p) e^{u} } = 0,
+</span></p>
+<p>and</p>
+<p><span class="math display">
+\phi'' (u) = \frac{ p (1 - p) e^{u} }{ (p + (1 - p) e^{u})^{2} } = 0.
+</span></p>
+<p>Since <span class="math inline">\phi (0) = 0</span>, <span class="math inline">\phi' (0) = 0</span> and</p>
+<p><span class="math display">
+\phi'' (0) = \frac{ p (1 - p) }{ (p + (1 - p))^{2} }
+</span></p>
+<p>reaches its maximum of <span class="math inline">0.25</span> at <span class="math inline">p = 0.5</span>, we can derive</p>
+<p><span class="math display">
+\log \left[
+    \frac{ b e^{s a} - a e^{s b} }{ b - a }
+\right] = \phi (u) \leq \frac{ u^{2} }{ 8 } = \frac{ s^{2} (b - a)^{2} }{ 8 }.
+</span></p>
+<p>Therefore, we can prove the lemma</p>
+<p><span class="math display">
+\mathbb{E}_{X} [e^{s x}] \leq \frac{ b e^{s a} - a e^{s b} }{ b - a } \leq \exp \left[
+    \frac{ s^{2} (b - a)^{2} }{ 8 }
+\right].
 </span></p>
 </div>
+</div>
+</div>
+<p>Equivalently, Hoeffding’s lemma states that any random variable <span class="math inline">X \in [a, b]</span> is a subGaussian variable</p>
+<p><span class="math display">
+X \in SubGau \left(
+    \frac{ (b - a)^{2} }{ 4 }
+\right).
+</span></p>
+</section>
+<section id="hoeffdings-inequality-1" class="level3">
+<h3 class="anchored" data-anchor-id="hoeffdings-inequality-1">Hoeffding’s inequality</h3>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent random variables such that <span class="math inline">X_{i} \in [a_{i}, b_{i}], \forall i</span>. Let <span class="math inline">X = \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{X} (x)</span>. Then for <span class="math inline">t &gt; 0</span></p>
+<p><span class="math display">
+\mathbb{P}_{X} \left(
+    x - \mu \geq t
+\right) \leq \exp \left[
+    \frac{
+        - 2 t^{2}
+    }{
+        \sum_{i=1}^{n} (b_{i} - a_{i})^{2}
+    }
+\right].
+</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -656,20 +808,500 @@ M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>We can first apply Chernoff’s bounding method</p>
 <p><span class="math display">
 \begin{aligned}
-M_{X} (s)
-&amp; = \mathbb{E}_{X} [e^{s X}]
+\mathbb{P}_{X} (x - \mu \geq t)
+&amp; \leq \inf_{s &gt; 0} \frac{ M_{X} (s) }{ e^{s t} }
 \\
-&amp; = \mathbb{E}_{X} [e^{s \sum_{i = 1} X_{i}}]
+&amp; = \inf_{s &gt; 0} \frac{
+    \prod_{i = 1}^{n} M_{X_{i}} (s)
+}{
+    e^{s t}
+}
 \\
-&amp; = \mathbb{E}_{X} [\prod_{i = 1}^{n} e^{s X_{i}}]
+&amp; = \inf_{s &gt; 0} \frac{
+    \prod_{i = 1}^{n} \mathbb{E}_{X} \left[
+        e^{s (X_{i} - \mathbb{E}_{X_{i}} [x_{i}])}
+    \right]
+}{
+    e^{s t}
+}.
+\end{aligned}
+</span></p>
+<p>Then by applying the Hoeffding’s Lemma,</p>
+<p><span class="math display">
+\mathbb{E}_{X_{i}} \left[
+    e^{s (X_{i} - \mathbb{E}_{X_{i}} [x_{i}])}
+\right] \leq \exp \left[
+    \frac{ s^{2} (b_{i} - a_{i})^{2} }{ 8 }
+\right]
+</span></p>
+<p>we can have</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{X} (x - \mu \geq t)
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \prod_{i = 1}^{n} \mathbb{E}_{X_{i}} \left[
+        e^{s (X_{i} - \mathbb{E}_{X_{i}} [x_{i}])}
+    \right]
+}{
+    e^{s t}
+}
 \\
-&amp; = \prod_{i = 1}^{n} [e^{s X_{i}}]
-&amp; [X_{i}\text{s are independent}]
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \prod_{i = 1}^{n} \exp\left[
+        \frac{ s^{2} (b_{i} - a_{i})^{2} }{ 8 }
+    \right]
+}{e^{s t}}
 \\
-&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
+&amp; = \inf_{s &gt; 0} \exp\left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 8 } - s t
+\right].
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\exp \left[ \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t \right]</span> is a convex function,</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{ d }{ d s } \exp \left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t
+\right]
+&amp; = 0
 \\
+\left(
+    \frac{ s \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 4 } - t
+\right)
+\exp\left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 8 }  - s t
+\right]
+&amp; = 0
+\\
+\frac{ s \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 4 } - t
+&amp; = 0
+\\
+s
+&amp; = \frac{ 4 t }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\end{aligned}
+</span></p>
+<p>Therefore, we have proved Hoeffding’s inequality</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{X} (x - \mu \geq t)
+&amp; \leq \inf_{s &gt; 0} \exp\left[
+    \frac{ s^{2} }{ 8 } \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} - s t
+\right]
+\\
+&amp; = \exp \left[
+    \frac{
+        \left(
+            \frac{ 4 t }{ \sum_{i}^{n} (b_{i} - a_{i})^{2} }
+        \right)^{2}
+    }{
+        8
+    } \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} - \frac{ 4 t }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} } t
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ - 2 t^{2} }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\right].
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+<p>Another version is to bound the estimated mean.</p>
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be bounded independent random variables such that <span class="math inline">X_{i} \in [a_{i}, b_{i}], \forall i</span>. Let <span class="math inline">\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_{i}</span> and <span class="math inline">\mu = \mathbb{E}_{\bar{X}} (x)</span>. Then for <span class="math inline">t &gt; 0</span></p>
+<p><span class="math display">
+\mathbb{P}_{\bar{X}} \left(
+    x - \mu \geq t
+\right) \leq \exp \left[
+    -\frac{ 2 n^{2} t^{2} }{ \sum_{i=1}^{n} (b_{i} - a_{i})^{2} }
+\right]
+</span></p>
+</section>
+</section>
+<section id="martingales" class="level2">
+<h2 class="anchored" data-anchor-id="martingales">Martingales</h2>
+<section id="martingale-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="martingale-sequence">Martingale sequence</h3>
+<p>Given a sequence of random variables <span class="math inline">X_{1}, \dots, X_{\infty}</span>, define another sequence of random variables <span class="math inline">Y_{1}, \dots, Y_{\infty}</span> where <span class="math inline">Y_{n}</span> is a measurable function of <span class="math inline">X_{1}, \dots X_{n}</span></p>
+<p><span class="math display">
+Y_{n} = f (X_{1}, \dots, X_{n}).
+</span></p>
+<p>For all <span class="math inline">Y_{n}</span>, if <span class="math inline">\mathbb{E}_{Y_{n}} [y_{n}]</span> is finite and</p>
+<p><span class="math display">
+\mathbb{E}_{Y_{n + 1} \mid X_{1}, \dots, X_{n}} [Y_{n + 1} \mid X_{1}, \dots, X_{n}] = Y_{n},
+</span></p>
+<p>then <span class="math inline">Y_{1}, \dots, Y_{\infty}</span> is a <strong>martingale sequence</strong> with respect to <span class="math inline">X_{1}, \dots, X_{\infty}</span>.</p>
+</section>
+<section id="martingale-difference-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="martingale-difference-sequence">Martingale difference sequence</h3>
+<p>Given a sequence of random variables <span class="math inline">X_{1}, \dots, X_{\infty}</span>, define another sequence of random variables <span class="math inline">Z_{1}, \dots, Z_{\infty}</span> where <span class="math inline">Z_{n}</span> is a measurable function of <span class="math inline">X_{1}, \dots X_{n}</span></p>
+<p><span class="math display">
+Z_{n} = f (X_{1}, \dots, X_{n}).
+</span></p>
+<p>For all <span class="math inline">Z_{n}</span>, if <span class="math inline">E_{Z_{n}} [z_{n}]</span> is finite and</p>
+<p><span class="math display">
+\mathbb{E}_{Z_{n + 1} \mid X_{1}, \dots, X_{n}} [Z_{n + 1} \mid X_{1}, \dots, X_{n}] = 0
+</span></p>
+<p>then <span class="math inline">Z_{1}, \dots, Z_{\infty}</span> is a <strong>martingale difference sequence</strong> with respect to <span class="math inline">X_{1}, \dots, X_{\infty}</span>.</p>
+</section>
+<section id="a-common-martingale-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="a-common-martingale-sequence">A common Martingale sequence</h3>
+<p>If <span class="math inline">X_{1}, \dots, X_{\infty}</span> is a sequence of independent random variables where <span class="math inline">\mathbb{E}_{X_{i}} [x_{i}] = 0, \forall X_{i}</span>, then <span class="math inline">Y_{1}, \dots, X_{\infty}</span> with <span class="math inline">Y_{n} = \sum_{i = 1}^{n} X_{i}</span> is martingale sequence.</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{Y_{n + 1} \mid X_{1}, \dots, X_{n}}
+&amp; = \mathbb{E}_{Y_{n} + X_{n + 1} \mid X_{1}, \dots, X_{n}}
+\\
+&amp; = \mathbb{E}_{Y_{n} \mid X_{1}, \dots, X_{n}} + \mathbb{E}_{X_{n + 1} \mid X_{1}, \dots, X_{n}}
+\\
+&amp; = Y_{n} + \mathbb{E}_{X_{n + 1}}
+\\
+&amp; = Y_{n}
+\end{aligned}
+</span></p>
+<p>Suppose <span class="math inline">Y_{1}, \dots, Y_{n}</span> is a martingale sequence with respect to <span class="math inline">X_{1}, \dots, X_{n}</span>. then the sequence <span class="math inline">Z_{1}, \dots, Z_{\infty}</span> with <span class="math inline">Z_{n} = Y_{n} - Y_{n - 1}</span> is a martingale difference sequence.</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{Z_{n + 1} \mid X_{1}, \dots, X_{n}}
+&amp; = \mathbb{E}_{Y_{n + 1} - Y_{n} \mid X_{1}, \dots, X_{n}}
+\\
+&amp; = \mathbb{E}_{Y_{n + 1} \mid X_{1}, \dots, X_{n}} - \mathbb{E}_{Y_{n} \mid X_{1}, \dots, X_{n}}
+\\
+&amp; = Y_{n} - Y_{n}
+\\
+&amp; = 0
+\end{aligned}
+</span></p>
+</section>
+</section>
+<section id="azuma-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="azuma-inequality">Azuma Inequality</h2>
+<p>For a sequence of Martingale difference sequence of bounded random variable <span class="math inline">Z_{1}, \dots, Z_{\infty}</span> with <span class="math inline">Z_{i} \in [a_{i}, b_{i}], \forall i</span>, then:</p>
+<p><span class="math display">
+\mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \sum_{i = 1}^{n} z_{i} \geq t
+\right] \leq \exp \left[
+    \frac{ - 2 t^{2} }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\right].
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First we can apply Chernoff bound to derive</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \sum_{i = 1}^{n} z_{i} \geq t
+\right]
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+        e^{s \sum_{i = 1}^{n} z_{i}}
+    \right]
+}{
+    e^{s t}
+}
+\\
+&amp; = \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+        \prod_{i = 1}^{n} e^{s z_{i}}
+    \right]
+}{
+    e^{s t}
+}
+\end{aligned}
+</span></p>
+<p>Then we can use the law of total expectation to derive</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+    \prod_{i = 1}^{n} e^{s z_{i}}
+\right]
+&amp; = \mathbb{E}_{Z_{1}, \dots, Z_{n - 1}} \left[
+    \mathbb{E}_{Z_{1}, \dots, Z_{n} \mid Z_{1}, \dots Z_{n - 1}} \left[
+        \prod_{i = 1}^{n} e^{s z_{i}} \mid z_{1}, \dots, z_{n - 1}
+    \right]
+\right]
+\\
+&amp; = \mathbb{E}_{Z_{1}, \dots, Z_{n - 1}} \left[
+    \mathbb{E}_{Z_{1}, \dots, Z_{n} \mid Z_{1}, \dots Z_{n - 1}} \left[
+        e^{s z_{n}} \prod_{i = 1}^{n - 1} e^{s z_{i}} \mid z_{1}, \dots, z_{n - 1}
+    \right]
+\right]
+\\
+&amp; = \mathbb{E}_{Z_{1}, \dots, Z_{n - 1}} \left[
+    \prod_{i = 1}^{n - 1} e^{s z_{i}} \mathbb{E}_{Z_{n} \mid Z_{1}, \dots, Z_{n - 1}} \left[
+        e^{s z_{n}} \mid z_{1}, \dots, z_{n - 1}
+    \right]
+\right],
+\end{aligned}
+</span></p>
+<p>where the last equality is derived because <span class="math inline">\prod_{i = 1}^{n - 1} e^{s z_{i}}</span> is a constant given <span class="math inline">z_{1}, \dots, z_{n - 1}</span>.</p>
+<p>We can derive a upper bound by applying the Hoeffding’s lemma</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+    \prod_{i = 1}^{n} e^{s z_{i}}
+\right]
+&amp; \leq \mathbb{E}_{Z_{1}, \dots, Z_{n - 1}}\ \left[
+    \prod_{i = 1}^{n - 1} e^{s z_{i}} \exp \left[
+        \frac{ s^{2} (a_{n} - b_{n})^{2} }{ 8 }
+    \right]
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ s^{2} (a_{n} - b_{n})^{2} }{ 8 }
+\right] \mathbb{E}_{Z_{1}, \dots, Z_{n - 1}}\ \left[
+    \prod_{i = 1}^{n - 1} e^{s z_{i}}
+\right]
+\end{aligned}
+</span></p>
+<p>We can apply the same procedure for <span class="math inline">\mathbb{E}_{Z_{1}, \dots, Z_{n - 1}} [ \prod_{i = 1}^{n - 1} e^{s z_{i}} ]</span></p>
+<p><span class="math display">
+\mathbb{E}_{Z_{1}, \dots, Z_{n - 1}} \left[
+    \prod_{i = 1}^{n - 1} e^{s z_{i}}
+\right] = \exp \left[
+    \frac{ s^{2} (a_{n - 1} - b_{n - 1})^{2} }{ 8 }
+\right] \mathbb{E}_{Z_{1}, \dots, Z_{n - 2}}\ \left[
+    \prod_{i = 1}^{n - 2} e^{s z_{i}}
+\right]
+</span></p>
+<p>and do this iteratively to derive</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+    \prod_{i = 1}^{n} e^{s z_{i}}
+\right]
+&amp; = \exp \left[
+    \frac{ s^{2} (a_{n} - b_{n})^{2} }{ 8 }
+\right] \times \dots \times \exp \left[
+    \frac{ s^{2} (a_{1} - b_{1})^{2} }{ 8 }
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 }
+\right].
+\end{aligned}
+</span></p>
+<p>Therefore,</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \sum_{i = 1}^{n} z_{i} \geq t
+\right]
+&amp; \leq \inf_{s &gt; 0} \frac{
+    \mathbb{E}_{Z_{1}, \dots, Z_{n}} \left[
+        e^{s \sum_{i = 1}^{n} z_{i}}
+    \right]
+}{
+    e^{s t}
+}
+\\
+&amp; = \inf_{s &gt; 0} \exp \left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t
+\right]
+\end{aligned}
+</span></p>
+<p>Since <span class="math inline">\exp \left[ \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t \right]</span> is a convex function,</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{ d }{ d s } \exp \left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t
+\right]
+&amp; = 0
+\\
+\left(
+    \frac{ s \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 4 } - t
+\right)
+\exp\left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 8 }  - s t
+\right]
+&amp; = 0
+\\
+\frac{ s \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }{ 4 } - t
+&amp; = 0
+\\
+s
+&amp; = \frac{ 4 t }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\end{aligned}
+</span></p>
+<p>and therefore</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \sum_{i = 1}^{n} z_{i} \geq t
+\right]
+&amp; \leq \inf_{s &gt; 0} \exp \left[
+    \frac{ s^{2} \sum_{i = 1}^{n} (a_{n} - b_{n})^{2} }{ 8 } - s t
+\right]
+\\
+&amp; = \exp \left[
+    \frac{
+        \left(
+            \frac{ 4 t }{ \sum_{i}^{n} (b_{i} - a_{i})^{2} }
+        \right)^{2}
+    }{
+        8
+    } \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} - \frac{
+        4 t
+    }{
+        \sum_{i = 1}^{n} (b_{i} - a_{i})^{2}
+    } t
+\right]
+\\
+&amp; = \exp \left[
+    \frac{ - 2 t^{2} }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\right].
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="mcdiarmids-inequality" class="level2">
+<h2 class="anchored" data-anchor-id="mcdiarmids-inequality">McDiarmid’s Inequality</h2>
+<p>Given a function <span class="math inline">f: \mathbb{R}^{n} \to \mathbb{R}</span> with the bounded difference property, that is, the maximum change of the function output induced by replacing any <span class="math inline">x_{i}</span> with <span class="math inline">x'_{i}</span> is bounded by <span class="math inline">c_{i}</span>,</p>
+<p><span class="math display">
+\lvert f (x_{1}, \dots, x_{i}, \dots, x_{n}) - f (x_{1}, \dots, x'_{i}, \dots, x_{n}) \rvert \leq c_{i},
+</span></p>
+<p>then the function <span class="math inline">f</span> of independent random variables <span class="math inline">X_{1}, \dots, X_{n}</span> satisfies</p>
+<p><span class="math display">
+\mathbb{P}_{X_{1}, \dots, X_{n}} \left[
+    f (X_{1}, \dots, X_{n}) - \mathbb{E}_{X_{1}, \dots, X_{n}} \left[
+        f (X_{1}, \dots, X_{n})
+    \right] \geq t
+\right] \leq \exp \left[
+    \frac{
+        - 2 t^{2}
+    }{
+        \sum_{i=1}^{n} c_{i}^{2}
+    }
+\right].
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">X_{1}, \dots, X_{n}</span> be a sequence of independent random variable, and <span class="math inline">Y_{1}, \dots, Y_{n}</span> be a Martingale sequence with respect to <span class="math inline">X_{1}, \dots, X_{n}</span> where</p>
+<p><span class="math display">
+Y_{i} = g (X_{1}, \dots, X_{i}) = \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    f (X_{1}, \dots, X_{n}) \mid X_{1}, \dots, X_{i}
+\right].
+</span></p>
+<p>Note that we have</p>
+<p><span class="math display">
+\begin{aligned}
+Y_{0}
+&amp; = \mathbb{E}_{X_{1}, \dots, X_{n}} \left[
+    f (X_{1}, \dots, X_{n})
+\right],
+\\
+Y_{n}
+&amp; = \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{n}} \left[
+    f (X_{1}, \dots, X_{n}) \mid X_{1}, \dots, X_{n}
+\right] = f (X_{1}, \dots, X_{n}).
+\end{aligned}
+</span></p>
+<p>Let <span class="math inline">Z_{1}, \dots, Z_{n}</span> be an independent random variable with <span class="math inline">Z_{i} = Y_{i} - Y_{i - 1}</span>, which is proved to be a Martingale difference sequence.</p>
+<p>Note that</p>
+<p><span class="math display">
+\sum_{i = 1}^{n} Z_{i} = Y_{n} - Y_{0} = f (X_{1}, \dots, X_{n}) - \mathbb{E}_{X_{1}, \dots, X_{n}} \left[
+    X_{1}, \dots, X_{n}
+\right]
+</span></p>
+<p>For each <span class="math inline">Z_{i}</span>, its upper bound <span class="math inline">U_{i}</span> and lower bound <span class="math inline">L_{i}</span> can be written as</p>
+<p><span class="math display">
+\begin{aligned}
+U_{i}
+&amp; = \sup_{x_{i} \in X_{i}} \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    f (X_{1}, \dots, x_{i}, \dots X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right] - \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i - 1}} \left[
+    f (X_{1}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right]
+\\
+L_{i}
+&amp; = \inf_{x_{i} \in X_{i}} \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    f (X_{1}, \dots, x_{i}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right] - \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i - 1}} \left[
+    f (X_{1}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right]
+\end{aligned}
+</span></p>
+<p>The difference between <span class="math inline">U_{i}</span> and <span class="math inline">L_{i}</span> is less than <span class="math inline">c_{i}</span> because of the bounded property property of <span class="math inline">f</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+U_{i} - L_{i}
+&amp; = \sup_{x_{i} \in X_{i}} \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    f (X_{1}, \dots, x_{i}, \dots X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right] - \inf_{x_{i} \in X_{i}} \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    f (X_{1}, \dots, x_{i}, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right]
+\\
+&amp; = \sup_{x_{i}, x'_{i} \in X_{i}} \left[
+    \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+        f (X_{1}, \dots, x_{i}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+    \right] - \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+        f (X_{1}, \dots, x'_{i}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+    \right]
+\right]
+\\
+&amp; = \sup_{x_{i}, x'_{i} \in X_{i}} \left[
+    \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+        f (X_{1}, \dots, x_{i}, \dots, X_{n}) -
+        f (X_{1}, \dots, x'_{i}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+    \right]
+\right]
+\\
+&amp; = \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    \sup_{x_{i}, x'_{i} \in X_{i}} f (X_{1}, \dots, x_{i}, \dots, X_{n}) -
+    f (X_{1}, \dots, x'_{i}, \dots, X_{n}) \mid X_{1}, \dots, X_{i - 1}
+\right]
+\\
+&amp; \leq \mathbb{E}_{X_{1}, \dots, X_{n} \mid X_{1}, \dots, X_{i}} \left[
+    c_{i}
+    \mid X_{1}, \dots, X_{i - 1}
+\right]
+\\
+&amp; \leq c_{i}.
+\end{aligned}
+</span></p>
+<p>Therefore, we have a Martingale difference sequence of bounded random variable <span class="math inline">Z_{1}, \dots, Z_{n}</span>, where <span class="math inline">Z_{i} \in [a_{i}, b_{i}], \forall i</span> and <span class="math inline">b_{i} - a_{i} \leq c_{i}</span>. We can apply Azuma inequality to obtain McDiarmid’s inequality.</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \sum_{i = 1}^{n} z_{i} \geq t
+\right]
+&amp; = \mathbb{P}_{Z_{1}, \dots, Z_{n}} \left[
+    \mathbb{E}_{X_{1}, \dots, X_{n}} \left[
+        X_{1}, \dots, X_{n}
+    \right]
+\right]
+\\
+&amp; \leq \exp \left[
+    \frac{ - 2 t^{2} }{ \sum_{i = 1}^{n} (b_{i} - a_{i})^{2} }
+\right]
+\\
+&amp; \leq \exp \left[
+    \frac{ - 2 t^{2} }{ \sum_{i = 1}^{n} c_{i}^{2} }
+\right].
 \end{aligned}
 </span></p>
 </div>
@@ -1082,13 +1714,13 @@ M_{X} (s)
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span>
+      <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="pagination-link" aria-label="Expectation-maximization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Learning Theory/1_Statistical_Learning.html" class="pagination-link" aria-label="Statistical Learning">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

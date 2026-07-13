@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Moment Generating Function – Joeyonng's Notebook</title>
+<title>25&nbsp; Convergence – Joeyonng's Notebook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/06_Concentration_Inequalities_I.html" rel="next">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="prev">
+<link href="../Probability and Statistics/09_Limit_Theorems.html" rel="next">
+<link href="../Probability and Statistics/07_Concentration_Inequalities_I.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/08_Convergence.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,50 +354,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  <a href="../Probability and Statistics/05_Gaussian_Distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gaussian Distribution</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  <a href="../Probability and Statistics/08_Convergence.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  <a href="../Probability and Statistics/09_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/13_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -414,43 +420,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,49 +473,49 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -524,16 +530,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-mgf" id="toc-properties-of-mgf" class="nav-link active" data-scroll-target="#properties-of-mgf">Properties of MGF</a></li>
+  <li><a href="#sequence-of-random-variables" id="toc-sequence-of-random-variables" class="nav-link active" data-scroll-target="#sequence-of-random-variables">Sequence of random variables</a></li>
+  <li><a href="#convergence-of-random-variables" id="toc-convergence-of-random-variables" class="nav-link" data-scroll-target="#convergence-of-random-variables">Convergence of random variables</a>
+  <ul class="collapse">
+  <li><a href="#convergence-in-distribution" id="toc-convergence-in-distribution" class="nav-link" data-scroll-target="#convergence-in-distribution">Convergence in distribution</a></li>
+  <li><a href="#convergence-in-probability" id="toc-convergence-in-probability" class="nav-link" data-scroll-target="#convergence-in-probability">Convergence in probability</a></li>
+  <li><a href="#almost-sure-convergence" id="toc-almost-sure-convergence" class="nav-link" data-scroll-target="#almost-sure-convergence">Almost sure convergence</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/08_Convergence.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></h1>
+<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></h1>
 </div>
 
 
@@ -550,25 +562,53 @@ window.Quarto = {
 </header>
 
 
-<p>The <span class="math inline">n</span>th moment of a random variable <span class="math inline">X</span> is</p>
+<p>To explain the convergence of random variables, we will first review the definition of convergence for the sequence of real numbers.</p>
+<div id="def-convergence-real-numbers" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 25.1</strong></span> A sequence of real numbers <span class="math inline">\{ a_{i} \}_{1}^{n}, a_{i} \in \mathbb{R}</span> converges to a limit <span class="math inline">a \in \mathbb{R}</span> if the distance between <span class="math inline">a</span> and any term in the subsequence <span class="math inline">\{ a_{i} \}_{n_{0}}^{n}</span> is arbitrarily small,</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}]
+\forall \epsilon &gt; 0, \exist n_{0} \in \mathbb{N}: d (a_{n}, a) \leq \epsilon, \forall n &gt; n_{0},
 </span></p>
-<p>and the <span class="math inline">n</span>th central moment of <span class="math inline">X</span> is</p>
+<p>which is often expressed as</p>
 <p><span class="math display">
-\mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{n}].
-</span></p>
-<div id="def-moment-generating-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 (Moment generating function)</strong></span> The moment generating function (MGF) of a random variable <span class="math inline">X</span> is a function <span class="math inline">M_{X} (s)</span> that is defined as</p>
-<p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P}_{X} (x).
+a = \lim_{n \to \infty} a_{n}.
 </span></p>
 </div>
-<div id="cor-moment-generating-function" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> The <span class="math inline">n</span>th moment of the random variable can be derived by taking the <span class="math inline">n</span>th derivative of <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span></p>
+<p>The concept of the convergence for sequences of random variables is similar, but the difference is about the definition of the sequence of random variables and the way to measure distance between two random variables.</p>
+<section id="sequence-of-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-of-random-variables">Sequence of random variables</h2>
+<div id="def-sequence-of-RVs" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 25.2 (Sequence of random variables)</strong></span> A <strong>sequence of random variables</strong></p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}] = \frac{ d^{n} }{ ds^{n} } M_{X} (s) \left.\right|_{s = 0}.
+\{ X_{i} \}_{1}^{n} = X_{1}, \dots, X_{n}
 </span></p>
+<p>is the set of <span class="math inline">n</span> random variables that are defined on the same sample space <span class="math inline">\Omega</span>, which means each random variable <span class="math inline">X_{i}</span> in the sequence is a function from <span class="math inline">\Omega</span> to <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<p>Usually, we assume that distributions of the sequence of random variables in a sequence are dependent on their indices <span class="math inline">i</span>.</p>
+</section>
+<section id="convergence-of-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="convergence-of-random-variables">Convergence of random variables</h2>
+<section id="convergence-in-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-in-distribution">Convergence in distribution</h3>
+<p>The distance function in the definition of convergence in distribution is the difference in CDFs of random variables, and the convergence in distribution occurs when the this difference goes to zero at all points.</p>
+<div id="def-convergence-in-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 25.3 (Convergence in distribution)</strong></span> A sequence of random variables <span class="math inline">\{ X_{i} \}_{1}^{n}</span> <strong>converge in distribution</strong> to the random variable <span class="math inline">X</span> if</p>
+<p><span class="math display">
+\lim_{n \to \infty} F_{X_{n}} (x) = F_{X} (x)
+</span></p>
+<p>for every number <span class="math inline">x \in \mathbb{R}</span> at which <span class="math inline">F_{X}</span> is continuous.</p>
+</div>
+</section>
+<section id="convergence-in-probability" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-in-probability">Convergence in probability</h3>
+<p>The distance function in the definition of convergence in probability is the probability of the absolute difference between random variables.</p>
+<div id="def-convergence-in-probability" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 25.4 (Convergence in probability)</strong></span> A sequence of random variables <span class="math inline">\{ X_{i} \}_{1}^{n}</span> <strong>converge in probability</strong> to the random variable <span class="math inline">X</span> if</p>
+<p><span class="math display">
+\lim_{n \to \infty} \mathbb{P} (\lvert X_{n} - X \rvert &gt; \epsilon) = 0.
+</span></p>
+</div>
+<div id="cor-convergence-in-probability-implies-in-distribution" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 25.1</strong></span> The convergence in probability implies the convergence in distribution, which means convergence in probability is a stronger version of the convergence than the convergence in distribution.</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -582,31 +622,83 @@ M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Recall that the Taylor series for <span class="math inline">e^{x}</span> is</p>
+<p>We will first prove a lemma that is useful in the proof later. Let <span class="math inline">X, Y</span> be random variables and <span class="math inline">a</span> be a real number. Then</p>
 <p><span class="math display">
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
+\begin{aligned}
+\mathbb{P} (Y \leq a)
+&amp; \stackrel{(1)}{=} \mathbb{P} (Y \leq a, X \leq a + \varepsilon)
++ \mathbb{P} (Y \leq a, X &gt; a + \varepsilon)
+\\
+&amp; \stackrel{(2)}{\leq} \mathbb{P} (X \leq a + \varepsilon)
++ \mathbb{P} (Y \leq a, X &gt; a + \varepsilon)
+\\
+&amp; \leq \mathbb{P} (X \leq a + \varepsilon)
++ \mathbb{P} (Y - X \leq a - X, a - X &lt; -\varepsilon)
+\\
+&amp; \leq \mathbb{P} (X \leq a + \varepsilon)
++ \mathbb{P} (Y - X &lt; -\varepsilon)
+\\
+&amp; \stackrel{(3)}{\leq} \mathbb{P} (X \leq a + \varepsilon)
++ \mathbb{P} (Y - X &lt; -\varepsilon)
++ \mathbb{P} (Y - X &gt; \varepsilon)
+\\
+&amp; = \mathbb{P} (X \leq a + \varepsilon)
++ \mathbb{P}(|Y - X| &gt; \varepsilon)
+\end{aligned}
 </span></p>
-<p>Therefore, the Taylor series of <span class="math inline">e^{s X}</span> is</p>
+<p>where</p>
+<ol type="1">
+<li><ol type="1">
+<li>follows because of the law of total probability,</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>follows because the joint probability is less than the marginal probability: <span class="math inline">\mathbb{P} (A) \leq \mathbb{P} (A, B)</span>,</li>
+</ol></li>
+<li>and (3) follows because any probability is non-negative: <span class="math inline">\mathbb{P} (Y - X &gt; \epsilon) \geq 0</span>.</li>
+</ol>
+<p>Then we can prove the theorem. Let <span class="math inline">a</span> be a point at which <span class="math inline">F_{X}</span> is continuous. For any <span class="math inline">\epsilon &gt; 0</span>, we have the followings because of the above lemma</p>
 <p><span class="math display">
-e^{s X} = \sum_{i = 0}^{\infty} \frac{(s X)^{i}}{i!} = \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}.
+\mathbb{P} (X_{n} \leq a) \leq \mathbb{P} (X \leq a + \epsilon)
++ \mathbb{P} (\lvert X_{n} - X \rvert &gt; \epsilon), \\
+\mathbb{P} (X \leq a - \epsilon) \leq \mathbb{P} (X_{n} \leq a)
++ \mathbb{P} (\lvert X_{n} - X \rvert &gt; \epsilon).
 </span></p>
-<p>The moment generating function can be written as</p>
+<p>Therefore, we have</p>
 <p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [X^{i}] s^{i} }{i !}.
+\mathbb{P} (X \leq a - \epsilon)
+- \mathbb{P} (\lvert X_{n} - X \rvert &gt; \epsilon)
+\leq \mathbb{P} (X_{n} \leq a) \leq \mathbb{P} (X \leq a + \epsilon)
++ \mathbb{P} (\lvert X_{n} - X \rvert &gt; \epsilon).
 </span></p>
-<p>The <span class="math inline">n</span>th moment is the coefficient of <span class="math inline">\frac{s^{k}}{k !}</span> in the Taylor series of<span class="math inline">M_{X} (s)</span>, which can be obtained by taking <span class="math inline">n</span>th derivative <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span>.</p>
+<p>By taking <span class="math inline">n \to \infty</span>, we have the following if <span class="math inline">\{ X_{i} \}_{1}^{n}</span> converges to <span class="math inline">X</span> in probability,</p>
+<p><span class="math display">
+\mathbb{P} (X \leq a - \epsilon) \leq \mathbb{P} (X_{n} \leq a) \leq \mathbb{P} (X \leq a + \epsilon) \\
+F_{X} (a - \epsilon) \leq F_{X_{n}} (a) \leq F_{X} (a + \epsilon) \\
+</span></p>
+<p>Since we have assumed that F_{X} is continuous at <span class="math inline">a</span>, we have the following as <span class="math inline">\epsilon \to 0</span>,</p>
+<p><span class="math display">
+F_{X} (a - \epsilon) = F_{X_{n}} (a) = F_{X} (a + \epsilon).
+</span></p>
+<p>Therefore, we have</p>
+<p><span class="math display">
+F_{X_{n}} (a) = F_{X} (a).
+</span></p>
+<p>by taking <span class="math inline">\epsilon = 0</span>.</p>
+<p>Therefore we have proved that the convergence in probability implies the convergence in distribution for all <span class="math inline">a</span> where <span class="math inline">F_{X} (a)</span> is continuous.</p>
 </div>
 </div>
 </div>
-<section id="properties-of-mgf" class="level2">
-<h2 class="anchored" data-anchor-id="properties-of-mgf">Properties of MGF</h2>
-<div id="cor-mgf-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2</strong></span> The MGF of <span class="math inline">Y = a X + b</span> can be computed as</p>
+</section>
+<section id="almost-sure-convergence" class="level3">
+<h3 class="anchored" data-anchor-id="almost-sure-convergence">Almost sure convergence</h3>
+<div class="{def-almost-sure-convergence}">
+<p>A sequence of random variables <span class="math inline">\{ X_{i} \}_{1}^{n}</span> <strong>converge almost surely</strong> to the random variable <span class="math inline">X</span> if the values of <span class="math inline">X_{n}</span> approach the value of <span class="math inline">X</span> in the sense that events for which <span class="math inline">X_{n}</span> does not converge to <span class="math inline">X</span> have probability <span class="math inline">0</span>,</p>
 <p><span class="math display">
-M_{Y} (s) = e^{b s} M_{X} (a s).
+\mathbb{P} (\omega \in \Omega: \lim_{n \to \infty} X_{n} (\omega) = X (\omega)) = 1.
 </span></p>
+</div>
+<div id="cor-convergence-in-probability-implies-in-distribution" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 25.2</strong></span> The almost sure convergence implies the convergence in probability, which means almost sure convergence is a even stronger version of the convergence than the convergence in probability and the convergence in distribution.</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -620,63 +712,13 @@ M_{Y} (s) = e^{b s} M_{X} (a s).
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math display">
-\begin{aligned}
-M_{Y} (s)
-&amp; = \mathbb{E}_{X} \left[
-    e^{s (a X + b)}
-\right]
-\\
-&amp; = e^{b s} \mathbb{E}_{X} \left[
-    e^{s a X}
-\right]
-\\
-&amp; = e^{b s} M_{X} (a s).
-\\
-\end{aligned}
-</span></p>
-</div>
-</div>
-</div>
-<div id="cor-mgf-product-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.3</strong></span> Suppose <span class="math inline">X_{1}, \dots, X_{n}</span> are independent random variables and <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span>. Then we have the MGF of <span class="math inline">X</span> as the sum of MGFs of <span class="math inline">X_{i}</span>s,</p>
-<p><span class="math display">
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math display">
-\begin{aligned}
-M_{X} (s)
-&amp; = \mathbb{E}_{X} [e^{s X}]
-\\
-&amp; = \mathbb{E}_{X} [e^{s \sum_{i = 1} X_{i}}]
-\\
-&amp; = \mathbb{E}_{X} [\prod_{i = 1}^{n} e^{s X_{i}}]
-\\
-&amp; = \prod_{i = 1}^{n} [e^{s X_{i}}]
-&amp; [X_{i}\text{s are independent}]
-\\
-&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
-\\
-\end{aligned}
-</span></p>
+<p>TODO</p>
 </div>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1124,13 @@ M_{X} (s)
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span>
+      <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/09_Limit_Theorems.html" class="pagination-link" aria-label="Limit Theorems">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

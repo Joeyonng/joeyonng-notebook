@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Moment Generating Function – Joeyonng's Notebook</title>
+<title>27&nbsp; Maximum Likelihood Estimation – Joeyonng's Notebook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/06_Concentration_Inequalities_I.html" rel="next">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="prev">
+<link href="../Probability and Statistics/11_Bayesian_Estimation.html" rel="next">
+<link href="../Probability and Statistics/09_Limit_Theorems.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,50 +354,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  <a href="../Probability and Statistics/05_Gaussian_Distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gaussian Distribution</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  <a href="../Probability and Statistics/08_Convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  <a href="../Probability and Statistics/09_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/13_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -414,43 +420,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,49 +473,49 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -524,16 +530,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-mgf" id="toc-properties-of-mgf" class="nav-link active" data-scroll-target="#properties-of-mgf">Properties of MGF</a></li>
+  <li><a href="#maximum-likelihood" id="toc-maximum-likelihood" class="nav-link active" data-scroll-target="#maximum-likelihood">Maximum likelihood</a>
+  <ul class="collapse">
+  <li><a href="#likelihood-function" id="toc-likelihood-function" class="nav-link" data-scroll-target="#likelihood-function">Likelihood function</a></li>
+  <li><a href="#mle-procedures" id="toc-mle-procedures" class="nav-link" data-scroll-target="#mle-procedures">MLE Procedures</a></li>
+  <li><a href="#optimization-methods" id="toc-optimization-methods" class="nav-link" data-scroll-target="#optimization-methods">Optimization methods</a></li>
+  </ul></li>
+  <li><a href="#sec-maximum-likelihood-estimation-example-linear-regression" id="toc-sec-maximum-likelihood-estimation-example-linear-regression" class="nav-link" data-scroll-target="#sec-maximum-likelihood-estimation-example-linear-regression">Example: linear regression</a>
+  <ul class="collapse">
+  <li><a href="#linear-regression-as-mle" id="toc-linear-regression-as-mle" class="nav-link" data-scroll-target="#linear-regression-as-mle">Linear regression as MLE</a></li>
+  <li><a href="#solving-linear-regression" id="toc-solving-linear-regression" class="nav-link" data-scroll-target="#solving-linear-regression">Solving linear regression</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></h1>
+<h1 class="title"><span id="sec-maximum-likelihood-estimation" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></h1>
 </div>
 
 
@@ -550,26 +566,141 @@ window.Quarto = {
 </header>
 
 
-<p>The <span class="math inline">n</span>th moment of a random variable <span class="math inline">X</span> is</p>
+<p><strong>Maximum likelihood estimation (MLE)</strong> is a principle to find the best parameter for a probability distribution that <strong>best explains</strong> a sampled dataset. The instances in the dataset are supposed be independently sampled from the same distribution. MLE gives a relatively easy way to estimate parameters from the data.</p>
+<section id="maximum-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood">Maximum likelihood</h2>
+<section id="likelihood-function" class="level3">
+<h3 class="anchored" data-anchor-id="likelihood-function">Likelihood function</h3>
+<p>Given the dataset <span class="math inline">\mathcal{X} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span>, the term <strong>likelihood function</strong> simply refers to the probability function of <span class="math inline">\mathcal{X}</span> with the distribution parameters for <span class="math inline">\mathbf{X}</span> being <span class="math inline">\boldsymbol{\theta}</span></p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}]
+f(\boldsymbol{\theta}) = \mathbb{P}_{\mathbf{X}}(\mathcal{X} ; \boldsymbol{\theta}),
 </span></p>
-<p>and the <span class="math inline">n</span>th central moment of <span class="math inline">X</span> is</p>
+<p>which measures how likely are the parameters <span class="math inline">\boldsymbol{\theta}</span> given the data <span class="math inline">\mathcal{X}</span>.</p>
+<p>Notes:</p>
+<ul>
+<li><p>Since the dataset are known, the probability function is only dependent on the parameters <span class="math inline">\boldsymbol{\theta}</span>, and thus doesn’t have the same shape as the probability density of the variable <span class="math inline">\mathbf{X}</span>.</p></li>
+<li><p>The semicolon indicate that <span class="math inline">\boldsymbol{\theta}</span> is a parameter (fixed value) instead of a random variable.</p></li>
+</ul>
+</section>
+<section id="mle-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="mle-procedures">MLE Procedures</h3>
+<ol type="1">
+<li><p>We collect a set of instances <span class="math inline">\mathcal{X} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span> that we believe should be from the same distribution.</p></li>
+<li><p>We select a parametric model <span class="math inline">\mathbb{P}_{\mathbf{X}}(\mathbf{x} ; \boldsymbol{\theta})</span> that we think can best explains the data.</p></li>
+<li><p>We select the parameters <span class="math inline">\boldsymbol{\theta}^{*}</span> to be the ones that maximize the probability of the data:</p></li>
+</ol>
 <p><span class="math display">
-\mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{n}].
+\begin{aligned}
+\boldsymbol{\theta}^{*}
+&amp; = \arg\max_{\boldsymbol{\theta}} \mathbb{P}_{\mathbf{X}}(\mathcal{X}; \boldsymbol{\theta})
+\\
+&amp; = \arg\max_{\boldsymbol{\theta}} \prod_{i = 1}^{n} \mathbb{P}_{\mathbf{X}}(\mathbf{x}_{i} ; \boldsymbol{\theta}) &amp; [\mathcal{X} \text{ are i.i.d samples }]
+\\
+&amp; = \arg\max_{\boldsymbol{\theta}} \ln \prod_{i = 1}^{n} \mathbb{P}_{\mathbf{X}}(\mathbf{x}_{i} ; \boldsymbol{\theta}) &amp; [\text{the log trick}]
+\\
+&amp; = \arg\max_{\boldsymbol{\theta}} \sum_{i = 1}^{n} \log \mathbb{P}_{\mathbf{X}}(\mathbf{x}_{i} ; \boldsymbol{\theta}).
+\end{aligned}
 </span></p>
-<div id="def-moment-generating-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 (Moment generating function)</strong></span> The moment generating function (MGF) of a random variable <span class="math inline">X</span> is a function <span class="math inline">M_{X} (s)</span> that is defined as</p>
+</section>
+<section id="optimization-methods" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-methods">Optimization methods</h3>
+<p>If the likelihood function is concave, the best parameters <span class="math inline">\boldsymbol{\theta}^{*}</span> that maximize the likelihood function are the ones that make the gradient of <span class="math inline">f(\boldsymbol{\theta})</span> with respect to <span class="math inline">\boldsymbol{\theta}</span> <span class="math inline">0</span> and at the same time has negative semidefinite hessian matrix.</p>
 <p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P}_{X} (x).
+\nabla_{\boldsymbol{\theta}} f(\boldsymbol{\theta}) = \nabla_{\boldsymbol{\theta}} \mathbb{P}_{\mathbf{X}}(\mathcal{X} ; \boldsymbol{\theta}) = 0
 </span></p>
-</div>
-<div id="cor-moment-generating-function" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> The <span class="math inline">n</span>th moment of the random variable can be derived by taking the <span class="math inline">n</span>th derivative of <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span></p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}] = \frac{ d^{n} }{ ds^{n} } M_{X} (s) \left.\right|_{s = 0}.
+\nabla_{\boldsymbol{\theta}}^{2} f(\boldsymbol{\theta}) \preceq 0
 </span></p>
-</div>
+<p>Otherwise, other numerical methods or algorithms might need to employed to solve the optimization problem.</p>
+</section>
+</section>
+<section id="sec-maximum-likelihood-estimation-example-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="sec-maximum-likelihood-estimation-example-linear-regression">Example: linear regression</h2>
+<p>Given an instance <span class="math inline">\mathbf{x} \in \mathbb{R}^{d}</span>, the function <span class="math inline">f (\cdot)</span> is a linear function if it has the form</p>
+<p><span class="math display">
+\begin{aligned}
+f (\mathbf{x})
+&amp; = \mathbf{w}^{T} \mathbf{x} + b
+\\
+&amp; = \boldsymbol{\theta}^{T} \hat{\mathbf{x}},
+\\
+\end{aligned}
+</span></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\mathbf{w}</span> is weight vector and <span class="math inline">b</span> is the bias term,</p></li>
+<li><p><span class="math inline">\boldsymbol{\theta}</span> is the parameter vector that includes both weights and bias</p>
+<p><span class="math display">
+  \boldsymbol{\theta} = [ \mathbf{w}, b ]^{T},
+  </span></p></li>
+<li><p><span class="math inline">\hat{\mathbf{x}}</span> is the instance vector appended with a constant <span class="math inline">1</span></p>
+<p><span class="math display">
+  \hat{\mathbf{x}} = [ \mathbf{x}, 1 ]^{T}.
+  </span></p></li>
+</ul>
+<p>Given a dataset with instances <span class="math inline">\mathcal{X} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span> and labels <span class="math inline">\mathcal{Y} = \{ y_{1}, \dots, y_{n} \}</span>, linear regression is often formulated as a problem of finding parameters <span class="math inline">\boldsymbol{\theta}</span> that minimize the mean squared error (MSE) loss function</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \arg\min_{\boldsymbol{\theta}} L_{\text{MSE}}
+\\
+&amp; = \arg\min_{\boldsymbol{\theta}} \frac{1}{n} \sum_{i=1}^{n} \left(
+    y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}
+\right)^{2}
+\\
+&amp; = \arg\min_{\boldsymbol{\theta}} \sum_{i=1}^{n} \left(
+    y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}
+\right)^{2}
+\\
+\end{aligned}
+</span></p>
+<p>which can be written in matrix notations by treating <span class="math inline">\mathcal{X}</span> as a matrix <span class="math inline">\mathbf{X} \in \mathbb{R}^{n \times d}</span> and <span class="math inline">\mathcal{Y} \in \mathbb{R}^{n \times 1}</span> as a vector <span class="math inline">\mathbf{y}</span></p>
+<p><span class="math display">
+\arg\min_{\boldsymbol{\theta}} \lVert \mathbf{y} - \hat{\mathbf{X}} \boldsymbol{\theta} \rVert^{2}_{2},
+</span></p>
+<p>where <span class="math inline">\hat{\mathbf{X}}</span> is the instance matrix append with a column of <span class="math inline">1</span> in the last column.</p>
+<section id="linear-regression-as-mle" class="level3">
+<h3 class="anchored" data-anchor-id="linear-regression-as-mle">Linear regression as MLE</h3>
+<p>Solving the optimization problem of linear regression with MSE loss can be formulated as solving MLE of parameters for a univariate normal distribution.</p>
+<p>First we can consider the difference <span class="math inline">\epsilon</span> between <span class="math inline">y</span> and <span class="math inline">\boldsymbol{\theta}^{T} \mathbf{x}</span> for any instance <span class="math inline">\mathbf{x}</span> as a random variable that follows the a univariate normal distribution with zero mean and known variance</p>
+<p><span class="math display">
+y - \boldsymbol{\theta}^{T} \hat{\mathbf{x}} = \epsilon \sim \mathcal{G} \left(
+    \epsilon, 0, \sigma^{2}
+\right).
+</span></p>
+<p>Since <span class="math inline">\boldsymbol{\theta}^{T} \mathbf{x}</span> is a not a random variable (constant), the label <span class="math inline">y</span> for any instance <span class="math inline">\mathbf{x}</span> is thus a univariate normal random variable with its mean being the predicted label of the linear function</p>
+<p><span class="math display">
+\begin{aligned}
+y
+&amp; = \epsilon + \boldsymbol{\theta}^{T} \hat{\mathbf{x}}
+\\
+&amp; \sim \mathcal{G} \left(
+    y, \boldsymbol{\theta}^{T} \hat{\mathbf{x}}, \sigma^{2}
+\right),
+\end{aligned}
+</span></p>
+<p>In other words, the conditional probability of any label given the instance <span class="math inline">\mathbf{x}</span> follows a univariate normal distribution</p>
+<p><span class="math display">
+\mathbb{P}_{Y \mid \mathbf{X}} \left(
+    y \mid \mathbf{x}
+\right) = \mathcal{G} \left(
+    y, \boldsymbol{\theta}^{T} \hat{\mathbf{x}}, \sigma^{2}
+\right).
+</span></p>
+<p>Given a set of instances <span class="math inline">\mathcal{X}</span> and their labels <span class="math inline">\mathcal{Y}</span>, <span class="math inline">\mathbb{P}_{Y \mid \mathbf{X}} \left( y \mid \mathbf{x} \right)</span> is a likelihood function of parameters <span class="math inline">\boldsymbol{\theta}</span> and thus MLE can be used to find the best parameters, which can be shown to have the optimization problem of fitting a linear function with MSE loss</p>
+<p><span class="math display">
+\begin{aligned}
+\boldsymbol{\theta}^{*}
+&amp; = \arg\max_{\boldsymbol{\theta}} \mathbb{P}_{Y \mid \mathbf{X}} \left(
+    y \mid \mathbf{x}
+\right)
+\\
+&amp; = \arg\min_{\boldsymbol{\theta}} \sum_{i=1}^{n} \left(
+    y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}_{i}
+\right)^{2}
+\\
+&amp; = \arg\min_{\boldsymbol{\theta}} \lVert \mathbf{y} - \hat{\mathbf{X}} \boldsymbol{\theta} \rVert^{2}_{2}.
+\end{aligned}
+</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -582,101 +713,80 @@ M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Recall that the Taylor series for <span class="math inline">e^{x}</span> is</p>
-<p><span class="math display">
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
-</span></p>
-<p>Therefore, the Taylor series of <span class="math inline">e^{s X}</span> is</p>
-<p><span class="math display">
-e^{s X} = \sum_{i = 0}^{\infty} \frac{(s X)^{i}}{i!} = \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}.
-</span></p>
-<p>The moment generating function can be written as</p>
-<p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [X^{i}] s^{i} }{i !}.
-</span></p>
-<p>The <span class="math inline">n</span>th moment is the coefficient of <span class="math inline">\frac{s^{k}}{k !}</span> in the Taylor series of<span class="math inline">M_{X} (s)</span>, which can be obtained by taking <span class="math inline">n</span>th derivative <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span>.</p>
-</div>
-</div>
-</div>
-<section id="properties-of-mgf" class="level2">
-<h2 class="anchored" data-anchor-id="properties-of-mgf">Properties of MGF</h2>
-<div id="cor-mgf-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2</strong></span> The MGF of <span class="math inline">Y = a X + b</span> can be computed as</p>
-<p><span class="math display">
-M_{Y} (s) = e^{b s} M_{X} (a s).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
 <p><span class="math display">
 \begin{aligned}
-M_{Y} (s)
-&amp; = \mathbb{E}_{X} \left[
-    e^{s (a X + b)}
-\right]
+\boldsymbol{\theta}^{*}
+&amp; = \arg\max_{\boldsymbol{\theta}} \mathbb{P}_{Y \mid \mathbf{X}} \left(
+    y \mid \mathbf{x}
+\right)
 \\
-&amp; = e^{b s} \mathbb{E}_{X} \left[
-    e^{s a X}
-\right]
+&amp; = \arg\max_{\boldsymbol{\theta}} \sum_{i=1}^{n} \log \mathcal{G} \left(
+    y, \boldsymbol{\theta}^{T} \hat{\mathbf{x}}, \sigma^{2}
+\right)
 \\
-&amp; = e^{b s} M_{X} (a s).
+&amp; = \arg\max_{\boldsymbol{\theta}} \sum_{i=1}^{n} \log - \frac{
+    1
+}{
+    \sqrt{2 \pi \sigma^{2}}
+} \exp{ - \frac{
+    \left(
+        y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}_{i}
+    \right)^{2}
+}{
+    2 \sigma^{2}
+}}
+\\
+&amp; = \arg\max_{\boldsymbol{\theta}} \sum_{i=1}^{n} - \frac{1}{2} \log \left(
+    2 \pi \sigma^{2}
+\right) - \sum_{i=1}^{n} \frac{
+    \left(
+        y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}_{i}
+    \right)^{2}
+}{
+    2 \sigma^{2}
+}
+\\
+&amp; = \arg\max_{\boldsymbol{\theta}} - \sum_{i=1}^{n} \left(
+    y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}_{i}
+\right)^{2}
+&amp; [\text{only need term with } \boldsymbol{\theta}]
+\\
+&amp; = \arg\min_{\boldsymbol{\theta}} \sum_{i=1}^{n} \left(
+    y_{i} - \boldsymbol{\theta}^{T} \hat{\mathbf{x}}_{i}
+\right)^{2}
 \\
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<div id="cor-mgf-product-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.3</strong></span> Suppose <span class="math inline">X_{1}, \dots, X_{n}</span> are independent random variables and <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span>. Then we have the MGF of <span class="math inline">X</span> as the sum of MGFs of <span class="math inline">X_{i}</span>s,</p>
-<p><span class="math display">
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+</section>
+<section id="solving-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="solving-linear-regression">Solving linear regression</h3>
+<p>Solving linear regression is the same in both formulations by setting the gradient w.r.t <span class="math inline">\boldsymbol{\theta}</span> to <span class="math inline">0</span> and solve for <span class="math inline">\boldsymbol{\theta}</span></p>
 <p><span class="math display">
 \begin{aligned}
-M_{X} (s)
-&amp; = \mathbb{E}_{X} [e^{s X}]
+\nabla_{\boldsymbol{\theta}} \lVert \mathbf{y} - \hat{\mathbf{X}} \boldsymbol{\theta} \lVert^{2}_{2}
+&amp; = 0
 \\
-&amp; = \mathbb{E}_{X} [e^{s \sum_{i = 1} X_{i}}]
+2 \left(
+    \hat{\mathbf{X}}^{T} \hat{\mathbf{X}} \boldsymbol{\theta} - \hat{\mathbf{X}}^{T} \mathbf{y}
+\right)
+&amp; = 0
 \\
-&amp; = \mathbb{E}_{X} [\prod_{i = 1}^{n} e^{s X_{i}}]
+\hat{\mathbf{X}}^{T} \hat{\mathbf{X}} \boldsymbol{\theta}
+&amp; = \hat{\mathbf{X}}^{T} \mathbf{y}
 \\
-&amp; = \prod_{i = 1}^{n} [e^{s X_{i}}]
-&amp; [X_{i}\text{s are independent}]
-\\
-&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
+\boldsymbol{\theta}
+&amp; = \left(
+    \hat{\mathbf{X}}^{T} \hat{\mathbf{X}}
+\right)^{-1} \hat{\mathbf{X}}^{T} \mathbf{y}.
 \\
 \end{aligned}
 </span></p>
-</div>
-</div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1192,13 @@ M_{X} (s)
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span>
+      <a href="../Probability and Statistics/09_Limit_Theorems.html" class="pagination-link" aria-label="Limit Theorems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="pagination-link" aria-label="Bayesian Estimation">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

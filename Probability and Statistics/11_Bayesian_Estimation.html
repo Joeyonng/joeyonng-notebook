@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Moment Generating Function – Joeyonng's Notebook</title>
+<title>28&nbsp; Bayesian Estimation – Joeyonng's Notebook</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Probability and Statistics/06_Concentration_Inequalities_I.html" rel="next">
-<link href="../Probability and Statistics/04_Common_Distributions.html" rel="prev">
+<link href="../Probability and Statistics/12_Expectation_Maximization.html" rel="next">
+<link href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -163,7 +163,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/11_Bayesian_Estimation.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,50 +354,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/05_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
+  <a href="../Probability and Statistics/05_Gaussian_Distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Gaussian Distribution</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
+  <a href="../Probability and Statistics/06_Moment_Generating_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/07_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
+  <a href="../Probability and Statistics/07_Concentration_Inequalities_I.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/08_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
+  <a href="../Probability and Statistics/08_Convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/09_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
+  <a href="../Probability and Statistics/09_Limit_Theorems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limit Theorems</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/10_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
+  <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/11_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  <a href="../Probability and Statistics/11_Bayesian_Estimation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Probability and Statistics/12_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
+  <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Probability and Statistics/13_Concentration_Inequalities2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Concentration Inequalities II</span></span></a>
   </div>
 </li>
       </ul>
@@ -414,43 +420,43 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/1_Statistical_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Statistical Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/2_Bayesian_Classifier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Bayesian Classifier</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/3_Effective_Class_Size.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Effective Class Size</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/4_Empirical_Risk_Minimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Empirical Risk Minimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/5_Uniform_Convergence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Uniform Convergence</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/6_PAC_Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">PAC Learning</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Learning Theory/7_Rademacher_Complexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Rademacher Complexity</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,49 +473,49 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/1_Linear_Discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Linear Discriminant</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/2_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/3_Logistic_Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Logistic Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/4_Multi_Layer_Perceptron.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Multi-layer Perceptron</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/5_Boosting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Boosting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/6_Support_Vector_Machine.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Support Vector Machine</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/7_Decision_Tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Decision Tree</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Machine Learning/8_Principle_Component_Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Principle Component Analysis</span></span></a>
   </div>
 </li>
       </ul>
@@ -524,16 +530,31 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#properties-of-mgf" id="toc-properties-of-mgf" class="nav-link active" data-scroll-target="#properties-of-mgf">Properties of MGF</a></li>
+  <li><a href="#views-on-parameter-estimation" id="toc-views-on-parameter-estimation" class="nav-link active" data-scroll-target="#views-on-parameter-estimation">Views on parameter estimation</a>
+  <ul class="collapse">
+  <li><a href="#frequentist-view" id="toc-frequentist-view" class="nav-link" data-scroll-target="#frequentist-view">Frequentist view</a></li>
+  <li><a href="#bayesian-view" id="toc-bayesian-view" class="nav-link" data-scroll-target="#bayesian-view">Bayesian view</a></li>
+  </ul></li>
+  <li><a href="#bayesian-estimation" id="toc-bayesian-estimation" class="nav-link" data-scroll-target="#bayesian-estimation">Bayesian estimation</a>
+  <ul class="collapse">
+  <li><a href="#maximum-a-posteriori-map-estimation" id="toc-maximum-a-posteriori-map-estimation" class="nav-link" data-scroll-target="#maximum-a-posteriori-map-estimation">Maximum a posteriori (MAP) estimation</a></li>
+  </ul></li>
+  <li><a href="#example-mean-of-the-univariate-gaussian" id="toc-example-mean-of-the-univariate-gaussian" class="nav-link" data-scroll-target="#example-mean-of-the-univariate-gaussian">Example: mean of the univariate Gaussian</a>
+  <ul class="collapse">
+  <li><a href="#posterior-distribution-of-mean-parameter" id="toc-posterior-distribution-of-mean-parameter" class="nav-link" data-scroll-target="#posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
+  <li><a href="#predictive-distribution-function" id="toc-predictive-distribution-function" class="nav-link" data-scroll-target="#predictive-distribution-function">Predictive distribution function</a></li>
+  <li><a href="#selecting-parameter-priors" id="toc-selecting-parameter-priors" class="nav-link" data-scroll-target="#selecting-parameter-priors">Selecting parameter priors</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/05_Moment_Generating_Functions.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Probability and Statistics/01_Probability.html">Probability and Statistics</a></li><li class="breadcrumb-item"><a href="../Probability and Statistics/11_Bayesian_Estimation.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Moment Generating Function</span></h1>
+<h1 class="title"><span id="sec-bayesian-estimation" class="quarto-section-identifier"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Bayesian Estimation</span></span></h1>
 </div>
 
 
@@ -550,26 +571,121 @@ window.Quarto = {
 </header>
 
 
-<p>The <span class="math inline">n</span>th moment of a random variable <span class="math inline">X</span> is</p>
+<section id="views-on-parameter-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="views-on-parameter-estimation">Views on parameter estimation</h2>
+<p>There are two different frameworks on statistical inferences: frequentist view and Bayesian view. Both views have the same definition of the probability, but they have different views on how probability of an event should be calculated or accessed. Thus, the way to do parameter estimation is different under the two frameworks.</p>
+<section id="frequentist-view" class="level3">
+<h3 class="anchored" data-anchor-id="frequentist-view">Frequentist view</h3>
+<p>Frequentists believe that the probability of an event is a measure of relative frequency and should be calculated by observing how many times the event happens in a large number of trials.</p>
+<ul>
+<li><p>Probability: the probability of any event is objective and doesn’t change with different beliefs to the event.</p></li>
+<li><p>Parameters: if the parameters of the distribution are unknown, the parameters must be fixed constants. That is, they must be certain determined values.</p></li>
+<li><p>Estimation: the single best estimation of the parameter can be derived using single dataset and its goodness (bias and variance) can be measured by sampling different datasets.</p></li>
+</ul>
+</section>
+<section id="bayesian-view" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-view">Bayesian view</h3>
+<p>Bayesian approach believes that a probability of an event includes not only the relative frequency, but also the subjective beliefs. That is, the degree of belief on the outcomes of the experiment.</p>
+<ul>
+<li><p>Probability: the subjective beliefs can be very different from person to person, and thus the probability of any event is very subjective.</p></li>
+<li><p>Parameters: the unknown parameters of the distribution are viewed as random variables, and thus include subjective beliefs.</p></li>
+<li><p>Estimation: the subjective beliefs of the parameters are specified using a prior distribution, which is then updated using the single dataset observed. The result of the estimation is a posterior probabilities of a range of parameter values, which include both prior beliefs and relative frequency.</p></li>
+</ul>
+</section>
+</section>
+<section id="bayesian-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-estimation">Bayesian estimation</h2>
+<p>In Bayesian estimation, the unknown parameters are treated as random variables.</p>
+<ul>
+<li><p>The subjective beliefs about the parameters that we want to estimate before observing any dataset are encoded using a distribution</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}]
-</span></p>
-<p>and the <span class="math inline">n</span>th central moment of <span class="math inline">X</span> is</p>
+  \mathbb{P}_{\boldsymbol{\Theta}} (\boldsymbol{\theta}),
+  </span></p>
+<p>which specifies the prior probabilities of all possible values of the parameters.</p></li>
+<li><p>The likelihood of a dataset <span class="math inline">\mathcal{X} = \{ \mathbf{x}_{1}, \dots, \mathbf{x}_{n} \}</span> given parameters <span class="math inline">\boldsymbol{\theta}</span> is a conditional probability</p>
 <p><span class="math display">
-\mathbb{E}_{X} [(X - \mathbb{E}_{X} [X])^{n}].
-</span></p>
-<div id="def-moment-generating-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22.1 (Moment generating function)</strong></span> The moment generating function (MGF) of a random variable <span class="math inline">X</span> is a function <span class="math inline">M_{X} (s)</span> that is defined as</p>
+  \mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}} \left(
+      \mathcal{X} \mid \boldsymbol{\theta}
+  \right).
+  </span></p></li>
+</ul>
+<p>Unlike maximum likelihood estimation, which is under frequentist view and gives only the single best parameter, the result of Bayesian estimation is a posterior distribution that informs us how the observed data update the prior. According to Bayes Theorem, the posterior distribution can be calculated by:</p>
 <p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P}_{X} (x).
+\mathbb{P}_{\boldsymbol{\Theta} \mid \mathbf{X}} \left(
+    \boldsymbol{\theta} \mid \mathcal{X}
+\right) = \frac{
+    \mathbb{P}_{\mathbf{X} \mid \boldsymbol{\Theta}} \left (
+        \mathcal{X} \mid \boldsymbol{\theta}
+    \right) \mathbb{P}_{\boldsymbol{\Theta}} \left(
+        \boldsymbol{\theta}
+    \right)
+}{
+    \mathbb{P}_{\mathbf{X}} \left(
+        \mathcal{X}
+    \right)
+}.
 </span></p>
-</div>
-<div id="cor-moment-generating-function" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> The <span class="math inline">n</span>th moment of the random variable can be derived by taking the <span class="math inline">n</span>th derivative of <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span></p>
+<section id="maximum-a-posteriori-map-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-a-posteriori-map-estimation">Maximum a posteriori (MAP) estimation</h3>
+<p>In the case where we want a single estimate for the parameter using Bayesian estimation, MAP estimation chooses the value of the parameter that has the largest probability in the posterior distribution</p>
 <p><span class="math display">
-\mathbb{E}_{X} [X^{n}] = \frac{ d^{n} }{ ds^{n} } M_{X} (s) \left.\right|_{s = 0}.
+\boldsymbol{\theta}_{MAP} = \arg\max_{\boldsymbol{\theta}} \mathbb{P}_{\boldsymbol{\Theta} \mid \mathbf{X}} \left(
+    \boldsymbol{\theta} \mid \mathcal{X}
+\right).
 </span></p>
-</div>
+</section>
+</section>
+<section id="example-mean-of-the-univariate-gaussian" class="level2">
+<h2 class="anchored" data-anchor-id="example-mean-of-the-univariate-gaussian">Example: mean of the univariate Gaussian</h2>
+<p>Here we shows an example of estimating the posterior probability of the mean parameter of a univariate normal distribution using Bayesian estimation.</p>
+<p>Consider the univariate case where the probability of the instance <span class="math inline">x</span> follows a normal distribution with unknown mean <span class="math inline">\mu</span> and known variance <span class="math inline">\sigma^{2}</span>:</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid \mu} (x \mid \mu) \sim \mathcal{N} (\mu, \sigma^{2}) = \mathcal{G} (x, \mu, \sigma^{2}),
+</span></p>
+<p>and we assume whatever prior knowledge we have about <span class="math inline">\mu</span> can be expressed by another normal distribution with known mean <span class="math inline">\mu_{0}</span> and known variance <span class="math inline">\sigma_{0}^{2}</span>:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu} (\mu) \sim \mathcal{N} (\mu_{0}, \sigma_{0}^{2}) = \mathcal{G} (\mu, \mu_{0}, \sigma_{0}^{2}).
+</span></p>
+<section id="posterior-distribution-of-mean-parameter" class="level3">
+<h3 class="anchored" data-anchor-id="posterior-distribution-of-mean-parameter">Posterior distribution of mean parameter</h3>
+<p>Suppose now that <span class="math inline">n</span> samples <span class="math inline">\mathcal{X} = \{x_{1}, \dots, x_{n}\}</span> are independently sampled. We can use Bayes formula to obtain the posterior probability:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu \mid \mathcal{X}} (\mu \mid \mathcal{X}) = \frac{
+    \mathbb{P}_{X \mid \mu} (\mathcal{X} \mid \mu) \mathbb{P}_{\mu} (\mu)
+}{
+    \mathbb{P}_{X} (\mathcal{X})
+}.
+</span></p>
+<p>Since <span class="math inline">\mathbb{P}_{X}(\mathcal{X})</span> is a normalization factor that doesn’t depend on <span class="math inline">\mu</span>, we now omit it for simplicity:</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})
+&amp; \propto \mathbb{P}_{X \mid \mu} (\mathcal{X} \mid \mu) \mathbb{P}_{\mu} (\mu)
+\\
+&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu)
+&amp; [\text{independent assumption}].
+\\
+\end{aligned}
+</span></p>
+<p>After expanding the normal distribution definition and some simplifications, we can see that <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> also follows a normal distribution:</p>
+<p><span class="math display">
+\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X}) \sim \mathcal{N} (\mu_{n}, \sigma_{n}^{2})
+</span></p>
+<p>where</p>
+<p><span class="math display">
+\mu_{n} = \frac{
+    \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+},
+</span></p>
+<p><span class="math display">
+\sigma_{n}^{2} = \frac{
+    \sigma_{0}^{2} \sigma^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+}.
+</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -582,101 +698,424 @@ M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \sum_{x \in \mathbb{R}} e^{s x} \mathbb{P
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Recall that the Taylor series for <span class="math inline">e^{x}</span> is</p>
-<p><span class="math display">
-e^{x} = 1 + x + \frac{x^{2}}{2!} + \dots = \sum_{i = 0}^{\infty} \frac{x^{i}}{i !}.
-</span></p>
-<p>Therefore, the Taylor series of <span class="math inline">e^{s X}</span> is</p>
-<p><span class="math display">
-e^{s X} = \sum_{i = 0}^{\infty} \frac{(s X)^{i}}{i!} = \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}.
-</span></p>
-<p>The moment generating function can be written as</p>
-<p><span class="math display">
-M_{X} (s) = \mathbb{E}_{X} [e^{s X}] = \mathbb{E}_{X} \left[
-    \sum_{i = 0}^{\infty} \frac{s^{i} X^{i}}{i !}
-\right] = \sum_{i = 0}^{\infty} \frac{\mathbb{E}_{X} [X^{i}] s^{i} }{i !}.
-</span></p>
-<p>The <span class="math inline">n</span>th moment is the coefficient of <span class="math inline">\frac{s^{k}}{k !}</span> in the Taylor series of<span class="math inline">M_{X} (s)</span>, which can be obtained by taking <span class="math inline">n</span>th derivative <span class="math inline">M_{X} (s)</span> and evaluating it at <span class="math inline">s = 0</span>.</p>
-</div>
-</div>
-</div>
-<section id="properties-of-mgf" class="level2">
-<h2 class="anchored" data-anchor-id="properties-of-mgf">Properties of MGF</h2>
-<div id="cor-mgf-linear-transformation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.2</strong></span> The MGF of <span class="math inline">Y = a X + b</span> can be computed as</p>
-<p><span class="math display">
-M_{Y} (s) = e^{b s} M_{X} (a s).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>First we express <span class="math inline">\mathbb{P}_{X \mid \mu} (x_{i} \mid \mu)</span> and <span class="math inline">\mathbb{P}_{\mu} (\mu)</span> using the PDF of Gaussian distribution</p>
 <p><span class="math display">
 \begin{aligned}
-M_{Y} (s)
-&amp; = \mathbb{E}_{X} \left[
-    e^{s (a X + b)}
-\right]
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
+&amp; = \prod_{i=1}^{n} \mathbb{P}_{X \mid \mu} (x_{i} \mid \mu) \mathbb{P}_{\mu} (\mu)
 \\
-&amp; = e^{b s} \mathbb{E}_{X} \left[
-    e^{s a X}
-\right]
+&amp; = \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{
+    (x_{i} - \mu)^{2}
+}{
+    2 \sigma^{2}
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{
+    (\mu - \mu_{0})^{2}
+}{
+    2 \sigma_{0}^{2}
+}}.
+\end{aligned}
+</span></p>
+<p>Then we simplify the expression by first merging constants and exponential</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \prod_{i=1}^{n} \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}} } \exp{- \frac{
+    (x_{i} - \mu)^{2}
+}{
+    2 \sigma^{2}
+}} \frac{ 1 }{ \sqrt{2 \pi \sigma_{0}^{2}} } \exp{- \frac{
+    (\mu - \mu_{0})^{2}
+}{
+    2 \sigma_{0}^{2}
+}}
 \\
-&amp; = e^{b s} M_{X} (a s).
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \prod_{i=1}^{n} \exp{\left[
+    - \frac{
+        (x_{i} - \mu)^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        (\mu - \mu_{0})^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right] }
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    \sum_{i=1}^{n} - \frac{
+        (x_{i} - \mu)^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        (\mu - \mu_{0})^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    \sum_{i=1}^{n} - \frac{
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+\\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \frac{ \sum_{i=1}^{n} \left[
+        x_{i}^{2} - 2 x_{i} \mu + \mu^{2}
+    \right] }{ 2 \sigma^{2} } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right]}
+\\
+&amp; = \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right] }.
+\end{aligned}
+</span></p>
+<p>Finally we reorder the terms and extract the terms without <span class="math inline">\mu</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \frac{ 1 }{\sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{ \left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} - \sum_{i=1}^{n} 2 x_{i} \mu + n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu^{2} - 2 \mu \mu_{0} + \mu_{0}^{2}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right] }
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+        - \frac{ \sum_{i=1}^{n} x_{i}^{2}
+    }{
+        2 \sigma^{2}
+    } + \frac{
+        \sum_{i=1}^{n} 2 x_{i} \mu
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        n \mu^{2}
+    }{
+        2 \sigma^{2}
+    } - \frac{ \mu^{2} }{ 2 \sigma_{0}^{2} } + \frac{
+        2 \mu \mu_{0}
+    }{
+        2 \sigma_{0}^{2}
+    } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
+\right]}
+\\
+&amp; = \frac{ 1 }{ \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}} } \exp{\left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu - \frac{
+        \sum_{i=1}^{n} x_{i}^{2}
+    }{ 2 \sigma^{2} } - \frac{ \mu_{0}^{2} }{ 2 \sigma_{0}^{2} }
+\right] }
+\\
+&amp; = \frac{ \exp{ \left[
+    - \frac{
+        \sum_{i=1}^{n} x_{i}^{2} }{ 2 \sigma^{2}
+    } - \frac{
+        \mu_{0}^{2} }{ 2 \sigma_{0}^{2}
+    }
+\right] } }{
+    \sqrt{4 \pi^{2} \sigma^{2} \sigma_{0}^{2}}
+} \exp{\left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }
+\\
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2} + 2 \left(
+        \frac{
+            \sum_{i=1}^{n} x_{i}
+        }{
+            2 \sigma^{2}
+        } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }.
+\\
+\end{aligned}
+</span></p>
+<p>Then we can further simplify it using the <em>completing the squares</em> trick</p>
+<p><span class="math display">
+\begin{aligned}
+ax^{2} + 2bx + c  
+&amp; = a \left(
+    x^{2} + 2 \frac{ b }{ a } x + \frac{ c }{ a }
+\right)
+\\
+&amp; = a \left(
+    x^{2} + 2 \frac{ b }{ a } x + \left(
+        \frac{ b }{ a }
+    \right)^{2} - \left(
+        \frac{ b }{ a }
+    \right)^{2} + \frac{ c }{ a }
+\right)
+\\
+&amp; = a \left(
+    x + \frac{ b }{ a }
+\right)^{2} + c - \frac{ b^{2} }{ a }.
+\\
+\end{aligned}
+</span></p>
+<p>By treating</p>
+<p><span class="math display">
+a = - \left(
+    \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+\right)
+\quad
+b = \left(
+    \frac{
+        \sum_{i=1}^{n} x_{i}
+    }{
+        2 \sigma^{2}
+    } - \frac{
+        \mu_{0}
+    }{
+        2 \sigma_{0}^{2}
+    }
+\right)
+\quad
+c = 0,
+</span></p>
+<p>and omitting the term <span class="math inline">- \frac{ b^{2} }{ a }</span> since it doesn’t depend on <span class="math inline">\mu</span>, we can have</p>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{\mu \mid \mathcal{D}} (\mu \mid \mathcal{D})
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right) \mu^{2}
+    + 2 \left(
+        \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+    \right) \mu
+\right] }
+\\
+&amp; \propto \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right)
+    \left(
+        \mu - \frac{
+            \frac{ \sum_{i=1}^{n} x_{i} }{ 2 \sigma^{2} } - \frac{ \mu_{0} }{ 2 \sigma_{0}^{2} }
+        }{
+            \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+        }
+    \right)^{2}
+\right] }
+\\
+&amp; = \exp{ \left[
+    - \left(
+        \frac{ n }{ 2 \sigma^{2} } + \frac{ 1 }{ 2 \sigma_{0}^{2} }
+    \right)
+    \left(
+        \mu - \frac{
+            \frac{
+                \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+            }{
+                2 \sigma^{2} \sigma_{0}^{2}
+            }
+        }{
+            \frac{
+                \sigma^{2} + n \sigma_{0}^{2}
+            }{
+                2 \sigma^{2} \sigma_{0}^{2}
+            }
+        }
+    \right)^{2}
+\right] }
+\\
+&amp; = \exp{ \left[
+    - \left(
+        \frac{ 2 \sigma^{2} \sigma_{0}^{2} }{ \sigma^{2} + n \sigma_{0}^{2} }
+    \right)^{-1}
+    \left(
+        \mu - \frac{
+            \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+        }{
+            \sigma^{2} + n \sigma_{0}^{2}
+        }
+    \right)^{2}
+\right] }.
 \\
 \end{aligned}
 </span></p>
 </div>
 </div>
 </div>
-<div id="cor-mgf-product-RVs" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 22.3</strong></span> Suppose <span class="math inline">X_{1}, \dots, X_{n}</span> are independent random variables and <span class="math inline">X = \sum_{i = 1}^{n} X_{i}</span>. Then we have the MGF of <span class="math inline">X</span> as the sum of MGFs of <span class="math inline">X_{i}</span>s,</p>
-<p><span class="math display">
-M_{X} (s) = \prod_{i = 1}^{n} M_{X_{i}} (s).
-</span></p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Proof">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+</section>
+<section id="analysis" class="level3">
+<h3 class="anchored" data-anchor-id="analysis">Analysis</h3>
+<p>The above result shows that the unknown parameter <span class="math inline">\mu</span> estimated by a set of instances <span class="math inline">\mathcal{X}</span> using Bayesian estimation has a probability <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> that follows a normal distribution that has mean <span class="math inline">\mu_{n}</span> and variance <span class="math inline">\sigma_{n}^{2}</span>.</p>
+<ul>
+<li><p>Since <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X})</span> is a normal distribution, <span class="math inline">\mathbb{P}_{\mu \mid X} (\mu_{n} \mid \mathcal{X})</span> is largest and thus we can view <span class="math inline">\mu_{n}</span> as our best guess for <span class="math inline">\mu</span> after observing <span class="math inline">\mathcal{X}</span>.</p></li>
+<li><p>Then we can view the variance <span class="math inline">\sigma_{n}^{2}</span> as the uncertainty about this best guess.</p></li>
+<li><p>Since <span class="math inline">\sigma_{n}^{2}</span> decreases monotonically with <span class="math inline">n</span>, each additional observation decreases our uncertainty of the best guess.</p></li>
+</ul>
+<p>Since <span class="math inline">\mu_{n}</span> can be further rewritten as</p>
 <p><span class="math display">
 \begin{aligned}
-M_{X} (s)
-&amp; = \mathbb{E}_{X} [e^{s X}]
+\mu_{n}
+&amp; = \frac{
+    \sigma_{0}^{2} \sum_{i=1}^{n} x_{i} + \mu_{0} \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+}
 \\
-&amp; = \mathbb{E}_{X} [e^{s \sum_{i = 1} X_{i}}]
+&amp; = \frac{
+    \sigma_{0}^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+} \sum_{i=1}^{n} x_{i} + \frac{
+    \sigma^{2}
+}{
+    \sigma^{2} + n \sigma_{0}^{2}
+} \mu_{0}
 \\
-&amp; = \mathbb{E}_{X} [\prod_{i = 1}^{n} e^{s X_{i}}]
+&amp; = \frac{
+    n \sigma_{0}^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+} \bar{x}_{n} + \left(
+    1 - \frac{
+        n \sigma_{0}^{2}
+    }{
+        n \sigma_{0}^{2} + \sigma^{2}
+    }
+\right) \mu_{0}
+&amp; [\bar{x}_{n} = \frac{ 1 }{ n } \sum_{i=1}^{n} x_{i}]
 \\
-&amp; = \prod_{i = 1}^{n} [e^{s X_{i}}]
-&amp; [X_{i}\text{s are independent}]
-\\
-&amp; = \prod_{i = 1}^{n} M_{X_{i}} (s)
+&amp; = \alpha_{n} \bar{x}_{n} + (1 - \alpha_{n}) \mu_{0}
+&amp; [\alpha_{n} = \frac{
+    n \sigma_{0}^{2}
+}{
+    n \sigma_{0}^{2} + \sigma^{2}
+}],
 \\
 \end{aligned}
 </span></p>
-</div>
-</div>
-</div>
+<p>the final equation shows that <span class="math inline">\mu_{n}</span> is a combination of the maximum likelihood estimate <span class="math inline">\bar{x}_{n}</span> and the prior information <span class="math inline">\mu_{0}</span>.</p>
+<p>Since</p>
+<p><span class="math display">  
+\begin{aligned}
+\lim_{n \to \infty} \mu_{n}
+&amp; = \bar{x}_{n}
+&amp; [\lim_{n \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
+\\
+\lim_{n \to 0} \mu_{n}
+&amp; = \mu_{0}
+&amp; [\lim_{n \to 0} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
+\end{aligned}
+</span></p>
+<ul>
+<li><p>If there is large amount of data, <span class="math inline">\mu_{n}</span> converges to maximum likelihood estimate.</p></li>
+<li><p>If there is no observed data, <span class="math inline">\mu_{n}</span> converges to the mean of the prior knowledge.</p></li>
+</ul>
+<p>If the number of sampled data <span class="math inline">n</span> is fixed,</p>
+<p><span class="math display">  
+\begin{aligned}
+\lim_{\sigma_{0} \to \infty} \mu_{n}
+&amp; = \bar{x}_{n}
+&amp; [\lim_{\sigma_{0} \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 1]
+\\
+\lim_{\sigma_{0} \to 0} \mu_{n}
+&amp; = \mu_{0}
+&amp; [\lim_{\sigma \to \infty} \frac{ n \sigma_{0}^{2} }{ n \sigma_{0}^{2} + \sigma^{2} } = 0],
+\end{aligned}
+</span></p>
+<p>which means</p>
+<ul>
+<li><p><span class="math inline">\mu_{n}</span> will converge to the maximum likelihood estimate <span class="math inline">\bar{x}_{n}</span> if our prior knowledge of the <span class="math inline">\mu</span> indicates that we have no certainty about <span class="math inline">\mu_{n}</span> (infinite variance).</p></li>
+<li><p><span class="math inline">\mu_{n}</span> will converge to the mean of our prior knowledge <span class="math inline">\mu_{0}</span> if our prior knowledge of the <span class="math inline">\mu</span> indicates that we are very certain about <span class="math inline">\mu_{0}</span> (zero variance).</p></li>
+</ul>
+</section>
+<section id="predictive-distribution-function" class="level3">
+<h3 class="anchored" data-anchor-id="predictive-distribution-function">Predictive distribution function</h3>
+<p><span class="math display">
+\begin{aligned}
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X})
+&amp; = \int \mathbb{P}_{X \mid \mu}(x \mid \mu) \mathbb{P}_{\mu \mid X} (\mu \mid \mathcal{X}) \mathop{d \mu}
+\\
+&amp; \sim \mathcal{N}(\mu_{n}, \sigma^{2} + \sigma_{n}^{2})
+\end{aligned}
+</span></p>
+</section>
+<section id="selecting-parameter-priors" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-parameter-priors">Selecting parameter priors</h3>
+<p>When the number of samples <span class="math inline">n</span> is large, the predictive distribution will not change much if we select different mean parameter priors. Consider the 2 extreme cases of the mean parameter priors.</p>
+<ol type="1">
+<li><p>Uniform prior (normal distribution with infinite variance).</p>
+<p>Since</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{\sigma_{0}^{2} \to \infty} \mu_{n}
+&amp; = \bar{x}_{n},
+\\
+\lim_{\sigma_{0}^{2} \to \infty} \sigma_{n}
+&amp; = \frac{ \sigma^{2} }{ n },
+\end{aligned}
+</span></p>
+<p>the predictive distribution is</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left(
+     \bar{x}_{n}, \sigma^{2} + \frac{ \sigma^{2} }{ n }
+\right).
+</span></p></li>
+<li><p>Dirac delta prior (normal distribution with zero variance).</p>
+<p>Since</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{\sigma_{0} \to 0} \mu_{n}
+&amp; = \mu_{0},
+\\
+\lim_{\sigma_{0} \to 0} \sigma_{n}
+&amp; = 0,
+\end{aligned}
+</span></p>
+<p>the predictive distribution is</p>
+<p><span class="math display">
+\mathbb{P}_{X \mid X}(x \mid \mathcal{X}) \sim \mathcal{N} \left(
+     \mu_{0}, \sigma^{2} \right
+).
+</span></p>
+<p>Since <span class="math inline">\mu_{0}</span> is <span class="math inline">\bar{x}_{n}</span> with extra points, <span class="math inline">\mu_{0} = \bar{x}_{n}</span> when <span class="math inline">n</span> is large.</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1521,13 @@ M_{X} (s)
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../Probability and Statistics/04_Common_Distributions.html" class="pagination-link" aria-label="Common Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Common Distributions</span></span>
+      <a href="../Probability and Statistics/10_Maximum_Likelihood_Estimation.html" class="pagination-link" aria-label="Maximum Likelihood Estimation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Maximum Likelihood Estimation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../Probability and Statistics/06_Concentration_Inequalities_I.html" class="pagination-link" aria-label="Concentration Inequalities I">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Concentration Inequalities I</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../Probability and Statistics/12_Expectation_Maximization.html" class="pagination-link" aria-label="Expectation-maximization">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Expectation-maximization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
