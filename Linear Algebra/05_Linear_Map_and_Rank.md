@@ -180,7 +180,7 @@ R (T) = \left\{
 \right\}.
 $$
 
-## Rank
+## Rank {#sec-rank}
 
 Consider matrix $\mathbf{A} \in \mathbb{F}^{m \times n}$, the rank of matrix $\mathbf{A}$ is 
 
